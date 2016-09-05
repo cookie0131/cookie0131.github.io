@@ -96,7 +96,7 @@
 
 下载点击 下载 进入官网下载，需要稳定版本的话选择 LTS Release，想尝鲜的话选择 Weekly Realse。
 安装Jenkins可以放在Tomcat中启动，或者直接启动war包。下">
-<meta property="og:updated_time" content="2016-09-05T08:03:46.000Z">
+<meta property="og:updated_time" content="2016-09-05T08:11:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="玩转Jenkins - 安装">
 <meta name="twitter:description" content="前一段时间一直在搞持续集成相关的东西，现在算是告一段落了，在此总结一下相关内容。Jenkins有多种安装部署方式，比如以Docker方式安装，或者直接下载war包安装，本文主要以war包的方式进行讲解。
@@ -276,7 +276,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-05T16:09:16+08:00" content="2016-09-05">
+            <time itemprop="dateCreated" datetime="2016-09-05T16:17:53+08:00" content="2016-09-05">
               2016-09-05
             </time>
           </span>
@@ -348,7 +348,8 @@
 <p>一条命令就行， 恩，就是这么简单。Jenkins默认的端口号是8080，通过<a href="http://ip:8080" target="_blank" rel="external">http://ip:8080</a> 就能访问。想要换一个启动端口怎么弄？恩，这是个好问题，具体解决方式如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar jenkins.war --httpPort=8001</div></pre></td></tr></table></figure>
 <p>如果启动后提示 <code>Address already in use: bind</code>，说明这个端口已经被其他应用占用了，要么换一个端口，要么把占用端口的应用杀掉。</p>
-<p>PS： Java项目需要Jdk，这里就不具体说Jdk怎么下载安装了，Jenkins需要1.5以上版本的Jdk。</p>
+<p>##注意事项</p>
+<p>Java项目需要Jdk，这里就不具体说Jdk怎么下载安装了，Jenkins需要1.5以上版本的Jdk。</p>
 
       
     </div>
