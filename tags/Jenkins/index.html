@@ -87,7 +87,7 @@
 <meta name="description" content="不积跬步，无以至千里">
 <meta property="og:type" content="website">
 <meta property="og:title" content="小发条的测试人生">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/Jenkins/index.html">
 <meta property="og:site_name" content="小发条的测试人生">
 <meta property="og:description" content="不积跬步，无以至千里">
 <meta name="twitter:card" content="summary">
@@ -113,9 +113,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/tags/Jenkins/"/>
 
-  <title> 小发条的测试人生 </title>
+  <title> 标签: Jenkins | 小发条的测试人生 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -145,9 +145,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -234,147 +232,45 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        Jenkins
+        <small>标签</small>
+      </h2>
+    </div>
+
     
       
 
-  
-  
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
+      <h1 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
+            <a class="post-title-link" href="/2016/09/05/jenkins_install/" itemprop="url">
               
-                
-                <a class="post-title-link" href="/2016/09/05/jenkins_install/" itemprop="url">
-                  玩转Jenkins - 安装
-                </a>
+                <span itemprop="name">玩转Jenkins - 安装</span>
               
-            
-          </h1>
+            </a>
         
+      </h1>
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-05T16:06:17+08:00" content="2016-09-05">
-              2016-09-05
-            </time>
-          </span>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-09-05T16:06:17+08:00"
+              content="2016-09-05" >
+          09-05
+        </time>
+      </div>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/持续集成/" itemprop="url" rel="index">
-                    <span itemprop="name">持续集成</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/05/jenkins_install/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/05/jenkins_install/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/09/05/jenkins_install/" class="leancloud_visitors" data-flag-title="玩转Jenkins - 安装">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>前一段时间一直在搞持续集成相关的东西，现在算是告一段落了，在此总结一下相关内容。Jenkins有多种安装部署方式，比如以Docker方式安装，或者直接下载war包安装，本文主要以war包的方式进行讲解。</p>
-</blockquote>
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>点击 <strong><a href="https://jenkins.io/index.html" target="_blank" rel="external">下载</a></strong> 进入官网下载，需要稳定版本的话选择 LTS Release，想尝鲜的话选择 Weekly Realse。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Jenkins可以放在Tomcat中启动，或者直接启动war包。下面以直接通过war包启动为例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar jenkins.war</div></pre></td></tr></table></figure>
-<p>一条命令就行， 恩，就是这么简单。Jenkins默认的端口号是8080，通过<a href="http://ip:8080" target="_blank" rel="external">http://ip:8080</a> 就能访问。想要换一个启动端口怎么弄？恩，这是个好问题，具体解决方式如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar jenkins.war --httpPort=8001</div></pre></td></tr></table></figure>
-<p>如果启动后提示 <code>Address already in use: bind</code>，说明这个端口已经被其他应用占用了，要么换一个端口，要么把占用端口的应用杀掉。</p>
-<p>PS： Java项目需要Jdk，这里就不具体说Jdk怎么下载安装了，Jenkins需要1.5以上版本的Jdk。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
+    </header>
   </article>
 
 
     
-  </section>
+  </div>
 
   
 
