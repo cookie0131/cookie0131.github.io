@@ -77,7 +77,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.0.1" />
 
 
 
@@ -257,6 +257,157 @@
             
               
                 
+                <a class="post-title-link" href="/jenkins_javaproject.html" itemprop="url">
+                  玩转Jenkins - 创建Java任务
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-06T16:31:56+08:00" content="2016-09-06">
+              2016-09-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/持续集成/" itemprop="url" rel="index">
+                    <span itemprop="name">持续集成</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/jenkins_javaproject.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="jenkins_javaproject.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/jenkins_javaproject.html" class="leancloud_visitors" data-flag-title="玩转Jenkins - 创建Java任务">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>Jenkins是一个基于Java语言开发的开源的持续集成平台，上面大部分的功能都是基于插件的形式来实现的。</p>
+<p>为了保证讲的内容和版本一致，这次我们用官网上最新的2.7.3版本来讲解。安装完成并成功启动Jenkins后，通过浏览器访问，根据页面上提示的秘钥路径，找到对应的值输入即可；然后会需要选择安装插件,选择 Install suggested plugins 默认推荐的即可。</p>
+<p>安装插件时，偶尔会遇到有几个插件下载失败，然后一直卡在下载页面的情况，此时重启Jenkins即可。</p>
+<h2 id="插件准备"><a href="#插件准备" class="headerlink" title="插件准备"></a>插件准备</h2><p>创建Java任务，可以选择 <code>构建一个自由风格的软件项目</code> 或者  <code>构建一个maven项目</code>，通过后者构建项目相对来说比较简单，所以我们以后者为例子进行讲解。</p>
+<h3 id="如何安装插件"><a href="#如何安装插件" class="headerlink" title="如何安装插件"></a>如何安装插件</h3><p>页面左边菜单栏有一个<code>系统管理</code>的选项，进入后选择<code>插件管理</code>，在可选插件列表中选中 <strong>Maven Integration plugin</strong>，然后点击直接安装。如果遇到安装失败的情况，可以手动下载插件安装。</p>
+<h3 id="如何手动安装插件"><a href="#如何手动安装插件" class="headerlink" title="如何手动安装插件"></a>如何手动安装插件</h3><ol>
+<li>下载插件</li>
+<li>在 系统管理 -&gt; 插件管理的页面，进入高级，有一块关于上传插件，上传插件，成功后点击页面上的 <code>安装完成后重启Jenkins</code></li>
+<li>重启成功后，在新建任务的页面就能看见<code>构建一个maven项目</code></li>
+</ol>
+<h3 id="依赖插件汇总"><a href="#依赖插件汇总" class="headerlink" title="依赖插件汇总"></a>依赖插件汇总</h3><ul>
+<li>Maven Integration plugin</li>
+<li>Git plugin</li>
+</ul>
+<h3 id="配置maven参数"><a href="#配置maven参数" class="headerlink" title="配置maven参数"></a>配置maven参数</h3><p>系统管理 -&gt; Global Tool Configuration， 在maven安装的地方，取消自动安装的选中，填入参数，具体可参考：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">name: mvn(master)</div><div class="line">maven_home:/Users/haocheng/soft/apache-maven-3.3.9</div><div class="line"># 如果机器上已经安装了mvn，可以通过 which mvn 来确定位置。这里就不具体说怎么在服务器上安装maven了</div></pre></td></tr></table></figure></p>
+<h3 id="源码管理（git）"><a href="#源码管理（git）" class="headerlink" title="源码管理（git）"></a>源码管理（git）</h3><p>需要安装插件：<code>Git plugin</code></p>
+<p>整个流程中，需要拉取代码才能打包编译部署.</p>
+<p>系统管理 -&gt; Global Tool Configuration， 在git安装的地方，取消自动安装的选中，填入参数，具体可参考：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">name: git(master)</div><div class="line">git_home:/usr/bin/git</div><div class="line"># 如果机器上已经安装了git，可以通过 which git 来确定位置。这里就不具体说怎么在服务器上安装git了</div></pre></td></tr></table></figure></p>
+<h2 id="配置任务参数"><a href="#配置任务参数" class="headerlink" title="配置任务参数"></a>配置任务参数</h2><p>项目名称： test<br>描述： 用来说明这个任务是干嘛的，可以不填<br>丢弃构建： 为了节省磁盘空间，可设置保存的构建数<br>参数化构建： 在构建任务的时候，可以传一些参数，以后具体说<br>关闭构建： 暂时不适用</p>
+<p>源码管理：选择git<br>    respositories:<br>       url: git@git.corp.imdada.cn:tech/shine.git<br>       credentials: git的访问密码，填写执行机器的ssh私钥</p>
+<p>Build:<br>  maven version:选中之前配置的mvn<br>  root pom:pom.xml   如果不是这个的话，根据实际情况修改<br>  goals and options: clean package</p>
+<p>都填写好以后，点击保存，然后点击页面右侧的立即构建，就可以开始执行任务了。对于构建结果，如果是蓝色图标说明成功，红色说明失败。</p>
+<p>以上基本上是构建一个Java任务的基本配置。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/jenkins_install.html" itemprop="url">
                   玩转Jenkins - 安装
                 </a>
@@ -271,7 +422,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-05T17:51:49+08:00" content="2016-09-05">
+            <time itemprop="dateCreated" datetime="2016-09-05T18:04:57+08:00" content="2016-09-05">
               2016-09-05
             </time>
           </span>
@@ -416,7 +567,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
