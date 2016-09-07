@@ -12,3 +12,5 @@ Disallow: /fancybox/
 
 Sitemap: https://cookie0131.github.io/sitemap.xml
 Sitemap: https://cookie0131.github.io/baidusitemap.xml
+Sitemap: http://fatiao.coding.me//sitemap.xml
+Sitemap: http://fatiao.coding.me//baidusitemap.xml

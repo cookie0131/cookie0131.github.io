@@ -4,12 +4,36 @@
 
     
   <url>
+    <loc>http://fatiao.coding.me/jenkins_distributed.html</loc>
+    <lastmod>2016-09-07T06:13:05.000Z</lastmod>
+    <data>
+        <display>
+        <title>玩转Jenkins - 分布式构建</title>
+        <pubTime>2016-09-07T06:14:52.379Z</pubTime>
+        
+        <tag>Jenkins</tag>
+         
+        <tag>测试</tag>
+         
+        <tag>持续集成</tag>
+         
+         
+           
+             
+              <breadCrumb title="持续集成" url="http://fatiao.coding.me/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://fatiao.coding.me/jenkins_javaproject.html</loc>
     <lastmod>2016-09-06T08:26:41.000Z</lastmod>
     <data>
         <display>
         <title>玩转Jenkins - 创建Java任务</title>
-        <pubTime>2016-09-06T11:55:42.115Z</pubTime>
+        <pubTime>2016-09-07T03:28:04.476Z</pubTime>
         
         <tag>Jenkins</tag>
          
@@ -33,7 +57,7 @@
     <data>
         <display>
         <title>玩转Jenkins - 安装</title>
-        <pubTime>2016-09-06T11:55:42.090Z</pubTime>
+        <pubTime>2016-09-07T03:28:04.466Z</pubTime>
         
         <tag>Jenkins</tag>
          
