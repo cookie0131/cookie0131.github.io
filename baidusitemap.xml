@@ -4,36 +4,12 @@
 
     
   <url>
-    <loc>http://fatiao.site/jenkins_parameterization.html</loc>
-    <lastmod>2016-09-18T06:55:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>玩转Jenkins - 参数化构建</title>
-        <pubTime>2016-09-17T16:00:00.000Z</pubTime>
-        
-        <tag>Jenkins</tag>
-         
-        <tag>测试</tag>
-         
-        <tag>持续集成</tag>
-         
-         
-           
-             
-              <breadCrumb title="持续集成" url="http://fatiao.site/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://fatiao.site/jenkins_javaproject.html</loc>
+    <loc>http://fatiao.site/jenkins_install.html</loc>
     <lastmod>2016-09-18T06:53:39.000Z</lastmod>
     <data>
         <display>
-        <title>玩转Jenkins - 创建Java任务</title>
-        <pubTime>2016-09-08T16:00:00.000Z</pubTime>
+        <title>玩转Jenkins - 安装</title>
+        <pubTime>2016-09-04T16:00:00.000Z</pubTime>
         
         <tag>Jenkins</tag>
          
@@ -76,12 +52,12 @@
 
     
   <url>
-    <loc>http://fatiao.site/jenkins_install.html</loc>
+    <loc>http://fatiao.site/jenkins_javaproject.html</loc>
     <lastmod>2016-09-18T06:53:39.000Z</lastmod>
     <data>
         <display>
-        <title>玩转Jenkins - 安装</title>
-        <pubTime>2016-09-04T16:00:00.000Z</pubTime>
+        <title>玩转Jenkins - 创建Java任务</title>
+        <pubTime>2016-09-08T16:00:00.000Z</pubTime>
         
         <tag>Jenkins</tag>
          

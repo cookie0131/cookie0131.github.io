@@ -2,14 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://fatiao.site/jenkins_parameterization.html</loc>
-    
-    <lastmod>2016-09-18T06:55:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fatiao.site/jenkins_javaproject.html</loc>
+    <loc>http://fatiao.site/jenkins_install.html</loc>
     
     <lastmod>2016-09-18T06:53:39.000Z</lastmod>
     
@@ -23,7 +16,7 @@
   </url>
   
   <url>
-    <loc>http://fatiao.site/jenkins_install.html</loc>
+    <loc>http://fatiao.site/jenkins_javaproject.html</loc>
     
     <lastmod>2016-09-18T06:53:39.000Z</lastmod>
     
