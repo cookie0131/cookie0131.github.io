@@ -4,31 +4,7 @@
 
     
   <url>
-    <loc>http://fatiao.site/jenkins_install.html</loc>
-    <lastmod>2016-09-18T06:53:39.000Z</lastmod>
-    <data>
-        <display>
-        <title>玩转Jenkins - 安装</title>
-        <pubTime>2016-09-04T16:00:00.000Z</pubTime>
-        
-        <tag>Jenkins</tag>
-         
-        <tag>测试</tag>
-         
-        <tag>持续集成</tag>
-         
-         
-           
-             
-              <breadCrumb title="持续集成" url="http://fatiao.site/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://fatiao.site/jenkins_distributed.html</loc>
+    <loc>http://www.fatiao.site/jenkins_distributed.html</loc>
     <lastmod>2016-09-18T06:53:39.000Z</lastmod>
     <data>
         <display>
@@ -44,7 +20,7 @@
          
            
              
-              <breadCrumb title="持续集成" url="http://fatiao.site/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+              <breadCrumb title="持续集成" url="http://www.fatiao.site/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
           
         </display>
     </data>
@@ -52,7 +28,31 @@
 
     
   <url>
-    <loc>http://fatiao.site/jenkins_javaproject.html</loc>
+    <loc>http://www.fatiao.site/jenkins_install.html</loc>
+    <lastmod>2016-09-18T06:53:39.000Z</lastmod>
+    <data>
+        <display>
+        <title>玩转Jenkins - 安装</title>
+        <pubTime>2016-09-04T16:00:00.000Z</pubTime>
+        
+        <tag>Jenkins</tag>
+         
+        <tag>测试</tag>
+         
+        <tag>持续集成</tag>
+         
+         
+           
+             
+              <breadCrumb title="持续集成" url="http://www.fatiao.site/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/jenkins_javaproject.html</loc>
     <lastmod>2016-09-18T06:53:39.000Z</lastmod>
     <data>
         <display>
@@ -68,7 +68,7 @@
          
            
              
-              <breadCrumb title="持续集成" url="http://fatiao.site/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+              <breadCrumb title="持续集成" url="http://www.fatiao.site/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
           
         </display>
     </data>
@@ -76,7 +76,7 @@
 
     
   <url>
-    <loc>http://fatiao.site/jenkins_submodules.html</loc>
+    <loc>http://www.fatiao.site/jenkins_submodules.html</loc>
     <lastmod>2016-09-18T06:53:39.000Z</lastmod>
     <data>
         <display>
@@ -92,7 +92,7 @@
          
            
              
-              <breadCrumb title="持续集成" url="http://fatiao.site/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+              <breadCrumb title="持续集成" url="http://www.fatiao.site/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
           
         </display>
     </data>
