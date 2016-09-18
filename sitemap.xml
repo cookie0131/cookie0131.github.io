@@ -2,42 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://fatiao.coding.me/jenkins_submodules.html</loc>
+    <loc>http://fatiao.site/jenkins_parameterization.html</loc>
     
-    <lastmod>2016-09-18T04:44:13.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fatiao.coding.me/jenkins_javaproject.html</loc>
-    
-    <lastmod>2016-09-18T03:58:33.000Z</lastmod>
+    <lastmod>2016-09-18T06:55:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://fatiao.coding.me/jenkins_distributed.html</loc>
+    <loc>http://fatiao.site/jenkins_javaproject.html</loc>
     
-    <lastmod>2016-09-18T03:58:32.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://fatiao.coding.me/jenkins_install.html</loc>
-    
-    <lastmod>2016-09-07T06:21:39.000Z</lastmod>
+    <lastmod>2016-09-18T06:53:39.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://fatiao.coding.me/categories/index.html</loc>
+    <loc>http://fatiao.site/jenkins_distributed.html</loc>
+    
+    <lastmod>2016-09-18T06:53:39.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fatiao.site/jenkins_install.html</loc>
+    
+    <lastmod>2016-09-18T06:53:39.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fatiao.site/jenkins_submodules.html</loc>
+    
+    <lastmod>2016-09-18T06:53:39.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://fatiao.site/categories/index.html</loc>
     
     <lastmod>2016-09-04T14:30:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://fatiao.coding.me/tags/index.html</loc>
+    <loc>http://fatiao.site/tags/index.html</loc>
     
     <lastmod>2016-09-04T14:28:36.000Z</lastmod>
     
