@@ -4,36 +4,12 @@
 
     
   <url>
-    <loc>http://fatiao.coding.me/jenkins_install.html</loc>
-    <lastmod>2016-09-07T06:21:39.000Z</lastmod>
+    <loc>http://fatiao.coding.me/jenkins_submodules.html</loc>
+    <lastmod>2016-09-18T04:44:13.000Z</lastmod>
     <data>
         <display>
-        <title>玩转Jenkins - 安装</title>
-        <pubTime>2016-09-05T14:20:20.000Z</pubTime>
-        
-        <tag>Jenkins</tag>
-         
-        <tag>测试</tag>
-         
-        <tag>持续集成</tag>
-         
-         
-           
-             
-              <breadCrumb title="持续集成" url="http://fatiao.coding.me/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://fatiao.coding.me/jenkins_distributed.html</loc>
-    <lastmod>2016-09-07T06:21:25.000Z</lastmod>
-    <data>
-        <display>
-        <title>玩转Jenkins - 分布式构建</title>
-        <pubTime>2016-09-07T06:20:20.000Z</pubTime>
+        <title>玩转Jenkins - sub-modules</title>
+        <pubTime>2016-09-18T06:20:20.000Z</pubTime>
         
         <tag>Jenkins</tag>
          
@@ -53,11 +29,59 @@
     
   <url>
     <loc>http://fatiao.coding.me/jenkins_javaproject.html</loc>
-    <lastmod>2016-09-07T06:21:25.000Z</lastmod>
+    <lastmod>2016-09-18T03:58:33.000Z</lastmod>
     <data>
         <display>
         <title>玩转Jenkins - 创建Java任务</title>
-        <pubTime>2016-09-06T12:20:20.000Z</pubTime>
+        <pubTime>2016-09-09T12:20:20.000Z</pubTime>
+        
+        <tag>Jenkins</tag>
+         
+        <tag>测试</tag>
+         
+        <tag>持续集成</tag>
+         
+         
+           
+             
+              <breadCrumb title="持续集成" url="http://fatiao.coding.me/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://fatiao.coding.me/jenkins_distributed.html</loc>
+    <lastmod>2016-09-18T03:58:32.000Z</lastmod>
+    <data>
+        <display>
+        <title>玩转Jenkins - 分布式构建</title>
+        <pubTime>2016-09-14T06:20:20.000Z</pubTime>
+        
+        <tag>Jenkins</tag>
+         
+        <tag>测试</tag>
+         
+        <tag>持续集成</tag>
+         
+         
+           
+             
+              <breadCrumb title="持续集成" url="http://fatiao.coding.me/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://fatiao.coding.me/jenkins_install.html</loc>
+    <lastmod>2016-09-07T06:21:39.000Z</lastmod>
+    <data>
+        <display>
+        <title>玩转Jenkins - 安装</title>
+        <pubTime>2016-09-05T14:20:20.000Z</pubTime>
         
         <tag>Jenkins</tag>
          
