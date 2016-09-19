@@ -34,32 +34,6 @@
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
 
 
 
@@ -599,23 +573,12 @@
 
       
         
-          
-            <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>因为要与Gitlab通讯，所以Jenkins需要安装插件 <strong>Gitlab Plugin</strong><br>配置Gitlab参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">进入Jenkins的系统配置页面，找到Gitlab设置项，点击增加</div><div class="line">connection name: gitlab   &lt;-- 写个名字能任的出来就好</div><div class="line">gitlab host url: http://gitlab.host    &lt;-- gitlab的地址</div><div class="line">Apitoken:具体配置方式如下</div><div class="line"> 类型选择 secret text</div><div class="line"> 登录gitlab，在个人账号的 Profile settings -&gt; account中，把 Private token的值复制出来，填写到Jenkins中后保存</div><div class="line"> </div><div class="line"></div><div class="line">填写好以后点击 **testconnection按钮** 进行测试，如果结果显示 success 则说明参数填写正确，该配置可用</div></pre></td></tr></table></figure></p>
-<h2 id="Jenkins中任务的设置"><a href="#Jenkins中任务的设置" class="headerlink" title="Jenkins中任务的设置"></a>Jenkins中任务的设置</h2><ol>
-<li>进入Job的新增或者编辑页面，找到 <strong>构建触发器</strong> 选项，选中 <strong>Build when a change is pushed to GitLab</strong></li>
-<li>其他选项可以默认不改</li>
-</ol>
-<h2 id="Gitlab中的设置"><a href="#Gitlab中的设置" class="headerlink" title="Gitlab中的设置"></a>Gitlab中的设置</h2><p>把 <a href="http://gitlabhost/project/jobname" target="_blank" rel="external">http://gitlabhost/project/jobname</a> 这个链接配置到gitlab对应的project中，具体配置如下</p>
-<ol>
-<li>进入gitlab，找到对应的代码仓库，进入settings</li>
-<li>进入webhooks页面</li>
-<li>把上面的url填写到url字段中</li>
-<li>trigger选择对应的选项</li>
-<li>点击 <strong>add webhook按钮保存</strong></li>
-<li>点击下方的 <strong>test hook按钮</strong>， 页面上显示 <strong>Hook successfully executed.</strong> 后说明配置生效</li>
-</ol>
-
-          
+          <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>因为要与Gitlab通讯，所以Jenkins需要安装插件 <strong>Gitlab Plugin</strong><br>配置Gitlab参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">进入Jenkins的系统配置页面，找到Gitlab设置项，点击增加</div><div class="line">connection name: gitlab   &lt;-- 写个名字能任的出来就好</div><div class="line">gitlab host url: http://gitlab.host    &lt;-- gitlab的地址</div><div class="line">Apitoken:具体配置方式如下</div><div class="line"> 类型选择 secret text</div><div class="line"> 登录gitlab，在个人账号的 Profile settings -&gt; account中，把 Private token的值复制出来，填写到Jenkins中后保存</div><div class="line"> </div><div class="line"></div><div class="line">填写好以后点击 **testconnection按钮** 进行测试，如果结果显示 success 则说明参数填写正确，该配置可用</div></pre></td></tr></table></figure></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/jenkins_codedeploy.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>

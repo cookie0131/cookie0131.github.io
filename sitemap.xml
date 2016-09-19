@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fatiao.site/jenkins_codedeploy.html</loc>
+    
+    <lastmod>2016-09-19T10:59:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fatiao.site/python_pyenv.html</loc>
     
     <lastmod>2016-09-19T09:43:58.000Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://www.fatiao.site/jenkins_cj4email.html</loc>
     
     <lastmod>2016-09-19T09:00:25.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fatiao.site/jenkins_codedeploy.html</loc>
-    
-    <lastmod>2016-09-19T08:23:36.000Z</lastmod>
     
   </url>
   

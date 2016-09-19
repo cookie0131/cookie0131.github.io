@@ -4,6 +4,32 @@
 
     
   <url>
+    <loc>http://www.fatiao.site/jenkins_codedeploy.html</loc>
+    <lastmod>2016-09-19T10:59:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>玩转Jenkins - Jenkins + Gitlab实现代码变更后自动部署</title>
+        <pubTime>2016-08-10T16:00:00.000Z</pubTime>
+        
+        <tag>Jenkins</tag>
+         
+        <tag>测试</tag>
+         
+        <tag>持续集成</tag>
+         
+        <tag>Gitlab</tag>
+         
+         
+           
+             
+              <breadCrumb title="持续集成" url="http://www.fatiao.site/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.fatiao.site/python_pyenv.html</loc>
     <lastmod>2016-09-19T09:43:58.000Z</lastmod>
     <data>
@@ -64,32 +90,6 @@
         <tag>测试</tag>
          
         <tag>持续集成</tag>
-         
-         
-           
-             
-              <breadCrumb title="持续集成" url="http://www.fatiao.site/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.fatiao.site/jenkins_codedeploy.html</loc>
-    <lastmod>2016-09-19T08:23:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>玩转Jenkins - Jenkins + Gitlab实现代码变更后自动部署</title>
-        <pubTime>2016-08-10T16:00:00.000Z</pubTime>
-        
-        <tag>Jenkins</tag>
-         
-        <tag>测试</tag>
-         
-        <tag>持续集成</tag>
-         
-        <tag>Gitlab</tag>
          
          
            
