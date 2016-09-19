@@ -4,12 +4,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/jenkins_distributed.html</loc>
-    <lastmod>2016-09-18T06:53:39.000Z</lastmod>
+    <loc>http://www.fatiao.site/python_pyenv.html</loc>
+    <lastmod>2016-09-19T09:43:58.000Z</lastmod>
     <data>
         <display>
-        <title>玩转Jenkins - 分布式构建</title>
-        <pubTime>2016-09-13T16:00:00.000Z</pubTime>
+        <title>玩转Jenkins - 插件：Email Extension Plugin</title>
+        <pubTime>2016-08-04T16:00:00.000Z</pubTime>
         
         <tag>Jenkins</tag>
          
@@ -28,12 +28,203 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/jenkins_install.html</loc>
-    <lastmod>2016-09-18T06:53:39.000Z</lastmod>
+    <loc>http://www.fatiao.site/jenkins_cj4ftp.html</loc>
+    <lastmod>2016-09-19T09:21:19.000Z</lastmod>
     <data>
         <display>
-        <title>玩转Jenkins - 安装</title>
-        <pubTime>2016-09-04T16:00:00.000Z</pubTime>
+        <title>玩转Jenkins - 插件：FTP publisher plugin</title>
+        <pubTime>2016-09-01T16:00:00.000Z</pubTime>
+        
+        <tag>Jenkins</tag>
+         
+        <tag>测试</tag>
+         
+        <tag>持续集成</tag>
+         
+         
+           
+             
+              <breadCrumb title="持续集成" url="http://www.fatiao.site/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/jenkins_cj4email.html</loc>
+    <lastmod>2016-09-19T09:00:25.000Z</lastmod>
+    <data>
+        <display>
+        <title>玩转Jenkins - 插件：Email Extension Plugin</title>
+        <pubTime>2016-08-29T16:00:00.000Z</pubTime>
+        
+        <tag>Jenkins</tag>
+         
+        <tag>测试</tag>
+         
+        <tag>持续集成</tag>
+         
+         
+           
+             
+              <breadCrumb title="持续集成" url="http://www.fatiao.site/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/jenkins_codedeploy.html</loc>
+    <lastmod>2016-09-19T08:23:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>玩转Jenkins - Jenkins + Gitlab实现代码变更后自动部署</title>
+        <pubTime>2016-08-10T16:00:00.000Z</pubTime>
+        
+        <tag>Jenkins</tag>
+         
+        <tag>测试</tag>
+         
+        <tag>持续集成</tag>
+         
+        <tag>Gitlab</tag>
+         
+         
+           
+             
+              <breadCrumb title="持续集成" url="http://www.fatiao.site/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/workflow.html</loc>
+    <lastmod>2016-09-19T08:12:05.000Z</lastmod>
+    <data>
+        <display>
+        <title>达达后端代码上线流程演进</title>
+        <pubTime>2016-09-18T16:00:00.000Z</pubTime>
+        
+        <tag>持续集成</tag>
+         
+        <tag>流程管理</tag>
+         
+        <tag>自动化测试</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/jenkins_submodules.html</loc>
+    <lastmod>2016-09-19T08:07:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>玩转Jenkins - sub-modules</title>
+        <pubTime>2016-08-25T16:00:00.000Z</pubTime>
+        
+        <tag>Jenkins</tag>
+         
+        <tag>测试</tag>
+         
+        <tag>持续集成</tag>
+         
+         
+           
+             
+              <breadCrumb title="持续集成" url="http://www.fatiao.site/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/jenkins_frogetpwd.html</loc>
+    <lastmod>2016-09-19T07:45:25.000Z</lastmod>
+    <data>
+        <display>
+        <title>玩转Jenkins - 忘记密码怎么办？</title>
+        <pubTime>2016-08-22T16:00:00.000Z</pubTime>
+        
+        <tag>Jenkins</tag>
+         
+        <tag>测试</tag>
+         
+        <tag>持续集成</tag>
+         
+         
+           
+             
+              <breadCrumb title="持续集成" url="http://www.fatiao.site/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/jenkins_loseprocess.html</loc>
+    <lastmod>2016-09-19T07:26:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>玩转Jenkins - 解决Tomcat启动后进程丢失</title>
+        <pubTime>2016-08-17T16:00:00.000Z</pubTime>
+        
+        <tag>Jenkins</tag>
+         
+        <tag>测试</tag>
+         
+        <tag>持续集成</tag>
+         
+         
+           
+             
+              <breadCrumb title="持续集成" url="http://www.fatiao.site/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/jenkins_parameters.html</loc>
+    <lastmod>2016-09-19T07:05:47.000Z</lastmod>
+    <data>
+        <display>
+        <title>玩转Jenkins - 参数化构建</title>
+        <pubTime>2016-08-14T16:00:00.000Z</pubTime>
+        
+        <tag>Jenkins</tag>
+         
+        <tag>测试</tag>
+         
+        <tag>持续集成</tag>
+         
+         
+           
+             
+              <breadCrumb title="持续集成" url="http://www.fatiao.site/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/jenkins_distributed.html</loc>
+    <lastmod>2016-09-19T07:04:55.000Z</lastmod>
+    <data>
+        <display>
+        <title>玩转Jenkins - 分布式构建</title>
+        <pubTime>2016-08-08T16:00:00.000Z</pubTime>
         
         <tag>Jenkins</tag>
          
@@ -53,11 +244,11 @@
     
   <url>
     <loc>http://www.fatiao.site/jenkins_javaproject.html</loc>
-    <lastmod>2016-09-18T06:53:39.000Z</lastmod>
+    <lastmod>2016-09-19T07:04:32.000Z</lastmod>
     <data>
         <display>
         <title>玩转Jenkins - 创建Java任务</title>
-        <pubTime>2016-09-08T16:00:00.000Z</pubTime>
+        <pubTime>2016-08-05T16:00:00.000Z</pubTime>
         
         <tag>Jenkins</tag>
          
@@ -76,12 +267,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/jenkins_submodules.html</loc>
-    <lastmod>2016-09-18T06:53:39.000Z</lastmod>
+    <loc>http://www.fatiao.site/jenkins_install.html</loc>
+    <lastmod>2016-09-19T07:01:37.000Z</lastmod>
     <data>
         <display>
-        <title>玩转Jenkins - sub-modules</title>
-        <pubTime>2016-09-17T16:00:00.000Z</pubTime>
+        <title>玩转Jenkins - 安装</title>
+        <pubTime>2016-08-01T16:00:00.000Z</pubTime>
         
         <tag>Jenkins</tag>
          

@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="前言Jenkins支持分布式构建，可以配置多个slave节点，让任务跑在不同的机器上。">
+<meta name="description" content="在Jenkins使用过程中，遇到这样一个场景：把Java代码打包后部署到Tomcat中，启动Tomcat,服务有时候起不来或者启动起来后一会又挂掉了。开始以为是Tomcat启动脚本的问题，但是直接执行时没有问题的；之后一直查运行环境的差异，发现也不是这个原因；最后百度了很久，发现是Jenkins任务结束时候自动关掉了所有子进程。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="玩转Jenkins - 分布式构建">
-<meta property="og:url" content="http://www.fatiao.site/jenkins_distributed.html">
+<meta property="og:title" content="玩转Jenkins - 解决Tomcat启动后进程丢失">
+<meta property="og:url" content="http://www.fatiao.site/jenkins_loseprocess.html">
 <meta property="og:site_name" content="小发条的测试人生">
-<meta property="og:description" content="前言Jenkins支持分布式构建，可以配置多个slave节点，让任务跑在不同的机器上。">
-<meta property="og:updated_time" content="2016-09-19T07:04:55.000Z">
+<meta property="og:description" content="在Jenkins使用过程中，遇到这样一个场景：把Java代码打包后部署到Tomcat中，启动Tomcat,服务有时候起不来或者启动起来后一会又挂掉了。开始以为是Tomcat启动脚本的问题，但是直接执行时没有问题的；之后一直查运行环境的差异，发现也不是这个原因；最后百度了很久，发现是Jenkins任务结束时候自动关掉了所有子进程。">
+<meta property="og:updated_time" content="2016-09-19T07:26:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="玩转Jenkins - 分布式构建">
-<meta name="twitter:description" content="前言Jenkins支持分布式构建，可以配置多个slave节点，让任务跑在不同的机器上。">
+<meta name="twitter:title" content="玩转Jenkins - 解决Tomcat启动后进程丢失">
+<meta name="twitter:description" content="在Jenkins使用过程中，遇到这样一个场景：把Java代码打包后部署到Tomcat中，启动Tomcat,服务有时候起不来或者启动起来后一会又挂掉了。开始以为是Tomcat启动脚本的问题，但是直接执行时没有问题的；之后一直查运行环境的差异，发现也不是这个原因；最后百度了很久，发现是Jenkins任务结束时候自动关掉了所有子进程。">
 
 
 
@@ -114,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://www.fatiao.site/jenkins_distributed.html"/>
+  <link rel="canonical" href="http://www.fatiao.site/jenkins_loseprocess.html"/>
 
-  <title> Jenkins,测试,持续集成, - 玩转Jenkins - 分布式构建 | 小发条的测试人生 </title>
+  <title> Jenkins,测试,持续集成, - 玩转Jenkins - 解决Tomcat启动后进程丢失 | 小发条的测试人生 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -255,7 +255,7 @@
             
             
               
-                玩转Jenkins - 分布式构建
+                玩转Jenkins - 解决Tomcat启动后进程丢失
               
             
           </h1>
@@ -267,8 +267,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-09T00:00:00+08:00" content="2016-08-09">
-              2016-08-09
+            <time itemprop="dateCreated" datetime="2016-08-18T00:00:00+08:00" content="2016-08-18">
+              2016-08-18
             </time>
           </span>
 
@@ -297,8 +297,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/jenkins_distributed.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="jenkins_distributed.html" itemprop="commentsCount"></span>
+                <a href="/jenkins_loseprocess.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="jenkins_loseprocess.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -308,7 +308,7 @@
 
           
           
-             <span id="/jenkins_distributed.html" class="leancloud_visitors" data-flag-title="玩转Jenkins - 分布式构建">
+             <span id="/jenkins_loseprocess.html" class="leancloud_visitors" data-flag-title="玩转Jenkins - 解决Tomcat启动后进程丢失">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -330,28 +330,12 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Jenkins支持分布式构建，可以配置多个slave节点，让任务跑在不同的机器上。</p>
+        <blockquote>
+<p>在Jenkins使用过程中，遇到这样一个场景：把Java代码打包后部署到Tomcat中，启动Tomcat,服务有时候起不来或者启动起来后一会又挂掉了。开始以为是Tomcat启动脚本的问题，但是直接执行时没有问题的；之后一直查运行环境的差异，发现也不是这个原因；最后百度了很久，发现是Jenkins任务结束时候自动关掉了所有子进程。</p>
+</blockquote>
 <a id="more"></a>
-<h2 id="节点管理"><a href="#节点管理" class="headerlink" title="节点管理"></a>节点管理</h2><p>所有节点机器用到的Jdk, Git等环境的路径需要统一，安装位置和Jenkins所在服务器的位置保持一致，以便于管理。</p>
-<h3 id="新建节点"><a href="#新建节点" class="headerlink" title="新建节点"></a>新建节点</h3><p>系统管理 -&gt; 管理节点， 点击页面左上角的新建节点按钮，输入节点名称，我通常习惯以节点机器的IP来命名，比如192.168.1.100，Dump选项为新建一个节点，复制现有节点就是复制一个已经存在的节点的配置。<br>配置中的具体参数如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">of executors：4 # 这个值控制Jenkins并发构建的数量</div><div class="line">远程工作目录： /home/qa/ci/  # Jenkins作为节点机器的工作目录</div><div class="line">用法：只允许运行绑定到这台机器的Job</div><div class="line">启动方式：</div><div class="line">Launch slave agents on unix machines via ssh</div><div class="line"></div><div class="line">Avaliability：keep this slave on-line as much as possible  # 控制节点的使用方式</div></pre></td></tr></table></figure></p>
-<p>新建节点成功后，在列表页可以看节点的当前状态，如果名称的图标上有红色的小差，说明该节点未连接上</p>
-<h3 id="启动方式的区别"><a href="#启动方式的区别" class="headerlink" title="启动方式的区别"></a>启动方式的区别</h3><ol>
-<li>Launch slave agents on unix machines via ssh<ul>
-<li>在unix机器上通过ssh方式进行连接</li>
-</ul>
-</li>
-<li>Launch slave agents via java web start<ul>
-<li>以java web的方式进行启动</li>
-</ul>
-</li>
-<li>Launch slave via execution of command on the master</li>
-<li>Let Jenkins control this windows slave as windows service<ul>
-<li>以windows service方式在windows机器上运行，如果选择这种方式，新建节点成功后，需要在节点页面上下载slave-agent.jnlp文件，并在对应的节点机器上启动</li>
-</ul>
-</li>
-</ol>
-<p>使用哪种方式和agent之间进行交互根据具体的使用场景来决定。</p>
-<h2 id="设置任务在哪个节点执行"><a href="#设置任务在哪个节点执行" class="headerlink" title="设置任务在哪个节点执行"></a>设置任务在哪个节点执行</h2><p>进入Job的新增或者编辑页面，有一个选项 <code>restrict where this project can be run</code>，在Label Expression中输入对应的节点名称保存即可</p>
+<p>解决方案：<br>在执行任务的时候，在任务前加上这样一段：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">BUILD_ID=dontKillMe</div></pre></td></tr></table></figure></p>
+<p>参考：<a href="http://www.mamicode.com/info-detail-506599.html" target="_blank" rel="external">http://www.mamicode.com/info-detail-506599.html</a></p>
 
       
     </div>
@@ -403,16 +387,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/jenkins_javaproject.html" rel="next" title="玩转Jenkins - 创建Java任务">
-                <i class="fa fa-chevron-left"></i> 玩转Jenkins - 创建Java任务
+              <a href="/jenkins_parameters.html" rel="next" title="玩转Jenkins - 参数化构建">
+                <i class="fa fa-chevron-left"></i> 玩转Jenkins - 参数化构建
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/jenkins_codedeploy.html" rel="prev" title="玩转Jenkins - Jenkins + Gitlab实现代码变更后自动部署">
-                玩转Jenkins - Jenkins + Gitlab实现代码变更后自动部署 <i class="fa fa-chevron-right"></i>
+              <a href="/jenkins_frogetpwd.html" rel="prev" title="玩转Jenkins - 忘记密码怎么办？">
+                玩转Jenkins - 忘记密码怎么办？ <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -439,8 +423,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="jenkins_distributed.html"
-           data-title="玩转Jenkins - 分布式构建" data-url="http://www.fatiao.site/jenkins_distributed.html">
+      <div class="ds-thread" data-thread-key="jenkins_loseprocess.html"
+           data-title="玩转Jenkins - 解决Tomcat启动后进程丢失" data-url="http://www.fatiao.site/jenkins_loseprocess.html">
       </div>
     
   </div>
@@ -531,7 +515,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#节点管理"><span class="nav-number">2.</span> <span class="nav-text">节点管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建节点"><span class="nav-number">2.1.</span> <span class="nav-text">新建节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动方式的区别"><span class="nav-number">2.2.</span> <span class="nav-text">启动方式的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置任务在哪个节点执行"><span class="nav-number">3.</span> <span class="nav-text">设置任务在哪个节点执行</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>

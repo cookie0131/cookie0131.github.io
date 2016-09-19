@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="前言Jenkins支持分布式构建，可以配置多个slave节点，让任务跑在不同的机器上。">
+<meta name="description" content="背景在部署Dev测试环境的时候，同一个项目根据项目不同需要部署不同的分支进行测试，这个时候可以对输入的分支名称进行参数化来达到目的。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="玩转Jenkins - 分布式构建">
-<meta property="og:url" content="http://www.fatiao.site/jenkins_distributed.html">
+<meta property="og:title" content="玩转Jenkins - 参数化构建">
+<meta property="og:url" content="http://www.fatiao.site/jenkins_parameters.html">
 <meta property="og:site_name" content="小发条的测试人生">
-<meta property="og:description" content="前言Jenkins支持分布式构建，可以配置多个slave节点，让任务跑在不同的机器上。">
-<meta property="og:updated_time" content="2016-09-19T07:04:55.000Z">
+<meta property="og:description" content="背景在部署Dev测试环境的时候，同一个项目根据项目不同需要部署不同的分支进行测试，这个时候可以对输入的分支名称进行参数化来达到目的。">
+<meta property="og:updated_time" content="2016-09-19T07:05:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="玩转Jenkins - 分布式构建">
-<meta name="twitter:description" content="前言Jenkins支持分布式构建，可以配置多个slave节点，让任务跑在不同的机器上。">
+<meta name="twitter:title" content="玩转Jenkins - 参数化构建">
+<meta name="twitter:description" content="背景在部署Dev测试环境的时候，同一个项目根据项目不同需要部署不同的分支进行测试，这个时候可以对输入的分支名称进行参数化来达到目的。">
 
 
 
@@ -114,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://www.fatiao.site/jenkins_distributed.html"/>
+  <link rel="canonical" href="http://www.fatiao.site/jenkins_parameters.html"/>
 
-  <title> Jenkins,测试,持续集成, - 玩转Jenkins - 分布式构建 | 小发条的测试人生 </title>
+  <title> Jenkins,测试,持续集成, - 玩转Jenkins - 参数化构建 | 小发条的测试人生 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -255,7 +255,7 @@
             
             
               
-                玩转Jenkins - 分布式构建
+                玩转Jenkins - 参数化构建
               
             
           </h1>
@@ -267,8 +267,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-09T00:00:00+08:00" content="2016-08-09">
-              2016-08-09
+            <time itemprop="dateCreated" datetime="2016-08-15T00:00:00+08:00" content="2016-08-15">
+              2016-08-15
             </time>
           </span>
 
@@ -297,8 +297,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/jenkins_distributed.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="jenkins_distributed.html" itemprop="commentsCount"></span>
+                <a href="/jenkins_parameters.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="jenkins_parameters.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -308,7 +308,7 @@
 
           
           
-             <span id="/jenkins_distributed.html" class="leancloud_visitors" data-flag-title="玩转Jenkins - 分布式构建">
+             <span id="/jenkins_parameters.html" class="leancloud_visitors" data-flag-title="玩转Jenkins - 参数化构建">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -330,28 +330,16 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Jenkins支持分布式构建，可以配置多个slave节点，让任务跑在不同的机器上。</p>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在部署Dev测试环境的时候，同一个项目根据项目不同需要部署不同的分支进行测试，这个时候可以对输入的分支名称进行参数化来达到目的。</p>
 <a id="more"></a>
-<h2 id="节点管理"><a href="#节点管理" class="headerlink" title="节点管理"></a>节点管理</h2><p>所有节点机器用到的Jdk, Git等环境的路径需要统一，安装位置和Jenkins所在服务器的位置保持一致，以便于管理。</p>
-<h3 id="新建节点"><a href="#新建节点" class="headerlink" title="新建节点"></a>新建节点</h3><p>系统管理 -&gt; 管理节点， 点击页面左上角的新建节点按钮，输入节点名称，我通常习惯以节点机器的IP来命名，比如192.168.1.100，Dump选项为新建一个节点，复制现有节点就是复制一个已经存在的节点的配置。<br>配置中的具体参数如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">of executors：4 # 这个值控制Jenkins并发构建的数量</div><div class="line">远程工作目录： /home/qa/ci/  # Jenkins作为节点机器的工作目录</div><div class="line">用法：只允许运行绑定到这台机器的Job</div><div class="line">启动方式：</div><div class="line">Launch slave agents on unix machines via ssh</div><div class="line"></div><div class="line">Avaliability：keep this slave on-line as much as possible  # 控制节点的使用方式</div></pre></td></tr></table></figure></p>
-<p>新建节点成功后，在列表页可以看节点的当前状态，如果名称的图标上有红色的小差，说明该节点未连接上</p>
-<h3 id="启动方式的区别"><a href="#启动方式的区别" class="headerlink" title="启动方式的区别"></a>启动方式的区别</h3><ol>
-<li>Launch slave agents on unix machines via ssh<ul>
-<li>在unix机器上通过ssh方式进行连接</li>
-</ul>
-</li>
-<li>Launch slave agents via java web start<ul>
-<li>以java web的方式进行启动</li>
-</ul>
-</li>
-<li>Launch slave via execution of command on the master</li>
-<li>Let Jenkins control this windows slave as windows service<ul>
-<li>以windows service方式在windows机器上运行，如果选择这种方式，新建节点成功后，需要在节点页面上下载slave-agent.jnlp文件，并在对应的节点机器上启动</li>
-</ul>
-</li>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li>在Job的编辑页面勾选上 <strong>参数化构建过程</strong> 的选项</li>
+<li>点击 <strong>添加参数按钮</strong>，选择需要的类型。 这里因为分支名称是个字符串，所以选择 <strong>string parameter</strong></li>
+<li>名字：brnach_name， 默认值：master，描述：分支名称</li>
+<li>对于这个变量的引用，只需要把对应的地方替换成 ${branch_name}即可。修改需要引用变量的地方。在Job的源码管理那，Branches to build那把内容替换成 <strong>*/${branch_name}</strong></li>
+<li>点击 <strong>保存按钮</strong></li>
 </ol>
-<p>使用哪种方式和agent之间进行交互根据具体的使用场景来决定。</p>
-<h2 id="设置任务在哪个节点执行"><a href="#设置任务在哪个节点执行" class="headerlink" title="设置任务在哪个节点执行"></a>设置任务在哪个节点执行</h2><p>进入Job的新增或者编辑页面，有一个选项 <code>restrict where this project can be run</code>，在Label Expression中输入对应的节点名称保存即可</p>
+<p>然后就会发现，左边的 <strong>立即构建</strong> 变成了 <strong>Build with Parameters</strong></p>
 
       
     </div>
@@ -403,16 +391,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/jenkins_javaproject.html" rel="next" title="玩转Jenkins - 创建Java任务">
-                <i class="fa fa-chevron-left"></i> 玩转Jenkins - 创建Java任务
+              <a href="/jenkins_codedeploy.html" rel="next" title="玩转Jenkins - Jenkins + Gitlab实现代码变更后自动部署">
+                <i class="fa fa-chevron-left"></i> 玩转Jenkins - Jenkins + Gitlab实现代码变更后自动部署
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/jenkins_codedeploy.html" rel="prev" title="玩转Jenkins - Jenkins + Gitlab实现代码变更后自动部署">
-                玩转Jenkins - Jenkins + Gitlab实现代码变更后自动部署 <i class="fa fa-chevron-right"></i>
+              <a href="/jenkins_loseprocess.html" rel="prev" title="玩转Jenkins - 解决Tomcat启动后进程丢失">
+                玩转Jenkins - 解决Tomcat启动后进程丢失 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -439,8 +427,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="jenkins_distributed.html"
-           data-title="玩转Jenkins - 分布式构建" data-url="http://www.fatiao.site/jenkins_distributed.html">
+      <div class="ds-thread" data-thread-key="jenkins_parameters.html"
+           data-title="玩转Jenkins - 参数化构建" data-url="http://www.fatiao.site/jenkins_parameters.html">
       </div>
     
   </div>
@@ -531,7 +519,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#节点管理"><span class="nav-number">2.</span> <span class="nav-text">节点管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建节点"><span class="nav-number">2.1.</span> <span class="nav-text">新建节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动方式的区别"><span class="nav-number">2.2.</span> <span class="nav-text">启动方式的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置任务在哪个节点执行"><span class="nav-number">3.</span> <span class="nav-text">设置任务在哪个节点执行</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤"><span class="nav-number">2.</span> <span class="nav-text">步骤</span></a></li></ol></div>
             
           </div>
         </section>

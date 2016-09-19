@@ -2,30 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.fatiao.site/jenkins_distributed.html</loc>
+    <loc>http://www.fatiao.site/python_pyenv.html</loc>
     
-    <lastmod>2016-09-18T06:53:39.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fatiao.site/jenkins_install.html</loc>
-    
-    <lastmod>2016-09-18T06:53:39.000Z</lastmod>
+    <lastmod>2016-09-19T09:43:58.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/jenkins_javaproject.html</loc>
+    <loc>http://www.fatiao.site/jenkins_cj4ftp.html</loc>
     
-    <lastmod>2016-09-18T06:53:39.000Z</lastmod>
+    <lastmod>2016-09-19T09:21:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/jenkins_cj4email.html</loc>
+    
+    <lastmod>2016-09-19T09:00:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/jenkins_codedeploy.html</loc>
+    
+    <lastmod>2016-09-19T08:23:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/workflow.html</loc>
+    
+    <lastmod>2016-09-19T08:12:05.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.fatiao.site/jenkins_submodules.html</loc>
     
-    <lastmod>2016-09-18T06:53:39.000Z</lastmod>
+    <lastmod>2016-09-19T08:07:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/jenkins_frogetpwd.html</loc>
+    
+    <lastmod>2016-09-19T07:45:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/jenkins_loseprocess.html</loc>
+    
+    <lastmod>2016-09-19T07:26:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/jenkins_parameters.html</loc>
+    
+    <lastmod>2016-09-19T07:05:47.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/jenkins_distributed.html</loc>
+    
+    <lastmod>2016-09-19T07:04:55.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/jenkins_javaproject.html</loc>
+    
+    <lastmod>2016-09-19T07:04:32.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/jenkins_install.html</loc>
+    
+    <lastmod>2016-09-19T07:01:37.000Z</lastmod>
     
   </url>
   
