@@ -46,7 +46,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Jenkins,测试,持续集成," />
+  <meta name="keywords" content="Python,Pyenv,运维," />
 
 
 
@@ -62,16 +62,16 @@
 
 
 
-<meta name="description" content="在使用Jenkins的过程中，我们有时候需要用到自动发送邮件的功能，Jenkins自带的发送邮件功能不是特别的好用，可以使用Email Extension Plugin插件对发送邮件功能进行扩展">
+<meta name="description" content="达达配送系统的后端Api部分是用Python开发的，因为历史原因，存在多个Python版本的情况，为了便于管理这些环境，同时对每个应用的环境依赖包做隔离，我们选择Pyenv来管理Python的版本。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="玩转Jenkins - 插件：Email Extension Plugin">
+<meta property="og:title" content="用Pyenv搭建单机多帮本Python开发环境">
 <meta property="og:url" content="http://www.fatiao.site/python_pyenv.html">
 <meta property="og:site_name" content="小发条的测试人生">
-<meta property="og:description" content="在使用Jenkins的过程中，我们有时候需要用到自动发送邮件的功能，Jenkins自带的发送邮件功能不是特别的好用，可以使用Email Extension Plugin插件对发送邮件功能进行扩展">
-<meta property="og:updated_time" content="2016-09-19T09:43:58.000Z">
+<meta property="og:description" content="达达配送系统的后端Api部分是用Python开发的，因为历史原因，存在多个Python版本的情况，为了便于管理这些环境，同时对每个应用的环境依赖包做隔离，我们选择Pyenv来管理Python的版本。">
+<meta property="og:updated_time" content="2016-09-20T09:01:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="玩转Jenkins - 插件：Email Extension Plugin">
-<meta name="twitter:description" content="在使用Jenkins的过程中，我们有时候需要用到自动发送邮件的功能，Jenkins自带的发送邮件功能不是特别的好用，可以使用Email Extension Plugin插件对发送邮件功能进行扩展">
+<meta name="twitter:title" content="用Pyenv搭建单机多帮本Python开发环境">
+<meta name="twitter:description" content="达达配送系统的后端Api部分是用Python开发的，因为历史原因，存在多个Python版本的情况，为了便于管理这些环境，同时对每个应用的环境依赖包做隔离，我们选择Pyenv来管理Python的版本。">
 
 
 
@@ -94,7 +94,7 @@
 
   <link rel="canonical" href="http://www.fatiao.site/python_pyenv.html"/>
 
-  <title> Jenkins,测试,持续集成, - 玩转Jenkins - 插件：Email Extension Plugin | 小发条的测试人生 </title>
+  <title> Python,Pyenv,运维, - 用Pyenv搭建单机多帮本Python开发环境 | 小发条的测试人生 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -233,7 +233,7 @@
             
             
               
-                玩转Jenkins - 插件：Email Extension Plugin
+                用Pyenv搭建单机多帮本Python开发环境
               
             
           </h1>
@@ -245,8 +245,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-05T00:00:00+08:00" content="2016-08-05">
-              2016-08-05
+            <time itemprop="dateCreated" datetime="2016-07-05T00:00:00+08:00" content="2016-07-05">
+              2016-07-05
             </time>
           </span>
 
@@ -259,8 +259,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/持续集成/" itemprop="url" rel="index">
-                    <span itemprop="name">持续集成</span>
+                  <a href="/categories/运维/" itemprop="url" rel="index">
+                    <span itemprop="name">运维</span>
                   </a>
                 </span>
 
@@ -286,7 +286,7 @@
 
           
           
-             <span id="/python_pyenv.html" class="leancloud_visitors" data-flag-title="玩转Jenkins - 插件：Email Extension Plugin">
+             <span id="/python_pyenv.html" class="leancloud_visitors" data-flag-title="用Pyenv搭建单机多帮本Python开发环境">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -309,9 +309,24 @@
 
       
         <blockquote>
-<p>在使用Jenkins的过程中，我们有时候需要用到自动发送邮件的功能，Jenkins自带的发送邮件功能不是特别的好用，可以使用Email Extension Plugin插件对发送邮件功能进行扩展</p>
+<p>达达配送系统的后端Api部分是用Python开发的，因为历史原因，存在多个Python版本的情况，为了便于管理这些环境，同时对每个应用的环境依赖包做隔离，我们选择Pyenv来管理Python的版本。 </p>
 </blockquote>
 <a id="more"></a>
+<h2 id="安装Pyenv"><a href="#安装Pyenv" class="headerlink" title="安装Pyenv"></a>安装Pyenv</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git clone https://github.com/yyuu/pyenv.git ~/.pyenv</div><div class="line">$ echo &apos;export PYENV_ROOT=&quot;$HOME/.pyenv&quot;&apos; &gt;&gt; ~/.bash_profile</div><div class="line">$ echo &apos;export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;&apos; &gt;&gt; ~/.bash_profile</div><div class="line">$ echo &apos;eval &quot;$(pyenv init -)&quot;&apos; &gt;&gt; ~/.bash_profile</div><div class="line">$ exec $SHELL -l</div></pre></td></tr></table></figure>
+<h2 id="安装Python"><a href="#安装Python" class="headerlink" title="安装Python"></a>安装Python</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ pyenv install --list //查看可安装的python版本</div><div class="line">$ pyenv install -v 2.7.1 安装python2.7.1</div></pre></td></tr></table></figure>
+<h2 id="Pyenv的基本使用命令"><a href="#Pyenv的基本使用命令" class="headerlink" title="Pyenv的基本使用命令"></a>Pyenv的基本使用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"># 生成一个2.7.1的版本，别名为test</div><div class="line">pyenv virtualenv 2.7.1 test</div><div class="line"></div><div class="line"># 切换python版本</div><div class="line">pyenv global test  </div><div class="line"></div><div class="line"># 查看当前python使用版本</div><div class="line">pyenv versions     </div><div class="line"></div><div class="line"># 退回到系统环境</div><div class="line">$ pyenv deactivate</div><div class="line"></div><div class="line"></div><div class="line"># 删除新创建的环境</div><div class="line">$ rm -rf ~/.pyenv/versions/test/</div><div class="line"></div><div class="line"># 卸载python</div><div class="line">$ pyenv uninstall 2.7.1</div></pre></td></tr></table></figure>
+<h2 id="异常问题解决"><a href="#异常问题解决" class="headerlink" title="异常问题解决"></a>异常问题解决</h2><ol>
+<li><p>执行 pyenv install 2.7.1时报错， Build failed: “ERROR: The Python zlib extension was not compiled. Missing the zlib?”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$CFLAGS=&quot;-I$(xcrun --show-sdk-path)/usr/include&quot; pyenv install -v 2.7.7</div></pre></td></tr></table></figure>
+</li>
+<li><p>ERROR: The Python ssl extension was not compiled. Missing the OpenSSL lib?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$CFLAGS=&quot;-I$(brew --prefix openssl)/include&quot; \</div><div class="line">LDFLAGS=&quot;-L$(brew --prefix openssl)/lib&quot; \</div><div class="line">pyenv install 3.4.2</div></pre></td></tr></table></figure>
+</li>
+<li><p>zipimport.ZipImportError: can’t decompress data; zlib not available</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$CFLAGS=&quot;-I$(xcrun --show-sdk-path)/usr/include&quot; pyenv install -v 3.4.2</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Pyenv命令列表"><a href="#Pyenv命令列表" class="headerlink" title="Pyenv命令列表"></a>Pyenv命令列表</h2><p><a href="https://github.com/yyuu/pyenv/blob/master/COMMANDS.md#command-reference" target="_blank" rel="external">https://github.com/yyuu/pyenv/blob/master/COMMANDS.md#command-reference</a></p>
 
       
     </div>
@@ -350,11 +365,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Jenkins/" rel="tag">#Jenkins</a>
+            <a href="/tags/Python/" rel="tag">#Python</a>
           
-            <a href="/tags/测试/" rel="tag">#测试</a>
+            <a href="/tags/Pyenv/" rel="tag">#Pyenv</a>
           
-            <a href="/tags/持续集成/" rel="tag">#持续集成</a>
+            <a href="/tags/运维/" rel="tag">#运维</a>
           
         </div>
       
@@ -363,16 +378,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/jenkins_install.html" rel="next" title="玩转Jenkins - 安装">
-                <i class="fa fa-chevron-left"></i> 玩转Jenkins - 安装
+              <a href="/manager_interview.html" rel="next" title="面谈">
+                <i class="fa fa-chevron-left"></i> 面谈
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/jenkins_javaproject.html" rel="prev" title="玩转Jenkins - 创建Java任务">
-                玩转Jenkins - 创建Java任务 <i class="fa fa-chevron-right"></i>
+              <a href="/jenkins_install.html" rel="prev" title="玩转Jenkins - 安装">
+                玩转Jenkins - 安装 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -400,7 +415,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="python_pyenv.html"
-           data-title="玩转Jenkins - 插件：Email Extension Plugin" data-url="http://www.fatiao.site/python_pyenv.html">
+           data-title="用Pyenv搭建单机多帮本Python开发环境" data-url="http://www.fatiao.site/python_pyenv.html">
       </div>
     
   </div>
@@ -445,7 +460,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -453,7 +468,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -462,7 +477,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -491,7 +506,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Pyenv"><span class="nav-number">1.</span> <span class="nav-text">安装Pyenv</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Python"><span class="nav-number">2.</span> <span class="nav-text">安装Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pyenv的基本使用命令"><span class="nav-number">3.</span> <span class="nav-text">Pyenv的基本使用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常问题解决"><span class="nav-number">4.</span> <span class="nav-text">异常问题解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pyenv命令列表"><span class="nav-number">5.</span> <span class="nav-text">Pyenv命令列表</span></a></li></ol></div>
             
           </div>
         </section>

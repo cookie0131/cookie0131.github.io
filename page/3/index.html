@@ -235,8 +235,8 @@
             
               
                 
-                <a class="post-title-link" href="/python_pyenv.html" itemprop="url">
-                  玩转Jenkins - 插件：Email Extension Plugin
+                <a class="post-title-link" href="/jenkins_javaproject.html" itemprop="url">
+                  玩转Jenkins - 创建Java任务
                 </a>
               
             
@@ -249,8 +249,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-05T00:00:00+08:00" content="2016-08-05">
-              2016-08-05
+            <time itemprop="dateCreated" datetime="2016-08-06T00:00:00+08:00" content="2016-08-06">
+              2016-08-06
             </time>
           </span>
 
@@ -279,8 +279,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/python_pyenv.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="python_pyenv.html" itemprop="commentsCount"></span>
+                <a href="/jenkins_javaproject.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="jenkins_javaproject.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -290,7 +290,7 @@
 
           
           
-             <span id="/python_pyenv.html" class="leancloud_visitors" data-flag-title="玩转Jenkins - 插件：Email Extension Plugin">
+             <span id="/jenkins_javaproject.html" class="leancloud_visitors" data-flag-title="玩转Jenkins - 创建Java任务">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -313,11 +313,11 @@
 
       
         
-          <blockquote>
-<p>在使用Jenkins的过程中，我们有时候需要用到自动发送邮件的功能，Jenkins自带的发送邮件功能不是特别的好用，可以使用Email Extension Plugin插件对发送邮件功能进行扩展</p>
-</blockquote>
+          <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>Jenkins是一个基于Java语言开发的开源的持续集成平台，上面大部分的功能都是基于插件的形式来实现的。</p>
+<p>为了保证讲的内容和版本一致，这次我们用官网上最新的2.7.3版本来讲解。安装完成并成功启动Jenkins后，通过浏览器访问，根据页面上提示的秘钥路径，找到对应的值输入即可；然后会需要选择安装插件,选择 Install suggested plugins 默认推荐的即可。</p>
+<p>安装插件时，偶尔会遇到有几个插件下载失败，然后一直卡在下载页面的情况，此时重启Jenkins即可。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/python_pyenv.html#more" rel="contents">
+            <a class="btn" href="/jenkins_javaproject.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -480,11 +480,474 @@
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/python_pyenv.html" itemprop="url">
+                  用Pyenv搭建单机多帮本Python开发环境
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-05T00:00:00+08:00" content="2016-07-05">
+              2016-07-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/运维/" itemprop="url" rel="index">
+                    <span itemprop="name">运维</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/python_pyenv.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="python_pyenv.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/python_pyenv.html" class="leancloud_visitors" data-flag-title="用Pyenv搭建单机多帮本Python开发环境">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>达达配送系统的后端Api部分是用Python开发的，因为历史原因，存在多个Python版本的情况，为了便于管理这些环境，同时对每个应用的环境依赖包做隔离，我们选择Pyenv来管理Python的版本。 </p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/python_pyenv.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/manager_interview.html" itemprop="url">
+                  面谈
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-12T00:00:00+08:00" content="2015-12-12">
+              2015-12-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/管理/" itemprop="url" rel="index">
+                    <span itemprop="name">管理</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/manager_interview.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="manager_interview.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/manager_interview.html" class="leancloud_visitors" data-flag-title="面谈">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="面谈"><a href="#面谈" class="headerlink" title="面谈"></a>面谈</h1><p>能力，意愿 两个维度</p>
+<ul>
+<li>知道做什么 </li>
+<li>愿意去做</li>
+<li>能够做什么</li>
+<li>坚持去做</li>
+</ul>
+<h2 id="管理过程中的四大面谈"><a href="#管理过程中的四大面谈" class="headerlink" title="管理过程中的四大面谈"></a>管理过程中的四大面谈</h2><h3 id="入职面谈"><a href="#入职面谈" class="headerlink" title="入职面谈"></a>入职面谈</h3><p>体现系统的归属和接纳，确定身份，设定目标，达成共识，分清彼此的职责</p>
+<h3 id="辅导面谈"><a href="#辅导面谈" class="headerlink" title="辅导面谈"></a>辅导面谈</h3><p>聚焦于员工能力（知识技能）提升，基于目标地学习，调动对方主动学习的能力，提升支持和鼓励，评估效果，从“不会”到“会”的过程</p>
+<h3 id="激励面谈"><a href="#激励面谈" class="headerlink" title="激励面谈"></a>激励面谈</h3><p>聚焦与员工意愿（态度和习惯）的提升，关注情绪疏导，找到内在动机，发现新的可能，落实行动，从“不愿意”到“愿意”的过程</p>
+<p>PS:意愿不足通常是情绪出了问题，需要引导</p>
+<h3 id="离职面谈"><a href="#离职面谈" class="headerlink" title="离职面谈"></a>离职面谈</h3><ul>
+<li>挽留优秀员工</li>
+<li>离职员工无害化处理</li>
+</ul>
+<p>PS：需要告知其他人离职的原因</p>
+<h2 id="面谈的准备"><a href="#面谈的准备" class="headerlink" title="面谈的准备"></a>面谈的准备</h2><h3 id="类型的准备"><a href="#类型的准备" class="headerlink" title="类型的准备"></a>类型的准备</h3><ul>
+<li>当下要解决的问题是什么？</li>
+<li>应该选择如何的面谈类型？</li>
+<li>需要什么流程？</li>
+</ul>
+<h3 id="身份的准备"><a href="#身份的准备" class="headerlink" title="身份的准备"></a>身份的准备</h3><ul>
+<li>我是谁?</li>
+<li>对方是谁?</li>
+<li>我们在哪里？</li>
+<li>我们彼此之间的关系是什么？</li>
+</ul>
+<h3 id="目标的准备"><a href="#目标的准备" class="headerlink" title="目标的准备"></a>目标的准备</h3><ul>
+<li>本次面谈的目的是什么？</li>
+<li>希望达到什么效果？</li>
+<li>备选的效果是什么？</li>
+<li>最坏的效果是什么？</li>
+</ul>
+<h3 id="资料的准备"><a href="#资料的准备" class="headerlink" title="资料的准备"></a>资料的准备</h3><ul>
+<li>选择什么时间和场地？</li>
+<li>需要什么人参加？</li>
+<li>需要准备什么资料？（如过往的工作情况）</li>
+</ul>
+<h3 id="面谈策略"><a href="#面谈策略" class="headerlink" title="面谈策略"></a>面谈策略</h3><ul>
+<li>高意愿高能力  了解目标，画饼</li>
+<li>高意愿低能力  保持意愿，提高能力，激励辅导</li>
+<li>低意愿高能力  激励，提高意愿</li>
+<li>低意愿低能力  离职，无害化处理</li>
+</ul>
+<h3 id="面谈的语言态度"><a href="#面谈的语言态度" class="headerlink" title="面谈的语言态度"></a>面谈的语言态度</h3><ul>
+<li>证明的词语</li>
+<li>接受的态度</li>
+<li>有效倾听</li>
+<li>多坑定，少否定</li>
+</ul>
+<h2 id="管理面谈的语言技巧"><a href="#管理面谈的语言技巧" class="headerlink" title="管理面谈的语言技巧"></a>管理面谈的语言技巧</h2><h3 id="语言技巧"><a href="#语言技巧" class="headerlink" title="语言技巧"></a>语言技巧</h3><ul>
+<li>复述<br>用一些引导词来带出对方刚说过的话里的一些重要文字</li>
+<li>感性回应<br>将对方话语的意思，加上自己的经验感受再回应给对方</li>
+<li>例同<br>把相对对方说的话化为另一个人的故事说出来</li>
+<li>先跟后带<br>限附和对方的观点，然后才带他去你想去的方向</li>
+</ul>
+<h3 id="高效语言技术"><a href="#高效语言技术" class="headerlink" title="高效语言技术"></a>高效语言技术</h3><ul>
+<li>引导式语言<br>给予对方尊重和选择。例句：但是/同时， 不能/不会，应该/可以</li>
+<li>时间式<br>打破“过去等于现在，现在等于永恒”的局限思维。例句：”还没有”，“到目前为止”</li>
+<li>双刃式<br>有效地引导对方的设定的范围选择。例句：“你会在现在还是下班后去找小李沟通”</li>
+</ul>
+<h2 id="管理面谈的通用流程"><a href="#管理面谈的通用流程" class="headerlink" title="管理面谈的通用流程"></a>管理面谈的通用流程</h2><ul>
+<li>关系建立<br>建立亲和的沟通关系，表示出对对方的尊重和接纳</li>
+<li>问题导入<br>提出问题，表明意图，确立身份</li>
+<li>情绪处理<br>先处理情绪，后处理问题</li>
+<li>肯定动机<br>发现对方可以肯定的部分加以肯定，同时找出正面动机</li>
+<li>发现机会<br>帮助对方觉察当下的无效行为，找出新的可能性</li>
+<li>达成共识<br>明确共同目标，分清彼此职责</li>
+<li>落实行动<br>制定行动计划，提供支持</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/linux_authority.html" itemprop="url">
+                  Linux & Shell - 文件权限
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2009-03-06T00:00:00+08:00" content="2009-03-06">
+              2009-03-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/linux_authority.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_authority.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/linux_authority.html" class="leancloud_visitors" data-flag-title="Linux & Shell - 文件权限">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>Linux下可以对文件及目录设置权限，创建文件的用户和他所在的组拥有该文件。文件的属主或者系统管理员可以改变任何普通用户的设置。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/linux_authority.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -525,7 +988,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -533,7 +996,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -542,7 +1005,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
