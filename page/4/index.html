@@ -235,8 +235,8 @@
             
               
                 
-                <a class="post-title-link" href="/ops_tomcat.html" itemprop="url">
-                  Tomcat
+                <a class="post-title-link" href="/linux_ubuntureinstallmysql.html" itemprop="url">
+                  Linux & Shell - ubuntu重装mysql
                 </a>
               
             
@@ -249,8 +249,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2009-03-02T00:00:00+08:00" content="2009-03-02">
-              2009-03-02
+            <time itemprop="dateCreated" datetime="2009-07-29T00:00:00+08:00" content="2009-07-29">
+              2009-07-29
             </time>
           </span>
 
@@ -263,8 +263,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/运维/" itemprop="url" rel="index">
-                    <span itemprop="name">运维</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -279,8 +279,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/ops_tomcat.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="ops_tomcat.html" itemprop="commentsCount"></span>
+                <a href="/linux_ubuntureinstallmysql.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_ubuntureinstallmysql.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -290,7 +290,7 @@
 
           
           
-             <span id="/ops_tomcat.html" class="leancloud_visitors" data-flag-title="Tomcat">
+             <span id="/linux_ubuntureinstallmysql.html" class="leancloud_visitors" data-flag-title="Linux & Shell - ubuntu重装mysql">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -313,11 +313,544 @@
 
       
         
-          <blockquote>
-<p>Tomcat是一个开元的Java Web服务器，公司的大部分应用都是部署在Tomcat上的。使用Tomcat，机器上需要有Jdk。本文主要记录一下Tomacat相关的安装使用</p>
-</blockquote>
+          
+            <ol>
+<li>删除 mysql</li>
+</ol>
+<p>1 sudo apt-get autoremove –purge mysql-server-5.0<br>2 sudo apt-get remove mysql-server<br>3 sudo apt-get autoremove mysql-server<br>4 sudo apt-get remove mysql-common (非常重要)<br>上面的其实有一些是多余的，建议还是按照顺序执行一遍<br>清理残留数据<br>dpkg -l |grep ^rc|awk ‘{print $2}’ |sudo xargs dpkg -P</p>
+<ol>
+<li>安装 mysql<br>1 sudo apt-get install mysql-server<br>2 sudo apt-get install mysql-client<br>3 sudo apt-get install php5-mysql(安装php5-mysql 是将php和mysql连接起来 )</li>
+</ol>
+<p>一旦安装完成，MySQL 服务器应该自动启动。您可以在终端提示符后运行以下命令来检查 MySQL 服务器是否正在运行：<br>1 sudo netstat -tap | grep mysql<br>当您运行该命令时，您可以看到类似下面的行：<br>tcp 0 0 localhost.localdomain:mysql <em>:</em> LISTEN –<br>如果服务器不能正常运行，您可以通过下列命令启动它：<br>1 sudo /etc/init.d/mysql restart</p>
+<ol>
+<li>进入mysql<br>$mysql -uroot -p 管理员密码<br>配置 MySQL 的管理员密码：<br>1 sudo mysqladmin -u root password newpassword</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/linux_curl4auth.html" itemprop="url">
+                  Linux & Shell - curl解决需要认证的问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2009-07-17T00:00:00+08:00" content="2009-07-17">
+              2009-07-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/linux_curl4auth.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_curl4auth.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/linux_curl4auth.html" class="leancloud_visitors" data-flag-title="Linux & Shell - curl解决需要认证的问题">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在使用curl过程中，有一些页面需要验证登录成功后才能抓取到，那要怎么处理呢？具体方式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -c cookie.txt -d &quot;user_name=af236561&amp;user_passwd=227058&quot; &quot;http://url/login&quot;</div><div class="line">curl -b cookie.txt  -s -I http://url/analysis/customer/</div></pre></td></tr></table></figure></p>
+<p>原理：先模拟登录生成cookie ，再读文件cookie登录</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/linux_curl.html" itemprop="url">
+                  Linux & Shell - curl
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2009-07-07T00:00:00+08:00" content="2009-07-07">
+              2009-07-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/linux_curl.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_curl.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/linux_curl.html" class="leancloud_visitors" data-flag-title="Linux & Shell - curl">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>curl是一个利用URL语法在命令行方式下工作的文件传输工具；</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Linux系统安装CURL<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">wget http://curl.haxx.se/download/curl-7.17.1.tar.gz</div><div class="line">tar -xvf curl-7.17.1.tar.gz</div><div class="line">./configure --prefix=/usr/local/curl</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure></p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/ops_tomcat.html#more" rel="contents">
+            <a class="btn" href="/linux_curl.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/linux_func.html" itemprop="url">
+                  Linux & Shell -  控制流：函数
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2009-06-28T00:00:00+08:00" content="2009-06-28">
+              2009-06-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/linux_func.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_func.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/linux_func.html" class="leancloud_visitors" data-flag-title="Linux & Shell -  控制流：函数">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>shell允许将一组命令集或语句形成一个可用块,这些块称为shell函数。<br>定义函数的格式为:<br>函数名()<br>{<br>命令1<br>.. .<br>}<br>如果愿意,可在函数名前加上关键字 function,这取决于使用者。<br>function 函数名()<br>{<br>…<br>}</p>
+<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hello()</div><div class="line">&#123;</div><div class="line">  echo &quot;hello owrld&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/linux_flow4break.html" itemprop="url">
+                  Linux & Shell -  控制流：break & continue
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2009-06-22T00:00:00+08:00" content="2009-06-22">
+              2009-06-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/linux_flow4break.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_flow4break.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/linux_flow4break.html" class="leancloud_visitors" data-flag-title="Linux & Shell -  控制流：break & continue">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>有时需要基于某些准则退出循环或跳过循环步。shell提供两个命令实现此功能。</p>
+<ul>
+<li>break</li>
+<li>continue</li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/linux_flow4break.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -351,7 +884,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -392,7 +925,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -400,7 +933,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -409,7 +942,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -1,0 +1,903 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+  
+
+<link href="//cdn.bootcss.com/font-awesome/4.4.0/fonts/fontawesome-webfont.svg" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Linux,Shell," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="调用awkawk [-F filed-separator] ‘commands’ input-fils(s)-F 为域分隔符文件  如果是类似于PASSWD的用；分割的文件，需要用-F；如awk -F: ‘commands’ input-fils  //以：为文件分割符分割input-fils文件或者awk -f awk-script-file input-filse(s)-f选项指明在文件awk">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux & Shell - awk">
+<meta property="og:url" content="http://www.fatiao.site/linux_cmd4awk.html">
+<meta property="og:site_name" content="小发条的测试人生">
+<meta property="og:description" content="调用awkawk [-F filed-separator] ‘commands’ input-fils(s)-F 为域分隔符文件  如果是类似于PASSWD的用；分割的文件，需要用-F；如awk -F: ‘commands’ input-fils  //以：为文件分割符分割input-fils文件或者awk -f awk-script-file input-filse(s)-f选项指明在文件awk">
+<meta property="og:updated_time" content="2016-09-22T04:03:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux & Shell - awk">
+<meta name="twitter:description" content="调用awkawk [-F filed-separator] ‘commands’ input-fils(s)-F 为域分隔符文件  如果是类似于PASSWD的用；分割的文件，需要用-F；如awk -F: ‘commands’ input-fils  //以：为文件分割符分割input-fils文件或者awk -f awk-script-file input-filse(s)-f选项指明在文件awk">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.fatiao.site/linux_cmd4awk.html"/>
+
+  <title> Linux,Shell, - Linux & Shell - awk | 小发条的测试人生 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=58555379";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">小发条的测试人生</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">测试攻城狮 pythoner 伪程序猿一枚</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Linux & Shell - awk
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2009-04-15T00:00:00+08:00" content="2009-04-15">
+              2009-04-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/linux_cmd4awk.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_cmd4awk.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/linux_cmd4awk.html" class="leancloud_visitors" data-flag-title="Linux & Shell - awk">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="调用awk"><a href="#调用awk" class="headerlink" title="调用awk"></a>调用awk</h2><p>awk [-F filed-separator] ‘commands’ input-fils(s)<br>-F 为域分隔符文件  如果是类似于PASSWD的用；分割的文件，需要用-F；如<br>awk -F: ‘commands’ input-fils  //以：为文件分割符分割input-fils文件<br>或者<br>awk -f awk-script-file input-filse(s)<br>-f选项指明在文件awk-script-file中的awk脚本，input_file(s)是awk进行浏览的文件名</p>
+<a id="more"></a>
+<h2 id="awk脚本"><a href="#awk脚本" class="headerlink" title="awk脚本"></a>awk脚本</h2><p>模式和动作<br>BEGIN语句使用在任何文本浏览动作之前，之后文本浏览动作依据输入文件开始执行。<br>END语句用来在awk完成文本浏览动作后打印输出文本总数和结尾状态标志。</p>
+<h3 id="域和记录"><a href="#域和记录" class="headerlink" title="域和记录"></a>域和记录</h3><ol>
+<li><p>为打印一个域或所有域，使用print命令。这是一个awk动作{动作语法用圆括号括起来}。如：<br>awk ‘{print $1}’ grade.txt     //print是打印文件 grade.txt是要查看的文件名</p>
+</li>
+<li><p>$1$2$3之间用,分隔，如果要答应全部，则为$0，如：<br>awk ‘{print $1,$2,$3}’ grade.txt<br>=awk ‘{print $0}’ grade.txt</p>
+</li>
+<li><p>打印报告头<br>awk ‘BEGIN {print “Name Belt\n——————“}{print $1”\t”$4}’ grade.txt</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Belt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">M.Tansley</td>
+<td style="text-align:left">Green</td>
+</tr>
+<tr>
+<td style="text-align:left">J.Lulu</td>
+<td style="text-align:left">green</td>
+</tr>
+<tr>
+<td style="text-align:left">P.Bunny</td>
+<td style="text-align:left">Yellow</td>
+</tr>
+<tr>
+<td style="text-align:left">J.Troll</td>
+<td style="text-align:left">Brown-3</td>
+</tr>
+<tr>
+<td style="text-align:left">L.Tansley</td>
+<td style="text-align:left">Brown-2</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>打印信息尾<br>awk ‘BEGIN {print “Name  Belt\n———-“}{print $1”\t”$4} END {print “—–\n end of report”}’ grade.txt</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Belt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">M.Tansley</td>
+<td style="text-align:left">Green</td>
+</tr>
+<tr>
+<td style="text-align:left">J.Lulu</td>
+<td style="text-align:left">green</td>
+</tr>
+<tr>
+<td style="text-align:left">P.Bunny</td>
+<td style="text-align:left">Yellow</td>
+</tr>
+<tr>
+<td style="text-align:left">J.Troll</td>
+<td style="text-align:left">Brown-3</td>
+</tr>
+<tr>
+<td style="text-align:left">L.Tansley</td>
+<td style="text-align:left">Brown-2</td>
+</tr>
+</tbody>
+</table>
+<p> end of report</p>
+<h3 id="awk中正则表达式及其操作"><a href="#awk中正则表达式及其操作" class="headerlink" title="awk中正则表达式及其操作"></a>awk中正则表达式及其操作</h3><p>在awk中 正则表达式用//括起来。如：<br>/green/</p>
+<h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><p>在awk中，正则表达式常用的字符<br>\  ^  .  []  |  ()  *  +  ?</p>
+<ul>
+<li>使用+匹配一个或多个字符。<br>？ 匹配模式出现频率。例如使用/XY?Z/匹配XYZ或YZ。</li>
+</ul>
+<h3 id="条件操作符"><a href="#条件操作符" class="headerlink" title="条件操作符"></a>条件操作符</h3><ol>
+<li><p>使用正则表达式进行条件判断打印<br>awk ‘{if ($4~/Brown/) print $0}’ grade.txt //if后面的条件要用（），正则表达式钱要用~<br>=awk ‘$0 ~/Brown/‘ grade.txt </p>
+</li>
+<li><p>精确匹配<br>awk ‘$3==”48”{ print $0}’ grade.txt    //匹配第3个值为48的<br>P.Bunny     02/99    48       Yellow   12   35   28</p>
+</li>
+<li><p>不匹配  ( !~  )<br>awk ‘$0 !~ /Brown/‘ grade.txt<br>=awk ‘{if ($4 !~/Brown/) print $0}’ grade.txt<br> M.Tansley   05/99    48311    Green    8    40   44<br> J.Lulu      06/99    48317    green    9    24   26<br> P.Bunny     02/99    48       Yellow   12   35   28</p>
+</li>
+</ol>
+<ol>
+<li><p>设置大小写<br>awk ‘/[Gg]reen/‘ grade.txt<br>M.Tansley   05/99    48311    Green    8    40   44<br>J.Lulu      06/99    48317    green    9    24   26</p>
+</li>
+<li><p>任意字符<br>awk ‘$1 ~/^…a/‘ grade.txt<br>M.Tansley   05/99    48311    Green    8    40   44<br>L.Tansley   05/99    4712     Brown-2  12   30   28</p>
+</li>
+<li><p>或关系匹配<br>为抽取级别为y e l l o w或b r o w n的记录，使用竖线符|。意为匹配| 两边模式之一。注意，使<br>用竖线符时，语句必须用圆括号括起来。如：<br>awk ‘$0 ~/(Yello|Brown)/‘ grade.txt<br> P.Bunny     02/99    48       Yellow   12   35   28<br> J.Troll     07/99    4842     Brown-3  12   26   26<br> L.Tansley   05/99    4712     Brown-2  12   30   28</p>
+</li>
+</ol>
+<ol>
+<li>行首<br>awk ‘/^48/‘ input-files</li>
+</ol>
+<ol>
+<li>与 或 非   &amp;&amp;  ||  ！<br>awk ‘{if ($1==”P.Bunny” &amp;&amp; $4==”Yellow”) print $0}’ grade.txt<br>P.Bunny     02/99    48       Yellow   12   35   28</li>
+</ol>
+<p>awk ‘{if ($4==”Yellow” || $4~/Brown/) print $0}’ grade.txt<br>    P.Bunny     02/99    48       Yellow   12   35   28<br>    J.Troll     07/99    4842     Brown-3  12   26   26<br>    L.Tansley   05/99    4712     Brown-2  12   30   28</p>
+<h3 id="awk的内置变量"><a href="#awk的内置变量" class="headerlink" title="awk的内置变量"></a>awk的内置变量</h3><p>A R G C                 命令行参数个数<br>A R G V                 命令行参数排列<br>E N V I R O N            支持队列中系统环境变量的使用<br>FILENAME                  a w k浏览的文件名<br>F N R                    浏览文件的记录数<br>F S                      设置输入域分隔符，等价于命令行- F选项<br>N F                      浏览记录的域个数<br>N R                       已读的记录数<br>O F S                     输出域分隔符<br>O R S                     输出记录分隔符<br>R S                        控制记录分隔符</p>
+<p>A R G C支持命令行中传入a w k脚本的参数个数。A R G V是A R G C的参数排列数组，其中每<br>一元素表示为A R G V [ n ]，n为期望访问的命令行参数。<br>E N V I R O N 支持系统设置的环境变量，要访问单独变量，使用实际变量名，例如<br>E N V I R O N [“E D I TO R”] =“Vi”。<br>F I L E N A M E支持a w k脚本实际操作的输入文件。因为a w k可以同时处理许多文件，因此如<br>果访问了这个变量，将告之系统目前正在浏览的实际文件。<br>F N R支持a w k目前操作的记录数。其变量值小于等于N R。如果脚本正在访问许多文件，<br>每一新输入文件都将重新设置此变量。<br>F S用来在a w k中设置域分隔符，与命令行中- F选项功能相同。缺省情况下为空格。如果用<br>逗号来作域分隔符，设置F S = “，”。<br>N F支持记录域个数，在记录被读之后再设置。<br>O F S允许指定输出域分隔符，缺省为空格。如果想设置为#，写入O F S = “ # “。<br>O R S为输出记录分隔符，缺省为新行（ \ n）。<br>R S是记录分隔符，缺省为新行( \ n )。</p>
+<h3 id="NF-NR-FILENAME"><a href="#NF-NR-FILENAME" class="headerlink" title="NF,NR,FILENAME"></a>NF,NR,FILENAME</h3><p>[unicom@localhost test1]$ awk ‘{print NF,NR,$0} END {print FILENAME}’ grade.txt<br>7 1 M.Tansley   05/99    48311    Green    8    40   44<br>7 2 J.Lulu      06/99    48317    green    9    24   26<br>7 3 P.Bunny     02/99    48       Yellow   12   35   28<br>7 4 J.Troll     07/99    4842     Brown-3  12   26   26<br>7 5 L.Tansley   05/99    4712     Brown-2  12   30   28<br>grade.txt</p>
+<p>NF 输出的是  7,每列有7个单位<br>NR 输出的是  12345，说明有5列<br>FILENAME 打印出文件名</p>
+<p>N F的一个强大功能是将变量$ P W D的返回值传入a w k并显示其目录。这里需要指定域分隔<br>符/。<br>[unicom@localhost test1]$ pwd<br>/home/unicom/test1<br>[unicom@localhost test1]$ echo $PWD |awk -F/ ‘{print $NF}’<br>test1</p>
+<h3 id="awk操作符"><a href="#awk操作符" class="headerlink" title="awk操作符"></a>awk操作符</h3><p>10.1. 设置输入域到域变量名<br>设置有意义的域名是一种好习惯，在进行模式匹配或关系操作时更容易理解。<br>一般的变量名设置方式为n a m e = $ n，这里n a m e为调用的域变量名， n为实际域号。例如设置学<br>生域名为n a m e，级别域名为b e l t，操作为n a m e = $ 1 ; b e l t s = $ 4<br>[unicom@localhost test1]$ awk ‘{name=$1;belts=$4;if(belts ~/Yellow/) print $1 “is belt “ $4}’ grade.txt<br>P.Bunnyis belt Yellow</p>
+<p>域值比较操作<br>[unicom@localhost test1]$ awk ‘{if ($6 &lt; 27) print $0}’ grade.txt<br>J.Lulu      06/99    48317    green    9    24   26<br>J.Troll     07/99    4842     Brown-3  12   26   26</p>
+<p>[unicom@localhost test1]$ awk ‘BEGIN{BASELINE=”27”} {if ($6 &lt; BASELINE) print $0}’ grade.txt<br>J.Lulu      06/99    48317    green    9    24   26<br>J.Troll     07/99    4842     Brown-3  12   26   26</p>
+<p>修改数值域取值<br>[unicom@localhost test1]$ awk ‘{if ($1==”M.Tansley”) $6=$6-1;print $1,$6,$7}’ grade.txt<br>M.Tansley 39 44<br>J.Lulu 24 26<br>P.Bunny 35 28<br>J.Troll 26 26<br>L.Tansley 30 28</p>
+<p>修改文本域<br>[unicom@localhost test1]$ awk ‘{if ($1==”J.Troll”) ($1=”J.L.Troll”);print $1}’ grade.txt<br>M.Tansley<br>J.Lulu<br>P.Bunny<br>J.L.Troll<br>L.Tansley</p>
+<p>只显示修改记录<br>[unicom@localhost test1]$ awk ‘{if ($1==”J.Troll”) {$1=”J.L.Troll”;print $1}}’ grade.txt<br>J.L.Troll</p>
+<p>创建新的输出域<br>[unicom@localhost test1]$ awk ‘BEGIN {print “Name\t Difference”}{if ($6&lt;$7){$8=$7-$6;print $1,$8}}’ grade.txt<br>Name     Difference<br>M.Tansley 4<br>J.Lulu 2</p>
+<p>[unicom@localhost test1]$ awk ‘BEGIN {print “Name\t Difference”}{if ($6&lt;$7){diff=$7-$6;print $1,diff}}’ grade.txt<br>Name     Difference<br>M.Tansley 4<br>J.Lulu 2</p>
+<p>增加列值<br>[unicom@localhost test1]$ awk ‘tot+=$6;END{print “club student total points:”tot}’ grade.txt<br>M.Tansley   05/99    48311    Green    8    40   44<br>J.Lulu      06/99    48317    green    9    24   26<br>P.Bunny     02/99    48       Yellow   12   35   28<br>J.Troll     07/99    4842     Brown-3  12   26   26<br>L.Tansley   05/99    4712     Brown-2  12   30   28<br>club student total points:155</p>
+<p>如果文件很大，你只想打印结果部分而不是所有记录，在语句的外面加上{}即<br>可。</p>
+<p>[unicom@localhost test1]$ awk ‘{tot+=$6};END{print “club student total points:”tot}’ grade.txt<br>club student total points:155</p>
+<p>文件长度相加<br>ls -l |awk ‘/^[^d]/ {print $9”\t” %5} {tot+=$5} END {print “total KB:” tot}’</p>
+<h3 id="内置的字符串函数"><a href="#内置的字符串函数" class="headerlink" title="内置的字符串函数"></a>内置的字符串函数</h3><p>g s u b ( r, s ) 在整个$ 0中用s替代r<br>g s u b ( r, s , t ) 在整个t中用s替代r<br>i n d e x ( s , t ) 返回s中字符串t的第一位置<br>l e n g t h ( s ) 返回s长度<br>m a t c h ( s , r ) 测试s是否包含匹配r的字符串<br>s p l i t ( s , a , f s ) 在f s上将s分成序列a<br>s p r i n t ( f m t , e x p ) 返回经f m t格式化后的e x p<br>s u b ( r, s ) 用$ 0中最左边最长的子串代替s<br>s u b s t r ( s , p ) 返回字符串s中从p开始的后缀部分<br>s u b s t r ( s , p , n ) 返回字符串s中从p开始长度为n的后缀部分</p>
+<ol>
+<li>gsub<br>在整个记录中替换一个字符串为另外一个，使用正则表达式格式，/目标模式/，替换模板/。例如改变学生序号4282到4899：<br>awk ‘gsub(/4842/,4899) {print $0}’ grade.txt<br>J.Troll     07/99    4899     Brown-3  12   26   26</li>
+</ol>
+<ol>
+<li>index<br>查询字符串s中t出现的第一位置。必须用双引号将字串括起来。例如返回目标字符串<br>B u n n y中n y出现的第一位置，即字符个数。<br>awk ‘BEGIN {print index(“Bunny”,”ny”)}’ grade.txt<br>4</li>
+</ol>
+<ol>
+<li>length<br>返回所需字符串长度，例如检验字符串J . Tr o l l返回名字及其长度，即人名构成的字符个数。<br>[unicom@localhost test1]$ awk ‘$1==”J.Troll” {print length($1)” “$1}’ grade.txt<br>7 J.Troll</li>
+</ol>
+<ol>
+<li>match<br>m a t c h测试目标字符串是否包含查找字符的一部分。可以对查找部分使用正则表达式，返<br>回值为成功出现的字符排列数。如果未找到，返回0，第一个例子在A N C D中查找d。因其不<br>存在，所以返回0。第二个例子在A N C D中查找D。因其存在，所以返回A N C D中D出现的首位<br>置字符数。第三个例子在学生J . L u l u中查找u。<br>[unicom@localhost test1]$ awk ‘BEGIN{print match (“ANCD”,/d/)}’<br>0<br>[unicom@localhost test1]$ awk ‘BEGIN{print match (“ANCD”,/D/)}’<br>4<br>[unicom@localhost test1]$ awk ‘$1==”J.Lulu” {print match($1,”u”)}’ grade.txt<br>4</li>
+</ol>
+<ol>
+<li>split<br>使用s p l i t返回字符串数组元素个数<br>[unicom@localhost test1]$ awk ‘BEGIN {print split (“123#456#78”,myarray,”#”)}’<br>3<br>Myarry[1]=”123”<br>Myarry[2]=”456”<br>Myarry[3]=”78”</li>
+</ol>
+<ol>
+<li>sub<br>学生J . Tr o l l的记录有两个值一样，“目前级别分”与“最高级别分”。只<br>改变第一个为2 9，第二个仍为2 6不动，操作命令为s u b（/ 2 6 /，” 2 9 “，$ 0），只替换第一个出现2 6的位置。注意J . Tr o l l记录需存在。<br>[unicom@localhost test1]$ awk ‘$1==”J.Troll”; sub(/26/,”29”,$0)’ grade.txt<br>J.Lulu      06/99    48317    green    9    24   29<br>J.Troll     07/99    4842     Brown-3  12   26   26<br>J.Troll     07/99    4842     Brown-3  12   29   26</li>
+</ol>
+<ol>
+<li>substr<br>s u b s t r是一个很有用的函数。它按照起始位置及长度返回字符串的一部分<br>[unicom@localhost test1]$ awk ‘$1==”L.Tansley” {print substr($1,1,5)}’ grade.txt<br>L.Tan</li>
+</ol>
+<p>s u b s t r的另一种形式是返回字符串后缀或指定位置后面字,如：<br>awk ‘{print substr($1,3)}’ grade.txt</p>
+<ol>
+<li>从s h e l l中向a w k传入字符串<br>主要是通过 | 来实现</li>
+</ol>
+<h3 id="字符串屏蔽序列"><a href="#字符串屏蔽序列" class="headerlink" title="字符串屏蔽序列"></a>字符串屏蔽序列</h3><p>\ b 退格键               \ t t a b键<br>\ f 走纸换页            \ d d d 八进制值<br>\ n 新行                \ c 任意其他特殊字符，例如\ \为反斜线符号<br>\ r 回车键</p>
+<h3 id="printf修饰符"><a href="#printf修饰符" class="headerlink" title="printf修饰符"></a>printf修饰符</h3><p>表9-6 awk printf修饰符</p>
+<ul>
+<li>左对齐<br>Wi d t h 域的步长，用0表示0步长<br>. p r e c 最大字符串长度，或小数点右边的位数<br>表9-7 awk printf格式<br>% c A S C I I字符<br>% d 整数<br>% e 浮点数，科学记数法<br>% f 浮点数，例如（1 2 3 . 4 4）<br>% g a w k决定使用哪种浮点数转换e或者f<br>% o 八进制数<br>% s 字符串<br>% x 十六进制数</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay01.jpg" alt="发条橙子 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag">#Linux</a>
+          
+            <a href="/tags/Shell/" rel="tag">#Shell</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/linux_cmd4grep.html" rel="next" title="Linux & Shell - grep">
+                <i class="fa fa-chevron-left"></i> Linux & Shell - grep
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/linux_cmd4sed.html" rel="prev" title="Linux & Shell - sed">
+                Linux & Shell - sed <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="linux_cmd4awk.html"
+           data-title="Linux & Shell - awk" data-url="http://www.fatiao.site/linux_cmd4awk.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="发条橙子" />
+          <p class="site-author-name" itemprop="name">发条橙子</p>
+          <p class="site-description motion-element" itemprop="description">不积跬步，无以至千里</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#调用awk"><span class="nav-number">1.</span> <span class="nav-text">调用awk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk脚本"><span class="nav-number">2.</span> <span class="nav-text">awk脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#域和记录"><span class="nav-number">2.1.</span> <span class="nav-text">域和记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#awk中正则表达式及其操作"><span class="nav-number">2.2.</span> <span class="nav-text">awk中正则表达式及其操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元字符"><span class="nav-number">2.3.</span> <span class="nav-text">元字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件操作符"><span class="nav-number">2.4.</span> <span class="nav-text">条件操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#awk的内置变量"><span class="nav-number">2.5.</span> <span class="nav-text">awk的内置变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NF-NR-FILENAME"><span class="nav-number">2.6.</span> <span class="nav-text">NF,NR,FILENAME</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#awk操作符"><span class="nav-number">2.7.</span> <span class="nav-text">awk操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内置的字符串函数"><span class="nav-number">2.8.</span> <span class="nav-text">内置的字符串函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串屏蔽序列"><span class="nav-number">2.9.</span> <span class="nav-text">字符串屏蔽序列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#printf修饰符"><span class="nav-number">2.10.</span> <span class="nav-text">printf修饰符</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">发条橙子</span>
+</div>
+
+<!--
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+-->
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ftcz"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("E68bJY5qtsLfglErhVHLcN8w-gzGzoHsz", "Wjc3t8GBeMfc0xUJJi0JiWaW");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
