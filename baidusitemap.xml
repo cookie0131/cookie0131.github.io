@@ -602,12 +602,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/git_addcommit.html</loc>
+    <loc>http://www.fatiao.site/git_stausdiff.html</loc>
     <lastmod>2016-10-04T15:12:14.000Z</lastmod>
     <data>
         <display>
-        <title>Git：把文件添加到版本库</title>
-        <pubTime>2012-03-09T16:00:00.000Z</pubTime>
+        <title>Git：查看版本库变更状态</title>
+        <pubTime>2012-03-31T16:00:00.000Z</pubTime>
         
         <tag>devops</tag>
          
@@ -624,12 +624,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/git_stausdiff.html</loc>
+    <loc>http://www.fatiao.site/git_addcommit.html</loc>
     <lastmod>2016-10-04T15:12:14.000Z</lastmod>
     <data>
         <display>
-        <title>Git：查看版本库变更状态</title>
-        <pubTime>2012-03-31T16:00:00.000Z</pubTime>
+        <title>Git：把文件添加到版本库</title>
+        <pubTime>2012-03-09T16:00:00.000Z</pubTime>
         
         <tag>devops</tag>
          
@@ -1133,9 +1133,9 @@
         
         <tag>软件测试</tag>
          
-        <tag>移动测试</tag>
-         
         <tag>Android</tag>
+         
+        <tag>移动测试</tag>
          
          
            
@@ -1279,9 +1279,9 @@
         
         <tag>软件测试</tag>
          
-        <tag>移动测试</tag>
-         
         <tag>Android</tag>
+         
+        <tag>移动测试</tag>
          
          
            
@@ -1294,14 +1294,16 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/mobile_appms.html</loc>
+    <loc>http://www.fatiao.site/mobile_ddms.html</loc>
     <lastmod>2016-09-28T09:32:04.000Z</lastmod>
     <data>
         <display>
-        <title>常见APP应用模式</title>
-        <pubTime>2015-02-02T16:00:00.000Z</pubTime>
+        <title>Ddms</title>
+        <pubTime>2015-04-05T16:00:00.000Z</pubTime>
         
         <tag>软件测试</tag>
+         
+        <tag>Android</tag>
          
         <tag>移动测试</tag>
          
@@ -1325,9 +1327,9 @@
         
         <tag>软件测试</tag>
          
-        <tag>移动测试</tag>
-         
         <tag>Android</tag>
+         
+        <tag>移动测试</tag>
          
          
            
@@ -1340,18 +1342,16 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/mobile_ddms.html</loc>
+    <loc>http://www.fatiao.site/mobile_appms.html</loc>
     <lastmod>2016-09-28T09:32:04.000Z</lastmod>
     <data>
         <display>
-        <title>Ddms</title>
-        <pubTime>2015-04-05T16:00:00.000Z</pubTime>
+        <title>常见APP应用模式</title>
+        <pubTime>2015-02-02T16:00:00.000Z</pubTime>
         
         <tag>软件测试</tag>
          
         <tag>移动测试</tag>
-         
-        <tag>Android</tag>
          
          
            
@@ -1444,12 +1444,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/python_func1.html</loc>
+    <loc>http://www.fatiao.site/python_listgenetate.html</loc>
     <lastmod>2016-09-28T08:52:42.000Z</lastmod>
     <data>
         <display>
-        <title>Python - 函数（一）</title>
-        <pubTime>2010-06-26T16:00:00.000Z</pubTime>
+        <title>Python - 列表生成式</title>
+        <pubTime>2010-07-25T16:00:00.000Z</pubTime>
         
         <tag>Python</tag>
          
@@ -1464,12 +1464,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/python_listgenetate.html</loc>
+    <loc>http://www.fatiao.site/python_func1.html</loc>
     <lastmod>2016-09-28T08:52:42.000Z</lastmod>
     <data>
         <display>
-        <title>Python - 列表生成式</title>
-        <pubTime>2010-07-25T16:00:00.000Z</pubTime>
+        <title>Python - 函数（一）</title>
+        <pubTime>2010-06-26T16:00:00.000Z</pubTime>
         
         <tag>Python</tag>
          
@@ -2360,12 +2360,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/db_sql5.html</loc>
+    <loc>http://www.fatiao.site/db_sql4.html</loc>
     <lastmod>2016-09-27T03:39:00.000Z</lastmod>
     <data>
         <display>
-        <title>Db - 数据库基本操作(四):数据备份</title>
-        <pubTime>2010-02-17T16:00:00.000Z</pubTime>
+        <title>Db - 数据库基本操作(四):数据类型</title>
+        <pubTime>2010-02-03T16:00:00.000Z</pubTime>
         
         <tag>Sql</tag>
          
@@ -2382,12 +2382,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/db_sql4.html</loc>
+    <loc>http://www.fatiao.site/db_sql5.html</loc>
     <lastmod>2016-09-27T03:39:00.000Z</lastmod>
     <data>
         <display>
-        <title>Db - 数据库基本操作(四):数据类型</title>
-        <pubTime>2010-02-03T16:00:00.000Z</pubTime>
+        <title>Db - 数据库基本操作(四):数据备份</title>
+        <pubTime>2010-02-17T16:00:00.000Z</pubTime>
         
         <tag>Sql</tag>
          
@@ -2607,9 +2607,9 @@
         <title>达达后端代码上线流程演进</title>
         <pubTime>2016-09-18T16:00:00.000Z</pubTime>
         
-        <tag>自动化测试</tag>
-         
         <tag>软件测试</tag>
+         
+        <tag>自动化测试</tag>
          
         <tag>持续集成</tag>
          
