@@ -235,9 +235,9 @@
         <title>Flask：Web表单</title>
         <pubTime>2013-06-17T16:00:00.000Z</pubTime>
         
-        <tag>Python</tag>
-         
         <tag>Flask</tag>
+         
+        <tag>Python</tag>
          
          
            
@@ -257,9 +257,9 @@
         <title>Flask：模板</title>
         <pubTime>2013-04-11T16:00:00.000Z</pubTime>
         
-        <tag>Python</tag>
-         
         <tag>Flask</tag>
+         
+        <tag>Python</tag>
          
          
            
@@ -279,9 +279,9 @@
         <title>Flask：数据库</title>
         <pubTime>2013-08-05T16:00:00.000Z</pubTime>
         
-        <tag>Python</tag>
-         
         <tag>Flask</tag>
+         
+        <tag>Python</tag>
          
          
            
@@ -301,9 +301,9 @@
         <title>Flask：Hello,World!</title>
         <pubTime>2013-02-09T16:00:00.000Z</pubTime>
         
-        <tag>Python</tag>
-         
         <tag>Flask</tag>
+         
+        <tag>Python</tag>
          
          
            
@@ -602,12 +602,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/git_stausdiff.html</loc>
+    <loc>http://www.fatiao.site/git_addcommit.html</loc>
     <lastmod>2016-10-04T15:12:14.000Z</lastmod>
     <data>
         <display>
-        <title>Git：查看版本库变更状态</title>
-        <pubTime>2012-03-31T16:00:00.000Z</pubTime>
+        <title>Git：把文件添加到版本库</title>
+        <pubTime>2012-03-09T16:00:00.000Z</pubTime>
         
         <tag>devops</tag>
          
@@ -624,12 +624,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/git_addcommit.html</loc>
+    <loc>http://www.fatiao.site/git_stausdiff.html</loc>
     <lastmod>2016-10-04T15:12:14.000Z</lastmod>
     <data>
         <display>
-        <title>Git：把文件添加到版本库</title>
-        <pubTime>2012-03-09T16:00:00.000Z</pubTime>
+        <title>Git：查看版本库变更状态</title>
+        <pubTime>2012-03-31T16:00:00.000Z</pubTime>
         
         <tag>devops</tag>
          
@@ -1444,12 +1444,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/python_listgenetate.html</loc>
+    <loc>http://www.fatiao.site/python_func1.html</loc>
     <lastmod>2016-09-28T08:52:42.000Z</lastmod>
     <data>
         <display>
-        <title>Python - 列表生成式</title>
-        <pubTime>2010-07-25T16:00:00.000Z</pubTime>
+        <title>Python - 函数（一）</title>
+        <pubTime>2010-06-26T16:00:00.000Z</pubTime>
         
         <tag>Python</tag>
          
@@ -1464,12 +1464,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/python_func1.html</loc>
+    <loc>http://www.fatiao.site/python_listgenetate.html</loc>
     <lastmod>2016-09-28T08:52:42.000Z</lastmod>
     <data>
         <display>
-        <title>Python - 函数（一）</title>
-        <pubTime>2010-06-26T16:00:00.000Z</pubTime>
+        <title>Python - 列表生成式</title>
+        <pubTime>2010-07-25T16:00:00.000Z</pubTime>
         
         <tag>Python</tag>
          
@@ -2607,9 +2607,9 @@
         <title>达达后端代码上线流程演进</title>
         <pubTime>2016-09-18T16:00:00.000Z</pubTime>
         
-        <tag>软件测试</tag>
-         
         <tag>自动化测试</tag>
+         
+        <tag>软件测试</tag>
          
         <tag>持续集成</tag>
          
@@ -2850,9 +2850,9 @@
         
         <tag>Jenkins</tag>
          
-        <tag>测试</tag>
-         
         <tag>持续集成</tag>
+         
+        <tag>测试</tag>
          
          
            
