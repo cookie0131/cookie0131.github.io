@@ -4,6 +4,734 @@
 
     
   <url>
+    <loc>http://www.fatiao.site/python_setup.html</loc>
+    <lastmod>2016-10-08T03:30:07.000Z</lastmod>
+    <data>
+        <display>
+        <title>依赖安装：setup.py和requirements.txt的对比</title>
+        <pubTime>2012-11-12T16:00:00.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.fatiao.site/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/jiagou_httpstatus.html</loc>
+    <lastmod>2016-10-08T01:28:48.000Z</lastmod>
+    <data>
+        <display>
+        <title>HTTP状态码</title>
+        <pubTime>2012-10-14T16:00:00.000Z</pubTime>
+        
+        <tag>架构</tag>
+         
+         
+           
+             
+              <breadCrumb title="架构" url="http://www.fatiao.site/categories/%E6%9E%B6%E6%9E%84/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/devops_testlink.html</loc>
+    <lastmod>2016-10-08T01:28:41.000Z</lastmod>
+    <data>
+        <display>
+        <title>Testlink环境搭建</title>
+        <pubTime>2011-12-08T16:00:00.000Z</pubTime>
+        
+        <tag>devops</tag>
+         
+         
+           
+             
+              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/devops_nginxconfig.html</loc>
+    <lastmod>2016-10-05T02:19:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>Nginx.conf配置文件</title>
+        <pubTime>2011-11-10T16:00:00.000Z</pubTime>
+        
+        <tag>devops</tag>
+         
+         
+           
+             
+              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/anquan_sqlinj24.html</loc>
+    <lastmod>2016-10-05T01:15:57.000Z</lastmod>
+    <data>
+        <display>
+        <title>Sql注入攻击与防御总结：第4章 利用SQL注入</title>
+        <pubTime>2011-07-31T16:00:00.000Z</pubTime>
+        
+        <tag>安全</tag>
+         
+        <tag>sql注入</tag>
+         
+         
+           
+             
+              <breadCrumb title="安全" url="http://www.fatiao.site/categories/%E5%AE%89%E5%85%A8/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/git_tag.html</loc>
+    <lastmod>2016-10-04T16:24:39.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git：创建标签</title>
+        <pubTime>2012-09-26T16:00:00.000Z</pubTime>
+        
+        <tag>devops</tag>
+         
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/python_urllib2.html</loc>
+    <lastmod>2016-10-04T16:20:09.000Z</lastmod>
+    <data>
+        <display>
+        <title>python urllib2详解</title>
+        <pubTime>2014-04-18T16:00:00.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.fatiao.site/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/python_configParser.html</loc>
+    <lastmod>2016-10-04T16:19:07.000Z</lastmod>
+    <data>
+        <display>
+        <title>Python 解析配置模块之ConfigParser</title>
+        <pubTime>2014-03-12T08:01:23.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.fatiao.site/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/python_datetime.html</loc>
+    <lastmod>2016-10-04T16:18:38.000Z</lastmod>
+    <data>
+        <display>
+        <title>python时间处理</title>
+        <pubTime>2014-02-26T16:00:00.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.fatiao.site/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/python_threading.html</loc>
+    <lastmod>2016-10-04T16:16:05.000Z</lastmod>
+    <data>
+        <display>
+        <title>Python多线程异步任务队列</title>
+        <pubTime>2014-02-11T16:00:00.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.fatiao.site/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/python_smtplib.html</loc>
+    <lastmod>2016-10-04T16:13:58.000Z</lastmod>
+    <data>
+        <display>
+        <title>使用python发送邮件和接收邮件</title>
+        <pubTime>2014-01-26T08:01:23.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.fatiao.site/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/flask_3.html</loc>
+    <lastmod>2016-10-04T16:11:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>Flask：Web表单</title>
+        <pubTime>2013-06-17T16:00:00.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>Flask</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.fatiao.site/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/flask_2.html</loc>
+    <lastmod>2016-10-04T16:10:15.000Z</lastmod>
+    <data>
+        <display>
+        <title>Flask：模板</title>
+        <pubTime>2013-04-11T16:00:00.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>Flask</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.fatiao.site/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/flask_4.html</loc>
+    <lastmod>2016-10-04T15:53:05.000Z</lastmod>
+    <data>
+        <display>
+        <title>Flask：数据库</title>
+        <pubTime>2013-08-05T16:00:00.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>Flask</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.fatiao.site/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/flask_1.html</loc>
+    <lastmod>2016-10-04T15:43:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>Flask：Hello,World!</title>
+        <pubTime>2013-02-09T16:00:00.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>Flask</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.fatiao.site/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/git_alias.html</loc>
+    <lastmod>2016-10-04T15:41:25.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git：配置别名</title>
+        <pubTime>2012-08-18T16:00:00.000Z</pubTime>
+        
+        <tag>devops</tag>
+         
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/git_ignore.html</loc>
+    <lastmod>2016-10-04T15:40:11.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git：忽略某个文件</title>
+        <pubTime>2012-08-10T16:00:00.000Z</pubTime>
+        
+        <tag>devops</tag>
+         
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/git_delete.html</loc>
+    <lastmod>2016-10-04T15:38:48.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git：删除分支</title>
+        <pubTime>2012-08-02T16:00:00.000Z</pubTime>
+        
+        <tag>devops</tag>
+         
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/git_stash.html</loc>
+    <lastmod>2016-10-04T15:36:46.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git：临时存储开发分支</title>
+        <pubTime>2012-07-26T16:00:00.000Z</pubTime>
+        
+        <tag>devops</tag>
+         
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/git_fixmergeerr.html</loc>
+    <lastmod>2016-10-04T15:32:47.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git：解决冲突</title>
+        <pubTime>2012-07-18T16:00:00.000Z</pubTime>
+        
+        <tag>devops</tag>
+         
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/git_createbranch.html</loc>
+    <lastmod>2016-10-04T15:30:23.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git：创建于合并分支</title>
+        <pubTime>2012-07-06T16:00:00.000Z</pubTime>
+        
+        <tag>devops</tag>
+         
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/git_clone.html</loc>
+    <lastmod>2016-10-04T15:29:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git：从远程仓库克隆</title>
+        <pubTime>2012-06-27T16:00:00.000Z</pubTime>
+        
+        <tag>devops</tag>
+         
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/git_remote.html</loc>
+    <lastmod>2016-10-04T15:27:46.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git：添加远程仓库</title>
+        <pubTime>2012-06-14T16:00:00.000Z</pubTime>
+        
+        <tag>devops</tag>
+         
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/git_rm.html</loc>
+    <lastmod>2016-10-04T15:25:53.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git：删除文件</title>
+        <pubTime>2012-06-05T16:00:00.000Z</pubTime>
+        
+        <tag>devops</tag>
+         
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/git_checkout.html</loc>
+    <lastmod>2016-10-04T15:24:25.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git：撤销修改</title>
+        <pubTime>2012-05-20T16:00:00.000Z</pubTime>
+        
+        <tag>devops</tag>
+         
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/git_managerchange.html</loc>
+    <lastmod>2016-10-04T15:23:28.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git：管理修改</title>
+        <pubTime>2012-05-11T16:00:00.000Z</pubTime>
+        
+        <tag>devops</tag>
+         
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/git_workmodule.html</loc>
+    <lastmod>2016-10-04T15:21:25.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git：工作区和暂存区</title>
+        <pubTime>2012-04-28T16:00:00.000Z</pubTime>
+        
+        <tag>devops</tag>
+         
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/git_logreset.html</loc>
+    <lastmod>2016-10-04T15:17:46.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git：版本回退</title>
+        <pubTime>2012-04-16T16:00:00.000Z</pubTime>
+        
+        <tag>devops</tag>
+         
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/git_stausdiff.html</loc>
+    <lastmod>2016-10-04T15:12:14.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git：查看版本库变更状态</title>
+        <pubTime>2012-03-31T16:00:00.000Z</pubTime>
+        
+        <tag>devops</tag>
+         
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/git_addcommit.html</loc>
+    <lastmod>2016-10-04T15:12:14.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git：把文件添加到版本库</title>
+        <pubTime>2012-03-09T16:00:00.000Z</pubTime>
+        
+        <tag>devops</tag>
+         
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/git_init.html</loc>
+    <lastmod>2016-10-04T15:09:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git：创建版本库</title>
+        <pubTime>2012-02-17T16:00:00.000Z</pubTime>
+        
+        <tag>devops</tag>
+         
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/git_install.html</loc>
+    <lastmod>2016-10-04T15:09:13.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git：安装</title>
+        <pubTime>2012-01-28T16:00:00.000Z</pubTime>
+        
+        <tag>devops</tag>
+         
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/python_stringcon.html</loc>
+    <lastmod>2016-10-04T15:03:02.000Z</lastmod>
+    <data>
+        <display>
+        <title>Python字符串连接的三种方法解析配置模块之ConfigParser</title>
+        <pubTime>2014-04-01T08:01:23.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.fatiao.site/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/git_jianjie.html</loc>
+    <lastmod>2016-10-04T15:02:12.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git：简介</title>
+        <pubTime>2012-01-08T16:00:00.000Z</pubTime>
+        
+        <tag>devops</tag>
+         
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.fatiao.site/mobile_androidstart.html</loc>
     <lastmod>2016-09-29T08:03:45.000Z</lastmod>
     <data>
@@ -76,28 +804,6 @@
         <display>
         <title>Sql注入攻击与防御总结：第6章 利用操作系统</title>
         <pubTime>2011-09-25T16:00:00.000Z</pubTime>
-        
-        <tag>安全</tag>
-         
-        <tag>sql注入</tag>
-         
-         
-           
-             
-              <breadCrumb title="安全" url="http://www.fatiao.site/categories/%E5%AE%89%E5%85%A8/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.fatiao.site/anquan_sqlinj24.html</loc>
-    <lastmod>2016-09-29T07:40:26.000Z</lastmod>
-    <data>
-        <display>
-        <title>Sql注入攻击与防御总结：第4章 利用SQL注入</title>
-        <pubTime>2011-07-21T16:00:00.000Z</pubTime>
         
         <tag>安全</tag>
          
@@ -610,12 +1316,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/mobile_ddms.html</loc>
+    <loc>http://www.fatiao.site/mobile_adb.html</loc>
     <lastmod>2016-09-28T09:32:04.000Z</lastmod>
     <data>
         <display>
-        <title>Ddms</title>
-        <pubTime>2015-04-05T16:00:00.000Z</pubTime>
+        <title>Adb</title>
+        <pubTime>2015-03-14T16:00:00.000Z</pubTime>
         
         <tag>软件测试</tag>
          
@@ -634,12 +1340,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/mobile_adb.html</loc>
+    <loc>http://www.fatiao.site/mobile_ddms.html</loc>
     <lastmod>2016-09-28T09:32:04.000Z</lastmod>
     <data>
         <display>
-        <title>Adb</title>
-        <pubTime>2015-03-14T16:00:00.000Z</pubTime>
+        <title>Ddms</title>
+        <pubTime>2015-04-05T16:00:00.000Z</pubTime>
         
         <tag>软件测试</tag>
          
@@ -1127,9 +1833,9 @@
         <title>静态代码扫描工具：Infer</title>
         <pubTime>2015-10-12T16:00:00.000Z</pubTime>
         
-        <tag>自动化测试</tag>
-         
         <tag>ci</tag>
+         
+        <tag>自动化测试</tag>
          
          
            
@@ -1171,9 +1877,9 @@
         <title>用Pyenv搭建单机多版本Python开发环境</title>
         <pubTime>2015-11-07T16:00:00.000Z</pubTime>
         
-        <tag>运维</tag>
-         
         <tag>Python</tag>
+         
+        <tag>运维</tag>
          
         <tag>Pyenv</tag>
          
@@ -1901,13 +2607,13 @@
         <title>达达后端代码上线流程演进</title>
         <pubTime>2016-09-18T16:00:00.000Z</pubTime>
         
-        <tag>持续集成</tag>
-         
         <tag>软件测试</tag>
          
-        <tag>流程管理</tag>
-         
         <tag>自动化测试</tag>
+         
+        <tag>持续集成</tag>
+         
+        <tag>流程管理</tag>
          
          
            
@@ -1924,11 +2630,11 @@
         <title>玩转Jenkins - sub-modules</title>
         <pubTime>2016-08-25T16:00:00.000Z</pubTime>
         
+        <tag>软件测试</tag>
+         
         <tag>Jenkins</tag>
          
         <tag>持续集成</tag>
-         
-        <tag>软件测试</tag>
          
          
            
@@ -1948,11 +2654,11 @@
         <title>玩转Jenkins - 参数化构建</title>
         <pubTime>2016-08-14T16:00:00.000Z</pubTime>
         
+        <tag>软件测试</tag>
+         
         <tag>Jenkins</tag>
          
         <tag>持续集成</tag>
-         
-        <tag>软件测试</tag>
          
          
            
@@ -1972,11 +2678,11 @@
         <title>玩转Jenkins - 解决Tomcat启动后进程丢失</title>
         <pubTime>2016-08-17T16:00:00.000Z</pubTime>
         
+        <tag>软件测试</tag>
+         
         <tag>Jenkins</tag>
          
         <tag>持续集成</tag>
-         
-        <tag>软件测试</tag>
          
          
            
@@ -1996,11 +2702,11 @@
         <title>玩转Jenkins - 创建Java任务</title>
         <pubTime>2016-08-05T16:00:00.000Z</pubTime>
         
+        <tag>软件测试</tag>
+         
         <tag>Jenkins</tag>
          
         <tag>持续集成</tag>
-         
-        <tag>软件测试</tag>
          
          
            
@@ -2020,11 +2726,11 @@
         <title>玩转Jenkins - 安装</title>
         <pubTime>2016-08-01T16:00:00.000Z</pubTime>
         
+        <tag>软件测试</tag>
+         
         <tag>Jenkins</tag>
          
         <tag>持续集成</tag>
-         
-        <tag>软件测试</tag>
          
          
            
@@ -2044,11 +2750,11 @@
         <title>玩转Jenkins - 分布式构建</title>
         <pubTime>2016-08-08T16:00:00.000Z</pubTime>
         
+        <tag>软件测试</tag>
+         
         <tag>Jenkins</tag>
          
         <tag>持续集成</tag>
-         
-        <tag>软件测试</tag>
          
          
            
@@ -2068,11 +2774,11 @@
         <title>玩转Jenkins - Jenkins + Gitlab实现代码变更后自动部署</title>
         <pubTime>2016-08-10T16:00:00.000Z</pubTime>
         
+        <tag>软件测试</tag>
+         
         <tag>Jenkins</tag>
          
         <tag>持续集成</tag>
-         
-        <tag>软件测试</tag>
          
         <tag>Gitlab</tag>
          
@@ -2094,11 +2800,11 @@
         <title>玩转Jenkins - 插件：FTP publisher plugin</title>
         <pubTime>2016-09-01T16:00:00.000Z</pubTime>
         
+        <tag>软件测试</tag>
+         
         <tag>Jenkins</tag>
          
         <tag>持续集成</tag>
-         
-        <tag>软件测试</tag>
          
          
            
@@ -2118,11 +2824,11 @@
         <title>玩转Jenkins - 忘记密码怎么办？</title>
         <pubTime>2016-08-22T16:00:00.000Z</pubTime>
         
+        <tag>软件测试</tag>
+         
         <tag>Jenkins</tag>
          
         <tag>持续集成</tag>
-         
-        <tag>软件测试</tag>
          
          
            

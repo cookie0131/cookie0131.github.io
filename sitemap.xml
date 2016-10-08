@@ -2,6 +2,244 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fatiao.site/python_setup.html</loc>
+    
+    <lastmod>2016-10-08T03:30:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/jiagou_httpstatus.html</loc>
+    
+    <lastmod>2016-10-08T01:28:48.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/devops_testlink.html</loc>
+    
+    <lastmod>2016-10-08T01:28:41.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/devops_nginxconfig.html</loc>
+    
+    <lastmod>2016-10-05T02:19:45.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/anquan_sqlinj24.html</loc>
+    
+    <lastmod>2016-10-05T01:15:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/git_tag.html</loc>
+    
+    <lastmod>2016-10-04T16:24:39.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/python_urllib2.html</loc>
+    
+    <lastmod>2016-10-04T16:20:09.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/python_configParser.html</loc>
+    
+    <lastmod>2016-10-04T16:19:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/python_datetime.html</loc>
+    
+    <lastmod>2016-10-04T16:18:38.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/python_threading.html</loc>
+    
+    <lastmod>2016-10-04T16:16:05.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/python_smtplib.html</loc>
+    
+    <lastmod>2016-10-04T16:13:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/flask_3.html</loc>
+    
+    <lastmod>2016-10-04T16:11:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/flask_2.html</loc>
+    
+    <lastmod>2016-10-04T16:10:15.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/flask_4.html</loc>
+    
+    <lastmod>2016-10-04T15:53:05.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/flask_1.html</loc>
+    
+    <lastmod>2016-10-04T15:43:52.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/git_alias.html</loc>
+    
+    <lastmod>2016-10-04T15:41:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/git_ignore.html</loc>
+    
+    <lastmod>2016-10-04T15:40:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/git_delete.html</loc>
+    
+    <lastmod>2016-10-04T15:38:48.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/git_stash.html</loc>
+    
+    <lastmod>2016-10-04T15:36:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/git_fixmergeerr.html</loc>
+    
+    <lastmod>2016-10-04T15:32:47.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/git_createbranch.html</loc>
+    
+    <lastmod>2016-10-04T15:30:23.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/git_clone.html</loc>
+    
+    <lastmod>2016-10-04T15:29:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/git_remote.html</loc>
+    
+    <lastmod>2016-10-04T15:27:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/git_rm.html</loc>
+    
+    <lastmod>2016-10-04T15:25:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/git_checkout.html</loc>
+    
+    <lastmod>2016-10-04T15:24:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/git_managerchange.html</loc>
+    
+    <lastmod>2016-10-04T15:23:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/git_workmodule.html</loc>
+    
+    <lastmod>2016-10-04T15:21:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/git_logreset.html</loc>
+    
+    <lastmod>2016-10-04T15:17:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/git_stausdiff.html</loc>
+    
+    <lastmod>2016-10-04T15:12:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/git_addcommit.html</loc>
+    
+    <lastmod>2016-10-04T15:12:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/git_init.html</loc>
+    
+    <lastmod>2016-10-04T15:09:33.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/git_install.html</loc>
+    
+    <lastmod>2016-10-04T15:09:13.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/python_stringcon.html</loc>
+    
+    <lastmod>2016-10-04T15:03:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/git_jianjie.html</loc>
+    
+    <lastmod>2016-10-04T15:02:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fatiao.site/mobile_androidstart.html</loc>
     
     <lastmod>2016-09-29T08:03:45.000Z</lastmod>
@@ -26,13 +264,6 @@
     <loc>http://www.fatiao.site/anquan_sqlinj26.html</loc>
     
     <lastmod>2016-09-29T07:46:41.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fatiao.site/anquan_sqlinj24.html</loc>
-    
-    <lastmod>2016-09-29T07:40:26.000Z</lastmod>
     
   </url>
   
@@ -198,14 +429,14 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/mobile_ddms.html</loc>
+    <loc>http://www.fatiao.site/mobile_adb.html</loc>
     
     <lastmod>2016-09-28T09:32:04.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/mobile_adb.html</loc>
+    <loc>http://www.fatiao.site/mobile_ddms.html</loc>
     
     <lastmod>2016-09-28T09:32:04.000Z</lastmod>
     

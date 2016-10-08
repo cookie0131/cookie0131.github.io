@@ -1,0 +1,773 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+  
+
+<link href="//cdn.bootcss.com/font-awesome/4.4.0/fonts/fontawesome-webfont.svg" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python,Flask," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="概述如果你已经阅读过上一个章节,那么你应该已经完成了充分的准备工作并且创建了一个很简单的具有如下文件结构的Web应用:12345678910microblog    |-flask文件夹    |-&amp;lt;一些虚拟环境的文件&amp;gt;    |-app文件夹    |  |-static文件夹    |  |-templates文件夹    |  |-__init__.py文件    |  |-vi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flask：模板">
+<meta property="og:url" content="http://www.fatiao.site/flask_2.html">
+<meta property="og:site_name" content="小发条的技术人生">
+<meta property="og:description" content="概述如果你已经阅读过上一个章节,那么你应该已经完成了充分的准备工作并且创建了一个很简单的具有如下文件结构的Web应用:12345678910microblog    |-flask文件夹    |-&amp;lt;一些虚拟环境的文件&amp;gt;    |-app文件夹    |  |-static文件夹    |  |-templates文件夹    |  |-__init__.py文件    |  |-vi">
+<meta property="og:updated_time" content="2016-10-04T16:10:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Flask：模板">
+<meta name="twitter:description" content="概述如果你已经阅读过上一个章节,那么你应该已经完成了充分的准备工作并且创建了一个很简单的具有如下文件结构的Web应用:12345678910microblog    |-flask文件夹    |-&amp;lt;一些虚拟环境的文件&amp;gt;    |-app文件夹    |  |-static文件夹    |  |-templates文件夹    |  |-__init__.py文件    |  |-vi">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.fatiao.site/flask_2.html"/>
+
+  <title> Python,Flask, - Flask：模板 | 小发条的技术人生 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=58555379";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">小发条的技术人生</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">测试攻城狮 pythoner 伪程序猿一枚</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Flask：模板
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2013-04-12T00:00:00+08:00" content="2013-04-12">
+              2013-04-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/flask_2.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="flask_2.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/flask_2.html" class="leancloud_visitors" data-flag-title="Flask：模板">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>如果你已经阅读过上一个章节,那么你应该已经完成了充分的准备工作并且创建了一个很简单的具有如下文件结构的Web应用:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">microblog</div><div class="line">    |-flask文件夹</div><div class="line">    |-&lt;一些虚拟环境的文件&gt;</div><div class="line">    |-app文件夹</div><div class="line">    |  |-static文件夹</div><div class="line">    |  |-templates文件夹</div><div class="line">    |  |-__init__.py文件</div><div class="line">    |  |-views.py文件</div><div class="line">    |-tmp文件夹</div><div class="line">    |-run.py文件</div></pre></td></tr></table></figure></p>
+<p>想要运行这个程序的话执行run.py文件,然后在你的浏览器里边打开<a href="http://localhost:5000这个地址.我们在后面的章节会不断地从前一章节结束的地方继续开发我们的应用,所以你要确保你的环境已经正确安装,并且你的应用能够正常运行。" target="_blank" rel="external">http://localhost:5000这个地址.我们在后面的章节会不断地从前一章节结束的地方继续开发我们的应用,所以你要确保你的环境已经正确安装,并且你的应用能够正常运行。</a><br><a id="more"></a></p>
+<h2 id="为什么我们需要使用模板系统"><a href="#为什么我们需要使用模板系统" class="headerlink" title="为什么我们需要使用模板系统"></a>为什么我们需要使用模板系统</h2><p>让我们来考虑一下,我们接下来怎么样扩展我们的小程序.<br>我们要在微博应用里边实现一个非常基本的功能,在首页上面显示一个欢迎已登录用户的标题.暂且忽略当前应用里边没有用户的状况,我将会在稍后解决这个问题.<br>要显示一个美观大方的标题,最简单的方法就是改变我们提供视图的方式来显示一些HTML代码,不如这样子:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">from app import app</div><div class="line"> </div><div class="line">@app.route(&apos;/&apos;)</div><div class="line">@app.route(&apos;/index&apos;)</div><div class="line">def index():</div><div class="line">    user = &#123; &apos;nickname&apos;: &apos;Miguel&apos; &#125; # fake user</div><div class="line">    return &apos;&apos;&apos;</div><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &lt;title&gt;Home Page&lt;/title&gt;</div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">    &lt;h1&gt;Hello, &apos;&apos;&apos; + user[&apos;nickname&apos;] + &apos;&apos;&apos;&lt;/h1&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>现在,在你的浏览器里面刷新一下看看,是不是很爽?</p>
+<p>##模板系统拯救世界<br>如果保持业务逻辑和表现的分离，你的网站结构将会组织的更好。不要不信，如果你用python完成了业务代码，你甚至可以请一个网站设计师帮你完成剩下的部分。模板系统就是帮你实现业务和表现分离的。<br>让我们完成第一个模板(fileapp/templates/index.html):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &lt;title&gt;&#123;&#123;title&#125;&#125; - microblog&lt;/title&gt;</div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">      &lt;h1&gt;Hello, &#123;&#123;user.nickname&#125;&#125;!&lt;/h1&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>如你所见，我们只是写了一个普通的HTML页面，唯一跟HTML有区别的就是里面掺杂了一些以 { { … } } 组成的动态内容占位符。</p>
+<p>现在让我们来看看视图函数中是如何处理这个模板的(fileapp/views.py):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">from flask import render_template</div><div class="line">from app import app</div><div class="line"> </div><div class="line">@app.route(&apos;/&apos;)</div><div class="line">@app.route(&apos;/index&apos;)</div><div class="line">def index():</div><div class="line">    user = &#123; &apos;nickname&apos;: &apos;Miguel&apos; &#125; # fake user</div><div class="line">    return render_template(&quot;index.html&quot;,</div><div class="line">        title = &apos;Home&apos;,</div><div class="line">        user = user)</div></pre></td></tr></table></figure></p>
+<p>测试这段程序的重点就是看看模板系统是如何工作的。你可以比较浏览器中渲染后的html页面源码与模板文件源码之间的区别。<br>在上面的程序中，我们从 Flask 框架 import 了一个叫 render_template 的新函数，并用这个函数来渲染模板。并给这个函数赋予了模板文件名和一些变量作为参数。它将导入的变量替换掉模板中的变量占位符，并返回渲染后的模板。<br>让我们了解的更深入点。在 Flask 底层，render_template 函数实际上是调用了 Flask 的一个组件： Jinja2 模板处理引擎。是 Jinjia2 用导入的变量替换掉了模板中对应的 { { … } } 代码块。</p>
+<h2 id="模板中的流程控制"><a href="#模板中的流程控制" class="headerlink" title="模板中的流程控制"></a>模板中的流程控制</h2><p>Jinja2 模板系统还支持流程控制语句，我们来尝试一下在模板中添加一个 if 流程控制语句 (fileapp/templates/index.html):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &#123;% if title %&#125;</div><div class="line">    &lt;title&gt;&#123;&#123;title&#125;&#125; - microblog&lt;/title&gt;</div><div class="line">    &#123;% else %&#125;</div><div class="line">    &lt;title&gt;Welcome to microblog&lt;/title&gt;</div><div class="line">    &#123;% endif %&#125;</div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">      &lt;h1&gt;Hello, &#123;&#123;user.nickname&#125;&#125;!&lt;/h1&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>现在我们的模板文件有点智能了。如果我们在视图函数中忘了定义页面标题变量 title，它将会使用自已的标题替代。把视图函数中 render_template 里的 title 变量取消试试，看看这个 if 流程语句是如何工作的。</p>
+<h2 id="模板中使用循环"><a href="#模板中使用循环" class="headerlink" title="模板中使用循环"></a>模板中使用循环</h2><p>也许用户想在他的主页上展示好友最近写的文章，有点像人人，或者新浪微博那样的好友动态，接下来我们就要看看如何来完成这个功能。<br>首先，创建用户和文章 (fileapp/views.py):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">def index():</div><div class="line">    user = &#123; &apos;nickname&apos;: &apos;Miguel&apos; &#125; # fake user</div><div class="line">    posts = [ # fake array of posts</div><div class="line">        &#123;</div><div class="line">            &apos;author&apos;: &#123; &apos;nickname&apos;: &apos;John&apos; &#125;,</div><div class="line">            &apos;body&apos;: &apos;Beautiful day in Portland!&apos;</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            &apos;author&apos;: &#123; &apos;nickname&apos;: &apos;Susan&apos; &#125;,</div><div class="line">            &apos;body&apos;: &apos;The Avengers movie was so cool!&apos;</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">    return render_template(&quot;index.html&quot;,</div><div class="line">        title = &apos;Home&apos;,</div><div class="line">        user = user,</div><div class="line">        posts = posts)</div></pre></td></tr></table></figure>
+<p>用数组存储用户的文章，每一个数组元素都是一个字典，如上代码所示，这个dict的key是author和body，用来存储文章的作者和文章内容。当我们决定使用数据库来存储这些信息时，这个字典的key可以隐射为表的一个字段，这里为了给大家演示模板的使用，没有使用数据库相关的技术，简单地使用字典和数组模拟用户和他的好友最近发表的文章。</p>
+<p>我们的模板文件现在有了一个新问题。我们刚刚创建了一个包含用户文章的内容数据，这个数组可能包含任意数量的文章。怎样才能让模板根据这个数组的数量自动渲染内容。<br>要解决这个问题，就需要一个新的流程控制语句：for循环。让我们来把 for循环添加到模板文件 (fileapp/templates/index.html)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &#123;% if title %&#125;</div><div class="line">    &lt;title&gt;&#123;&#123;title&#125;&#125; - microblog&lt;/title&gt;</div><div class="line">    &#123;% else %&#125;</div><div class="line">    &lt;title&gt;microblog&lt;/title&gt;</div><div class="line">    &#123;% endif %&#125;</div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">    &lt;h1&gt;Hi, &#123;&#123;user.nickname&#125;&#125;!&lt;/h1&gt;</div><div class="line">    &#123;% for post in posts %&#125;</div><div class="line">    &lt;p&gt;&#123;&#123;post.author.nickname&#125;&#125; says: &lt;b&gt;&#123;&#123;post.body&#125;&#125;&lt;/b&gt;&lt;/p&gt;</div><div class="line">    &#123;% endfor %&#125;</div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>很简单吧，你还可以在数组中添加更多的内容看看效果。</p>
+<h2 id="模板继承"><a href="#模板继承" class="headerlink" title="模板继承"></a>模板继承</h2><p>接来下，我们需要给这个微博(microblog)添加一个导航菜单，里面包含 修改个人资料，退出登录 等类似的链接。<br>直接在 index.html 模板文件中直接加入这个导航条也是可行的，但是当我们有很多模板文件都包含这个导航条时，就会陷入为了修改导航条的某个地方而不得不在多个文件中往返编辑的尴尬境地。当包含这个导航条的文件越来越多时，你想死的心就会有了。</p>
+<p>我们可以使用 Jinja2 的模板继承功能，它可以使我们把模板中一些公共的内容组合在一起创建一个基础模板，然后让其它模板继承这个基础模板。<br>我们先来定义一个基础模板，里面包含了导航条和那个最开始写的关于页面标题(title)的流程控制语句。(fileapp/templates/base.html):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &#123;% if title %&#125;</div><div class="line">    &lt;title&gt;&#123;&#123;title&#125;&#125; - microblog&lt;/title&gt;</div><div class="line">    &#123;% else %&#125;</div><div class="line">    &lt;title&gt;microblog&lt;/title&gt;</div><div class="line">    &#123;% endif %&#125;</div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">    &lt;div&gt;Microblog: &lt;a href=&quot;/index&quot;&gt;Home&lt;/a&gt;&lt;/div&gt;</div><div class="line">    &lt;hr&gt;</div><div class="line">    &#123;% block content %&#125;&#123;% endblock %&#125;</div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>在这个模板中，我们使用了 block 控制语句来定义继承模板内容的显示位置。注意：这个 block 语句中设置的名称必须唯一。</p>
+<p>接下来让我们修改一下 index.html 模板，让它继承于刚刚添加的基础模板 base.html (fileapp/templates/index.html):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;% extends &quot;base.html&quot; %&#125;</div><div class="line">&#123;% block content %&#125;</div><div class="line">&lt;h1&gt;Hi, &#123;&#123;user.nickname&#125;&#125;!&lt;/h1&gt;</div><div class="line">&#123;% for post in posts %&#125;</div><div class="line">&lt;div&gt;&lt;p&gt;&#123;&#123;post.author.nickname&#125;&#125; says: &lt;b&gt;&#123;&#123;post.body&#125;&#125;&lt;/b&gt;&lt;/p&gt;&lt;/div&gt;</div><div class="line">&#123;% endfor %&#125;</div><div class="line">&#123;% endblock %&#125;</div></pre></td></tr></table></figure></p>
+<p>基础模板 base.html 帮我们搞定了页面结构和公共内容，所以这个 index.html 模板就成了这幅衰样了。extends 语句使两个模板关联了起来。Jinja2 在渲染 index.html 模板时，发现 extends 语句，就会自动先引入 base.html 基础模板，并对两个模板中名为 content 的 block 语句进行匹配。Jinja2知道如何把两个模板合并到一起。我们以后创建新的模板时，同样也会使用这种从基础模板继承的方法。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay01.jpg" alt="发条橙子 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+            <a href="/tags/Flask/" rel="tag">#Flask</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/flask_1.html" rel="next" title="Flask：Hello,World!">
+                <i class="fa fa-chevron-left"></i> Flask：Hello,World!
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/flask_3.html" rel="prev" title="Flask：Web表单">
+                Flask：Web表单 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="flask_2.html"
+           data-title="Flask：模板" data-url="http://www.fatiao.site/flask_2.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="发条橙子" />
+          <p class="site-author-name" itemprop="name">发条橙子</p>
+          <p class="site-description motion-element" itemprop="description">不积跬步，无以至千里</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">132</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么我们需要使用模板系统"><span class="nav-number">2.</span> <span class="nav-text">为什么我们需要使用模板系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板中的流程控制"><span class="nav-number">3.</span> <span class="nav-text">模板中的流程控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板中使用循环"><span class="nav-number">4.</span> <span class="nav-text">模板中使用循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板继承"><span class="nav-number">5.</span> <span class="nav-text">模板继承</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2009 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">发条橙子</span>
+</div>
+
+<!--
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+-->
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ftcz"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("E68bJY5qtsLfglErhVHLcN8w-gzGzoHsz", "Wjc3t8GBeMfc0xUJJi0JiWaW");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>

@@ -1,0 +1,769 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+  
+
+<link href="//cdn.bootcss.com/font-awesome/4.4.0/fonts/fontawesome-webfont.svg" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="urllib2是Python的一个获取URLs(Uniform Resource Locators)的组件。他以urlopen函数的形式提供了一个非常简单的接口，这是具有利用不同协议获取URLs的能力，他同样提供了一个比较复杂的接口来处理一般情况，例如：基础验证，cookies,代理和其他。它们通过handlers和openers的对象提供。urllib2支持获取不同格式的URLs(在URL的”:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python urllib2详解">
+<meta property="og:url" content="http://www.fatiao.site/python_urllib2.html">
+<meta property="og:site_name" content="小发条的技术人生">
+<meta property="og:description" content="urllib2是Python的一个获取URLs(Uniform Resource Locators)的组件。他以urlopen函数的形式提供了一个非常简单的接口，这是具有利用不同协议获取URLs的能力，他同样提供了一个比较复杂的接口来处理一般情况，例如：基础验证，cookies,代理和其他。它们通过handlers和openers的对象提供。urllib2支持获取不同格式的URLs(在URL的”:">
+<meta property="og:updated_time" content="2016-10-04T16:20:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python urllib2详解">
+<meta name="twitter:description" content="urllib2是Python的一个获取URLs(Uniform Resource Locators)的组件。他以urlopen函数的形式提供了一个非常简单的接口，这是具有利用不同协议获取URLs的能力，他同样提供了一个比较复杂的接口来处理一般情况，例如：基础验证，cookies,代理和其他。它们通过handlers和openers的对象提供。urllib2支持获取不同格式的URLs(在URL的”:">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.fatiao.site/python_urllib2.html"/>
+
+  <title> Python, - python urllib2详解 | 小发条的技术人生 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=58555379";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">小发条的技术人生</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">测试攻城狮 pythoner 伪程序猿一枚</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                python urllib2详解
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-04-19T00:00:00+08:00" content="2014-04-19">
+              2014-04-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/python_urllib2.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="python_urllib2.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/python_urllib2.html" class="leancloud_visitors" data-flag-title="python urllib2详解">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>urllib2是Python的一个获取URLs(Uniform Resource Locators)的组件。他以urlopen函数的形式提供了一个非常简单的接口，这是具有利用不同协议获取URLs的能力，他同样提供了一个比较复杂的接口来处理一般情况，例如：基础验证，cookies,代理和其他。它们通过handlers和openers的对象提供。urllib2支持获取不同格式的URLs(在URL的”:”前定义的字串,例如：”ftp”是”ftp:python.ort/“的前缀),它们利用它们相关网络协议(例如FTP,HTTP)进行获取。</p>
+<p>获取 URLs,最简单的使用urllib2将如下所示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">import urllib2 </div><div class="line">response = urllib2.urlopen(&apos;http://python.org/&apos;) </div><div class="line">html = response.read()</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>urllib2用一个Request对象来映射你提出的HTTP请求,在它最简单的使用形式中你将用你要请求的地址创建一个Request对象，通过调用urlopen并传入Request对象，将返回一个相关请求response对象，这个应答对象如同一个文件对象，所以你可以在Response中调用.read()。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">import urllib2 </div><div class="line">req = urllib2.Request(&apos;http://www.pythontab.com&apos;) </div><div class="line">response = urllib2.urlopen(req) </div><div class="line">the_page = response.read()</div></pre></td></tr></table></figure></p>
+<p>urllib2使用相同的接口处理所有的URL头。例如你可以像下面那样创建一个ftp请求。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">req = urllib2.Request(&apos;ftp://example.com/&apos;)</div></pre></td></tr></table></figure></p>
+<p>在HTTP请求时，允许你做额外的两件事。首先是你能够发送data表单数据，其次你能够传送额外的关于数据或发送本身的信息(“metadata”)到服务器，此数据作为HTTP的”headers”来发送。</p>
+<h2 id="Data数据"><a href="#Data数据" class="headerlink" title="Data数据"></a>Data数据</h2><p>有时候你希望发送一些数据到URL。在HTTP中,这个经常使用熟知的POST请求发送。这个通常在你提交一个HTML表单时由你的浏览器来做。<br>并不是所有的POSTs都来源于表单，你能够使用POST提交任意的数据到你自己的程序。一般的HTML表单，data需要编码成标准形式。然后做为data参数传到Request对象。编码工作使用urllib的函数而非urllib2。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">import urllib </div><div class="line">import urllib2 </div><div class="line">url = &apos;http://www.pythontab.com&apos; </div><div class="line">values = &#123;&apos;name&apos; : &apos;Michael Foord&apos;, </div><div class="line">          &apos;location&apos; : &apos;pythontab&apos;, </div><div class="line">          &apos;language&apos; : &apos;Python&apos; &#125; </div><div class="line">data = urllib.urlencode(values) </div><div class="line">req = urllib2.Request(url, data) </div><div class="line">response = urllib2.urlopen(req) </div><div class="line">the_page = response.read()</div></pre></td></tr></table></figure></p>
+<p>尽管HTTP标准说的很清楚POST通常会产生副作用，GET请求不会产生副作用，但没有什么可以阻止GET请求产生副作用，同样POST请求也可能不产生副作用。Data同样可以通过在Get请求的URL本身上面编码来传送。<br>看如下例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; import urllib2 </div><div class="line">&gt;&gt;&gt; import urllib </div><div class="line">&gt;&gt;&gt; data = &#123;&#125; </div><div class="line">&gt;&gt;&gt; data[&apos;name&apos;] = &apos;Somebody Here&apos; </div><div class="line">&gt;&gt;&gt; data[&apos;location&apos;] = &apos;pythontab&apos; </div><div class="line">&gt;&gt;&gt; data[&apos;language&apos;] = &apos;Python&apos; </div><div class="line">&gt;&gt;&gt; url_values = urllib.urlencode(data) </div><div class="line">&gt;&gt;&gt; print url_values </div><div class="line">name=blueelwang+Here&amp;language=Python&amp;location=pythontab </div><div class="line">&gt;&gt;&gt; url = &apos;http://www.pythontab.com&apos; </div><div class="line">&gt;&gt;&gt; full_url = url + &apos;?&apos; + url_values </div><div class="line">&gt;&gt;&gt; data = urllib2.open(full_url)</div></pre></td></tr></table></figure></p>
+<h2 id="Headers"><a href="#Headers" class="headerlink" title="Headers"></a>Headers</h2><p>有一些站点不喜欢被程序（非人为访问）访问，或者发送不同版本的内容到不同的浏览器。默认的urllib2把自己作为“Python-urllib/x.y”(x和y是Python主版本和次版本号,例如Python-urllib/2.5)，<br>这个身份可能会让站点迷惑，或者干脆不工作。浏览器确认自己身份是通过User-Agent头，当你创建了一个请求对象，你可以给他一个包含头数据的字典。下面的例子发送跟上面一样的内容，但把自身模拟成Internet Explorer。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import urllib </div><div class="line">import urllib2 </div><div class="line">url = &apos;http://www.pythontab.com&apos; </div><div class="line">user_agent = &apos;Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)&apos; </div><div class="line">  </div><div class="line">values = &#123;&apos;name&apos; : &apos;Michael Foord&apos;, </div><div class="line">          &apos;location&apos; : &apos;pythontab&apos;, </div><div class="line">          &apos;language&apos; : &apos;Python&apos; &#125; </div><div class="line">headers = &#123; &apos;User-Agent&apos; : user_agent &#125; </div><div class="line">data = urllib.urlencode(values) </div><div class="line">req = urllib2.Request(url, data, headers) </div><div class="line">response = urllib2.urlopen(req) </div><div class="line">the_page = response.read()</div></pre></td></tr></table></figure></p>
+<p>response应答对象同样有两个很有用的方法。看下面的节info and geturl，我们将看到当发生错误时会发生什么。</p>
+<h2 id="Handle-Exceptions处理异常"><a href="#Handle-Exceptions处理异常" class="headerlink" title="Handle Exceptions处理异常"></a>Handle Exceptions处理异常</h2><p>当urlopen不能够处理一个response时，产生urlError（不过通常的Python APIs异常如ValueError,TypeError等也会同时产生）。HTTPError是urlError的子类，通常在特定HTTP URLs中产生。</p>
+<h3 id="URLError"><a href="#URLError" class="headerlink" title="URLError"></a>URLError</h3><p>通常，URLError在没有网络连接(没有路由到特定服务器),或者服务器不存在的情况下产生。这种情况下，异常同样会带有”reason”属性，它是一个tuple，包含了一个错误号和一个错误信息。<br>例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; req = urllib2.Request(&apos;http://www.pythontab.com&apos;) </div><div class="line">&gt;&gt;&gt; try: urllib2.urlopen(req) </div><div class="line">&gt;&gt;&gt; except URLError, e: </div><div class="line">&gt;&gt;&gt;    print e.reason </div><div class="line">&gt;&gt;&gt;</div><div class="line">(4, &apos;getaddrinfo failed&apos;)</div></pre></td></tr></table></figure></p>
+<h3 id="HTTPError"><a href="#HTTPError" class="headerlink" title="HTTPError"></a>HTTPError</h3><p>服务器上每一个HTTP 应答对象response包含一个数字”状态码”。有时状态码指出服务器无法完成请求。默认的处理器会为你处理一部分这种应答(例如:假如response是一个”重定向”，需要客户端从别的地址获取文档<br>，urllib2将为你处理)。其他不能处理的，urlopen会产生一个HTTPError。典型的错误包含”404”(页面无法找到)，”403”(请求禁止)，和”401”(带验证请求)。<br>HTTPError实例产生后会有一个整型’code’属性，是服务器发送的相关错误号。</p>
+<h3 id="Error-Codes错误码"><a href="#Error-Codes错误码" class="headerlink" title="Error Codes错误码"></a>Error Codes错误码</h3><p>因为默认的处理器处理了重定向(300以外号码)，并且100-299范围的号码指示成功，所以你只能看到400-599的错误号码。<br>BaseHTTPServer.BaseHTTPRequestHandler.response是一个很有用的应答号码字典，显示了RFC 2616使用的所有的应答号。<br>当一个错误号产生后，服务器返回一个HTTP错误号，和一个错误页面。你可以使用HTTPError实例作为页面返回的应答对象response。这表示和错误属性一样，它同样包含了read,geturl,和info方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; req = urllib2.Request(&apos;http://www.python.org/fish.html&apos;) </div><div class="line">&gt;&gt;&gt; try: </div><div class="line">&gt;&gt;&gt;     urllib2.urlopen(req) </div><div class="line">&gt;&gt;&gt; except URLError, e: </div><div class="line">&gt;&gt;&gt;     print e.code </div><div class="line">&gt;&gt;&gt;     print e.read()</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">404 </div><div class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; </div><div class="line">    &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt; </div><div class="line">&lt;?xml-stylesheet href=&quot;./css/ht2html.css&quot; </div><div class="line">    type=&quot;text/css&quot;?&gt; </div><div class="line">&lt;html&gt;&lt;head&gt;&lt;title&gt;Error 404: File Not Found&lt;/title&gt; </div><div class="line">...... etc...</div></pre></td></tr></table></figure>
+<p>Wrapping it Up包装<br>所以如果你想为HTTPError或URLError做准备，将有两个基本的办法。我则比较喜欢第二种。<br>第一个：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">from urllib2 import Request, urlopen, URLError, HTTPError </div><div class="line">req = Request(someurl) </div><div class="line">try: </div><div class="line">    response = urlopen(req) </div><div class="line">except HTTPError, e: </div><div class="line">    print &apos;The server couldn/&apos;t fulfill the request.&apos; </div><div class="line">    print &apos;Error code: &apos;, e.code </div><div class="line">except URLError, e: </div><div class="line">    print &apos;We failed to reach a server.&apos; </div><div class="line">    print &apos;Reason: &apos;, e.reason </div><div class="line">else: </div><div class="line">    # everything is fine</div></pre></td></tr></table></figure></p>
+<p>注意：except HTTPError 必须在第一个，否则except URLError将同样接受到HTTPError。<br>第二个：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">from urllib2 import Request, urlopen, URLError </div><div class="line">req = Request(someurl) </div><div class="line">try: </div><div class="line">    response = urlopen(req) </div><div class="line">except URLError, e: </div><div class="line">    if hasattr(e, &apos;reason&apos;): </div><div class="line">        print &apos;We failed to reach a server.&apos; </div><div class="line">        print &apos;Reason: &apos;, e.reason </div><div class="line">    elif hasattr(e, &apos;code&apos;): </div><div class="line">        print &apos;The server couldn/&apos;t fulfill the request.&apos; </div><div class="line">        print &apos;Error code: &apos;, e.code </div><div class="line">else: </div><div class="line">    # everything is fine</div></pre></td></tr></table></figure></p>
+<h2 id="info-and-geturl"><a href="#info-and-geturl" class="headerlink" title="info and geturl"></a>info and geturl</h2><p>urlopen返回的应答对象response(或者HTTPError实例)有两个很有用的方法info()和geturl()<br>geturl – 这个返回获取的真实的URL，这个很有用，因为urlopen(或者opener对象使用的)或许<br>会有重定向。获取的URL或许跟请求URL不同。<br>info – 这个返回对象的字典对象，该字典描述了获取的页面情况。通常是服务器发送的特定头headers。目前是httplib.HTTPMessage 实例。<br>经典的headers包含”Content-length”，”Content-type”，和其他。查看Quick Reference to HTTP Headers(<a href="http://www.cs.tut.fi/~jkorpela/http.html" target="_blank" rel="external">http://www.cs.tut.fi/~jkorpela/http.html</a>)<br>获取有用的HTTP头列表，以及它们的解释意义。<br>Openers和Handlers<br>当你获取一个URL你使用一个opener(一个urllib2.OpenerDirector的实例，urllib2.OpenerDirector可能名字可能有点让人混淆。)正常情况下，我们<br>使用默认opener – 通过urlopen,但你能够创建个性的openers，Openers使用处理器handlers，所有的“繁重”工作由handlers处理。每个handlers知道<br>如何通过特定协议打开URLs，或者如何处理URL打开时的各个方面，例如HTTP重定向或者HTTP cookies。<br>如果你希望用特定处理器获取URLs你会想创建一个openers，例如获取一个能处理cookie的opener，或者获取一个不重定向的opener。<br>要创建一个 opener,实例化一个OpenerDirector，然后调用不断调用.add_handler(some_handler_instance).<br>同样，可以使用build_opener，这是一个更加方便的函数，用来创建opener对象，他只需要一次函数调用。<br>build_opener默认添加几个处理器，但提供快捷的方法来添加或更新默认处理器。<br>其他的处理器handlers你或许会希望处理代理，验证，和其他常用但有点特殊的情况。<br>install_opener 用来创建（全局）默认opener。这个表示调用urlopen将使用你安装的opener。<br>Opener对象有一个open方法，该方法可以像urlopen函数那样直接用来获取urls：通常不必调用install_opener，除了为了方便。<br>Basic Authentication 基本验证<br>为了展示创建和安装一个handler，我们将使用HTTPBasicAuthHandler，为了更加细节的描述本主题–包含一个基础验证的工作原理。<br>请看Basic Authentication Tutorial（<a href="http://www.voidspace.org.uk/python/articles/authentication.shtml）" target="_blank" rel="external">http://www.voidspace.org.uk/python/articles/authentication.shtml）</a><br>当需要基础验证时，服务器发送一个header(401错误码) 请求验证。这个指定了scheme 和一个‘realm’，看起来像这样：Www-authenticate: SCHEME realm=”REALM”.<br>例如<br>Www-authenticate: Basic realm=”cPanel Users”<br>客户端必须使用新的请求，并在请求头里包含正确的姓名和密码。这是“基础验证”，为了简化这个过程，我们可以创建一个HTTPBasicAuthHandler的实例，并让opener使用这个<br>handler。<br>HTTPBasicAuthHandler使用一个密码管理的对象来处理URLs和realms来映射用户名和密码。如果你知道realm(从服务器发送来的头里)是什么，你就能使用HTTPPasswordMgr。<br>通常人们不关心realm是什么。那样的话，就能用方便的HTTPPasswordMgrWithDefaultRealm。这个将在你为URL指定一个默认的用户名和密码。这将在你为特定realm提供一个其他组合时<br>得到提供。我们通过给realm参数指定None提供给add_password来指示这种情况。<br>最高层次的URL是第一个要求验证的URL。你传给.add_password()更深层次的URLs将同样合适。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"># 创建一个密码管理者 </div><div class="line">password_mgr = urllib2.HTTPPasswordMgrWithDefaultRealm() </div><div class="line"># 添加用户名和密码 </div><div class="line"># 如果知道 realm, 我们可以使用他代替 ``None``. </div><div class="line">top_level_url = &quot;http://example.com/foo/&quot; </div><div class="line">password_mgr.add_password(None, top_level_url, username, password) </div><div class="line">handler = urllib2.HTTPBasicAuthHandler(password_mgr) </div><div class="line"># 创建 &quot;opener&quot; (OpenerDirector 实例) </div><div class="line">opener = urllib2.build_opener(handler) </div><div class="line"># 使用 opener 获取一个URL </div><div class="line">opener.open(a_url) </div><div class="line"># 安装 opener. </div><div class="line"># 现在所有调用 urllib2.urlopen 将用我们的 opener. </div><div class="line">urllib2.install_opener(opener)</div></pre></td></tr></table></figure></p>
+<p>注意：以上的例子我们仅仅提供我们的HHTPBasicAuthHandler给build_opener。默认的openers有正常状况的handlers–ProxyHandler,UnknownHandler,HTTPHandler,HTTPDefaultErrorHandler, HTTPRedirectHandler, FTPHandler, FileHandler, HTTPErrorProcessor。<br>top_level_url 实际上可以是完整URL(包含”http:”,以及主机名及可选的端口号)例如：<a href="http://example.com/，也可以是一个“authority”(即主机名和可选的" target="_blank" rel="external">http://example.com/，也可以是一个“authority”(即主机名和可选的</a><br>包含端口号)例如：“example.com” or “example.com:8080”(后者包含了端口号)。权限验证，如果递交的话不能包含”用户信息”部分,例如:<br>“joe@password:example.com”是错误的。<br>Proxies代理urllib 将自动监测你的代理设置并使用他们。这个通过ProxyHandler这个在正常处理器链中的对象来处理。通常，那工作的很好。但有时不起作用<br>。其中一个方法便是安装我们自己的代理处理器ProxyHandler，并不定义代理。这个跟使用Basic Authentication 处理器很相似。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; proxy_support = urllib.request.ProxyHandler(&#123;&#125;) </div><div class="line">&gt;&gt;&gt; opener = urllib.request.build_opener(proxy_support) </div><div class="line">&gt;&gt;&gt; urllib.request.install_opener(opener)</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay01.jpg" alt="发条橙子 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/python_stringcon.html" rel="next" title="Python字符串连接的三种方法解析配置模块之ConfigParser">
+                <i class="fa fa-chevron-left"></i> Python字符串连接的三种方法解析配置模块之ConfigParser
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/manager_testfs.html" rel="prev" title="关于软件测试的几点反思">
+                关于软件测试的几点反思 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="python_urllib2.html"
+           data-title="python urllib2详解" data-url="http://www.fatiao.site/python_urllib2.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="发条橙子" />
+          <p class="site-author-name" itemprop="name">发条橙子</p>
+          <p class="site-description motion-element" itemprop="description">不积跬步，无以至千里</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">132</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Data数据"><span class="nav-number">1.</span> <span class="nav-text">Data数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Headers"><span class="nav-number">2.</span> <span class="nav-text">Headers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Handle-Exceptions处理异常"><span class="nav-number">3.</span> <span class="nav-text">Handle Exceptions处理异常</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#URLError"><span class="nav-number">3.1.</span> <span class="nav-text">URLError</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTPError"><span class="nav-number">3.2.</span> <span class="nav-text">HTTPError</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Error-Codes错误码"><span class="nav-number">3.3.</span> <span class="nav-text">Error Codes错误码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#info-and-geturl"><span class="nav-number">4.</span> <span class="nav-text">info and geturl</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2009 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">发条橙子</span>
+</div>
+
+<!--
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+-->
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ftcz"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("E68bJY5qtsLfglErhVHLcN8w-gzGzoHsz", "Wjc3t8GBeMfc0xUJJi0JiWaW");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>

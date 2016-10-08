@@ -235,8 +235,8 @@
             
               
                 
-                <a class="post-title-link" href="/linux_ubuntureinstallmysql.html" itemprop="url">
-                  Linux & Shell - ubuntu重装mysql
+                <a class="post-title-link" href="/anquan_sqlkepu.html" itemprop="url">
+                  MySql注入科普
                 </a>
               
             
@@ -249,8 +249,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2009-12-01T00:00:00+08:00" content="2009-12-01">
-              2009-12-01
+            <time itemprop="dateCreated" datetime="2011-03-08T00:00:00+08:00" content="2011-03-08">
+              2011-03-08
             </time>
           </span>
 
@@ -263,8 +263,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
                   </a>
                 </span>
 
@@ -279,8 +279,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/linux_ubuntureinstallmysql.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_ubuntureinstallmysql.html" itemprop="commentsCount"></span>
+                <a href="/anquan_sqlkepu.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqlkepu.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -290,7 +290,166 @@
 
           
           
-             <span id="/linux_ubuntureinstallmysql.html" class="leancloud_visitors" data-flag-title="Linux & Shell - ubuntu重装mysql">
+             <span id="/anquan_sqlkepu.html" class="leancloud_visitors" data-flag-title="MySql注入科普">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>###默认存在的数据库</p>
+<table>
+<thead>
+<tr>
+<th>数据库</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mysql</td>
+<td>在5以上的版本中需要root权限读取</td>
+</tr>
+<tr>
+<td>information_schema</td>
+<td>在5以上的版本中存在</td>
+</tr>
+</tbody>
+</table>
+<h3 id="测试是否存在注入方法"><a href="#测试是否存在注入方法" class="headerlink" title="测试是否存在注入方法"></a>测试是否存在注入方法</h3><ul>
+<li>假：表示查询是错误的(mysql报错、返回页面与原来不同)</li>
+</ul>
+<ul>
+<li><p>真：表示查询是正常的(返回页面玉原来相同)</p>
+<p>​</p>
+</li>
+</ul>
+<p>例子：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">Users</span> <span class="keyword">WHERE</span> <span class="keyword">id</span> = <span class="string">'1'''</span>;</div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">Users</span> <span class="keyword">WHERE</span> <span class="keyword">id</span> = <span class="number">3</span><span class="number">-2</span>;</div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">Users</span> <span class="keyword">WHERE</span> username = <span class="string">'Mike'</span> <span class="keyword">AND</span> <span class="keyword">password</span> = <span class="string">''</span> <span class="keyword">OR</span> <span class="string">''</span> = <span class="string">''</span>;</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/anquan_sqlkepu.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/anquan_sqlinjflow.html" itemprop="url">
+                  SQLMAP注入流程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2011-02-22T00:00:00+08:00" content="2011-02-22">
+              2011-02-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/anquan_sqlinjflow.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqlinjflow.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/anquan_sqlinjflow.html" class="leancloud_visitors" data-flag-title="SQLMAP注入流程">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -314,11 +473,15 @@
       
         
           <ol>
-<li>删除 mysql</li>
-</ol>
-<p>1 sudo apt-get autoremove –purge mysql-server-5.0<br>2 sudo apt-get remove mysql-server<br>3 sudo apt-get autoremove mysql-server<br>4 sudo apt-get remove mysql-common (非常重要)<br>上面的其实有一些是多余的，建议还是按照顺序执行一遍<br>清理残留数据<br>dpkg -l |grep ^rc|awk ‘{print $2}’ |sudo xargs dpkg -P<br>
+<li><p>利用GOOGLE和BAIDU定位注入网站</p>
+</li>
+<li><p>初步验证网站是否可以进行SQL注入<br>在url后面+‘ 或者 ‘and 1=1’</p>
+</li>
+<li><p>列出DBMS数据库<br>sqlmap -u “url” –dbs</p>
+</li>
+<li><p>列出目标数据库的表<br>sqlmap -u “url” -D “DBNAME” –tables<br>如果 —tables 没效果 可以考虑 –common-tables  暴力破解</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/linux_ubuntureinstallmysql.html#more" rel="contents">
+            <a class="btn" href="/anquan_sqlinjflow.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -369,8 +532,8 @@
             
               
                 
-                <a class="post-title-link" href="/linux_curl4auth.html" itemprop="url">
-                  Linux & Shell - curl解决需要认证的问题
+                <a class="post-title-link" href="/anquan_sqljichu.html" itemprop="url">
+                  Sql注入基础知识
                 </a>
               
             
@@ -383,8 +546,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2009-11-27T00:00:00+08:00" content="2009-11-27">
-              2009-11-27
+            <time itemprop="dateCreated" datetime="2011-02-10T00:00:00+08:00" content="2011-02-10">
+              2011-02-10
             </time>
           </span>
 
@@ -397,8 +560,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
                   </a>
                 </span>
 
@@ -413,8 +576,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/linux_curl4auth.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_curl4auth.html" itemprop="commentsCount"></span>
+                <a href="/anquan_sqljichu.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqljichu.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -424,7 +587,7 @@
 
           
           
-             <span id="/linux_curl4auth.html" class="leancloud_visitors" data-flag-title="Linux & Shell - curl解决需要认证的问题">
+             <span id="/anquan_sqljichu.html" class="leancloud_visitors" data-flag-title="Sql注入基础知识">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -447,140 +610,9 @@
 
       
         
-          
-            <p>在使用curl过程中，有一些页面需要验证登录成功后才能抓取到，那要怎么处理呢？具体方式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -c cookie.txt -d &quot;user_name=af236561&amp;user_passwd=227058&quot; &quot;http://url/login&quot;</div><div class="line">curl -b cookie.txt  -s -I http://url/analysis/customer/</div></pre></td></tr></table></figure></p>
-<p>原理：先模拟登录生成cookie ，再读文件cookie登录</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/linux_curl.html" itemprop="url">
-                  Linux & Shell - curl
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2009-11-15T00:00:00+08:00" content="2009-11-15">
-              2009-11-15
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/linux_curl.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_curl.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/linux_curl.html" class="leancloud_visitors" data-flag-title="Linux & Shell - curl">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>curl是一个利用URL语法在命令行方式下工作的文件传输工具；</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Linux系统安装CURL<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">wget http://curl.haxx.se/download/curl-7.17.1.tar.gz</div><div class="line">tar -xvf curl-7.17.1.tar.gz</div><div class="line">./configure --prefix=/usr/local/curl</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure></p>
+          <h3 id="Sql注入的基本原理"><a href="#Sql注入的基本原理" class="headerlink" title="Sql注入的基本原理"></a>Sql注入的基本原理</h3><p>sql作为字符串通过Api传入给数据库，数据库将查询结果返回，数据库资深无法分别Sql的合法性，如果传入恶意Sql,将导致数据库以当前调用者的身份之星预期之外的命令并且返回结果，导致安全问题。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/linux_curl.html#more" rel="contents">
+            <a class="btn" href="/anquan_sqljichu.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -631,8 +663,8 @@
             
               
                 
-                <a class="post-title-link" href="/linux_func.html" itemprop="url">
-                  Linux & Shell -  控制流：函数
+                <a class="post-title-link" href="/anquan_gainian.html" itemprop="url">
+                  安全测试概念
                 </a>
               
             
@@ -645,8 +677,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2009-11-03T00:00:00+08:00" content="2009-11-03">
-              2009-11-03
+            <time itemprop="dateCreated" datetime="2011-01-05T00:00:00+08:00" content="2011-01-05">
+              2011-01-05
             </time>
           </span>
 
@@ -659,8 +691,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
                   </a>
                 </span>
 
@@ -675,8 +707,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/linux_func.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_func.html" itemprop="commentsCount"></span>
+                <a href="/anquan_gainian.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_gainian.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -686,7 +718,7 @@
 
           
           
-             <span id="/linux_func.html" class="leancloud_visitors" data-flag-title="Linux & Shell -  控制流：函数">
+             <span id="/anquan_gainian.html" class="leancloud_visitors" data-flag-title="安全测试概念">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -709,11 +741,16 @@
 
       
         
-          
-            <p>shell允许将一组命令集或语句形成一个可用块,这些块称为shell函数。<br>定义函数的格式为:<br>函数名()<br>{<br>命令1<br>.. .<br>}<br>如果愿意,可在函数名前加上关键字 function,这取决于使用者。<br>function 函数名()<br>{<br>…<br>}</p>
-<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hello()</div><div class="line">&#123;</div><div class="line">  echo &quot;hello owrld&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-          
+          <h2 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h2><p>XSS全称Cross Site Scripting，中文叫做跨站脚本，起因是外部输入被浏览器当作脚本来执行。按照漏洞触发点的不同，分为3类： </p>
+<ul>
+<li>存储型XSS   </li>
+<li>反射型XSS   </li>
+<li>DOM型XSS
+          <div class="post-more-link text-center">
+            <a class="btn" href="/anquan_gainian.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -761,8 +798,8 @@
             
               
                 
-                <a class="post-title-link" href="/linux_flow4exit.html" itemprop="url">
-                  Linux & Shell - 控制流：退出状态
+                <a class="post-title-link" href="/jiagou_http4https.html" itemprop="url">
+                  Http与Https的区别
                 </a>
               
             
@@ -775,8 +812,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2009-10-29T00:00:00+08:00" content="2009-10-29">
-              2009-10-29
+            <time itemprop="dateCreated" datetime="2010-12-09T00:00:00+08:00" content="2010-12-09">
+              2010-12-09
             </time>
           </span>
 
@@ -789,8 +826,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/架构/" itemprop="url" rel="index">
+                    <span itemprop="name">架构</span>
                   </a>
                 </span>
 
@@ -805,8 +842,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/linux_flow4exit.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_flow4exit.html" itemprop="commentsCount"></span>
+                <a href="/jiagou_http4https.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="jiagou_http4https.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -816,7 +853,7 @@
 
           
           
-             <span id="/linux_flow4exit.html" class="leancloud_visitors" data-flag-title="Linux & Shell - 控制流：退出状态">
+             <span id="/jiagou_http4https.html" class="leancloud_visitors" data-flag-title="Http与Https的区别">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -839,13 +876,12 @@
 
       
         
-          
-            <h2 id="退出状态"><a href="#退出状态" class="headerlink" title="退出状态"></a>退出状态</h2><p>任何命令进行时都将返回一个退出状态。如 果要观察其退出状态,使用最后状态命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$echo $?</div></pre></td></tr></table></figure></p>
-<p>要退出当前进程,shell提供命令exit ,一般格式为:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exit n</div></pre></td></tr></table></figure></p>
-<p>其中,n为一数字。</p>
-<p>但其中相对于脚本和一般系统命令最重要的有两种,即:<br>退出状态 0 退出成功,无错误。 退出状态 1 退出失败,某处有错误。</p>
-
-          
+          <p>在URL前加<a href="https://前缀表明是用SSL加密的。你的电脑与服务器之间收发的信息传输将更加安全。">https://前缀表明是用SSL加密的。你的电脑与服务器之间收发的信息传输将更加安全。</a> Web服务器启用SSL需要获得一个服务器证书并将该证书与要使用SSL的服务器绑定。 http和https使用的是完全不同的连接方式,用的端口也不一样,前者是80,后者是443。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/jiagou_http4https.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -876,7 +912,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/15/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/17/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/15/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/17/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -917,7 +953,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">99</span>
+              <span class="site-state-item-count">132</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -934,7 +970,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
