@@ -4,8 +4,110 @@
 
     
   <url>
+    <loc>http://www.fatiao.site/oteher_7jianyi.html</loc>
+    <lastmod>2016-10-10T02:54:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>七个对我最重要的职业建议</title>
+        <pubTime>2016-04-08T16:00:00.000Z</pubTime>
+        
+        <tag>其他</tag>
+         
+         
+           
+             
+              <breadCrumb title="其他" url="http://www.fatiao.site/categories/%E5%85%B6%E4%BB%96/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/test_baihefunc.html</loc>
+    <lastmod>2016-10-10T02:40:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>白盒测试中的几种覆盖方法</title>
+        <pubTime>2013-11-12T16:00:00.000Z</pubTime>
+        
+        <tag>软件测试</tag>
+         
+        <tag>白盒测试</tag>
+         
+         
+           
+             
+              <breadCrumb title="软件测试" url="http://www.fatiao.site/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/book_yingxiangli.html</loc>
+    <lastmod>2016-10-10T02:01:15.000Z</lastmod>
+    <data>
+        <display>
+        <title>《影响力》笔记</title>
+        <pubTime>2013-10-19T16:00:00.000Z</pubTime>
+        
+        <tag>读后感</tag>
+         
+         
+           
+             
+              <breadCrumb title="读后感" url="http://www.fatiao.site/categories/%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/jiagou_html.html</loc>
+    <lastmod>2016-10-09T11:46:12.000Z</lastmod>
+    <data>
+        <display>
+        <title>HTML</title>
+        <pubTime>2013-01-08T16:00:00.000Z</pubTime>
+        
+        <tag>dev</tag>
+         
+         
+           
+             
+              <breadCrumb title="开发" url="http://www.fatiao.site/categories/%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/python_sc4jisuan.html</loc>
+    <lastmod>2016-10-09T04:00:44.000Z</lastmod>
+    <data>
+        <display>
+        <title>Python脚本：取模计算</title>
+        <pubTime>2016-03-17T16:00:00.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.fatiao.site/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.fatiao.site/python_setup.html</loc>
-    <lastmod>2016-10-08T03:30:07.000Z</lastmod>
+    <lastmod>2016-10-08T03:55:21.000Z</lastmod>
     <data>
         <display>
         <title>依赖安装：setup.py和requirements.txt的对比</title>
@@ -17,6 +119,28 @@
            
              
               <breadCrumb title="Python" url="http://www.fatiao.site/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/test_baihevalue.html</loc>
+    <lastmod>2016-10-08T03:52:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>白盒测试的价值在哪</title>
+        <pubTime>2012-12-14T16:00:00.000Z</pubTime>
+        
+        <tag>软件测试</tag>
+         
+        <tag>白盒测试</tag>
+         
+         
+           
+             
+              <breadCrumb title="软件测试" url="http://www.fatiao.site/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
           
         </display>
     </data>
@@ -1133,9 +1257,9 @@
         
         <tag>软件测试</tag>
          
-        <tag>Android</tag>
-         
         <tag>移动测试</tag>
+         
+        <tag>Android</tag>
          
          
            
@@ -1279,9 +1403,9 @@
         
         <tag>软件测试</tag>
          
-        <tag>Android</tag>
-         
         <tag>移动测试</tag>
+         
+        <tag>Android</tag>
          
          
            
@@ -1303,9 +1427,9 @@
         
         <tag>软件测试</tag>
          
-        <tag>Android</tag>
-         
         <tag>移动测试</tag>
+         
+        <tag>Android</tag>
          
          
            
@@ -1327,9 +1451,9 @@
         
         <tag>软件测试</tag>
          
-        <tag>Android</tag>
-         
         <tag>移动测试</tag>
+         
+        <tag>Android</tag>
          
          
            
@@ -2607,9 +2731,9 @@
         <title>达达后端代码上线流程演进</title>
         <pubTime>2016-09-18T16:00:00.000Z</pubTime>
         
-        <tag>软件测试</tag>
-         
         <tag>自动化测试</tag>
+         
+        <tag>软件测试</tag>
          
         <tag>持续集成</tag>
          

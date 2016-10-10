@@ -93,6 +93,7 @@
 
   <link rel="canonical" href="http://www.fatiao.site/page/16/"/>
 
+  <meta name="baidu-site-verification" content="K7iVtNDL7l" />
   <title> 小发条的技术人生 - 不积跬步，无以至千里 </title>
 </head>
 
@@ -235,8 +236,8 @@
             
               
                 
-                <a class="post-title-link" href="/anquan_sqlkepu.html" itemprop="url">
-                  MySql注入科普
+                <a class="post-title-link" href="/anquan_sqlinj23.html" itemprop="url">
+                  Sql注入攻击与防御总结：第3章 复查代码中的SQL注入
                 </a>
               
             
@@ -249,8 +250,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2011-03-08T00:00:00+08:00" content="2011-03-08">
-              2011-03-08
+            <time itemprop="dateCreated" datetime="2011-07-22T00:00:00+08:00" content="2011-07-22">
+              2011-07-22
             </time>
           </span>
 
@@ -279,8 +280,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/anquan_sqlkepu.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqlkepu.html" itemprop="commentsCount"></span>
+                <a href="/anquan_sqlinj23.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqlinj23.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -304,40 +305,16 @@
 
       
         
-          <p>###默认存在的数据库</p>
-<table>
-<thead>
-<tr>
-<th>数据库</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>mysql</td>
-<td>在5以上的版本中需要root权限读取</td>
-</tr>
-<tr>
-<td>information_schema</td>
-<td>在5以上的版本中存在</td>
-</tr>
-</tbody>
-</table>
-<h3 id="测试是否存在注入方法"><a href="#测试是否存在注入方法" class="headerlink" title="测试是否存在注入方法"></a>测试是否存在注入方法</h3><ul>
-<li>假：表示查询是错误的(mysql报错、返回页面与原来不同)</li>
+          
+            <ol>
+<li>分析源代码漏洞<ul>
+<li>静态代码分析(不执行代码)</li>
+<li>动态代码分析</li>
 </ul>
-<ul>
-<li><p>真：表示查询是正常的(返回页面玉原来相同)</p>
-<p>​</p>
 </li>
-</ul>
-<p>例子：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">Users</span> <span class="keyword">WHERE</span> <span class="keyword">id</span> = <span class="string">'1'''</span>;</div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">Users</span> <span class="keyword">WHERE</span> <span class="keyword">id</span> = <span class="number">3</span><span class="number">-2</span>;</div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">Users</span> <span class="keyword">WHERE</span> username = <span class="string">'Mike'</span> <span class="keyword">AND</span> <span class="keyword">password</span> = <span class="string">''</span> <span class="keyword">OR</span> <span class="string">''</span> = <span class="string">''</span>;</div></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/anquan_sqlkepu.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+</ol>
+
+          
         
       
     </div>
@@ -385,8 +362,8 @@
             
               
                 
-                <a class="post-title-link" href="/anquan_sqlinjflow.html" itemprop="url">
-                  SQLMAP注入流程
+                <a class="post-title-link" href="/anquan_sqlinj22.html" itemprop="url">
+                  Sql注入攻击与防御总结：第2章 SQL注入测试
                 </a>
               
             
@@ -399,8 +376,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2011-02-22T00:00:00+08:00" content="2011-02-22">
-              2011-02-22
+            <time itemprop="dateCreated" datetime="2011-06-16T00:00:00+08:00" content="2011-06-16">
+              2011-06-16
             </time>
           </span>
 
@@ -429,8 +406,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/anquan_sqlinjflow.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqlinjflow.html" itemprop="commentsCount"></span>
+                <a href="/anquan_sqlinj22.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqlinj22.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -455,263 +432,38 @@
       
         
           <ol>
-<li><p>利用GOOGLE和BAIDU定位注入网站</p>
-</li>
-<li><p>初步验证网站是否可以进行SQL注入<br>在url后面+‘ 或者 ‘and 1=1’</p>
-</li>
-<li><p>列出DBMS数据库<br>sqlmap -u “url” –dbs</p>
-</li>
-<li><p>列出目标数据库的表<br>sqlmap -u “url” -D “DBNAME” –tables<br>如果 —tables 没效果 可以考虑 –common-tables  暴力破解</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/anquan_sqlinjflow.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/anquan_sqljichu.html" itemprop="url">
-                  Sql注入基础知识
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2011-02-10T00:00:00+08:00" content="2011-02-10">
-              2011-02-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/安全/" itemprop="url" rel="index">
-                    <span itemprop="name">安全</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/anquan_sqljichu.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqljichu.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="Sql注入的基本原理"><a href="#Sql注入的基本原理" class="headerlink" title="Sql注入的基本原理"></a>Sql注入的基本原理</h3><p>sql作为字符串通过Api传入给数据库，数据库将查询结果返回，数据库资深无法分别Sql的合法性，如果传入恶意Sql,将导致数据库以当前调用者的身份之星预期之外的命令并且返回结果，导致安全问题。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/anquan_sqljichu.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/anquan_gainian.html" itemprop="url">
-                  安全测试概念
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2011-01-05T00:00:00+08:00" content="2011-01-05">
-              2011-01-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/安全/" itemprop="url" rel="index">
-                    <span itemprop="name">安全</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/anquan_gainian.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_gainian.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h2><p>XSS全称Cross Site Scripting，中文叫做跨站脚本，起因是外部输入被浏览器当作脚本来执行。按照漏洞触发点的不同，分为3类： </p>
+<li><p>借助推理进行测试</p>
+<p>识别sql注入的简单规则：</p>
 <ul>
-<li>存储型XSS   </li>
-<li>反射型XSS   </li>
-<li>DOM型XSS
+<li><p>识别web应用上所有的数据输入</p>
+<ol>
+<li>get请求&amp;post请求</li>
+<li>操纵参数</li>
+<li>信息工作流 (请求到web服务器再到数据库让后将信息返回的流程)</li>
+</ol>
+</li>
+<li><p>了解那种类型的请求会触发异常</p>
+<p>数据库触发错误时候的场景</p>
+<ul>
+<li>将sql错误显示在页面上，它对web浏览器用户可见</li>
+<li>将sql错误隐藏在web页面的源代码中以便调试</li>
+<li>检测到错误时跳转到另一个页面</li>
+<li>返回Http错误码500或重定向码302</li>
+</ul>
+</li>
+<li><p>检测服务器响应中的异常</p>
+<ul>
+<li>常见错误页面</li>
+<li>http代码错误</li>
+<li>不同大小的响应</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/anquan_gainian.html#more" rel="contents">
+            <a class="btn" href="/anquan_sqlinj22.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -762,8 +514,8 @@
             
               
                 
-                <a class="post-title-link" href="/jiagou_http4https.html" itemprop="url">
-                  Http与Https的区别
+                <a class="post-title-link" href="/anquan_sqlinj21.html" itemprop="url">
+                  Sql注入攻击与防御总结：第1章 什么是SQL注入
                 </a>
               
             
@@ -776,8 +528,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2010-12-09T00:00:00+08:00" content="2010-12-09">
-              2010-12-09
+            <time itemprop="dateCreated" datetime="2011-05-19T00:00:00+08:00" content="2011-05-19">
+              2011-05-19
             </time>
           </span>
 
@@ -790,8 +542,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/架构/" itemprop="url" rel="index">
-                    <span itemprop="name">架构</span>
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
                   </a>
                 </span>
 
@@ -806,8 +558,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/jiagou_http4https.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="jiagou_http4https.html" itemprop="commentsCount"></span>
+                <a href="/anquan_sqlinj21.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqlinj21.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -831,9 +583,263 @@
 
       
         
-          <p>在URL前加<a href="https://前缀表明是用SSL加密的。你的电脑与服务器之间收发的信息传输将更加安全。">https://前缀表明是用SSL加密的。你的电脑与服务器之间收发的信息传输将更加安全。</a> Web服务器启用SSL需要获得一个服务器证书并将该证书与要使用SSL的服务器绑定。 http和https使用的是完全不同的连接方式,用的端口也不一样,前者是80,后者是443。<br>
+          <ol>
+<li><p>概念<br>Sql注入是这样一种漏洞：应用程序在向后台数据库传递sql查询时，如果为攻击者提供了影响该查询的能力，就会引发Sql注入。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/jiagou_http4https.html#more" rel="contents">
+            <a class="btn" href="/anquan_sqlinj21.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/anquan_sqlinjjiqiao.html" itemprop="url">
+                  SQL注入技巧
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2011-04-26T00:00:00+08:00" content="2011-04-26">
+              2011-04-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/anquan_sqlinjjiqiao.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqlinjjiqiao.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="0x00-介绍"><a href="#0x00-介绍" class="headerlink" title="0x00 介绍"></a>0x00 介绍</h1><hr>
+<h1 id="0x01-MYSQl灵活的语法"><a href="#0x01-MYSQl灵活的语法" class="headerlink" title="0x01 MYSQl灵活的语法"></a>0x01 MYSQl灵活的语法</h1><hr>
+<p><strong>1 MySQL语法以及认证绕过</strong></p>
+<p>注释符：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#， </div><div class="line">-- X(X为任意字符)</div><div class="line">/*(MySQL-5.1)</div><div class="line">;%00</div><div class="line">`</div><div class="line">&apos;or 1=1;%00</div><div class="line">&apos;or 1=1 union select 1,2`&apos;</div><div class="line">&apos;or 1=1 #</div><div class="line">&apos;/*!50000or*/ 1=1 -- -      //版本号为5.1.38时只要小于50138</div><div class="line">&apos;/*!or*/ 1=1 -- -</div></pre></td></tr></table></figure>
+<p>前缀：</p>
+<p>任意混合 <code>+ - ~ !</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&apos;or --+2=- -!!!&apos;2</div></pre></td></tr></table></figure>
+<p>测试后发现<code>and/or</code>后面可以跟上偶数个<code>!、~</code>可以替代空格，也可以混合使用(混合后规律又不同)，and/or前的空格可以省略</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&apos;or- -!!!1=1；</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/anquan_sqlinjjiqiao.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/anquan_sqlmappar.html" itemprop="url">
+                  SQLMAP参数解释
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2011-04-11T00:00:00+08:00" content="2011-04-11">
+              2011-04-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/anquan_sqlmappar.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqlmappar.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>网上整理的Sqlmap使用技巧，有些来自知名网站，由于语句繁多，整理时可能出现一点点的小错误，还望大家见谅，错误的地方还请大家指出来，会即时改正的。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/anquan_sqlmappar.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -867,7 +873,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/15/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/17/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/15/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/17/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -908,7 +914,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">132</span>
+              <span class="site-state-item-count">138</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -916,7 +922,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -925,7 +931,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

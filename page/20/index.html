@@ -93,6 +93,7 @@
 
   <link rel="canonical" href="http://www.fatiao.site/page/20/"/>
 
+  <meta name="baidu-site-verification" content="K7iVtNDL7l" />
   <title> 小发条的技术人生 - 不积跬步，无以至千里 </title>
 </head>
 
@@ -235,8 +236,8 @@
             
               
                 
-                <a class="post-title-link" href="/python_if.html" itemprop="url">
-                  Python - 条件判断
+                <a class="post-title-link" href="/python_section.html" itemprop="url">
+                  Python - 切片
                 </a>
               
             
@@ -249,8 +250,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2010-05-07T00:00:00+08:00" content="2010-05-07">
-              2010-05-07
+            <time itemprop="dateCreated" datetime="2010-07-15T00:00:00+08:00" content="2010-07-15">
+              2010-07-15
             </time>
           </span>
 
@@ -279,8 +280,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/python_if.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="python_if.html" itemprop="commentsCount"></span>
+                <a href="/python_section.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="python_section.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -304,10 +305,12 @@
 
       
         
-          <p>在python中，有if实现条件判断，例子如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">age = 20</div><div class="line">if age &gt;= 18:</div><div class="line">    print &apos;your age is&apos;, age</div><div class="line">    print &apos;adult&apos;</div></pre></td></tr></table></figure></p>
-<p>如果if语句判断是True，就把缩进的两行print语句执行了，否则，什么也不做。<br>
+          <p>取一个list或tuple的部分元素是非常常见的操作。比如，一个list如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; L = [&apos;Michael&apos;, &apos;Sarah&apos;, &apos;Tracy&apos;, &apos;Bob&apos;, &apos;Jack&apos;]</div></pre></td></tr></table></figure></p>
+<p>取前3个元素，应该怎么做？</p>
+<p>笨办法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; [L[0], L[1], L[2]]</div><div class="line">[&apos;Michael&apos;, &apos;Sarah&apos;, &apos;Tracy&apos;]</div></pre></td></tr></table></figure></p>
+<p>之所以是笨办法是因为扩展一下，取前N个元素就没辙了。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/python_if.html#more" rel="contents">
+            <a class="btn" href="/python_section.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -358,8 +361,8 @@
             
               
                 
-                <a class="post-title-link" href="/python_tuple.html" itemprop="url">
-                  Python - tuple（元组）
+                <a class="post-title-link" href="/python_func2.html" itemprop="url">
+                  Python - 函数（二）
                 </a>
               
             
@@ -372,8 +375,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2010-04-25T00:00:00+08:00" content="2010-04-25">
-              2010-04-25
+            <time itemprop="dateCreated" datetime="2010-07-07T00:00:00+08:00" content="2010-07-07">
+              2010-07-07
             </time>
           </span>
 
@@ -402,8 +405,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/python_tuple.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="python_tuple.html" itemprop="commentsCount"></span>
+                <a href="/python_func2.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="python_func2.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -427,10 +430,9 @@
 
       
         
-          <p>元组：tuple。tuple和list非常类似，但是tuple一旦初始化就不能修改，比如同样是列出同学的名字：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; classmates = (&apos;Michael&apos;, &apos;Bob&apos;, &apos;Tracy&apos;)</div></pre></td></tr></table></figure></p>
-<p>现在，classmates这个tuple不能变了，它也没有append()，insert()这样的方法。其他获取元素的方法和list是一样的，你可以正常地使用classmates[0]，classmates[-1]，但不能赋值成另外的元素。不可变的tuple有什么意义？因为tuple不可变，所以代码更安全。如果可能，能用tuple代替list就尽量用tuple。<br>
+          <h2 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h2><p>我们仍以具体的例子来说明如何定义函数的默认参数。先写一个计算x2的函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">def power(x):</div><div class="line">    return x * x</div></pre></td></tr></table></figure></p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/python_tuple.html#more" rel="contents">
+            <a class="btn" href="/python_func2.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -481,8 +483,8 @@
             
               
                 
-                <a class="post-title-link" href="/python_list.html" itemprop="url">
-                  Python - list（列表）
+                <a class="post-title-link" href="/python_func1.html" itemprop="url">
+                  Python - 函数（一）
                 </a>
               
             
@@ -495,8 +497,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2010-04-13T00:00:00+08:00" content="2010-04-13">
-              2010-04-13
+            <time itemprop="dateCreated" datetime="2010-06-27T00:00:00+08:00" content="2010-06-27">
+              2010-06-27
             </time>
           </span>
 
@@ -525,8 +527,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/python_list.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="python_list.html" itemprop="commentsCount"></span>
+                <a href="/python_func1.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="python_func1.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -550,10 +552,11 @@
 
       
         
-          <p>Python内置的一种数据类型是列表：list。list是一种有序的集合，可以随时添加和删除其中的元素。比如，列出班里所有同学的名字，就可以用一个list表示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; classmates = [&apos;Michael&apos;, &apos;Bob&apos;, &apos;Tracy&apos;]</div><div class="line">&gt;&gt;&gt; classmates</div><div class="line">[&apos;Michael&apos;, &apos;Bob&apos;, &apos;Tracy&apos;]</div></pre></td></tr></table></figure></p>
-<p>变量classmates就是一个list。用len()函数可以获得list元素的个数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; len(classmates)</div><div class="line">3</div></pre></td></tr></table></figure></p>
+          <h2 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h2><p>在Python中，定义一个函数要使用def语句，依次写出函数名、括号、括号中的参数和冒号:，然后，在缩进块中编写函数体，函数的返回值用return语句返回。</p>
+<p>我们以自定义一个求绝对值的my_abs函数为例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">def my_abs(x):</div><div class="line">    if x &gt;= 0:</div><div class="line">        return x</div><div class="line">    else:</div><div class="line">        return -x</div></pre></td></tr></table></figure></p>
+<p>请自行测试并调用my_abs看看返回结果是否正确。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/python_list.html#more" rel="contents">
+            <a class="btn" href="/python_func1.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -604,8 +607,8 @@
             
               
                 
-                <a class="post-title-link" href="/python_string.html" itemprop="url">
-                  Python - 字符串
+                <a class="post-title-link" href="/python_set.html" itemprop="url">
+                  Python - set(集合)
                 </a>
               
             
@@ -618,8 +621,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2010-04-01T00:00:00+08:00" content="2010-04-01">
-              2010-04-01
+            <time itemprop="dateCreated" datetime="2010-06-15T00:00:00+08:00" content="2010-06-15">
+              2010-06-15
             </time>
           </span>
 
@@ -648,8 +651,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/python_string.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="python_string.html" itemprop="commentsCount"></span>
+                <a href="/python_set.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="python_set.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -673,9 +676,11 @@
 
       
         
-          <h2 id="Python字符串"><a href="#Python字符串" class="headerlink" title="Python字符串"></a>Python字符串</h2><p>因为Python的诞生比Unicode标准发布的时间还要早，所以最早的Python只支持ASCII编码，普通的字符串’ABC’在Python内部都是ASCII编码的。Python提供了ord()和chr()函数，可以把字母和对应的数字相互转换：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; ord(&apos;A&apos;)</div><div class="line">65</div><div class="line">&gt;&gt;&gt; chr(65)</div><div class="line">&apos;A&apos;</div></pre></td></tr></table></figure></p>
+          <p>set和dict类似，也是一组key的集合，但不存储value。由于key不能重复，所以，在set中，没有重复的key。</p>
+<p>要创建一个set，需要提供一个list作为输入集合：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; s = set([1, 2, 3])</div><div class="line">&gt;&gt;&gt; s</div><div class="line">set([1, 2, 3])</div></pre></td></tr></table></figure></p>
+<p>注意，传入的参数[1, 2, 3]是一个list，而显示的set([1, 2, 3])只是告诉你这个set内部有1，2，3这3个元素，显示的[]不表示这是一个list。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/python_string.html#more" rel="contents">
+            <a class="btn" href="/python_set.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -726,8 +731,8 @@
             
               
                 
-                <a class="post-title-link" href="/python_variable.html" itemprop="url">
-                  Python - 变量 & 常量
+                <a class="post-title-link" href="/python_dict.html" itemprop="url">
+                  Python - dict(字典)
                 </a>
               
             
@@ -740,8 +745,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2010-03-22T00:00:00+08:00" content="2010-03-22">
-              2010-03-22
+            <time itemprop="dateCreated" datetime="2010-05-29T00:00:00+08:00" content="2010-05-29">
+              2010-05-29
             </time>
           </span>
 
@@ -770,8 +775,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/python_variable.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="python_variable.html" itemprop="commentsCount"></span>
+                <a href="/python_dict.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="python_dict.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -795,11 +800,11 @@
 
       
         
-          <h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>变量的概念基本上和初中代数的方程变量是一致的，只是在计算机程序中，变量不仅可以是数字，还可以是任意数据类型。</p>
-<p>变量在程序中就是用一个变量名表示了，变量名必须是大小写英文、数字和_的组合，且不能用数字开头，比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">a = 1           # 变量a是一个整数</div><div class="line">t_007 = &apos;T007&apos;  # 变量t_007是一个字符串</div><div class="line">Answer = True   # 变量Answer是一个布尔值True</div></pre></td></tr></table></figure></p>
-<p>在Python中，等号=是赋值语句，可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量。<br>
+          <p>字典是另一种可变容器模型，且可存储任意类型对象。<br>字典的每个键值(key=&gt;value)对用冒号(:)分割，每个对之间用逗号(,)分割，整个字典包括在花括号({})中 ,格式如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">d = &#123;key1 : value1, key2 : value2 &#125;</div></pre></td></tr></table></figure></p>
+<p>键必须是唯一的，但值则不必。<br>值可以取任何数据类型，但键必须是不可变的，如字符串，数字或元组。<br>一个简单的字典实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dict = &#123;&apos;Alice&apos;: &apos;2341&apos;, &apos;Beth&apos;: &apos;9102&apos;, &apos;Cecil&apos;: &apos;3258&apos;&#125;</div></pre></td></tr></table></figure></p>
+<p>也可如此创建字典：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">dict1 = &#123; &apos;abc&apos;: 456 &#125;;</div><div class="line">dict2 = &#123; &apos;abc&apos;: 123, 98.6: 37 &#125;;</div></pre></td></tr></table></figure></p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/python_variable.html#more" rel="contents">
+            <a class="btn" href="/python_dict.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -833,7 +838,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/19/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><span class="page-number current">20</span><a class="page-number" href="/page/21/">21</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/21/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/19/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><span class="page-number current">20</span><a class="page-number" href="/page/21/">21</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/21/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -874,7 +879,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">132</span>
+              <span class="site-state-item-count">138</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -882,7 +887,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -891,7 +896,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

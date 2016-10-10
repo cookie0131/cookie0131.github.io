@@ -93,6 +93,7 @@
 
   <link rel="canonical" href="http://www.fatiao.site/page/24/"/>
 
+  <meta name="baidu-site-verification" content="K7iVtNDL7l" />
   <title> 小发条的技术人生 - 不积跬步，无以至千里 </title>
 </head>
 
@@ -235,8 +236,8 @@
             
               
                 
-                <a class="post-title-link" href="/linux_flow4until.html" itemprop="url">
-                  Linux & Shell -  控制流：until
+                <a class="post-title-link" href="/linux_curl4auth.html" itemprop="url">
+                  Linux & Shell - curl解决需要认证的问题
                 </a>
               
             
@@ -249,8 +250,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2009-10-08T00:00:00+08:00" content="2009-10-08">
-              2009-10-08
+            <time itemprop="dateCreated" datetime="2009-11-27T00:00:00+08:00" content="2009-11-27">
+              2009-11-27
             </time>
           </span>
 
@@ -279,8 +280,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/linux_flow4until.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_flow4until.html" itemprop="commentsCount"></span>
+                <a href="/linux_curl4auth.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_curl4auth.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -305,9 +306,8 @@
       
         
           
-            <p>until循环执行一系列命令直至条件为真时停止。until循环与while循环在处理方式上刚好相反。一般while循环优于until循环,但在某些时候—也只是极少数情况下,until循环更加有用。</p>
-<p>until循环格式为:until条件<br>命令1 .. .<br>done<br>条件可为任意测试条件,测试发生在循环末尾,因此循环至少执行一次—请注意这一点。</p>
-<p>例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#!/bin/sh</div><div class="line">IS_ROOT=`who | grep root`</div><div class="line">until [&quot;$IS_ROOT&quot;]</div><div class="line">do</div><div class="line">  sleep 4</div><div class="line">done</div><div class="line">echo &quot;watch it .roots in&quot; | mail simon</div></pre></td></tr></table></figure></p>
+            <p>在使用curl过程中，有一些页面需要验证登录成功后才能抓取到，那要怎么处理呢？具体方式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -c cookie.txt -d &quot;user_name=af236561&amp;user_passwd=227058&quot; &quot;http://url/login&quot;</div><div class="line">curl -b cookie.txt  -s -I http://url/analysis/customer/</div></pre></td></tr></table></figure></p>
+<p>原理：先模拟登录生成cookie ，再读文件cookie登录</p>
 
           
         
@@ -357,8 +357,8 @@
             
               
                 
-                <a class="post-title-link" href="/linux_flow4for.html" itemprop="url">
-                  Linux & Shell -  控制流：for
+                <a class="post-title-link" href="/linux_curl.html" itemprop="url">
+                  Linux & Shell - curl
                 </a>
               
             
@@ -371,8 +371,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2009-09-28T00:00:00+08:00" content="2009-09-28">
-              2009-09-28
+            <time itemprop="dateCreated" datetime="2009-11-15T00:00:00+08:00" content="2009-11-15">
+              2009-11-15
             </time>
           </span>
 
@@ -401,8 +401,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/linux_flow4for.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_flow4for.html" itemprop="commentsCount"></span>
+                <a href="/linux_curl.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_curl.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -426,10 +426,10 @@
 
       
         
-          <p>for循环一般格式为:for 变量名 in 列表<br>do<br> 命令1<br> 命令2⋯<br>done</p>
-<p>i n 列表可以包含替换、字符串和文件名,下面看一些例子。</p>
+          <p>curl是一个利用URL语法在命令行方式下工作的文件传输工具；</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Linux系统安装CURL<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">wget http://curl.haxx.se/download/curl-7.17.1.tar.gz</div><div class="line">tar -xvf curl-7.17.1.tar.gz</div><div class="line">./configure --prefix=/usr/local/curl</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure></p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/linux_flow4for.html#more" rel="contents">
+            <a class="btn" href="/linux_curl.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -480,8 +480,8 @@
             
               
                 
-                <a class="post-title-link" href="/linux_flow4case.html" itemprop="url">
-                  Linux & Shell -  控制流：case
+                <a class="post-title-link" href="/linux_func.html" itemprop="url">
+                  Linux & Shell -  控制流：函数
                 </a>
               
             
@@ -494,8 +494,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2009-09-14T00:00:00+08:00" content="2009-09-14">
-              2009-09-14
+            <time itemprop="dateCreated" datetime="2009-11-03T00:00:00+08:00" content="2009-11-03">
+              2009-11-03
             </time>
           </span>
 
@@ -524,8 +524,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/linux_flow4case.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_flow4case.html" itemprop="commentsCount"></span>
+                <a href="/linux_func.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_func.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -550,8 +550,8 @@
       
         
           
-            <p>case语句为多选择语句。可以用case语句匹配一个值与一个模式,如果匹配成功,执行相匹配的命令。case语句格式如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">case 值 in</div><div class="line">模式1&#125;</div><div class="line">  命令1</div><div class="line">  。。。</div><div class="line">  ;;</div><div class="line">模式2&#125;</div><div class="line">  命令2</div><div class="line">  。。。</div><div class="line">  ;;  </div><div class="line">esac</div></pre></td></tr></table></figure></p>
-<p>例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">#!/bin/sh</div><div class="line">echo -n &quot;enter a number from 1 to 5:&quot;</div><div class="line">read ANS</div><div class="line">case $ ANS in</div><div class="line">1) echo &quot;you select 1&quot;</div><div class="line">;;</div><div class="line">2) echo &quot;you select 2&quot;</div><div class="line">;;</div><div class="line">3) echo &quot;you select 3&quot;</div><div class="line">;;</div><div class="line">4) echo &quot;you select 4&quot;</div><div class="line">;;</div><div class="line">5) echo &quot;you select 5&quot;</div><div class="line">;;</div><div class="line">*) echo &quot;echo `basename$0`:this is not between 1 and 5&quot; &gt; &amp;2</div><div class="line">exit 1</div><div class="line">;;</div><div class="line">esac</div></pre></td></tr></table></figure></p>
+            <p>shell允许将一组命令集或语句形成一个可用块,这些块称为shell函数。<br>定义函数的格式为:<br>函数名()<br>{<br>命令1<br>.. .<br>}<br>如果愿意,可在函数名前加上关键字 function,这取决于使用者。<br>function 函数名()<br>{<br>…<br>}</p>
+<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hello()</div><div class="line">&#123;</div><div class="line">  echo &quot;hello owrld&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
           
         
@@ -601,8 +601,8 @@
             
               
                 
-                <a class="post-title-link" href="/linux_flow4if.html" itemprop="url">
-                  Linux & Shell - 控制流：if
+                <a class="post-title-link" href="/linux_flow4exit.html" itemprop="url">
+                  Linux & Shell - 控制流：退出状态
                 </a>
               
             
@@ -615,8 +615,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2009-09-03T00:00:00+08:00" content="2009-09-03">
-              2009-09-03
+            <time itemprop="dateCreated" datetime="2009-10-29T00:00:00+08:00" content="2009-10-29">
+              2009-10-29
             </time>
           </span>
 
@@ -645,8 +645,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/linux_flow4if.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_flow4if.html" itemprop="commentsCount"></span>
+                <a href="/linux_flow4exit.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_flow4exit.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -671,8 +671,10 @@
       
         
           
-            <p>if语句测试条件,测试条件返回真(0)或假（1）后，可相应执行一系列语句。if语句结构对错误检查非常有用。其格式为:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">if 条件1</div><div class="line">  then 命令1</div><div class="line">  elif 条件2 </div><div class="line">then 命令2</div><div class="line">else 命令3</div></pre></td></tr></table></figure></p>
-<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#!/bin/sh</div><div class="line">if [ &quot;10&quot; -lt &quot;12&quot; ]</div><div class="line">then</div><div class="line"> echo &quot;10 is less than 12&quot;</div><div class="line">else</div><div class="line">  echo &quot;you are wrong&quot;</div><div class="line">fi</div></pre></td></tr></table></figure></p>
+            <h2 id="退出状态"><a href="#退出状态" class="headerlink" title="退出状态"></a>退出状态</h2><p>任何命令进行时都将返回一个退出状态。如 果要观察其退出状态,使用最后状态命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$echo $?</div></pre></td></tr></table></figure></p>
+<p>要退出当前进程,shell提供命令exit ,一般格式为:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exit n</div></pre></td></tr></table></figure></p>
+<p>其中,n为一数字。</p>
+<p>但其中相对于脚本和一般系统命令最重要的有两种,即:<br>退出状态 0 退出成功,无错误。 退出状态 1 退出失败,某处有错误。</p>
 
           
         
@@ -722,8 +724,8 @@
             
               
                 
-                <a class="post-title-link" href="/linux_sc4test.html" itemprop="url">
-                  Linux & Shell - 条件测试
+                <a class="post-title-link" href="/linux_flow4break.html" itemprop="url">
+                  Linux & Shell -  控制流：break & continue
                 </a>
               
             
@@ -736,8 +738,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2009-08-28T00:00:00+08:00" content="2009-08-28">
-              2009-08-28
+            <time itemprop="dateCreated" datetime="2009-10-25T00:00:00+08:00" content="2009-10-25">
+              2009-10-25
             </time>
           </span>
 
@@ -766,8 +768,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/linux_sc4test.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_sc4test.html" itemprop="commentsCount"></span>
+                <a href="/linux_flow4break.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_flow4break.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -791,12 +793,13 @@
 
       
         
-          <p>写脚本时，有时候要判断字符串是否相等，可能还要检查文件的状态或数字测试，Test命令用于测试字符串，文件状态和数字。</p>
-<h2 id="测试文件状态"><a href="#测试文件状态" class="headerlink" title="测试文件状态"></a>测试文件状态</h2><p>test一般有两种格式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">test condition</div><div class="line">或</div><div class="line">[codition]</div></pre></td></tr></table></figure></p>
-<p>文件测试状态<br>-d 目录<br>-f 正规文件<br>-L 符号链接<br>-r 可读<br>-s 文件长度大于0<br>-w 可写<br>-u 文件suid位设置<br>-x 可执行</p>
-<p>[ -w source.txt ]<br>echo $?<br>如果结果为0，表示成功，其他为失败<br>
+          <p>有时需要基于某些准则退出循环或跳过循环步。shell提供两个命令实现此功能。</p>
+<ul>
+<li>break</li>
+<li>continue</li>
+</ul>
           <div class="post-more-link text-center">
-            <a class="btn" href="/linux_sc4test.html#more" rel="contents">
+            <a class="btn" href="/linux_flow4break.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -830,7 +833,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/23/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><span class="page-number current">24</span><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/25/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/23/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><span class="page-number current">24</span><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/25/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -871,7 +874,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">132</span>
+              <span class="site-state-item-count">138</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -879,7 +882,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -888,7 +891,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

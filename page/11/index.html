@@ -93,6 +93,7 @@
 
   <link rel="canonical" href="http://www.fatiao.site/page/11/"/>
 
+  <meta name="baidu-site-verification" content="K7iVtNDL7l" />
   <title> 小发条的技术人生 - 不积跬步，无以至千里 </title>
 </head>
 
@@ -235,8 +236,8 @@
             
               
                 
-                <a class="post-title-link" href="/git_createbranch.html" itemprop="url">
-                  Git：创建于合并分支
+                <a class="post-title-link" href="/git_tag.html" itemprop="url">
+                  Git：创建标签
                 </a>
               
             
@@ -249,8 +250,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-07-07T00:00:00+08:00" content="2012-07-07">
-              2012-07-07
+            <time itemprop="dateCreated" datetime="2012-09-27T00:00:00+08:00" content="2012-09-27">
+              2012-09-27
             </time>
           </span>
 
@@ -279,8 +280,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/git_createbranch.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="git_createbranch.html" itemprop="commentsCount"></span>
+                <a href="/git_tag.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="git_tag.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -304,9 +305,141 @@
 
       
         
-          <p>在Git里，master分支为主分支。HEAD严格来说不是指向提交，而是指向master，master才是指向提交的，所以，HEAD指向的就是当前分支。一开始的时候，master分支是一条线，Git用master指向最新的提交，再用HEAD指向master，就能确定当前分支，以及当前分支的提交点。</p>
+          
+            <p>在Git中打标签非常简单，首先，切换到需要打标签的分支上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git branch</div><div class="line">* dev</div><div class="line">  master</div><div class="line">$ git checkout master</div><div class="line">Switched to branch &apos;master&apos;</div></pre></td></tr></table></figure></p>
+<p>然后，敲命令<code>git tag &lt;name&gt;</code>就可以打一个新标签：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag v1.0</div></pre></td></tr></table></figure></p>
+<p>可以用命令git tag查看所有标签：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git tag</div><div class="line">v1.0</div></pre></td></tr></table></figure></p>
+<p>默认标签是打在最新提交的commit上的。有时候，如果忘了打标签，比如，现在已经是周五了，但应该在周一打的标签没有打，怎么办？</p>
+<p>方法是找到历史提交的commit id，然后打上就可以了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ git log --pretty=oneline --abbrev-commit</div><div class="line">6a5819e merged bug fix 101</div><div class="line">cc17032 fix bug 101</div><div class="line">7825a50 merge with no-ff</div><div class="line">6224937 add merge</div><div class="line">59bc1cb conflict fixed</div><div class="line">400b400 &amp; simple</div><div class="line">75a857c AND simple</div><div class="line">fec145a branch test</div><div class="line">d17efd8 remove test.txt</div><div class="line">...</div></pre></td></tr></table></figure></p>
+<p>比方说要对add merge这次提交打标签，它对应的commit id是6224937，敲入命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag v0.9 6224937</div></pre></td></tr></table></figure></p>
+<p>再用命令<code>git tag</code>查看标签：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git tag</div><div class="line">v0.9</div><div class="line">v1.0</div></pre></td></tr></table></figure></p>
+<p>注意，标签不是按时间顺序列出，而是按字母排序的。可以用<code>git show &lt;tagname&gt;</code>查看标签信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ git show v0.9</div><div class="line">commit 622493706ab447b6bb37e4e2a2f276a20fed2ab4</div><div class="line">Author: Michael Liao &lt;askxuefeng@gmail.com&gt;</div><div class="line">Date:   Thu Aug 22 11:22:08 2013 +0800</div><div class="line"></div><div class="line">    add merge</div><div class="line">...</div></pre></td></tr></table></figure></p>
+<p>可以看到，v0.9确实打在add merge这次提交上。</p>
+<p>还可以创建带有说明的标签，用-a指定标签名，-m指定说明文字：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">$ git tag -a v0.1 -m &quot;version 0.1 released&quot; 3628164</div><div class="line">用命令git show &lt;tagname&gt;可以看到说明文字：</div><div class="line"></div><div class="line">$ git show v0.1</div><div class="line">tag v0.1</div><div class="line">Tagger: Michael Liao &lt;askxuefeng@gmail.com&gt;</div><div class="line">Date:   Mon Aug 26 07:28:11 2013 +0800</div><div class="line"></div><div class="line">version 0.1 released</div><div class="line"></div><div class="line">commit 3628164fb26d48395383f8f31179f24e0882e1e0</div><div class="line">Author: Michael Liao &lt;askxuefeng@gmail.com&gt;</div><div class="line">Date:   Tue Aug 20 15:11:49 2013 +0800</div><div class="line"></div><div class="line">    append GPL</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/git_alias.html" itemprop="url">
+                  Git：配置别名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2012-08-19T00:00:00+08:00" content="2012-08-19">
+              2012-08-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/devops/" itemprop="url" rel="index">
+                    <span itemprop="name">devops</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/git_alias.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="git_alias.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>有没有经常敲错命令？比如<code>git status</code>？status这个单词真心不好记。</p>
+<p>如果敲<code>git st</code>就表示git status那就简单多了，当然这种偷懒的办法我们是极力赞成的。</p>
+<p>我们只需要敲一行命令，告诉Git，以后st就表示status：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config --global alias.st status</div></pre></td></tr></table></figure></p>
+<p>好了，现在敲git st看看效果。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/git_createbranch.html#more" rel="contents">
+            <a class="btn" href="/git_alias.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -357,8 +490,8 @@
             
               
                 
-                <a class="post-title-link" href="/git_clone.html" itemprop="url">
-                  Git：从远程仓库克隆
+                <a class="post-title-link" href="/git_ignore.html" itemprop="url">
+                  Git：忽略某个文件
                 </a>
               
             
@@ -371,8 +504,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-06-28T00:00:00+08:00" content="2012-06-28">
-              2012-06-28
+            <time itemprop="dateCreated" datetime="2012-08-11T00:00:00+08:00" content="2012-08-11">
+              2012-08-11
             </time>
           </span>
 
@@ -401,8 +534,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/git_clone.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="git_clone.html" itemprop="commentsCount"></span>
+                <a href="/git_ignore.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="git_ignore.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -426,129 +559,9 @@
 
       
         
-          
-            <p>假设Github上有gitskills仓库，用命令git clone克隆一个本地库：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ git clone git@github.com:haocheng/gitskills.git</div><div class="line">Cloning into &apos;gitskills&apos;...</div><div class="line">remote: Counting objects: 3, done.</div><div class="line">remote: Total 3 (delta 0), reused 0 (delta 0)</div><div class="line">Receiving objects: 100% (3/3), done.</div><div class="line"></div><div class="line">$ cd gitskills</div><div class="line">$ ls</div><div class="line">README.md</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/git_remote.html" itemprop="url">
-                  Git：添加远程仓库
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-06-15T00:00:00+08:00" content="2012-06-15">
-              2012-06-15
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/devops/" itemprop="url" rel="index">
-                    <span itemprop="name">devops</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/git_remote.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="git_remote.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>你已经在本地创建了一个Git仓库后，又想在GitHub创建一个Git仓库，并且让这两个仓库进行远程同步。假设Github上已经有一个仓库了，那么接下来在本地的test仓库下运行命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote add origin git@github.com:haocheng/test.git</div></pre></td></tr></table></figure></p>
+          <p>有些时候，你必须把某些文件放到Git工作目录中，但又不能提交它们，比如保存了数据库密码的配置文件啦，等等，每次git status都会显示Untracked files …，有强迫症的童鞋心里肯定不爽。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/git_remote.html#more" rel="contents">
+            <a class="btn" href="/git_ignore.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -599,8 +612,8 @@
             
               
                 
-                <a class="post-title-link" href="/git_rm.html" itemprop="url">
-                  Git：删除文件
+                <a class="post-title-link" href="/git_delete.html" itemprop="url">
+                  Git：删除分支
                 </a>
               
             
@@ -613,8 +626,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-06-06T00:00:00+08:00" content="2012-06-06">
-              2012-06-06
+            <time itemprop="dateCreated" datetime="2012-08-03T00:00:00+08:00" content="2012-08-03">
+              2012-08-03
             </time>
           </span>
 
@@ -643,8 +656,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/git_rm.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="git_rm.html" itemprop="commentsCount"></span>
+                <a href="/git_delete.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="git_delete.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -668,12 +681,10 @@
 
       
         
-          <p>在Git中，删除也是一个修改操作，我们实战一下，先添加一个新文件test.txt到Git并且提交：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git add test.txt</div><div class="line">$ git commit -m &quot;add test.txt&quot;</div><div class="line">[master 94cdc44] add test.txt</div><div class="line"> 1 file changed, 1 insertion(+)</div><div class="line"> create mode 100644 test.txt</div></pre></td></tr></table></figure></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/git_rm.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <p>通常情况下，分支会在合并后被删除，具体命令如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git branch -D feature-vulcan</div><div class="line">Deleted branch feature-vulcan (was 756d4af).</div></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
@@ -721,8 +732,8 @@
             
               
                 
-                <a class="post-title-link" href="/git_checkout.html" itemprop="url">
-                  Git：撤销修改
+                <a class="post-title-link" href="/git_stash.html" itemprop="url">
+                  Git：临时存储开发分支
                 </a>
               
             
@@ -735,8 +746,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-05-21T00:00:00+08:00" content="2012-05-21">
-              2012-05-21
+            <time itemprop="dateCreated" datetime="2012-07-27T00:00:00+08:00" content="2012-07-27">
+              2012-07-27
             </time>
           </span>
 
@@ -765,8 +776,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/git_checkout.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="git_checkout.html" itemprop="commentsCount"></span>
+                <a href="/git_stash.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="git_stash.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -790,9 +801,10 @@
 
       
         
-          <h2 id="场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git-checkout-–-file"><a href="#场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git-checkout-–-file" class="headerlink" title="场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout – file"></a>场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout – file</h2><p>先在readme.txt中添加了一行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ cat readme.txt</div><div class="line">Git is a distributed version control system.</div><div class="line">Git is free software distributed under the GPL.</div><div class="line">Git has a mutable index called stage.</div><div class="line">Git tracks changes of files.</div><div class="line">My stupid boss still prefers SVN.</div></pre></td></tr></table></figure></p>
+          <p>软件开发中，bug就像家常便饭一样。有了bug就需要修复，在Git中，由于分支是如此的强大，所以，每个bug都可以通过一个新的临时分支来修复，修复后，合并分支，然后将临时分支删除。</p>
+<p>当你接到一个修复一个代号101的bug的任务时，很自然地，你想创建一个分支issue-101来修复它，但是，等等，当前正在dev上进行的工作还没有提交：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$ git status</div><div class="line"># On branch dev</div><div class="line"># Changes to be committed:</div><div class="line">#   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)</div><div class="line">#</div><div class="line">#       new file:   hello.py</div><div class="line">#</div><div class="line"># Changes not staged for commit:</div><div class="line">#   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</div><div class="line">#   (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</div><div class="line">#</div><div class="line">#       modified:   readme.txt</div><div class="line">#</div></pre></td></tr></table></figure></p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/git_checkout.html#more" rel="contents">
+            <a class="btn" href="/git_stash.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -826,7 +838,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -867,7 +879,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">132</span>
+              <span class="site-state-item-count">138</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -875,7 +887,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -884,7 +896,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
