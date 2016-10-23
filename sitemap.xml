@@ -2,6 +2,76 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fatiao.site/python_listcmp.html</loc>
+    
+    <lastmod>2016-10-14T03:23:15.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/other_spiderzero.html</loc>
+    
+    <lastmod>2016-10-14T03:17:38.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/js_webstormset.html</loc>
+    
+    <lastmod>2016-10-14T03:17:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/test_url.html</loc>
+    
+    <lastmod>2016-10-12T06:45:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/python_beautifulsoup.html</loc>
+    
+    <lastmod>2016-10-12T06:28:39.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/python_requests.html</loc>
+    
+    <lastmod>2016-10-12T05:59:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/python_requirements.html</loc>
+    
+    <lastmod>2016-10-12T03:02:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/python_pipsource.html</loc>
+    
+    <lastmod>2016-10-12T02:37:17.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/python_setup.html</loc>
+    
+    <lastmod>2016-10-12T02:25:33.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/jenkins_wad.html</loc>
+    
+    <lastmod>2016-10-10T05:29:47.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fatiao.site/oteher_7jianyi.html</loc>
     
     <lastmod>2016-10-10T02:54:00.000Z</lastmod>
@@ -33,13 +103,6 @@
     <loc>http://www.fatiao.site/python_sc4jisuan.html</loc>
     
     <lastmod>2016-10-09T04:00:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fatiao.site/python_setup.html</loc>
-    
-    <lastmod>2016-10-08T03:55:21.000Z</lastmod>
     
   </url>
   
@@ -471,14 +534,14 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/mobile_appms.html</loc>
+    <loc>http://www.fatiao.site/mobile_ddms.html</loc>
     
     <lastmod>2016-09-28T09:32:04.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/mobile_ddms.html</loc>
+    <loc>http://www.fatiao.site/mobile_appms.html</loc>
     
     <lastmod>2016-09-28T09:32:04.000Z</lastmod>
     
@@ -513,14 +576,14 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/python_func1.html</loc>
+    <loc>http://www.fatiao.site/python_listgenetate.html</loc>
     
     <lastmod>2016-09-28T08:52:42.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/python_listgenetate.html</loc>
+    <loc>http://www.fatiao.site/python_func1.html</loc>
     
     <lastmod>2016-09-28T08:52:42.000Z</lastmod>
     

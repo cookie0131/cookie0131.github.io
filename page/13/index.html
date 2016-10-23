@@ -236,8 +236,8 @@
             
               
                 
-                <a class="post-title-link" href="/git_checkout.html" itemprop="url">
-                  Git：撤销修改
+                <a class="post-title-link" href="/git_alias.html" itemprop="url">
+                  Git：配置别名
                 </a>
               
             
@@ -250,8 +250,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-05-21T00:00:00+08:00" content="2012-05-21">
-              2012-05-21
+            <time itemprop="dateCreated" datetime="2012-08-19T00:00:00+08:00" content="2012-08-19">
+              2012-08-19
             </time>
           </span>
 
@@ -280,8 +280,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/git_checkout.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="git_checkout.html" itemprop="commentsCount"></span>
+                <a href="/git_alias.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="git_alias.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -305,9 +305,12 @@
 
       
         
-          <h2 id="场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git-checkout-–-file"><a href="#场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git-checkout-–-file" class="headerlink" title="场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout – file"></a>场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout – file</h2><p>先在readme.txt中添加了一行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ cat readme.txt</div><div class="line">Git is a distributed version control system.</div><div class="line">Git is free software distributed under the GPL.</div><div class="line">Git has a mutable index called stage.</div><div class="line">Git tracks changes of files.</div><div class="line">My stupid boss still prefers SVN.</div></pre></td></tr></table></figure></p>
+          <p>有没有经常敲错命令？比如<code>git status</code>？status这个单词真心不好记。</p>
+<p>如果敲<code>git st</code>就表示git status那就简单多了，当然这种偷懒的办法我们是极力赞成的。</p>
+<p>我们只需要敲一行命令，告诉Git，以后st就表示status：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config --global alias.st status</div></pre></td></tr></table></figure></p>
+<p>好了，现在敲git st看看效果。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/git_checkout.html#more" rel="contents">
+            <a class="btn" href="/git_alias.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -358,8 +361,8 @@
             
               
                 
-                <a class="post-title-link" href="/git_managerchange.html" itemprop="url">
-                  Git：管理修改
+                <a class="post-title-link" href="/git_ignore.html" itemprop="url">
+                  Git：忽略某个文件
                 </a>
               
             
@@ -372,8 +375,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-05-12T00:00:00+08:00" content="2012-05-12">
-              2012-05-12
+            <time itemprop="dateCreated" datetime="2012-08-11T00:00:00+08:00" content="2012-08-11">
+              2012-08-11
             </time>
           </span>
 
@@ -402,8 +405,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/git_managerchange.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="git_managerchange.html" itemprop="commentsCount"></span>
+                <a href="/git_ignore.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="git_ignore.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -427,9 +430,9 @@
 
       
         
-          <p>Git跟踪并管理的是修改，而非文件。你会问，什么是修改？比如你新增了一行，这就是一个修改，删除了一行，也是一个修改，更改了某些字符，也是一个修改，删了一些又加了一些，也是一个修改，甚至创建一个新文件，也算一个修改。</p>
+          <p>有些时候，你必须把某些文件放到Git工作目录中，但又不能提交它们，比如保存了数据库密码的配置文件啦，等等，每次git status都会显示Untracked files …，有强迫症的童鞋心里肯定不爽。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/git_managerchange.html#more" rel="contents">
+            <a class="btn" href="/git_ignore.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -480,8 +483,8 @@
             
               
                 
-                <a class="post-title-link" href="/git_workmodule.html" itemprop="url">
-                  Git：工作区和暂存区
+                <a class="post-title-link" href="/git_delete.html" itemprop="url">
+                  Git：删除分支
                 </a>
               
             
@@ -494,8 +497,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-04-29T00:00:00+08:00" content="2012-04-29">
-              2012-04-29
+            <time itemprop="dateCreated" datetime="2012-08-03T00:00:00+08:00" content="2012-08-03">
+              2012-08-03
             </time>
           </span>
 
@@ -524,8 +527,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/git_workmodule.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="git_workmodule.html" itemprop="commentsCount"></span>
+                <a href="/git_delete.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="git_delete.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -549,9 +552,130 @@
 
       
         
-          <p>工作区就是你在电脑里能看到的目录，工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。<br>
+          
+            <p>通常情况下，分支会在合并后被删除，具体命令如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git branch -D feature-vulcan</div><div class="line">Deleted branch feature-vulcan (was 756d4af).</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/git_stash.html" itemprop="url">
+                  Git：临时存储开发分支
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2012-07-27T00:00:00+08:00" content="2012-07-27">
+              2012-07-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/devops/" itemprop="url" rel="index">
+                    <span itemprop="name">devops</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/git_stash.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="git_stash.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>软件开发中，bug就像家常便饭一样。有了bug就需要修复，在Git中，由于分支是如此的强大，所以，每个bug都可以通过一个新的临时分支来修复，修复后，合并分支，然后将临时分支删除。</p>
+<p>当你接到一个修复一个代号101的bug的任务时，很自然地，你想创建一个分支issue-101来修复它，但是，等等，当前正在dev上进行的工作还没有提交：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$ git status</div><div class="line"># On branch dev</div><div class="line"># Changes to be committed:</div><div class="line">#   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)</div><div class="line">#</div><div class="line">#       new file:   hello.py</div><div class="line">#</div><div class="line"># Changes not staged for commit:</div><div class="line">#   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</div><div class="line">#   (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</div><div class="line">#</div><div class="line">#       modified:   readme.txt</div><div class="line">#</div></pre></td></tr></table></figure></p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/git_workmodule.html#more" rel="contents">
+            <a class="btn" href="/git_stash.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -602,8 +726,8 @@
             
               
                 
-                <a class="post-title-link" href="/git_logreset.html" itemprop="url">
-                  Git：版本回退
+                <a class="post-title-link" href="/git_fixmergeerr.html" itemprop="url">
+                  Git：解决冲突
                 </a>
               
             
@@ -616,8 +740,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-04-17T00:00:00+08:00" content="2012-04-17">
-              2012-04-17
+            <time itemprop="dateCreated" datetime="2012-07-19T00:00:00+08:00" content="2012-07-19">
+              2012-07-19
             </time>
           </span>
 
@@ -646,8 +770,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/git_logreset.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="git_logreset.html" itemprop="commentsCount"></span>
+                <a href="/git_fixmergeerr.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="git_fixmergeerr.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -671,131 +795,10 @@
 
       
         
-          <p>在Git中，我们用git log命令查看版本库变更情况：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">$ git log</div><div class="line">commit 3628164fb26d48395383f8f31179f24e0882e1e0</div><div class="line">Author: Michael Liao &lt;askxuefeng@gmail.com&gt;</div><div class="line">Date:   Tue Aug 20 15:11:49 2013 +0800</div><div class="line"></div><div class="line">    append GPL</div><div class="line"></div><div class="line">commit ea34578d5496d7dd233c827ed32a8cd576c5ee85</div><div class="line">Author: Michael Liao &lt;askxuefeng@gmail.com&gt;</div><div class="line">Date:   Tue Aug 20 14:53:12 2013 +0800</div><div class="line"></div><div class="line">    add distributed</div><div class="line"></div><div class="line">commit cb926e7ea50ad11b8f9e909c05226233bf755030</div><div class="line">Author: Michael Liao &lt;askxuefeng@gmail.com&gt;</div><div class="line">Date:   Mon Aug 19 17:51:55 2013 +0800</div><div class="line"></div><div class="line">    wrote a readme file</div></pre></td></tr></table></figure></p>
+          <p>准备新的feature1分支，继续我们的新分支开发：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b feature1</div><div class="line">Switched to a new branch &apos;feature1&apos;</div></pre></td></tr></table></figure></p>
+<p>修改readme.txt最后一行，改为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Creating a new branch is quick AND simple.</div></pre></td></tr></table></figure></p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/git_logreset.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/git_stausdiff.html" itemprop="url">
-                  Git：查看版本库变更状态
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-04-01T00:00:00+08:00" content="2012-04-01">
-              2012-04-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/devops/" itemprop="url" rel="index">
-                    <span itemprop="name">devops</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/git_stausdiff.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="git_stausdiff.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>我们已经成功地添加并提交了一个readme.txt文件，现在，我们继续修改readme.txt文件，改成如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Git is a distributed version control system.</div><div class="line">Git is free software.</div></pre></td></tr></table></figure></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/git_stausdiff.html#more" rel="contents">
+            <a class="btn" href="/git_fixmergeerr.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -829,7 +832,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -870,7 +873,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">138</span>
+              <span class="site-state-item-count">147</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -878,7 +881,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -887,7 +890,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

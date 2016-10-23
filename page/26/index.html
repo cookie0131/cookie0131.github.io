@@ -236,8 +236,8 @@
             
               
                 
-                <a class="post-title-link" href="/linux_sc4test.html" itemprop="url">
-                  Linux & Shell - 条件测试
+                <a class="post-title-link" href="/linux_curl.html" itemprop="url">
+                  Linux & Shell - curl
                 </a>
               
             
@@ -250,8 +250,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2009-08-28T00:00:00+08:00" content="2009-08-28">
-              2009-08-28
+            <time itemprop="dateCreated" datetime="2009-11-15T00:00:00+08:00" content="2009-11-15">
+              2009-11-15
             </time>
           </span>
 
@@ -280,8 +280,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/linux_sc4test.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_sc4test.html" itemprop="commentsCount"></span>
+                <a href="/linux_curl.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_curl.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -305,12 +305,10 @@
 
       
         
-          <p>写脚本时，有时候要判断字符串是否相等，可能还要检查文件的状态或数字测试，Test命令用于测试字符串，文件状态和数字。</p>
-<h2 id="测试文件状态"><a href="#测试文件状态" class="headerlink" title="测试文件状态"></a>测试文件状态</h2><p>test一般有两种格式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">test condition</div><div class="line">或</div><div class="line">[codition]</div></pre></td></tr></table></figure></p>
-<p>文件测试状态<br>-d 目录<br>-f 正规文件<br>-L 符号链接<br>-r 可读<br>-s 文件长度大于0<br>-w 可写<br>-u 文件suid位设置<br>-x 可执行</p>
-<p>[ -w source.txt ]<br>echo $?<br>如果结果为0，表示成功，其他为失败<br>
+          <p>curl是一个利用URL语法在命令行方式下工作的文件传输工具；</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Linux系统安装CURL<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">wget http://curl.haxx.se/download/curl-7.17.1.tar.gz</div><div class="line">tar -xvf curl-7.17.1.tar.gz</div><div class="line">./configure --prefix=/usr/local/curl</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure></p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/linux_sc4test.html#more" rel="contents">
+            <a class="btn" href="/linux_curl.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -361,8 +359,8 @@
             
               
                 
-                <a class="post-title-link" href="/linux_cmdsx.html" itemprop="url">
-                  Linux & Shell - 命令执行顺序
+                <a class="post-title-link" href="/linux_func.html" itemprop="url">
+                  Linux & Shell -  控制流：函数
                 </a>
               
             
@@ -375,8 +373,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2009-08-23T00:00:00+08:00" content="2009-08-23">
-              2009-08-23
+            <time itemprop="dateCreated" datetime="2009-11-03T00:00:00+08:00" content="2009-11-03">
+              2009-11-03
             </time>
           </span>
 
@@ -405,8 +403,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/linux_cmdsx.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_cmdsx.html" itemprop="commentsCount"></span>
+                <a href="/linux_func.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_func.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -430,12 +428,11 @@
 
       
         
-          <p>如果希望在成功地执行一个命令之后再执行另一个命令,或者在一个命令失败后再执行另一个命令, &amp;&amp; 和 || 可以完成这样的功能。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/linux_cmdsx.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <p>shell允许将一组命令集或语句形成一个可用块,这些块称为shell函数。<br>定义函数的格式为:<br>函数名()<br>{<br>命令1<br>.. .<br>}<br>如果愿意,可在函数名前加上关键字 function,这取决于使用者。<br>function 函数名()<br>{<br>…<br>}</p>
+<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hello()</div><div class="line">&#123;</div><div class="line">  echo &quot;hello owrld&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
@@ -483,8 +480,8 @@
             
               
                 
-                <a class="post-title-link" href="/linux_cmd4output.html" itemprop="url">
-                  Linux & Shell - 输出&输入
+                <a class="post-title-link" href="/linux_flow4exit.html" itemprop="url">
+                  Linux & Shell - 控制流：退出状态
                 </a>
               
             
@@ -497,8 +494,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2009-08-12T00:00:00+08:00" content="2009-08-12">
-              2009-08-12
+            <time itemprop="dateCreated" datetime="2009-10-29T00:00:00+08:00" content="2009-10-29">
+              2009-10-29
             </time>
           </span>
 
@@ -527,8 +524,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/linux_cmd4output.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_cmd4output.html" itemprop="commentsCount"></span>
+                <a href="/linux_flow4exit.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_flow4exit.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -552,16 +549,136 @@
 
       
         
-          <h2 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h2><p>一般形式<br>echo string</p>
+          
+            <h2 id="退出状态"><a href="#退出状态" class="headerlink" title="退出状态"></a>退出状态</h2><p>任何命令进行时都将返回一个退出状态。如 果要观察其退出状态,使用最后状态命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$echo $?</div></pre></td></tr></table></figure></p>
+<p>要退出当前进程,shell提供命令exit ,一般格式为:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exit n</div></pre></td></tr></table></figure></p>
+<p>其中,n为一数字。</p>
+<p>但其中相对于脚本和一般系统命令最重要的有两种,即:<br>退出状态 0 退出成功,无错误。 退出状态 1 退出失败,某处有错误。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/linux_flow4break.html" itemprop="url">
+                  Linux & Shell -  控制流：break & continue
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2009-10-25T00:00:00+08:00" content="2009-10-25">
+              2009-10-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/linux_flow4break.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_flow4break.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>有时需要基于某些准则退出循环或跳过循环步。shell提供两个命令实现此功能。</p>
 <ul>
-<li>\c 不换行</li>
-<li>\f 近纸</li>
-<li>\t 跳格</li>
-<li>\n 换行</li>
+<li>break</li>
+<li>continue</li>
 </ul>
-<h2 id="read"><a href="#read" class="headerlink" title="read"></a>read</h2><p>可以使用read语句从键盘或文件的某一行文本中读入信息,并将其赋给一个变量.一般形式<br>read varible1 varible2<br>例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$read name surname</div><div class="line">john doe</div><div class="line">$echo $name $surname</div><div class="line">John doe</div></pre></td></tr></table></figure></p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/linux_cmd4output.html#more" rel="contents">
+            <a class="btn" href="/linux_flow4break.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -612,8 +729,8 @@
             
               
                 
-                <a class="post-title-link" href="/linux_yinhao.html" itemprop="url">
-                  Linux & Shell - 引号
+                <a class="post-title-link" href="/linux_flow4while.html" itemprop="url">
+                  Linux & Shell -  控制流：while
                 </a>
               
             
@@ -626,8 +743,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2009-08-08T00:00:00+08:00" content="2009-08-08">
-              2009-08-08
+            <time itemprop="dateCreated" datetime="2009-10-17T00:00:00+08:00" content="2009-10-17">
+              2009-10-17
             </time>
           </span>
 
@@ -656,8 +773,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/linux_yinhao.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_yinhao.html" itemprop="commentsCount"></span>
+                <a href="/linux_flow4while.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_flow4while.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -681,136 +798,9 @@
 
       
         
-          
-            <h2 id="双引号"><a href="#双引号" class="headerlink" title="双引号"></a>双引号</h2><p>使用双引号可引用除字符 $、`、\外的任意字符或字符串。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MYDATE=&quot;date&quot;</div><div class="line">echo $MYDATE</div></pre></td></tr></table></figure></p>
-<h2 id="单引号"><a href="#单引号" class="headerlink" title="单引号"></a>单引号</h2><p>单引号与双引号类似,不同的是shell会忽略任何引用值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">GIRL=‘girl‘</div><div class="line">echo &quot;the &apos;$GIRL&apos; did well&quot;</div></pre></td></tr></table></figure></p>
-<h2 id="反引号"><a href="#反引号" class="headerlink" title="反引号"></a>反引号</h2><p>反引号用于设置系统命令的输出到变量。shell将反引号中的内容作为一个系统命令,并执行其内容。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo `date`</div></pre></td></tr></table></figure></p>
-<h2 id="反斜线"><a href="#反斜线" class="headerlink" title="反斜线"></a>反斜线</h2><p>如果下一个字符有特殊含义,反斜线防止shell误解其含义,即屏蔽其特殊含义。下述字符包含有特殊意义:&amp; * + ^ $ ` “ | ?。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/linux_cmduniq.html" itemprop="url">
-                  Linux & Shell - 合并与分割
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2009-07-16T00:00:00+08:00" content="2009-07-16">
-              2009-07-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/linux_cmduniq.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_cmduniq.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><p>sort命令将许多不同的域按不同的列顺序分</p>
-<ol>
-<li>sort选项<br>sout -cmu -o output_file [other options] +pos1 +pos2 input_files<br>-c  测试文件是否已经分类。<br>-m  合并两个分类文件。<br>-u  删除所有复制行。<br>-o  存储s o r t结果的输出文件名。</li>
-</ol>
-<p>其他选项有：<br>-b  使用域进行分类时，忽略第一个空格。<br>-n  指定分类是域上的数字分类。<br>-t  域分隔符；用非空格或t a b键分隔域。<br>-r  对分类次序或比较求逆。<br>+n n 为域号。使用此域号开始分类。<br>n n 为域号。在分类比较时忽略此域，一般与+ n一起使用。<br>post1  传递到m，n。m为域号，n为开始分类字符数；例如4，6意即以第5域分类，从第7<br>个字符开始。<br>
+          <p>w h i l e 循环用于不断执行一系列命令,也用于从输入文件中读取数据,其格式为:<br>while 命令 do<br> 命令1<br> 命令2<br> .. .<br>done</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/linux_cmduniq.html#more" rel="contents">
+            <a class="btn" href="/linux_flow4while.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -844,7 +834,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/25/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><span class="page-number current">26</span><a class="page-number" href="/page/27/">27</a><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/27/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/25/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><span class="page-number current">26</span><a class="page-number" href="/page/27/">27</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/27/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -885,7 +875,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">138</span>
+              <span class="site-state-item-count">147</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -893,7 +883,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -902,7 +892,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

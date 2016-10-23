@@ -236,8 +236,8 @@
             
               
                 
-                <a class="post-title-link" href="/jiagou_http4https.html" itemprop="url">
-                  Http与Https的区别
+                <a class="post-title-link" href="/anquan_sqlinj22.html" itemprop="url">
+                  Sql注入攻击与防御总结：第2章 SQL注入测试
                 </a>
               
             
@@ -250,8 +250,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2010-12-09T00:00:00+08:00" content="2010-12-09">
-              2010-12-09
+            <time itemprop="dateCreated" datetime="2011-06-16T00:00:00+08:00" content="2011-06-16">
+              2011-06-16
             </time>
           </span>
 
@@ -264,8 +264,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/架构/" itemprop="url" rel="index">
-                    <span itemprop="name">架构</span>
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
                   </a>
                 </span>
 
@@ -280,8 +280,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/jiagou_http4https.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="jiagou_http4https.html" itemprop="commentsCount"></span>
+                <a href="/anquan_sqlinj22.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqlinj22.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -305,9 +305,39 @@
 
       
         
-          <p>在URL前加<a href="https://前缀表明是用SSL加密的。你的电脑与服务器之间收发的信息传输将更加安全。">https://前缀表明是用SSL加密的。你的电脑与服务器之间收发的信息传输将更加安全。</a> Web服务器启用SSL需要获得一个服务器证书并将该证书与要使用SSL的服务器绑定。 http和https使用的是完全不同的连接方式,用的端口也不一样,前者是80,后者是443。<br>
+          <ol>
+<li><p>借助推理进行测试</p>
+<p>识别sql注入的简单规则：</p>
+<ul>
+<li><p>识别web应用上所有的数据输入</p>
+<ol>
+<li>get请求&amp;post请求</li>
+<li>操纵参数</li>
+<li>信息工作流 (请求到web服务器再到数据库让后将信息返回的流程)</li>
+</ol>
+</li>
+<li><p>了解那种类型的请求会触发异常</p>
+<p>数据库触发错误时候的场景</p>
+<ul>
+<li>将sql错误显示在页面上，它对web浏览器用户可见</li>
+<li>将sql错误隐藏在web页面的源代码中以便调试</li>
+<li>检测到错误时跳转到另一个页面</li>
+<li>返回Http错误码500或重定向码302</li>
+</ul>
+</li>
+<li><p>检测服务器响应中的异常</p>
+<ul>
+<li>常见错误页面</li>
+<li>http代码错误</li>
+<li>不同大小的响应</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>​
           <div class="post-more-link text-center">
-            <a class="btn" href="/jiagou_http4https.html#more" rel="contents">
+            <a class="btn" href="/anquan_sqlinj22.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -358,8 +388,8 @@
             
               
                 
-                <a class="post-title-link" href="/jiagou_webjg.html" itemprop="url">
-                  WEB技术之四层架构
+                <a class="post-title-link" href="/anquan_sqlinj21.html" itemprop="url">
+                  Sql注入攻击与防御总结：第1章 什么是SQL注入
                 </a>
               
             
@@ -372,8 +402,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2010-11-17T00:00:00+08:00" content="2010-11-17">
-              2010-11-17
+            <time itemprop="dateCreated" datetime="2011-05-19T00:00:00+08:00" content="2011-05-19">
+              2011-05-19
             </time>
           </span>
 
@@ -386,8 +416,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/架构/" itemprop="url" rel="index">
-                    <span itemprop="name">架构</span>
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
                   </a>
                 </span>
 
@@ -402,8 +432,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/jiagou_webjg.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="jiagou_webjg.html" itemprop="commentsCount"></span>
+                <a href="/anquan_sqlinj21.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqlinj21.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -427,9 +457,10 @@
 
       
         
-          <p>如果你的系统是大型的软件开发，那你就要做好更多层的分解，但是原则和理论上，我认为，不用分得太细。我们都知道，MVC模式把系统，分成Model、View、Controller。这样的分法是把表示层同逻辑层分开，也就是说把页面设计师同软件设计师分开。系统分析师再把各个功能写成接口，软件设计师就可以通过业务逻辑来写程序。<br>
+          <ol>
+<li><p>概念<br>Sql注入是这样一种漏洞：应用程序在向后台数据库传递sql查询时，如果为攻击者提供了影响该查询的能力，就会引发Sql注入。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/jiagou_webjg.html#more" rel="contents">
+            <a class="btn" href="/anquan_sqlinj21.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -480,8 +511,8 @@
             
               
                 
-                <a class="post-title-link" href="/test_webtestall.html" itemprop="url">
-                  网站测试总结
+                <a class="post-title-link" href="/anquan_sqlinjjiqiao.html" itemprop="url">
+                  SQL注入技巧
                 </a>
               
             
@@ -494,8 +525,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2010-10-21T00:00:00+08:00" content="2010-10-21">
-              2010-10-21
+            <time itemprop="dateCreated" datetime="2011-04-26T00:00:00+08:00" content="2011-04-26">
+              2011-04-26
             </time>
           </span>
 
@@ -508,8 +539,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/软件测试/" itemprop="url" rel="index">
-                    <span itemprop="name">软件测试</span>
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
                   </a>
                 </span>
 
@@ -524,8 +555,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/test_webtestall.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="test_webtestall.html" itemprop="commentsCount"></span>
+                <a href="/anquan_sqlinjjiqiao.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqlinjjiqiao.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -549,9 +580,18 @@
 
       
         
-          <h2 id="功能测试"><a href="#功能测试" class="headerlink" title="功能测试"></a>功能测试</h2><p>对于网站的测试而言，每一个独立的功能模块需要单独的测试用例的设计导出，主要依据为《需求规格说明书》及《详细设计说明书》，对于应用程序模块需要设计者提供基本路径测试法的测试用例。<br>
+          <h1 id="0x00-介绍"><a href="#0x00-介绍" class="headerlink" title="0x00 介绍"></a>0x00 介绍</h1><hr>
+<h1 id="0x01-MYSQl灵活的语法"><a href="#0x01-MYSQl灵活的语法" class="headerlink" title="0x01 MYSQl灵活的语法"></a>0x01 MYSQl灵活的语法</h1><hr>
+<p><strong>1 MySQL语法以及认证绕过</strong></p>
+<p>注释符：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#， </div><div class="line">-- X(X为任意字符)</div><div class="line">/*(MySQL-5.1)</div><div class="line">;%00</div><div class="line">`</div><div class="line">&apos;or 1=1;%00</div><div class="line">&apos;or 1=1 union select 1,2`&apos;</div><div class="line">&apos;or 1=1 #</div><div class="line">&apos;/*!50000or*/ 1=1 -- -      //版本号为5.1.38时只要小于50138</div><div class="line">&apos;/*!or*/ 1=1 -- -</div></pre></td></tr></table></figure>
+<p>前缀：</p>
+<p>任意混合 <code>+ - ~ !</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&apos;or --+2=- -!!!&apos;2</div></pre></td></tr></table></figure>
+<p>测试后发现<code>and/or</code>后面可以跟上偶数个<code>!、~</code>可以替代空格，也可以混合使用(混合后规律又不同)，and/or前的空格可以省略</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&apos;or- -!!!1=1；</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
-            <a class="btn" href="/test_webtestall.html#more" rel="contents">
+            <a class="btn" href="/anquan_sqlinjjiqiao.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -602,8 +642,8 @@
             
               
                 
-                <a class="post-title-link" href="/test_webhc.html" itemprop="url">
-                  Web缓存
+                <a class="post-title-link" href="/anquan_sqlmappar.html" itemprop="url">
+                  SQLMAP参数解释
                 </a>
               
             
@@ -616,8 +656,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2010-09-29T00:00:00+08:00" content="2010-09-29">
-              2010-09-29
+            <time itemprop="dateCreated" datetime="2011-04-11T00:00:00+08:00" content="2011-04-11">
+              2011-04-11
             </time>
           </span>
 
@@ -630,8 +670,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/架构/" itemprop="url" rel="index">
-                    <span itemprop="name">架构</span>
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
                   </a>
                 </span>
 
@@ -646,8 +686,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/test_webhc.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="test_webhc.html" itemprop="commentsCount"></span>
+                <a href="/anquan_sqlmappar.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqlmappar.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -671,9 +711,9 @@
 
       
         
-          <h2 id="什么是Web缓存，为什么要使用它？"><a href="#什么是Web缓存，为什么要使用它？" class="headerlink" title="什么是Web缓存，为什么要使用它？"></a>什么是Web缓存，为什么要使用它？</h2><p>Web缓存就在服务器-客户端之间搞监控，监控请求，并且把请求输出的内容（例如html页面、 图片和文件）（统称为副本）另存一份；然后，如果下一个请求是相同的URL，则直接请求保存的副本，而不是再次麻烦源服务器。<br>
+          <p>网上整理的Sqlmap使用技巧，有些来自知名网站，由于语句繁多，整理时可能出现一点点的小错误，还望大家见谅，错误的地方还请大家指出来，会即时改正的。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/test_webhc.html#more" rel="contents">
+            <a class="btn" href="/anquan_sqlmappar.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -724,8 +764,8 @@
             
               
                 
-                <a class="post-title-link" href="/test_testfl.html" itemprop="url">
-                  软件测试分类
+                <a class="post-title-link" href="/anquan_sqlmapdemo.html" itemprop="url">
+                  SQLMAP例子
                 </a>
               
             
@@ -738,8 +778,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2010-09-17T00:00:00+08:00" content="2010-09-17">
-              2010-09-17
+            <time itemprop="dateCreated" datetime="2011-03-27T00:00:00+08:00" content="2011-03-27">
+              2011-03-27
             </time>
           </span>
 
@@ -752,8 +792,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/软件测试/" itemprop="url" rel="index">
-                    <span itemprop="name">软件测试</span>
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
                   </a>
                 </span>
 
@@ -768,8 +808,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/test_testfl.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="test_testfl.html" itemprop="commentsCount"></span>
+                <a href="/anquan_sqlmapdemo.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqlmapdemo.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -793,13 +833,16 @@
 
       
         
-          <h2 id="根据项目流程阶段划分测试"><a href="#根据项目流程阶段划分测试" class="headerlink" title="根据项目流程阶段划分测试"></a>根据项目流程阶段划分测试</h2><ul>
-<li>单元测试<br>对软件中的基本组成单位进行的测试，目的是检验软件基本组成单位的正确性</li>
-<li>集成测试<br>在软件系统集成过程中所进行的测试，目的是检查软件单位之间的接口是否正确</li>
-<li>系统测试<br>对已经集成好的软件系统进行彻底的测试，以验证软件系统的正确性和性能等是否满足求规约所指定的要求</li>
-<li>验收测试<br>是部署软件之前的最后一个测试操作。目的是确保软件准备就绪，想软件购买者展示软件系统满足其用户的需求
+          <ol>
+<li><p>使用POST方法提交</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sqlmap.py -u &quot;http://192.168.1.1/sqlmap/oracle/post_int.php&quot; --method POST --data &quot;id=1&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用COOKIES方式提交,cookie的值用;分割,可以使用TamperData来抓cookies</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python sqlmap.py -u &quot;http://192.168.1.1/sqlmap/mssql/cookie_int.php&quot; --cookie &quot;id=1&quot; -v 1</div></pre></td></tr></table></figure>
+</li>
+</ol>
           <div class="post-more-link text-center">
-            <a class="btn" href="/test_testfl.html#more" rel="contents">
+            <a class="btn" href="/anquan_sqlmapdemo.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -833,7 +876,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/17/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/19/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/17/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/19/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -874,7 +917,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">138</span>
+              <span class="site-state-item-count">147</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -882,7 +925,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -891,7 +934,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

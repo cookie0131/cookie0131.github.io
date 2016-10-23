@@ -236,8 +236,8 @@
             
               
                 
-                <a class="post-title-link" href="/git_tag.html" itemprop="url">
-                  Git：创建标签
+                <a class="post-title-link" href="/book_yingxiangli.html" itemprop="url">
+                  《影响力》笔记
                 </a>
               
             
@@ -250,8 +250,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-09-27T00:00:00+08:00" content="2012-09-27">
-              2012-09-27
+            <time itemprop="dateCreated" datetime="2013-10-20T00:00:00+08:00" content="2013-10-20">
+              2013-10-20
             </time>
           </span>
 
@@ -264,8 +264,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/devops/" itemprop="url" rel="index">
-                    <span itemprop="name">devops</span>
+                  <a href="/categories/读后感/" itemprop="url" rel="index">
+                    <span itemprop="name">读后感</span>
                   </a>
                 </span>
 
@@ -280,8 +280,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/git_tag.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="git_tag.html" itemprop="commentsCount"></span>
+                <a href="/book_yingxiangli.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="book_yingxiangli.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -305,141 +305,9 @@
 
       
         
-          
-            <p>在Git中打标签非常简单，首先，切换到需要打标签的分支上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git branch</div><div class="line">* dev</div><div class="line">  master</div><div class="line">$ git checkout master</div><div class="line">Switched to branch &apos;master&apos;</div></pre></td></tr></table></figure></p>
-<p>然后，敲命令<code>git tag &lt;name&gt;</code>就可以打一个新标签：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag v1.0</div></pre></td></tr></table></figure></p>
-<p>可以用命令git tag查看所有标签：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git tag</div><div class="line">v1.0</div></pre></td></tr></table></figure></p>
-<p>默认标签是打在最新提交的commit上的。有时候，如果忘了打标签，比如，现在已经是周五了，但应该在周一打的标签没有打，怎么办？</p>
-<p>方法是找到历史提交的commit id，然后打上就可以了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ git log --pretty=oneline --abbrev-commit</div><div class="line">6a5819e merged bug fix 101</div><div class="line">cc17032 fix bug 101</div><div class="line">7825a50 merge with no-ff</div><div class="line">6224937 add merge</div><div class="line">59bc1cb conflict fixed</div><div class="line">400b400 &amp; simple</div><div class="line">75a857c AND simple</div><div class="line">fec145a branch test</div><div class="line">d17efd8 remove test.txt</div><div class="line">...</div></pre></td></tr></table></figure></p>
-<p>比方说要对add merge这次提交打标签，它对应的commit id是6224937，敲入命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag v0.9 6224937</div></pre></td></tr></table></figure></p>
-<p>再用命令<code>git tag</code>查看标签：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git tag</div><div class="line">v0.9</div><div class="line">v1.0</div></pre></td></tr></table></figure></p>
-<p>注意，标签不是按时间顺序列出，而是按字母排序的。可以用<code>git show &lt;tagname&gt;</code>查看标签信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ git show v0.9</div><div class="line">commit 622493706ab447b6bb37e4e2a2f276a20fed2ab4</div><div class="line">Author: Michael Liao &lt;askxuefeng@gmail.com&gt;</div><div class="line">Date:   Thu Aug 22 11:22:08 2013 +0800</div><div class="line"></div><div class="line">    add merge</div><div class="line">...</div></pre></td></tr></table></figure></p>
-<p>可以看到，v0.9确实打在add merge这次提交上。</p>
-<p>还可以创建带有说明的标签，用-a指定标签名，-m指定说明文字：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">$ git tag -a v0.1 -m &quot;version 0.1 released&quot; 3628164</div><div class="line">用命令git show &lt;tagname&gt;可以看到说明文字：</div><div class="line"></div><div class="line">$ git show v0.1</div><div class="line">tag v0.1</div><div class="line">Tagger: Michael Liao &lt;askxuefeng@gmail.com&gt;</div><div class="line">Date:   Mon Aug 26 07:28:11 2013 +0800</div><div class="line"></div><div class="line">version 0.1 released</div><div class="line"></div><div class="line">commit 3628164fb26d48395383f8f31179f24e0882e1e0</div><div class="line">Author: Michael Liao &lt;askxuefeng@gmail.com&gt;</div><div class="line">Date:   Tue Aug 20 15:11:49 2013 +0800</div><div class="line"></div><div class="line">    append GPL</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/git_alias.html" itemprop="url">
-                  Git：配置别名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-08-19T00:00:00+08:00" content="2012-08-19">
-              2012-08-19
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/devops/" itemprop="url" rel="index">
-                    <span itemprop="name">devops</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/git_alias.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="git_alias.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>有没有经常敲错命令？比如<code>git status</code>？status这个单词真心不好记。</p>
-<p>如果敲<code>git st</code>就表示git status那就简单多了，当然这种偷懒的办法我们是极力赞成的。</p>
-<p>我们只需要敲一行命令，告诉Git，以后st就表示status：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config --global alias.st status</div></pre></td></tr></table></figure></p>
-<p>好了，现在敲git st看看效果。<br>
+          <p>这是一本有意思的书，也是一本有用的书。读完以后，一方面可以学会一些说服他人的技巧，另一方面可以减少一些被他人影响的风险。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/git_alias.html#more" rel="contents">
+            <a class="btn" href="/book_yingxiangli.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -490,8 +358,8 @@
             
               
                 
-                <a class="post-title-link" href="/git_ignore.html" itemprop="url">
-                  Git：忽略某个文件
+                <a class="post-title-link" href="/flask_4.html" itemprop="url">
+                  Flask：数据库
                 </a>
               
             
@@ -504,8 +372,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-08-11T00:00:00+08:00" content="2012-08-11">
-              2012-08-11
+            <time itemprop="dateCreated" datetime="2013-08-06T00:00:00+08:00" content="2013-08-06">
+              2013-08-06
             </time>
           </span>
 
@@ -518,8 +386,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/devops/" itemprop="url" rel="index">
-                    <span itemprop="name">devops</span>
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
                   </a>
                 </span>
 
@@ -534,8 +402,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/git_ignore.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="git_ignore.html" itemprop="commentsCount"></span>
+                <a href="/flask_4.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="flask_4.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -559,9 +427,9 @@
 
       
         
-          <p>有些时候，你必须把某些文件放到Git工作目录中，但又不能提交它们，比如保存了数据库密码的配置文件啦，等等，每次git status都会显示Untracked files …，有强迫症的童鞋心里肯定不爽。</p>
+          <h2 id="命令行方式运行Python脚本"><a href="#命令行方式运行Python脚本" class="headerlink" title="命令行方式运行Python脚本"></a>命令行方式运行Python脚本</h2><p>在这个章节中，我们将写一些简单的数据库管理脚本。在此之前让我们来复习一下如何通过命令行方式执行Python脚本.</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/git_ignore.html#more" rel="contents">
+            <a class="btn" href="/flask_4.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -612,8 +480,8 @@
             
               
                 
-                <a class="post-title-link" href="/git_delete.html" itemprop="url">
-                  Git：删除分支
+                <a class="post-title-link" href="/flask_3.html" itemprop="url">
+                  Flask：Web表单
                 </a>
               
             
@@ -626,8 +494,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-08-03T00:00:00+08:00" content="2012-08-03">
-              2012-08-03
+            <time itemprop="dateCreated" datetime="2013-06-18T00:00:00+08:00" content="2013-06-18">
+              2013-06-18
             </time>
           </span>
 
@@ -640,8 +508,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/devops/" itemprop="url" rel="index">
-                    <span itemprop="name">devops</span>
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
                   </a>
                 </span>
 
@@ -656,8 +524,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/git_delete.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="git_delete.html" itemprop="commentsCount"></span>
+                <a href="/flask_3.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="flask_3.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -681,10 +549,12 @@
 
       
         
-          
-            <p>通常情况下，分支会在合并后被删除，具体命令如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git branch -D feature-vulcan</div><div class="line">Deleted branch feature-vulcan (was 756d4af).</div></pre></td></tr></table></figure></p>
-
-          
+          <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>Flask-WTF是WTForms项目的Flask框架扩展，我们将用他来帮助我们处理web表单。<br>大部分Flask扩展都需要定义相关配置项，所以我们先来在应用根目录下创建一个配置文件以备使用。我们先这样创建 (fileconfig.py):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CSRF_ENABLED = True</div><div class="line">SECRET_KEY = &apos;you-will-never-guess&apos;</div></pre></td></tr></table></figure></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/flask_3.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -732,8 +602,8 @@
             
               
                 
-                <a class="post-title-link" href="/git_stash.html" itemprop="url">
-                  Git：临时存储开发分支
+                <a class="post-title-link" href="/flask_2.html" itemprop="url">
+                  Flask：模板
                 </a>
               
             
@@ -746,8 +616,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-07-27T00:00:00+08:00" content="2012-07-27">
-              2012-07-27
+            <time itemprop="dateCreated" datetime="2013-04-12T00:00:00+08:00" content="2013-04-12">
+              2013-04-12
             </time>
           </span>
 
@@ -760,8 +630,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/devops/" itemprop="url" rel="index">
-                    <span itemprop="name">devops</span>
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
                   </a>
                 </span>
 
@@ -776,8 +646,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/git_stash.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="git_stash.html" itemprop="commentsCount"></span>
+                <a href="/flask_2.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="flask_2.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -801,10 +671,133 @@
 
       
         
-          <p>软件开发中，bug就像家常便饭一样。有了bug就需要修复，在Git中，由于分支是如此的强大，所以，每个bug都可以通过一个新的临时分支来修复，修复后，合并分支，然后将临时分支删除。</p>
-<p>当你接到一个修复一个代号101的bug的任务时，很自然地，你想创建一个分支issue-101来修复它，但是，等等，当前正在dev上进行的工作还没有提交：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$ git status</div><div class="line"># On branch dev</div><div class="line"># Changes to be committed:</div><div class="line">#   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)</div><div class="line">#</div><div class="line">#       new file:   hello.py</div><div class="line">#</div><div class="line"># Changes not staged for commit:</div><div class="line">#   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</div><div class="line">#   (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</div><div class="line">#</div><div class="line">#       modified:   readme.txt</div><div class="line">#</div></pre></td></tr></table></figure></p>
+          <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>如果你已经阅读过上一个章节,那么你应该已经完成了充分的准备工作并且创建了一个很简单的具有如下文件结构的Web应用:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">microblog</div><div class="line">    |-flask文件夹</div><div class="line">    |-&lt;一些虚拟环境的文件&gt;</div><div class="line">    |-app文件夹</div><div class="line">    |  |-static文件夹</div><div class="line">    |  |-templates文件夹</div><div class="line">    |  |-__init__.py文件</div><div class="line">    |  |-views.py文件</div><div class="line">    |-tmp文件夹</div><div class="line">    |-run.py文件</div></pre></td></tr></table></figure></p>
+<p>想要运行这个程序的话执行run.py文件,然后在你的浏览器里边打开<a href="http://localhost:5000这个地址.我们在后面的章节会不断地从前一章节结束的地方继续开发我们的应用,所以你要确保你的环境已经正确安装,并且你的应用能够正常运行。">http://localhost:5000这个地址.我们在后面的章节会不断地从前一章节结束的地方继续开发我们的应用,所以你要确保你的环境已经正确安装,并且你的应用能够正常运行。</a><br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/git_stash.html#more" rel="contents">
+            <a class="btn" href="/flask_2.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/flask_1.html" itemprop="url">
+                  Flask：Hello,World!
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2013-02-10T00:00:00+08:00" content="2013-02-10">
+              2013-02-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/flask_1.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="flask_1.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="安装Flask"><a href="#安装Flask" class="headerlink" title="安装Flask"></a>安装Flask</h2><p>通常Python项目，倾向于每一个独立的应用有自己的环境，一般使用pyenv来管理这些Python版本及虚拟环境。现在假设你的电脑上已经装好了pyenv和pip等相关的python环境。输入以下命令来安装Flask的相关包：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">pip install flask</div><div class="line">pip install flask-login</div><div class="line">pip install flask-openid</div><div class="line">pip install flask-mail</div><div class="line">pip install flask-sqlalchemy</div><div class="line">pip install sqlalchemy-migrate</div><div class="line">pip install flask-whooshalchemy</div><div class="line">pip install flask-wtf</div><div class="line">pip install flask-babel</div><div class="line">pip install flup</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/flask_1.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -838,7 +831,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -879,7 +872,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">138</span>
+              <span class="site-state-item-count">147</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -887,7 +880,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -896,7 +889,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -236,8 +236,8 @@
             
               
                 
-                <a class="post-title-link" href="/git_addcommit.html" itemprop="url">
-                  Git：把文件添加到版本库
+                <a class="post-title-link" href="/git_createbranch.html" itemprop="url">
+                  Git：创建于合并分支
                 </a>
               
             
@@ -250,8 +250,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-03-10T00:00:00+08:00" content="2012-03-10">
-              2012-03-10
+            <time itemprop="dateCreated" datetime="2012-07-07T00:00:00+08:00" content="2012-07-07">
+              2012-07-07
             </time>
           </span>
 
@@ -280,8 +280,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/git_addcommit.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="git_addcommit.html" itemprop="commentsCount"></span>
+                <a href="/git_createbranch.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="git_createbranch.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -305,10 +305,9 @@
 
       
         
-          <p>现在我们编写一个readme.txt文件，内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Git is a version control system.</div><div class="line">Git is free software.</div></pre></td></tr></table></figure></p>
-<p>一定要放到learngit目录下（子目录也行），因为这是一个Git仓库，放到其他地方Git再厉害也找不到这个文件。<br>版本库又名仓库，英文名repository，你可以简单理解成一个目录，这个目录里面的所有文件都可以被Git管理起来，每个文件的修改、删除，Git都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻可以“还原”。<br>
+          <p>在Git里，master分支为主分支。HEAD严格来说不是指向提交，而是指向master，master才是指向提交的，所以，HEAD指向的就是当前分支。一开始的时候，master分支是一条线，Git用master指向最新的提交，再用HEAD指向master，就能确定当前分支，以及当前分支的提交点。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/git_addcommit.html#more" rel="contents">
+            <a class="btn" href="/git_createbranch.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -359,8 +358,8 @@
             
               
                 
-                <a class="post-title-link" href="/git_init.html" itemprop="url">
-                  Git：创建版本库
+                <a class="post-title-link" href="/git_clone.html" itemprop="url">
+                  Git：从远程仓库克隆
                 </a>
               
             
@@ -373,8 +372,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-02-18T00:00:00+08:00" content="2012-02-18">
-              2012-02-18
+            <time itemprop="dateCreated" datetime="2012-06-28T00:00:00+08:00" content="2012-06-28">
+              2012-06-28
             </time>
           </span>
 
@@ -403,8 +402,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/git_init.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="git_init.html" itemprop="commentsCount"></span>
+                <a href="/git_clone.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="git_clone.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -428,9 +427,129 @@
 
       
         
-          <h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><p>版本库又名仓库，英文名repository，你可以简单理解成一个目录，这个目录里面的所有文件都可以被Git管理起来，每个文件的修改、删除，Git都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻可以“还原”。<br>
+          
+            <p>假设Github上有gitskills仓库，用命令git clone克隆一个本地库：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ git clone git@github.com:haocheng/gitskills.git</div><div class="line">Cloning into &apos;gitskills&apos;...</div><div class="line">remote: Counting objects: 3, done.</div><div class="line">remote: Total 3 (delta 0), reused 0 (delta 0)</div><div class="line">Receiving objects: 100% (3/3), done.</div><div class="line"></div><div class="line">$ cd gitskills</div><div class="line">$ ls</div><div class="line">README.md</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/git_remote.html" itemprop="url">
+                  Git：添加远程仓库
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2012-06-15T00:00:00+08:00" content="2012-06-15">
+              2012-06-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/devops/" itemprop="url" rel="index">
+                    <span itemprop="name">devops</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/git_remote.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="git_remote.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>你已经在本地创建了一个Git仓库后，又想在GitHub创建一个Git仓库，并且让这两个仓库进行远程同步。假设Github上已经有一个仓库了，那么接下来在本地的test仓库下运行命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote add origin git@github.com:haocheng/test.git</div></pre></td></tr></table></figure></p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/git_init.html#more" rel="contents">
+            <a class="btn" href="/git_remote.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -481,8 +600,8 @@
             
               
                 
-                <a class="post-title-link" href="/git_install.html" itemprop="url">
-                  Git：安装
+                <a class="post-title-link" href="/git_rm.html" itemprop="url">
+                  Git：删除文件
                 </a>
               
             
@@ -495,8 +614,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-01-29T00:00:00+08:00" content="2012-01-29">
-              2012-01-29
+            <time itemprop="dateCreated" datetime="2012-06-06T00:00:00+08:00" content="2012-06-06">
+              2012-06-06
             </time>
           </span>
 
@@ -525,8 +644,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/git_install.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="git_install.html" itemprop="commentsCount"></span>
+                <a href="/git_rm.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="git_rm.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -550,10 +669,9 @@
 
       
         
-          <h2 id="在Linux上安装Git"><a href="#在Linux上安装Git" class="headerlink" title="在Linux上安装Git"></a>在Linux上安装Git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git  # 通过这个命令看是否安装</div><div class="line">sudo apt-get install git   # 通过这个命令来安装</div></pre></td></tr></table></figure>
-<p>或者可以通过下载源码安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">./config</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure></p>
+          <p>在Git中，删除也是一个修改操作，我们实战一下，先添加一个新文件test.txt到Git并且提交：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git add test.txt</div><div class="line">$ git commit -m &quot;add test.txt&quot;</div><div class="line">[master 94cdc44] add test.txt</div><div class="line"> 1 file changed, 1 insertion(+)</div><div class="line"> create mode 100644 test.txt</div></pre></td></tr></table></figure></p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/git_install.html#more" rel="contents">
+            <a class="btn" href="/git_rm.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -604,8 +722,8 @@
             
               
                 
-                <a class="post-title-link" href="/git_jianjie.html" itemprop="url">
-                  Git：简介
+                <a class="post-title-link" href="/git_checkout.html" itemprop="url">
+                  Git：撤销修改
                 </a>
               
             
@@ -618,8 +736,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-01-09T00:00:00+08:00" content="2012-01-09">
-              2012-01-09
+            <time itemprop="dateCreated" datetime="2012-05-21T00:00:00+08:00" content="2012-05-21">
+              2012-05-21
             </time>
           </span>
 
@@ -648,8 +766,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/git_jianjie.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="git_jianjie.html" itemprop="commentsCount"></span>
+                <a href="/git_checkout.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="git_checkout.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -673,132 +791,9 @@
 
       
         
-          <h2 id="Git是什么？"><a href="#Git是什么？" class="headerlink" title="Git是什么？"></a>Git是什么？</h2><p>Git是目前最先进的分布式版本控制系统。</p>
+          <h2 id="场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git-checkout-–-file"><a href="#场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git-checkout-–-file" class="headerlink" title="场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout – file"></a>场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout – file</h2><p>先在readme.txt中添加了一行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ cat readme.txt</div><div class="line">Git is a distributed version control system.</div><div class="line">Git is free software distributed under the GPL.</div><div class="line">Git has a mutable index called stage.</div><div class="line">Git tracks changes of files.</div><div class="line">My stupid boss still prefers SVN.</div></pre></td></tr></table></figure></p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/git_jianjie.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/devops_testlink.html" itemprop="url">
-                  Testlink环境搭建
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2011-12-09T00:00:00+08:00" content="2011-12-09">
-              2011-12-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/devops/" itemprop="url" rel="index">
-                    <span itemprop="name">devops</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/devops_testlink.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="devops_testlink.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>TestLink 是基于web的测试用例管理系统，主要功能是测试用例的创建、管理和执行，并且还提供了一些简单的统计功能。</p>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>Vertrigoserv 2.24 ：VertrigoServ是一套与AppServ类似的整合型WebServer。我叫傻瓜式一体环境包。<br>下载地址：   <a href="http://vertrigo.sourceforge.net/">http://vertrigo.sourceforge.net/</a><br>Testlink 1.9.1  :  <a href="http://www.teamst.org/">http://www.teamst.org/</a> </p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/devops_testlink.html#more" rel="contents">
+            <a class="btn" href="/git_checkout.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -832,7 +827,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -873,7 +868,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">138</span>
+              <span class="site-state-item-count">147</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -881,7 +876,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -890,7 +885,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

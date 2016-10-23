@@ -62,22 +62,16 @@
 
 
 
-<meta name="description" content="对于 setup.py 和 requirements.txt 的角色有很多误解，很多人认为它们是两个重复的事情，甚至创造了 工具 来处理 这种“重复”。
-
-Python库这里所说的Python库是指那些被开发并且为了其他人来使用而发布的东西，你可以在 PyPI 找到很多Python库。为了更好的推广和传播 自己，Python库会包含很多的信息，比如它的名字，版本号，依赖等等。而 setup.py">
+<meta name="description" content="对于 setup.py 和 requirements.txt 的角色有很多误解，很多人认为它们是两个重复的事情，甚至创造了 工具 来处理 这种“重复”。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="依赖安装：setup.py和requirements.txt的对比">
 <meta property="og:url" content="http://www.fatiao.site/python_setup.html">
 <meta property="og:site_name" content="小发条的技术人生">
-<meta property="og:description" content="对于 setup.py 和 requirements.txt 的角色有很多误解，很多人认为它们是两个重复的事情，甚至创造了 工具 来处理 这种“重复”。
-
-Python库这里所说的Python库是指那些被开发并且为了其他人来使用而发布的东西，你可以在 PyPI 找到很多Python库。为了更好的推广和传播 自己，Python库会包含很多的信息，比如它的名字，版本号，依赖等等。而 setup.py">
-<meta property="og:updated_time" content="2016-10-08T03:55:21.000Z">
+<meta property="og:description" content="对于 setup.py 和 requirements.txt 的角色有很多误解，很多人认为它们是两个重复的事情，甚至创造了 工具 来处理 这种“重复”。">
+<meta property="og:updated_time" content="2016-10-12T02:25:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="依赖安装：setup.py和requirements.txt的对比">
-<meta name="twitter:description" content="对于 setup.py 和 requirements.txt 的角色有很多误解，很多人认为它们是两个重复的事情，甚至创造了 工具 来处理 这种“重复”。
-
-Python库这里所说的Python库是指那些被开发并且为了其他人来使用而发布的东西，你可以在 PyPI 找到很多Python库。为了更好的推广和传播 自己，Python库会包含很多的信息，比如它的名字，版本号，依赖等等。而 setup.py">
+<meta name="twitter:description" content="对于 setup.py 和 requirements.txt 的角色有很多误解，很多人认为它们是两个重复的事情，甚至创造了 工具 来处理 这种“重复”。">
 
 
 
@@ -307,9 +301,9 @@ Python库这里所说的Python库是指那些被开发并且为了其他人来�
 
       
         <blockquote>
-<p>对于 setup.py 和 requirements.txt 的角色有很多误解，很多人认为它们是两个重复的事情，甚至创造了 工具 来处理 这种“重复”。</p>
-</blockquote>
-<h2 id="Python库"><a href="#Python库" class="headerlink" title="Python库"></a>Python库</h2><p>这里所说的Python库是指那些被开发并且为了其他人来使用而发布的东西，你可以在 PyPI 找到很多Python库。为了更好的推广和传播 自己，Python库会包含很多的信息，比如它的名字，版本号，依赖等等。而 setup.py 就是用来提供这些信息的:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">from setuptools import setup</div><div class="line"> </div><div class="line">setup(</div><div class="line">    name=&quot;MyLibrary&quot;,</div><div class="line">    version=&quot;1.0&quot;,</div><div class="line">    install_requires=[</div><div class="line">        &quot;requests&quot;,</div><div class="line">        &quot;bcrypt&quot;,</div><div class="line">    ],</div><div class="line">    # ...</div><div class="line">)</div></pre></td></tr></table></figure></p>
+<p>对于 setup.py 和 requirements.txt 的角色有很多误解，很多人认为它们是两个重复的事情，甚至创造了 工具 来处理 这种“重复”。<br><a id="more"></a></p>
+<h2 id="Python库"><a href="#Python库" class="headerlink" title="Python库"></a>Python库</h2></blockquote>
+<p>这里所说的Python库是指那些被开发并且为了其他人来使用而发布的东西，你可以在 PyPI 找到很多Python库。为了更好的推广和传播 自己，Python库会包含很多的信息，比如它的名字，版本号，依赖等等。而 setup.py 就是用来提供这些信息的:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">from setuptools import setup</div><div class="line"> </div><div class="line">setup(</div><div class="line">    name=&quot;MyLibrary&quot;,</div><div class="line">    version=&quot;1.0&quot;,</div><div class="line">    install_requires=[</div><div class="line">        &quot;requests&quot;,</div><div class="line">        &quot;bcrypt&quot;,</div><div class="line">    ],</div><div class="line">    # ...</div><div class="line">)</div></pre></td></tr></table></figure></p>
 <p>这样很简单地声明了这个Python库的一些信息。但是，你并没有看到你可以从哪里获取这些依赖库。 这里并没有提供一个url或者一个文件系统来获取这些依赖，而只是告诉我们依赖是 requests ， bcrypt ，这很重要，我们可以称这种声明方式为“抽象的依赖”，它们只是以名字（或者加上了一个具体的版本号） 的方式来出现的。这就像我们说的“鸭子类型”，你不在乎它是什么样子的只要它看起来是requests 。</p>
 <h2 id="Python应用"><a href="#Python应用" class="headerlink" title="Python应用"></a>Python应用</h2><p>这里所讲的Python应用是指你所要部署的一些东西，这是区别于我们之前所讲的Python库的。Python应用或许可以在 PyPI上找到，但是不像Python库，它们并不是一种可以被开发者使用多次的工具性的东西。PyPI上的Python应用经常会 在这个应用的旁边放置一个文件用来声明该应用部署的依赖。<br>一个应用经常会有很多依赖，或许会很复杂。这些依赖里很多没有一个名字，或者没有我们说所的那些信息。这便反映了 pip 的requirements文件所做的事情了，一个典型的requirements文件看起来是这样的:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># This is an implicit value, here for clarity</div><div class="line">--index https://pypi.python.org/simple/</div><div class="line"> </div><div class="line">MyPackage==1.0</div><div class="line">requests==1.2.0</div><div class="line">bcrypt==1.0.2</div></pre></td></tr></table></figure></p>
 <p>这里每个依赖都标明了准确的版本号，一般一个Python库对依赖的版本比较宽松，而一个应用則会依赖比较具体的版本号。虽然也许跑其他 版本的 requests 并不会出错，但是我们在本地测试顺利后，我们就会希望在线上也跑相同的版本。<br>文件的头部有一个 –index <a href="https://pypi.python.org/simple/" target="_blank" rel="external">https://pypi.python.org/simple/</a> ，一般如果你不用声明这项，除非你使用的不是PyPI。然而它却是 requirements.txt 的一个重要部分， 这一行把一个抽象的依赖声明 requests==1.2.0 转变为一个具体的依赖声明requests 1.2.0 from pypi.python.org/simple/ ，这不像“鸭子类型”，倒像一次isinstance 检查。</p>
@@ -450,7 +444,7 @@ Python库这里所说的Python库是指那些被开发并且为了其他人来�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">138</span>
+              <span class="site-state-item-count">147</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -458,7 +452,7 @@ Python库这里所说的Python库是指那些被开发并且为了其他人来�
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -467,7 +461,7 @@ Python库这里所说的Python库是指那些被开发并且为了其他人来�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
