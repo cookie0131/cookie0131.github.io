@@ -46,7 +46,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="软件测试,Jenkins,持续集成," />
 
 
 
@@ -62,15 +62,16 @@
 
 
 
-<meta name="description" content="不积跬步，无以至千里">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小发条的技术人生">
-<meta property="og:url" content="http://www.fatiao.site/tags/持续集成/page/2/index.html">
+<meta name="description" content="Jenkins的任务中，构建触发器 可以选择 根据gitlab的push情况来触发。 之前一直设置的是 Build on Merge Request Events，但是用了一段时间，发现有问题，这个选项是在创建merge request后，代码被合并入master前的对代码进行合并，无法满足实际的使用场景，于是把设置改成Build on Push Events,并且 Accept merge re">
+<meta property="og:type" content="article">
+<meta property="og:title" content="玩转Jenkins - 代码提交后触发Ci">
+<meta property="og:url" content="http://www.fatiao.site/jenkis_cizongjie.html">
 <meta property="og:site_name" content="小发条的技术人生">
-<meta property="og:description" content="不积跬步，无以至千里">
+<meta property="og:description" content="Jenkins的任务中，构建触发器 可以选择 根据gitlab的push情况来触发。 之前一直设置的是 Build on Merge Request Events，但是用了一段时间，发现有问题，这个选项是在创建merge request后，代码被合并入master前的对代码进行合并，无法满足实际的使用场景，于是把设置改成Build on Push Events,并且 Accept merge re">
+<meta property="og:updated_time" content="2016-10-25T03:09:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小发条的技术人生">
-<meta name="twitter:description" content="不积跬步，无以至千里">
+<meta name="twitter:title" content="玩转Jenkins - 代码提交后触发Ci">
+<meta name="twitter:description" content="Jenkins的任务中，构建触发器 可以选择 根据gitlab的push情况来触发。 之前一直设置的是 Build on Merge Request Events，但是用了一段时间，发现有问题，这个选项是在创建merge request后，代码被合并入master前的对代码进行合并，无法满足实际的使用场景，于是把设置改成Build on Push Events,并且 Accept merge re">
 
 
 
@@ -91,10 +92,10 @@
 
 
 
-  <link rel="canonical" href="http://www.fatiao.site/tags/持续集成/page/2/"/>
+  <link rel="canonical" href="http://www.fatiao.site/jenkis_cizongjie.html"/>
 
   <meta name="baidu-site-verification" content="K7iVtNDL7l" />
-  <title> 标签: 持续集成 | 小发条的技术人生 </title>
+  <title> 软件测试,Jenkins,持续集成, - 玩转Jenkins - 代码提交后触发Ci | 小发条的技术人生 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -124,7 +125,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -212,106 +213,168 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        持续集成
-        <small>标签</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/jenkins_distributed.html" itemprop="url">
-              
-                <span itemprop="name">玩转Jenkins - 分布式构建</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-09T00:00:00+08:00"
-              content="2016-08-09" >
-          08-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/jenkins_javaproject.html" itemprop="url">
-              
-                <span itemprop="name">玩转Jenkins - 创建Java任务</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-06T00:00:00+08:00"
-              content="2016-08-06" >
-          08-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/jenkins_install.html" itemprop="url">
-              
-                <span itemprop="name">玩转Jenkins - 安装</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-02T00:00:00+08:00"
-              content="2016-08-02" >
-          08-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/tags/持续集成/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/tags/持续集成/">1</a><span class="page-number current">2</span>
-  </nav>
+  
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                玩转Jenkins - 代码提交后触发Ci
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-13T00:00:00+08:00" content="2016-10-13">
+              2016-10-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/持续集成/" itemprop="url" rel="index">
+                    <span itemprop="name">持续集成</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/jenkis_cizongjie.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="jenkis_cizongjie.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Jenkins的任务中，<code>构建触发器</code> 可以选择 根据gitlab的push情况来触发。 之前一直设置的是 <code>Build on Merge Request Events</code>，但是用了一段时间，发现有问题，这个选项是在创建merge request后，代码被合并入master前的对代码进行合并，无法满足实际的使用场景，于是把设置改成<code>Build on Push Events</code>,并且 <code>Accept merge request on success</code>选项设置成根据master变更后触发。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay01.jpg" alt="发条橙子 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软件测试/" rel="tag">#软件测试</a>
+          
+            <a href="/tags/Jenkins/" rel="tag">#Jenkins</a>
+          
+            <a href="/tags/持续集成/" rel="tag">#持续集成</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/other_spiderzero.html" rel="next" title="爬取拉钩的招聘JD">
+                <i class="fa fa-chevron-left"></i> 爬取拉钩的招聘JD
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -319,6 +382,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="jenkis_cizongjie.html"
+           data-title="玩转Jenkins - 代码提交后触发Ci" data-url="http://www.fatiao.site/jenkis_cizongjie.html">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -338,8 +409,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -389,6 +469,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -494,6 +585,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

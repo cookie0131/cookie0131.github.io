@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>http://www.fatiao.site/jenkis_cizongjie.html</loc>
+    <lastmod>2016-10-25T03:09:31.000Z</lastmod>
+    <data>
+        <display>
+        <title>玩转Jenkins - 代码提交后触发Ci</title>
+        <pubTime>2016-10-12T16:00:00.000Z</pubTime>
+        
+        <tag>软件测试</tag>
+         
+        <tag>Jenkins</tag>
+         
+        <tag>持续集成</tag>
+         
+         
+           
+             
+              <breadCrumb title="持续集成" url="http://www.fatiao.site/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.fatiao.site/python_listcmp.html</loc>
     <lastmod>2016-10-14T03:23:15.000Z</lastmod>
     <data>
@@ -37,26 +61,6 @@
            
              
               <breadCrumb title="开发" url="http://www.fatiao.site/categories/%E5%BC%80%E5%8F%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.fatiao.site/js_webstormset.html</loc>
-    <lastmod>2016-10-14T03:17:04.000Z</lastmod>
-    <data>
-        <display>
-        <title>WebStorm ES6 语法支持设置</title>
-        <pubTime>2016-10-13T16:00:00.000Z</pubTime>
-        
-        <tag>JavaScript</tag>
-         
-         
-           
-             
-              <breadCrumb title="JavaScript" url="http://www.fatiao.site/categories/JavaScript/"/>
           
         </display>
     </data>
@@ -910,12 +914,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/git_addcommit.html</loc>
+    <loc>http://www.fatiao.site/git_stausdiff.html</loc>
     <lastmod>2016-10-04T15:12:14.000Z</lastmod>
     <data>
         <display>
-        <title>Git：把文件添加到版本库</title>
-        <pubTime>2012-03-09T16:00:00.000Z</pubTime>
+        <title>Git：查看版本库变更状态</title>
+        <pubTime>2012-03-31T16:00:00.000Z</pubTime>
         
         <tag>devops</tag>
          
@@ -932,12 +936,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/git_stausdiff.html</loc>
+    <loc>http://www.fatiao.site/git_addcommit.html</loc>
     <lastmod>2016-10-04T15:12:14.000Z</lastmod>
     <data>
         <display>
-        <title>Git：查看版本库变更状态</title>
-        <pubTime>2012-03-31T16:00:00.000Z</pubTime>
+        <title>Git：把文件添加到版本库</title>
+        <pubTime>2012-03-09T16:00:00.000Z</pubTime>
         
         <tag>devops</tag>
          
@@ -1602,30 +1606,6 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/mobile_adb.html</loc>
-    <lastmod>2016-09-28T09:32:04.000Z</lastmod>
-    <data>
-        <display>
-        <title>Adb</title>
-        <pubTime>2015-03-14T16:00:00.000Z</pubTime>
-        
-        <tag>软件测试</tag>
-         
-        <tag>Android</tag>
-         
-        <tag>移动测试</tag>
-         
-         
-           
-             
-              <breadCrumb title="软件测试" url="http://www.fatiao.site/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.fatiao.site/mobile_ddms.html</loc>
     <lastmod>2016-09-28T09:32:04.000Z</lastmod>
     <data>
@@ -1658,6 +1638,30 @@
         <pubTime>2015-02-02T16:00:00.000Z</pubTime>
         
         <tag>软件测试</tag>
+         
+        <tag>移动测试</tag>
+         
+         
+           
+             
+              <breadCrumb title="软件测试" url="http://www.fatiao.site/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/mobile_adb.html</loc>
+    <lastmod>2016-09-28T09:32:04.000Z</lastmod>
+    <data>
+        <display>
+        <title>Adb</title>
+        <pubTime>2015-03-14T16:00:00.000Z</pubTime>
+        
+        <tag>软件测试</tag>
+         
+        <tag>Android</tag>
          
         <tag>移动测试</tag>
          
@@ -2668,12 +2672,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/db_sql4.html</loc>
+    <loc>http://www.fatiao.site/db_sql5.html</loc>
     <lastmod>2016-09-27T03:39:00.000Z</lastmod>
     <data>
         <display>
-        <title>Db - 数据库基本操作(四):数据类型</title>
-        <pubTime>2010-02-03T16:00:00.000Z</pubTime>
+        <title>Db - 数据库基本操作(四):数据备份</title>
+        <pubTime>2010-02-17T16:00:00.000Z</pubTime>
         
         <tag>Sql</tag>
          
@@ -2690,12 +2694,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/db_sql5.html</loc>
+    <loc>http://www.fatiao.site/db_sql4.html</loc>
     <lastmod>2016-09-27T03:39:00.000Z</lastmod>
     <data>
         <display>
-        <title>Db - 数据库基本操作(四):数据备份</title>
-        <pubTime>2010-02-17T16:00:00.000Z</pubTime>
+        <title>Db - 数据库基本操作(四):数据类型</title>
+        <pubTime>2010-02-03T16:00:00.000Z</pubTime>
         
         <tag>Sql</tag>
          
