@@ -62,25 +62,16 @@
 
 
 
-<meta name="description" content="最近在统一Ios和Android的打包流程，希望能够通过Jenkins自动打包并分发，在Android部分的实施过程中，发现应用的版本号每次都需要人手工去维护，十分的不方便，于是在网上搜索了一番，找到了一个方案。
-
-背景Android 应用的版本管理是依赖 AndroidManifest.xml 中的两个属性：
-android:versionCode ：版本号，是一个大于 0 的整数，相当于 B">
+<meta name="description" content="最近在统一Ios和Android的打包流程，希望能够通过Jenkins自动打包并分发，在Android部分的实施过程中，发现应用的版本号每次都需要人手工去维护，十分的不方便，于是在网上搜索了一番，找到了一个方案。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="玩转Jenkins - Android发布自动版本号">
 <meta property="og:url" content="http://www.fatiao.site/jenkins_androidversion.html">
 <meta property="og:site_name" content="小发条的技术人生">
-<meta property="og:description" content="最近在统一Ios和Android的打包流程，希望能够通过Jenkins自动打包并分发，在Android部分的实施过程中，发现应用的版本号每次都需要人手工去维护，十分的不方便，于是在网上搜索了一番，找到了一个方案。
-
-背景Android 应用的版本管理是依赖 AndroidManifest.xml 中的两个属性：
-android:versionCode ：版本号，是一个大于 0 的整数，相当于 B">
-<meta property="og:updated_time" content="2016-10-29T04:06:07.000Z">
+<meta property="og:description" content="最近在统一Ios和Android的打包流程，希望能够通过Jenkins自动打包并分发，在Android部分的实施过程中，发现应用的版本号每次都需要人手工去维护，十分的不方便，于是在网上搜索了一番，找到了一个方案。">
+<meta property="og:updated_time" content="2016-10-29T04:22:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="玩转Jenkins - Android发布自动版本号">
-<meta name="twitter:description" content="最近在统一Ios和Android的打包流程，希望能够通过Jenkins自动打包并分发，在Android部分的实施过程中，发现应用的版本号每次都需要人手工去维护，十分的不方便，于是在网上搜索了一番，找到了一个方案。
-
-背景Android 应用的版本管理是依赖 AndroidManifest.xml 中的两个属性：
-android:versionCode ：版本号，是一个大于 0 的整数，相当于 B">
+<meta name="twitter:description" content="最近在统一Ios和Android的打包流程，希望能够通过Jenkins自动打包并分发，在Android部分的实施过程中，发现应用的版本号每次都需要人手工去维护，十分的不方便，于是在网上搜索了一番，找到了一个方案。">
 
 
 
@@ -312,6 +303,7 @@ android:versionCode ：版本号，是一个大于 0 的整数，相当于 B">
         <blockquote>
 <p>最近在统一Ios和Android的打包流程，希望能够通过Jenkins自动打包并分发，在Android部分的实施过程中，发现应用的版本号每次都需要人手工去维护，十分的不方便，于是在网上搜索了一番，找到了一个方案。</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>Android 应用的版本管理是依赖 AndroidManifest.xml 中的两个属性：</p>
 <p><strong>android:versionCode</strong> ：版本号，是一个大于 0 的整数，相当于 Build Number，随着版本的更新，这个必须是递增的。大的版本号，覆盖更新小的版本号；<br><strong>android:versionName</strong> ：版本名，是一个字符串，例如 “1.2.0” ，这个是给人看的版本名，系统并不关心这个值，但是合理的版本名，对后期的维护和 bug 修复也非常重要。<br>在使用了 Android Studio 或者 Gradle 编译以后，我们通常是在 build.gradle 里面定义这两个值，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">android &#123;  </div><div class="line">    ...</div><div class="line">    defaultConfig &#123;</div><div class="line">        ...</div><div class="line">        versionCode 1</div><div class="line">        versionName &quot;1.0&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h2 id="自动版本号"><a href="#自动版本号" class="headerlink" title="自动版本号"></a>自动版本号</h2><p>可以使用 <code>Git</code> 中 <code>commit</code> 的数量来作为版本号（versionCode）。方案如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">def cmd = &apos;git rev-list HEAD --first-parent --count&apos;  </div><div class="line">def gitVersion = cmd.execute().text.trim().toInteger()</div><div class="line"></div><div class="line">android &#123;  </div><div class="line">  defaultConfig &#123;</div><div class="line">    versionCode gitVersion</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
