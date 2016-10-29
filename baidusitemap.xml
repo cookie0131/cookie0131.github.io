@@ -4,6 +4,80 @@
 
     
   <url>
+    <loc>http://www.fatiao.site/jenkins_androidbuild.html</loc>
+    <lastmod>2016-10-29T04:15:21.000Z</lastmod>
+    <data>
+        <display>
+        <title>玩转Jenkins - Jenkins + Android + Gradle</title>
+        <pubTime>2016-10-28T16:00:00.000Z</pubTime>
+        
+        <tag>软件测试</tag>
+         
+        <tag>Jenkins</tag>
+         
+        <tag>持续集成</tag>
+         
+         
+           
+             
+              <breadCrumb title="持续集成" url="http://www.fatiao.site/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/jenkins_androidversion.html</loc>
+    <lastmod>2016-10-29T04:06:07.000Z</lastmod>
+    <data>
+        <display>
+        <title>玩转Jenkins - Android发布自动版本号</title>
+        <pubTime>2016-10-30T16:00:00.000Z</pubTime>
+        
+        <tag>软件测试</tag>
+         
+        <tag>Jenkins</tag>
+         
+        <tag>持续集成</tag>
+         
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="持续集成" url="http://www.fatiao.site/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/jenkins_jobnev.html</loc>
+    <lastmod>2016-10-25T09:34:51.000Z</lastmod>
+    <data>
+        <display>
+        <title>玩转Jenkins - 使用linux系统的环境变量</title>
+        <pubTime>2016-10-24T16:00:00.000Z</pubTime>
+        
+        <tag>软件测试</tag>
+         
+        <tag>Jenkins</tag>
+         
+        <tag>持续集成</tag>
+         
+         
+           
+             
+              <breadCrumb title="持续集成" url="http://www.fatiao.site/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.fatiao.site/jenkis_cizongjie.html</loc>
     <lastmod>2016-10-25T03:09:31.000Z</lastmod>
     <data>
@@ -1630,14 +1704,16 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/mobile_appms.html</loc>
+    <loc>http://www.fatiao.site/mobile_adb.html</loc>
     <lastmod>2016-09-28T09:32:04.000Z</lastmod>
     <data>
         <display>
-        <title>常见APP应用模式</title>
-        <pubTime>2015-02-02T16:00:00.000Z</pubTime>
+        <title>Adb</title>
+        <pubTime>2015-03-14T16:00:00.000Z</pubTime>
         
         <tag>软件测试</tag>
+         
+        <tag>Android</tag>
          
         <tag>移动测试</tag>
          
@@ -1652,16 +1728,14 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/mobile_adb.html</loc>
+    <loc>http://www.fatiao.site/mobile_appms.html</loc>
     <lastmod>2016-09-28T09:32:04.000Z</lastmod>
     <data>
         <display>
-        <title>Adb</title>
-        <pubTime>2015-03-14T16:00:00.000Z</pubTime>
+        <title>常见APP应用模式</title>
+        <pubTime>2015-02-02T16:00:00.000Z</pubTime>
         
         <tag>软件测试</tag>
-         
-        <tag>Android</tag>
          
         <tag>移动测试</tag>
          
@@ -2672,12 +2746,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/db_sql5.html</loc>
+    <loc>http://www.fatiao.site/db_sql4.html</loc>
     <lastmod>2016-09-27T03:39:00.000Z</lastmod>
     <data>
         <display>
-        <title>Db - 数据库基本操作(四):数据备份</title>
-        <pubTime>2010-02-17T16:00:00.000Z</pubTime>
+        <title>Db - 数据库基本操作(四):数据类型</title>
+        <pubTime>2010-02-03T16:00:00.000Z</pubTime>
         
         <tag>Sql</tag>
          
@@ -2694,12 +2768,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/db_sql4.html</loc>
+    <loc>http://www.fatiao.site/db_sql5.html</loc>
     <lastmod>2016-09-27T03:39:00.000Z</lastmod>
     <data>
         <display>
-        <title>Db - 数据库基本操作(四):数据类型</title>
-        <pubTime>2010-02-03T16:00:00.000Z</pubTime>
+        <title>Db - 数据库基本操作(四):数据备份</title>
+        <pubTime>2010-02-17T16:00:00.000Z</pubTime>
         
         <tag>Sql</tag>
          
@@ -3162,9 +3236,9 @@
         
         <tag>Jenkins</tag>
          
-        <tag>测试</tag>
-         
         <tag>持续集成</tag>
+         
+        <tag>测试</tag>
          
          
            

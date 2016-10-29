@@ -236,6 +236,387 @@
             
               
                 
+                <a class="post-title-link" href="/jenkins_androidversion.html" itemprop="url">
+                  玩转Jenkins - Android发布自动版本号
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-31T00:00:00+08:00" content="2016-10-31">
+              2016-10-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/持续集成/" itemprop="url" rel="index">
+                    <span itemprop="name">持续集成</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/jenkins_androidversion.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="jenkins_androidversion.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>最近在统一Ios和Android的打包流程，希望能够通过Jenkins自动打包并分发，在Android部分的实施过程中，发现应用的版本号每次都需要人手工去维护，十分的不方便，于是在网上搜索了一番，找到了一个方案。</p>
+</blockquote>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>Android 应用的版本管理是依赖 AndroidManifest.xml 中的两个属性：</p>
+<p><strong>android:versionCode</strong> ：版本号，是一个大于 0 的整数，相当于 Build Number，随着版本的更新，这个必须是递增的。大的版本号，覆盖更新小的版本号；<br><strong>android:versionName</strong> ：版本名，是一个字符串，例如 “1.2.0” ，这个是给人看的版本名，系统并不关心这个值，但是合理的版本名，对后期的维护和 bug 修复也非常重要。<br>在使用了 Android Studio 或者 Gradle 编译以后，我们通常是在 build.gradle 里面定义这两个值，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">android &#123;  </div><div class="line">    ...</div><div class="line">    defaultConfig &#123;</div><div class="line">        ...</div><div class="line">        versionCode 1</div><div class="line">        versionName &quot;1.0&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="自动版本号"><a href="#自动版本号" class="headerlink" title="自动版本号"></a>自动版本号</h2><p>可以使用 <code>Git</code> 中 <code>commit</code> 的数量来作为版本号（versionCode）。方案如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">def cmd = &apos;git rev-list HEAD --first-parent --count&apos;  </div><div class="line">def gitVersion = cmd.execute().text.trim().toInteger()</div><div class="line"></div><div class="line">android &#123;  </div><div class="line">  defaultConfig &#123;</div><div class="line">    versionCode gitVersion</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里关键是这一行 git 命令 <code>git rev-list HEAD --first-parent --count</code> ，表示获取当前分支的 <code>commit</code> 数量。</p>
+<p>这是一个绝妙的方案。因为在项目开发中，我们的往 Git 库中提交的 Commit 的数量应该是只增不减的（当然，在极少的情况下有例外），而且对应 Commit 的数量直接对应代码当前的版本状态，只要你做了代码修改，版本号就应该增加。有些解决方案中，每次 Build 就会增加一次版本号，个人感觉并不合适，如果是相同的代码，发布出去版本号应该保持一致，而不在于你编译多少次。</p>
+<p>另外，有些人可能会担心，每次版本发布，可能会包含几百个新的 commit，这样的话 versionCode 会不会增长太快了，最后导致不够用了。其实，完全没有必要担心，versionCode 是 int 类型，最大值是 2^31-1 ，也就是 21 亿多，Android 源码中，改动最活跃的 framework/base 所有分支到目前为止也就 20 万多个 commit，所以完全够用了。</p>
+<h2 id="自动版本名"><a href="#自动版本名" class="headerlink" title="自动版本名"></a>自动版本名</h2><p>前面通过一条简单的命令实现了自动化的 versionCode ，现在我们看怎么自动化 versionName 。</p>
+<p>在正常的发布流程中，在发布新版本的时候，都会在版本库中打 tag。一般情况下，tag 名就是版本名，而且也建议这么做，因为如果某个版本出现 bug，也可以正好 checkout 这个 tag 来查看代码。所以，现在的问题就是怎么自动获得 git 库中最新的最新 tag？原来，git 早就提供了命令 <code>git describe</code> ，它的功能就是获取从当期 commit 到距离它最近的 tag 的描述。默认都是 <code>annoted tag</code>，如果要指所有的类型的 tag 的话，就加 –tags 参数。</p>
+<p>执行 <code>git describe</code> 的结果是： v1.1-1-gXXXXXX ，其中 1 表示当前代码距离最近的 tag v1.1 一个 commit，最新的 commit 的 id 是 XXXXXX 。</p>
+<p>可见， describe 命令很好的描述了当前的分支的版本状态，我们可以直接使用这个它的输出作为版本号。在 build.gradle 中的使用如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">def cmd = &apos;git describe --tags&apos;  </div><div class="line">def version = cmd.execute().text.trim()</div><div class="line"></div><div class="line">android &#123;  </div><div class="line">  defaultConfig &#123;</div><div class="line">    versionName version</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样就可以自动抽取 git 中的 tag 为版本名了。有些同学可能接受不了这样版本名字 v1.1-1-gXXXXXX ，这里也可以稍微做一些修改，使版本号更好看，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">def pattern = &quot;-(\\d+)-g&quot;  </div><div class="line">def matcher = version =~ pattern</div><div class="line"></div><div class="line">if (matcher) &#123;  </div><div class="line">    version = version.substring(0, matcher.start()) + &quot;.&quot; + matcher[0][1]</div><div class="line">&#125; else &#123;</div><div class="line">    version = version + &quot;.0&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样的话，上面的版本名就变为了 v1.0.0 和 v1.1.1 了。</p>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>前面的那篇文章中说了，为了尽可能减少 gradle 脚本的运算，提高开发速度，我们可以把这样的自动版本的计算放到 release 编译中去。最后的写法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">def gitVersionCode() &#123;  </div><div class="line">    def cmd = &apos;git rev-list HEAD --first-parent --count&apos;</div><div class="line">    cmd.execute().text.trim().toInteger()</div><div class="line">&#125;</div><div class="line"></div><div class="line">def gitVersionTag() &#123;  </div><div class="line">    def cmd = &apos;git describe --tags&apos;</div><div class="line">    def version = cmd.execute().text.trim()</div><div class="line"></div><div class="line">    def pattern = &quot;-(\\d+)-g&quot;</div><div class="line">    def matcher = version =~ pattern</div><div class="line"></div><div class="line">    if (matcher) &#123;</div><div class="line">        version = version.substring(0, matcher.start()) + &quot;.&quot; + matcher[0][1]</div><div class="line">    &#125; else &#123;</div><div class="line">        version = version + &quot;.0&quot;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return version</div><div class="line">&#125;</div><div class="line"></div><div class="line">android &#123;  </div><div class="line">    compileSdkVersion 23</div><div class="line">    buildToolsVersion &quot;23.0.2&quot;</div><div class="line"></div><div class="line">    defaultConfig &#123;</div><div class="line">        applicationId &quot;com.race604.example&quot;</div><div class="line">        minSdkVersion 15</div><div class="line">        targetSdkVersion 23</div><div class="line">        versionCode 1</div><div class="line">        versionName &apos;1.0&apos;</div><div class="line">    &#125;</div><div class="line">    buildTypes &#123;</div><div class="line">        debug &#123;</div><div class="line">            // 为了不和 release 版本冲突</div><div class="line">            applicationIdSuffix &quot;.debug&quot;</div><div class="line">        &#125;</div><div class="line">        release &#123;</div><div class="line">            minifyEnabled false</div><div class="line">            proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.pro&apos;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    applicationVariants.all &#123; variant -&gt;</div><div class="line">        if (variant.buildType.name.equals(&apos;release&apos;)) &#123;</div><div class="line">            variant.mergedFlavor.versionCode = gitVersionCode()</div><div class="line">            variant.mergedFlavor.versionName = gitVersionTag()</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>至此，结合 git 和 gradle 我们就实现了自动版本号。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/jenkins_androidbuild.html" itemprop="url">
+                  玩转Jenkins - Jenkins + Android + Gradle
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-29T00:00:00+08:00" content="2016-10-29">
+              2016-10-29
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/持续集成/" itemprop="url" rel="index">
+                    <span itemprop="name">持续集成</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/jenkins_androidbuild.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="jenkins_androidbuild.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>依赖插件： grade plugin</li>
+</ul>
+<p>构建的时候选择 <code>Invoke Gradle Script</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">swsitches : clean build</div><div class="line">tasks: 空</div><div class="line">root build script: $&#123;workspace&#125;/dada-app/ # 因为多个app的代码都在一个git工程里，为二级目录，所以这里需要设置</div><div class="line">Build File: # 因为没有修改默认的Build文件名，所以可以不用修改</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/jenkins_jobnev.html" itemprop="url">
+                  玩转Jenkins - 使用linux系统的环境变量
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-25T00:00:00+08:00" content="2016-10-25">
+              2016-10-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/持续集成/" itemprop="url" rel="index">
+                    <span itemprop="name">持续集成</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/jenkins_jobnev.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="jenkins_jobnev.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Job在执行任务过程中，不会自动加载.bash_profie中设置的环境变量，这些变量需要在节点的配置中设置。</p>
+<p>系统管理-&gt;节点管理,选择节点，配置从节点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Node Properties</div><div class="line">- PATH</div><div class="line">- $PATH:/usr/local/bin</div></pre></td></tr></table></figure></p>
+<p>这样就可以在被调用的脚本中使用<code>/usr/local/bin</code>下面的命令了</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/jenkis_cizongjie.html" itemprop="url">
                   玩转Jenkins - 代码提交后触发Ci
                 </a>
@@ -456,356 +837,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/jenkins_wad.html" itemprop="url">
-                  玩转Jenkins - 使用Ldap
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-28T00:00:00+08:00" content="2016-09-28">
-              2016-09-28
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/持续集成/" itemprop="url" rel="index">
-                    <span itemprop="name">持续集成</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/jenkins_wad.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="jenkins_wad.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>公司内部的系统需要统一走Ldap,使用同一套账号和密码登录，所以搭建的Jenkins也不例外，需要接入，搞了好几天都没有配置好，后来发现原因是公司的统一认证使用的是 <code>Windows ActiveDirectories</code>。<br>需要安装<code>Active Directory plugin</code>插件后才能正常使用。</p>
-<h2 id="配置方式"><a href="#配置方式" class="headerlink" title="配置方式"></a>配置方式</h2><p>位置：系统管理 -&gt; configure global security<br>选中<code>启用安全</code>，安装好<code>Active Directory plugin</code>插件后，在安全域中会有一个 <code>active directory</code>选项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">domains</div><div class="line"> domain name: 填写域名</div><div class="line"> domain controller: 填写ip:port</div><div class="line"> 高级设置中</div><div class="line"> bind nd: 值类似于  &quot;CN=Joe Chin,OU=europe,DC=contoso,DC=com&quot;.</div><div class="line"> bind password: 账号对应的密码</div></pre></td></tr></table></figure></p>
-<p>填写好以后可以用域账号登录看看是否成功</p>
-<h2 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h2><p>设置中有一块 <code>test domain name</code> 和 <code>test domain controllers</code>,这个有时候会报错，提示 <code>dadadc.cn doesn&#39;t look like a valid domain name</code>,有可能是这个域名无法访问，也可能根本就没有问题，所以一切以实际用账号登录测试下来的结果为准</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/workflow.html" itemprop="url">
-                  达达后端代码上线流程演进
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-19T00:00:00+08:00" content="2016-09-19">
-              2016-09-19
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/workflow.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="workflow.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>这几天在TesterHome上看到有人关于测试如何保证项目发布质量的提问，同时新达达北京研发团队最近也有一些关于后端代码上线后质量不可控的小烦恼，于是将我加入达达后对上线流程的优化做了以下总结，供大家参考。</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/workflow.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/book_dahua2.html" itemprop="url">
-                  读《大话App测试2.0》有感
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-07T00:00:00+08:00" content="2016-09-07">
-              2016-09-07
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/软件测试/" itemprop="url" rel="index">
-                    <span itemprop="name">软件测试</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/book_dahua2.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="book_dahua2.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Monkey的新书《大话APP测试2.0》出来了，花了两天时间读了一遍，书中干活满满。给我印象最深的不是关于移动无线专项部分的内容，也不是对于Appium的讲解，而是作者对测试，对质量思考的深度。最近思考了很久的问题突然间就有了答案。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/book_dahua2.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -851,7 +882,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">147</span>
+              <span class="site-state-item-count">150</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -859,7 +890,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -868,7 +899,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

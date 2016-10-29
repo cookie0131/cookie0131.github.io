@@ -1,0 +1,663 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+  
+
+<link href="//cdn.bootcss.com/font-awesome/4.4.0/fonts/fontawesome-webfont.svg" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="软件测试,Jenkins,持续集成,Android," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="最近在统一Ios和Android的打包流程，希望能够通过Jenkins自动打包并分发，在Android部分的实施过程中，发现应用的版本号每次都需要人手工去维护，十分的不方便，于是在网上搜索了一番，找到了一个方案。
+
+背景Android 应用的版本管理是依赖 AndroidManifest.xml 中的两个属性：
+android:versionCode ：版本号，是一个大于 0 的整数，相当于 B">
+<meta property="og:type" content="article">
+<meta property="og:title" content="玩转Jenkins - Android发布自动版本号">
+<meta property="og:url" content="http://www.fatiao.site/jenkins_androidversion.html">
+<meta property="og:site_name" content="小发条的技术人生">
+<meta property="og:description" content="最近在统一Ios和Android的打包流程，希望能够通过Jenkins自动打包并分发，在Android部分的实施过程中，发现应用的版本号每次都需要人手工去维护，十分的不方便，于是在网上搜索了一番，找到了一个方案。
+
+背景Android 应用的版本管理是依赖 AndroidManifest.xml 中的两个属性：
+android:versionCode ：版本号，是一个大于 0 的整数，相当于 B">
+<meta property="og:updated_time" content="2016-10-29T04:06:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="玩转Jenkins - Android发布自动版本号">
+<meta name="twitter:description" content="最近在统一Ios和Android的打包流程，希望能够通过Jenkins自动打包并分发，在Android部分的实施过程中，发现应用的版本号每次都需要人手工去维护，十分的不方便，于是在网上搜索了一番，找到了一个方案。
+
+背景Android 应用的版本管理是依赖 AndroidManifest.xml 中的两个属性：
+android:versionCode ：版本号，是一个大于 0 的整数，相当于 B">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.fatiao.site/jenkins_androidversion.html"/>
+
+  <meta name="baidu-site-verification" content="K7iVtNDL7l" />
+  <title> 软件测试,Jenkins,持续集成,Android, - 玩转Jenkins - Android发布自动版本号 | 小发条的技术人生 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=58555379";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">小发条的技术人生</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">测试攻城狮 pythoner 伪程序猿一枚</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                玩转Jenkins - Android发布自动版本号
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-31T00:00:00+08:00" content="2016-10-31">
+              2016-10-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/持续集成/" itemprop="url" rel="index">
+                    <span itemprop="name">持续集成</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/jenkins_androidversion.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="jenkins_androidversion.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>最近在统一Ios和Android的打包流程，希望能够通过Jenkins自动打包并分发，在Android部分的实施过程中，发现应用的版本号每次都需要人手工去维护，十分的不方便，于是在网上搜索了一番，找到了一个方案。</p>
+</blockquote>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>Android 应用的版本管理是依赖 AndroidManifest.xml 中的两个属性：</p>
+<p><strong>android:versionCode</strong> ：版本号，是一个大于 0 的整数，相当于 Build Number，随着版本的更新，这个必须是递增的。大的版本号，覆盖更新小的版本号；<br><strong>android:versionName</strong> ：版本名，是一个字符串，例如 “1.2.0” ，这个是给人看的版本名，系统并不关心这个值，但是合理的版本名，对后期的维护和 bug 修复也非常重要。<br>在使用了 Android Studio 或者 Gradle 编译以后，我们通常是在 build.gradle 里面定义这两个值，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">android &#123;  </div><div class="line">    ...</div><div class="line">    defaultConfig &#123;</div><div class="line">        ...</div><div class="line">        versionCode 1</div><div class="line">        versionName &quot;1.0&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="自动版本号"><a href="#自动版本号" class="headerlink" title="自动版本号"></a>自动版本号</h2><p>可以使用 <code>Git</code> 中 <code>commit</code> 的数量来作为版本号（versionCode）。方案如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">def cmd = &apos;git rev-list HEAD --first-parent --count&apos;  </div><div class="line">def gitVersion = cmd.execute().text.trim().toInteger()</div><div class="line"></div><div class="line">android &#123;  </div><div class="line">  defaultConfig &#123;</div><div class="line">    versionCode gitVersion</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里关键是这一行 git 命令 <code>git rev-list HEAD --first-parent --count</code> ，表示获取当前分支的 <code>commit</code> 数量。</p>
+<p>这是一个绝妙的方案。因为在项目开发中，我们的往 Git 库中提交的 Commit 的数量应该是只增不减的（当然，在极少的情况下有例外），而且对应 Commit 的数量直接对应代码当前的版本状态，只要你做了代码修改，版本号就应该增加。有些解决方案中，每次 Build 就会增加一次版本号，个人感觉并不合适，如果是相同的代码，发布出去版本号应该保持一致，而不在于你编译多少次。</p>
+<p>另外，有些人可能会担心，每次版本发布，可能会包含几百个新的 commit，这样的话 versionCode 会不会增长太快了，最后导致不够用了。其实，完全没有必要担心，versionCode 是 int 类型，最大值是 2^31-1 ，也就是 21 亿多，Android 源码中，改动最活跃的 framework/base 所有分支到目前为止也就 20 万多个 commit，所以完全够用了。</p>
+<h2 id="自动版本名"><a href="#自动版本名" class="headerlink" title="自动版本名"></a>自动版本名</h2><p>前面通过一条简单的命令实现了自动化的 versionCode ，现在我们看怎么自动化 versionName 。</p>
+<p>在正常的发布流程中，在发布新版本的时候，都会在版本库中打 tag。一般情况下，tag 名就是版本名，而且也建议这么做，因为如果某个版本出现 bug，也可以正好 checkout 这个 tag 来查看代码。所以，现在的问题就是怎么自动获得 git 库中最新的最新 tag？原来，git 早就提供了命令 <code>git describe</code> ，它的功能就是获取从当期 commit 到距离它最近的 tag 的描述。默认都是 <code>annoted tag</code>，如果要指所有的类型的 tag 的话，就加 –tags 参数。</p>
+<p>执行 <code>git describe</code> 的结果是： v1.1-1-gXXXXXX ，其中 1 表示当前代码距离最近的 tag v1.1 一个 commit，最新的 commit 的 id 是 XXXXXX 。</p>
+<p>可见， describe 命令很好的描述了当前的分支的版本状态，我们可以直接使用这个它的输出作为版本号。在 build.gradle 中的使用如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">def cmd = &apos;git describe --tags&apos;  </div><div class="line">def version = cmd.execute().text.trim()</div><div class="line"></div><div class="line">android &#123;  </div><div class="line">  defaultConfig &#123;</div><div class="line">    versionName version</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样就可以自动抽取 git 中的 tag 为版本名了。有些同学可能接受不了这样版本名字 v1.1-1-gXXXXXX ，这里也可以稍微做一些修改，使版本号更好看，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">def pattern = &quot;-(\\d+)-g&quot;  </div><div class="line">def matcher = version =~ pattern</div><div class="line"></div><div class="line">if (matcher) &#123;  </div><div class="line">    version = version.substring(0, matcher.start()) + &quot;.&quot; + matcher[0][1]</div><div class="line">&#125; else &#123;</div><div class="line">    version = version + &quot;.0&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样的话，上面的版本名就变为了 v1.0.0 和 v1.1.1 了。</p>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>前面的那篇文章中说了，为了尽可能减少 gradle 脚本的运算，提高开发速度，我们可以把这样的自动版本的计算放到 release 编译中去。最后的写法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">def gitVersionCode() &#123;  </div><div class="line">    def cmd = &apos;git rev-list HEAD --first-parent --count&apos;</div><div class="line">    cmd.execute().text.trim().toInteger()</div><div class="line">&#125;</div><div class="line"></div><div class="line">def gitVersionTag() &#123;  </div><div class="line">    def cmd = &apos;git describe --tags&apos;</div><div class="line">    def version = cmd.execute().text.trim()</div><div class="line"></div><div class="line">    def pattern = &quot;-(\\d+)-g&quot;</div><div class="line">    def matcher = version =~ pattern</div><div class="line"></div><div class="line">    if (matcher) &#123;</div><div class="line">        version = version.substring(0, matcher.start()) + &quot;.&quot; + matcher[0][1]</div><div class="line">    &#125; else &#123;</div><div class="line">        version = version + &quot;.0&quot;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return version</div><div class="line">&#125;</div><div class="line"></div><div class="line">android &#123;  </div><div class="line">    compileSdkVersion 23</div><div class="line">    buildToolsVersion &quot;23.0.2&quot;</div><div class="line"></div><div class="line">    defaultConfig &#123;</div><div class="line">        applicationId &quot;com.race604.example&quot;</div><div class="line">        minSdkVersion 15</div><div class="line">        targetSdkVersion 23</div><div class="line">        versionCode 1</div><div class="line">        versionName &apos;1.0&apos;</div><div class="line">    &#125;</div><div class="line">    buildTypes &#123;</div><div class="line">        debug &#123;</div><div class="line">            // 为了不和 release 版本冲突</div><div class="line">            applicationIdSuffix &quot;.debug&quot;</div><div class="line">        &#125;</div><div class="line">        release &#123;</div><div class="line">            minifyEnabled false</div><div class="line">            proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.pro&apos;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    applicationVariants.all &#123; variant -&gt;</div><div class="line">        if (variant.buildType.name.equals(&apos;release&apos;)) &#123;</div><div class="line">            variant.mergedFlavor.versionCode = gitVersionCode()</div><div class="line">            variant.mergedFlavor.versionName = gitVersionTag()</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>至此，结合 git 和 gradle 我们就实现了自动版本号。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay01.jpg" alt="发条橙子 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软件测试/" rel="tag">#软件测试</a>
+          
+            <a href="/tags/Jenkins/" rel="tag">#Jenkins</a>
+          
+            <a href="/tags/持续集成/" rel="tag">#持续集成</a>
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/jenkins_androidbuild.html" rel="next" title="玩转Jenkins - Jenkins + Android + Gradle">
+                <i class="fa fa-chevron-left"></i> 玩转Jenkins - Jenkins + Android + Gradle
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="jenkins_androidversion.html"
+           data-title="玩转Jenkins - Android发布自动版本号" data-url="http://www.fatiao.site/jenkins_androidversion.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="发条橙子" />
+          <p class="site-author-name" itemprop="name">发条橙子</p>
+          <p class="site-description motion-element" itemprop="description">不积跬步，无以至千里</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">150</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动版本号"><span class="nav-number">2.</span> <span class="nav-text">自动版本号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动版本名"><span class="nav-number">3.</span> <span class="nav-text">自动版本名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化"><span class="nav-number">4.</span> <span class="nav-text">优化</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2009 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">发条橙子</span>
+</div>
+
+<!--
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+-->
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ftcz"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
