@@ -4,6 +4,52 @@
 
     
   <url>
+    <loc>http://www.fatiao.site/jenkins_androidbuild.html</loc>
+    <lastmod>2016-10-31T08:57:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>玩转Jenkins - Jenkins + Android + Gradle</title>
+        <pubTime>2016-10-28T16:00:00.000Z</pubTime>
+        
+        <tag>软件测试</tag>
+         
+        <tag>Jenkins</tag>
+         
+        <tag>持续集成</tag>
+         
+         
+           
+             
+              <breadCrumb title="持续集成" url="http://www.fatiao.site/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/rn_devenv.html</loc>
+    <lastmod>2016-10-29T06:16:50.000Z</lastmod>
+    <data>
+        <display>
+        <title>React Native - 搭建Ios开发环境</title>
+        <pubTime>2016-10-31T16:00:00.000Z</pubTime>
+        
+        <tag>Javascript</tag>
+         
+        <tag>ReactNative</tag>
+         
+         
+           
+             
+              <breadCrumb title="ReactNative" url="http://www.fatiao.site/categories/ReactNative/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.fatiao.site/jenkins_androidversion.html</loc>
     <lastmod>2016-10-29T04:22:37.000Z</lastmod>
     <data>
@@ -18,30 +64,6 @@
         <tag>持续集成</tag>
          
         <tag>Android</tag>
-         
-         
-           
-             
-              <breadCrumb title="持续集成" url="http://www.fatiao.site/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.fatiao.site/jenkins_androidbuild.html</loc>
-    <lastmod>2016-10-29T04:15:21.000Z</lastmod>
-    <data>
-        <display>
-        <title>玩转Jenkins - Jenkins + Android + Gradle</title>
-        <pubTime>2016-10-28T16:00:00.000Z</pubTime>
-        
-        <tag>软件测试</tag>
-         
-        <tag>Jenkins</tag>
-         
-        <tag>持续集成</tag>
          
          
            
@@ -988,12 +1010,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/git_stausdiff.html</loc>
+    <loc>http://www.fatiao.site/git_addcommit.html</loc>
     <lastmod>2016-10-04T15:12:14.000Z</lastmod>
     <data>
         <display>
-        <title>Git：查看版本库变更状态</title>
-        <pubTime>2012-03-31T16:00:00.000Z</pubTime>
+        <title>Git：把文件添加到版本库</title>
+        <pubTime>2012-03-09T16:00:00.000Z</pubTime>
         
         <tag>devops</tag>
          
@@ -1010,12 +1032,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/git_addcommit.html</loc>
+    <loc>http://www.fatiao.site/git_stausdiff.html</loc>
     <lastmod>2016-10-04T15:12:14.000Z</lastmod>
     <data>
         <display>
-        <title>Git：把文件添加到版本库</title>
-        <pubTime>2012-03-09T16:00:00.000Z</pubTime>
+        <title>Git：查看版本库变更状态</title>
+        <pubTime>2012-03-31T16:00:00.000Z</pubTime>
         
         <tag>devops</tag>
          
@@ -1125,9 +1147,9 @@
         <title>Android之Activity的四种启动模式</title>
         <pubTime>2016-02-11T16:00:00.000Z</pubTime>
         
-        <tag>Android</tag>
-         
         <tag>测试</tag>
+         
+        <tag>Android</tag>
          
          
            
@@ -1680,14 +1702,16 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/mobile_appms.html</loc>
+    <loc>http://www.fatiao.site/mobile_adb.html</loc>
     <lastmod>2016-09-28T09:32:04.000Z</lastmod>
     <data>
         <display>
-        <title>常见APP应用模式</title>
-        <pubTime>2015-02-02T16:00:00.000Z</pubTime>
+        <title>Adb</title>
+        <pubTime>2015-03-14T16:00:00.000Z</pubTime>
         
         <tag>软件测试</tag>
+         
+        <tag>Android</tag>
          
         <tag>移动测试</tag>
          
@@ -1726,16 +1750,14 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/mobile_adb.html</loc>
+    <loc>http://www.fatiao.site/mobile_appms.html</loc>
     <lastmod>2016-09-28T09:32:04.000Z</lastmod>
     <data>
         <display>
-        <title>Adb</title>
-        <pubTime>2015-03-14T16:00:00.000Z</pubTime>
+        <title>常见APP应用模式</title>
+        <pubTime>2015-02-02T16:00:00.000Z</pubTime>
         
         <tag>软件测试</tag>
-         
-        <tag>Android</tag>
          
         <tag>移动测试</tag>
          
@@ -1830,12 +1852,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/python_listgenetate.html</loc>
+    <loc>http://www.fatiao.site/python_func1.html</loc>
     <lastmod>2016-09-28T08:52:42.000Z</lastmod>
     <data>
         <display>
-        <title>Python - 列表生成式</title>
-        <pubTime>2010-07-25T16:00:00.000Z</pubTime>
+        <title>Python - 函数（一）</title>
+        <pubTime>2010-06-26T16:00:00.000Z</pubTime>
         
         <tag>Python</tag>
          
@@ -1850,12 +1872,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/python_func1.html</loc>
+    <loc>http://www.fatiao.site/python_listgenetate.html</loc>
     <lastmod>2016-09-28T08:52:42.000Z</lastmod>
     <data>
         <display>
-        <title>Python - 函数（一）</title>
-        <pubTime>2010-06-26T16:00:00.000Z</pubTime>
+        <title>Python - 列表生成式</title>
+        <pubTime>2010-07-25T16:00:00.000Z</pubTime>
         
         <tag>Python</tag>
          
@@ -2746,12 +2768,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/db_sql5.html</loc>
+    <loc>http://www.fatiao.site/db_sql4.html</loc>
     <lastmod>2016-09-27T03:39:00.000Z</lastmod>
     <data>
         <display>
-        <title>Db - 数据库基本操作(四):数据备份</title>
-        <pubTime>2010-02-17T16:00:00.000Z</pubTime>
+        <title>Db - 数据库基本操作(四):数据类型</title>
+        <pubTime>2010-02-03T16:00:00.000Z</pubTime>
         
         <tag>Sql</tag>
          
@@ -2768,12 +2790,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/db_sql4.html</loc>
+    <loc>http://www.fatiao.site/db_sql5.html</loc>
     <lastmod>2016-09-27T03:39:00.000Z</lastmod>
     <data>
         <display>
-        <title>Db - 数据库基本操作(四):数据类型</title>
-        <pubTime>2010-02-03T16:00:00.000Z</pubTime>
+        <title>Db - 数据库基本操作(四):数据备份</title>
+        <pubTime>2010-02-17T16:00:00.000Z</pubTime>
         
         <tag>Sql</tag>
          
