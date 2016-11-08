@@ -562,13 +562,6 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/mobile_ddms.html</loc>
-    
-    <lastmod>2016-09-28T09:32:04.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fatiao.site/mobile_appms.html</loc>
     
     <lastmod>2016-09-28T09:32:04.000Z</lastmod>
@@ -577,6 +570,13 @@
   
   <url>
     <loc>http://www.fatiao.site/mobile_adb.html</loc>
+    
+    <lastmod>2016-09-28T09:32:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/mobile_ddms.html</loc>
     
     <lastmod>2016-09-28T09:32:04.000Z</lastmod>
     
