@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://www.fatiao.site/linux_sshnoauth.html</loc>
+    <lastmod>2016-11-14T04:35:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux & Shell - ssh免密码登录设置失败该如何解决</title>
+        <pubTime>2016-11-11T16:00:00.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>Shell</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://www.fatiao.site/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.fatiao.site/jenkins_safe.html</loc>
     <lastmod>2016-11-08T07:37:14.000Z</lastmod>
     <data>
@@ -1728,12 +1750,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/mobile_adb.html</loc>
+    <loc>http://www.fatiao.site/mobile_ddms.html</loc>
     <lastmod>2016-09-28T09:32:04.000Z</lastmod>
     <data>
         <display>
-        <title>Adb</title>
-        <pubTime>2015-03-14T16:00:00.000Z</pubTime>
+        <title>Ddms</title>
+        <pubTime>2015-04-05T16:00:00.000Z</pubTime>
         
         <tag>软件测试</tag>
          
@@ -1774,12 +1796,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/mobile_ddms.html</loc>
+    <loc>http://www.fatiao.site/mobile_adb.html</loc>
     <lastmod>2016-09-28T09:32:04.000Z</lastmod>
     <data>
         <display>
-        <title>Ddms</title>
-        <pubTime>2015-04-05T16:00:00.000Z</pubTime>
+        <title>Adb</title>
+        <pubTime>2015-03-14T16:00:00.000Z</pubTime>
         
         <tag>软件测试</tag>
          
@@ -1878,12 +1900,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/python_func1.html</loc>
+    <loc>http://www.fatiao.site/python_listgenetate.html</loc>
     <lastmod>2016-09-28T08:52:42.000Z</lastmod>
     <data>
         <display>
-        <title>Python - 函数（一）</title>
-        <pubTime>2010-06-26T16:00:00.000Z</pubTime>
+        <title>Python - 列表生成式</title>
+        <pubTime>2010-07-25T16:00:00.000Z</pubTime>
         
         <tag>Python</tag>
          
@@ -1898,12 +1920,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/python_listgenetate.html</loc>
+    <loc>http://www.fatiao.site/python_func1.html</loc>
     <lastmod>2016-09-28T08:52:42.000Z</lastmod>
     <data>
         <display>
-        <title>Python - 列表生成式</title>
-        <pubTime>2010-07-25T16:00:00.000Z</pubTime>
+        <title>Python - 函数（一）</title>
+        <pubTime>2010-06-26T16:00:00.000Z</pubTime>
         
         <tag>Python</tag>
          
@@ -2794,12 +2816,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/db_sql4.html</loc>
+    <loc>http://www.fatiao.site/db_sql5.html</loc>
     <lastmod>2016-09-27T03:39:00.000Z</lastmod>
     <data>
         <display>
-        <title>Db - 数据库基本操作(四):数据类型</title>
-        <pubTime>2010-02-03T16:00:00.000Z</pubTime>
+        <title>Db - 数据库基本操作(四):数据备份</title>
+        <pubTime>2010-02-17T16:00:00.000Z</pubTime>
         
         <tag>Sql</tag>
          
@@ -2816,12 +2838,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/db_sql5.html</loc>
+    <loc>http://www.fatiao.site/db_sql4.html</loc>
     <lastmod>2016-09-27T03:39:00.000Z</lastmod>
     <data>
         <display>
-        <title>Db - 数据库基本操作(四):数据备份</title>
-        <pubTime>2010-02-17T16:00:00.000Z</pubTime>
+        <title>Db - 数据库基本操作(四):数据类型</title>
+        <pubTime>2010-02-03T16:00:00.000Z</pubTime>
         
         <tag>Sql</tag>
          

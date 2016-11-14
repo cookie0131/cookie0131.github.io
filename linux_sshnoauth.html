@@ -46,7 +46,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="devops,Git," />
+  <meta name="keywords" content="Linux,Shell," />
 
 
 
@@ -62,16 +62,22 @@
 
 
 
-<meta name="description" content="我们已经成功地添加并提交了一个readme.txt文件，现在，我们继续修改readme.txt文件，改成如下内容：12Git is a distributed version control system.Git is free software.">
+<meta name="description" content="双11在阿里云上买了台服务器，把Blog迁了过去，为了方便登录，把ssh公钥加入到了服务器上希望能够免密码登录，可是设置好以后还是不生效，查了半天原来是设置的不对。具体解决方案如下：
+
+123456789.ssh目录，以及/home/当前用户 需要700权限，参考以下操作调整sudo chmod 700 ~/.sshsudo chmod 700 /home/当前用户.ssh目录下的authori">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git：查看版本库变更状态">
-<meta property="og:url" content="http://www.fatiao.site/git_stausdiff.html">
+<meta property="og:title" content="Linux & Shell - ssh免密码登录设置失败该如何解决">
+<meta property="og:url" content="http://www.fatiao.site/linux_sshnoauth.html">
 <meta property="og:site_name" content="小发条的技术人生">
-<meta property="og:description" content="我们已经成功地添加并提交了一个readme.txt文件，现在，我们继续修改readme.txt文件，改成如下内容：12Git is a distributed version control system.Git is free software.">
-<meta property="og:updated_time" content="2016-10-04T15:12:14.000Z">
+<meta property="og:description" content="双11在阿里云上买了台服务器，把Blog迁了过去，为了方便登录，把ssh公钥加入到了服务器上希望能够免密码登录，可是设置好以后还是不生效，查了半天原来是设置的不对。具体解决方案如下：
+
+123456789.ssh目录，以及/home/当前用户 需要700权限，参考以下操作调整sudo chmod 700 ~/.sshsudo chmod 700 /home/当前用户.ssh目录下的authori">
+<meta property="og:updated_time" content="2016-11-14T04:35:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git：查看版本库变更状态">
-<meta name="twitter:description" content="我们已经成功地添加并提交了一个readme.txt文件，现在，我们继续修改readme.txt文件，改成如下内容：12Git is a distributed version control system.Git is free software.">
+<meta name="twitter:title" content="Linux & Shell - ssh免密码登录设置失败该如何解决">
+<meta name="twitter:description" content="双11在阿里云上买了台服务器，把Blog迁了过去，为了方便登录，把ssh公钥加入到了服务器上希望能够免密码登录，可是设置好以后还是不生效，查了半天原来是设置的不对。具体解决方案如下：
+
+123456789.ssh目录，以及/home/当前用户 需要700权限，参考以下操作调整sudo chmod 700 ~/.sshsudo chmod 700 /home/当前用户.ssh目录下的authori">
 
 
 
@@ -92,10 +98,10 @@
 
 
 
-  <link rel="canonical" href="http://www.fatiao.site/git_stausdiff.html"/>
+  <link rel="canonical" href="http://www.fatiao.site/linux_sshnoauth.html"/>
 
   <meta name="baidu-site-verification" content="K7iVtNDL7l" />
-  <title> devops,Git, - Git：查看版本库变更状态 | 小发条的技术人生 </title>
+  <title> Linux,Shell, - Linux & Shell - ssh免密码登录设置失败该如何解决 | 小发条的技术人生 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -234,7 +240,7 @@
             
             
               
-                Git：查看版本库变更状态
+                Linux & Shell - ssh免密码登录设置失败该如何解决
               
             
           </h1>
@@ -246,8 +252,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-04-01T00:00:00+08:00" content="2012-04-01">
-              2012-04-01
+            <time itemprop="dateCreated" datetime="2016-11-12T00:00:00+08:00" content="2016-11-12">
+              2016-11-12
             </time>
           </span>
 
@@ -260,8 +266,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/devops/" itemprop="url" rel="index">
-                    <span itemprop="name">devops</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -276,8 +282,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/git_stausdiff.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="git_stausdiff.html" itemprop="commentsCount"></span>
+                <a href="/linux_sshnoauth.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_sshnoauth.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -300,17 +306,10 @@
       
 
       
-        <p>我们已经成功地添加并提交了一个readme.txt文件，现在，我们继续修改readme.txt文件，改成如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Git is a distributed version control system.</div><div class="line">Git is free software.</div></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<p>现在，运行<code>git status</code>命令看看结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ git status</div><div class="line"># On branch master</div><div class="line"># Changes not staged for commit:</div><div class="line">#   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</div><div class="line">#   (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</div><div class="line">#</div><div class="line">#    modified:   readme.txt</div><div class="line">#</div><div class="line">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</div></pre></td></tr></table></figure></p>
-<p><code>git status</code>命令可以让我们时刻掌握仓库当前的状态，上面的命令告诉我们，readme.txt被修改过了，但还没有准备提交的修改。</p>
-<p>虽然Git告诉我们readme.txt被修改了，但如果能看看具体修改了什么内容，自然是很好的。所以，需要用git diff这个命令看看：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ git diff readme.txt </div><div class="line">diff --git a/readme.txt b/readme.txt</div><div class="line">index 46d49bf..9247db6 100644</div><div class="line">--- a/readme.txt</div><div class="line">+++ b/readme.txt</div><div class="line">@@ -1,2 +1,2 @@</div><div class="line">-Git is a version control system.</div><div class="line">+Git is a distributed version control system.</div><div class="line"> Git is free software.</div></pre></td></tr></table></figure></p>
-<p><code>git diff</code>顾名思义就是查看difference，显示的格式正是Unix通用的diff格式，可以从上面的命令输出看到，我们在第一行添加了一个“distributed”单词。</p>
-<p>知道了对readme.txt作了什么修改后，再把它提交到仓库就放心多了，提交修改和提交新文件是一样的两步，第一步是git add：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git add readme.txt</div></pre></td></tr></table></figure></p>
-<p>同样没有任何输出。在执行第二步git commit之前，我们再运行git status看看当前仓库的状态：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ git status</div><div class="line"># On branch master</div><div class="line"># Changes to be committed:</div><div class="line">#   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)</div><div class="line">#</div><div class="line">#       modified:   readme.txt</div><div class="line">#</div></pre></td></tr></table></figure></p>
-<p><code>git status</code>告诉我们，将要被提交的修改包括readme.txt，下一步，就可以放心地提交了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git commit -m &quot;add distributed&quot;</div><div class="line">[master ea34578] add distributed</div><div class="line"> 1 file changed, 1 insertion(+), 1 deletion(-)</div></pre></td></tr></table></figure></p>
-<p>提交后，我们再用git status命令看看仓库的当前状态：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git status</div><div class="line"># On branch master</div><div class="line">nothing to commit (working directory clean)</div></pre></td></tr></table></figure></p>
-<p>Git告诉我们当前没有需要提交的修改，而且，工作目录是干净（working directory clean）的。</p>
+        <blockquote>
+<p>双11在阿里云上买了台服务器，把Blog迁了过去，为了方便登录，把ssh公钥加入到了服务器上希望能够免密码登录，可是设置好以后还是不生效，查了半天原来是设置的不对。具体解决方案如下：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">.ssh目录，以及/home/当前用户 需要700权限，参考以下操作调整</div><div class="line"></div><div class="line">sudo chmod 700 ~/.ssh</div><div class="line"></div><div class="line">sudo chmod 700 /home/当前用户</div><div class="line"></div><div class="line">.ssh目录下的authorized_keys文件需要600或644权限，参考以下操作调整</div><div class="line"></div><div class="line">sudo chmod 600 ~/.ssh/authorized_keys</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -349,9 +348,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/devops/" rel="tag">#devops</a>
+            <a href="/tags/Linux/" rel="tag">#Linux</a>
           
-            <a href="/tags/Git/" rel="tag">#Git</a>
+            <a href="/tags/Shell/" rel="tag">#Shell</a>
           
         </div>
       
@@ -360,17 +359,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/git_addcommit.html" rel="next" title="Git：把文件添加到版本库">
-                <i class="fa fa-chevron-left"></i> Git：把文件添加到版本库
+              <a href="/jenkins_safe.html" rel="next" title="玩转Jenkins - HTML Report样式显示异常">
+                <i class="fa fa-chevron-left"></i> 玩转Jenkins - HTML Report样式显示异常
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/git_logreset.html" rel="prev" title="Git：版本回退">
-                Git：版本回退 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -396,8 +391,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="git_stausdiff.html"
-           data-title="Git：查看版本库变更状态" data-url="http://www.fatiao.site/git_stausdiff.html">
+      <div class="ds-thread" data-thread-key="linux_sshnoauth.html"
+           data-title="Linux & Shell - ssh免密码登录设置失败该如何解决" data-url="http://www.fatiao.site/linux_sshnoauth.html">
       </div>
     
   </div>

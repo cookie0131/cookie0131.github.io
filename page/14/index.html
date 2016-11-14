@@ -236,6 +236,135 @@
             
               
                 
+                <a class="post-title-link" href="/git_tag.html" itemprop="url">
+                  Git：创建标签
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2012-09-27T00:00:00+08:00" content="2012-09-27">
+              2012-09-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/devops/" itemprop="url" rel="index">
+                    <span itemprop="name">devops</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/git_tag.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="git_tag.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在Git中打标签非常简单，首先，切换到需要打标签的分支上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git branch</div><div class="line">* dev</div><div class="line">  master</div><div class="line">$ git checkout master</div><div class="line">Switched to branch &apos;master&apos;</div></pre></td></tr></table></figure></p>
+<p>然后，敲命令<code>git tag &lt;name&gt;</code>就可以打一个新标签：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag v1.0</div></pre></td></tr></table></figure></p>
+<p>可以用命令git tag查看所有标签：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git tag</div><div class="line">v1.0</div></pre></td></tr></table></figure></p>
+<p>默认标签是打在最新提交的commit上的。有时候，如果忘了打标签，比如，现在已经是周五了，但应该在周一打的标签没有打，怎么办？</p>
+<p>方法是找到历史提交的commit id，然后打上就可以了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ git log --pretty=oneline --abbrev-commit</div><div class="line">6a5819e merged bug fix 101</div><div class="line">cc17032 fix bug 101</div><div class="line">7825a50 merge with no-ff</div><div class="line">6224937 add merge</div><div class="line">59bc1cb conflict fixed</div><div class="line">400b400 &amp; simple</div><div class="line">75a857c AND simple</div><div class="line">fec145a branch test</div><div class="line">d17efd8 remove test.txt</div><div class="line">...</div></pre></td></tr></table></figure></p>
+<p>比方说要对add merge这次提交打标签，它对应的commit id是6224937，敲入命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag v0.9 6224937</div></pre></td></tr></table></figure></p>
+<p>再用命令<code>git tag</code>查看标签：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git tag</div><div class="line">v0.9</div><div class="line">v1.0</div></pre></td></tr></table></figure></p>
+<p>注意，标签不是按时间顺序列出，而是按字母排序的。可以用<code>git show &lt;tagname&gt;</code>查看标签信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ git show v0.9</div><div class="line">commit 622493706ab447b6bb37e4e2a2f276a20fed2ab4</div><div class="line">Author: Michael Liao &lt;askxuefeng@gmail.com&gt;</div><div class="line">Date:   Thu Aug 22 11:22:08 2013 +0800</div><div class="line"></div><div class="line">    add merge</div><div class="line">...</div></pre></td></tr></table></figure></p>
+<p>可以看到，v0.9确实打在add merge这次提交上。</p>
+<p>还可以创建带有说明的标签，用-a指定标签名，-m指定说明文字：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">$ git tag -a v0.1 -m &quot;version 0.1 released&quot; 3628164</div><div class="line">用命令git show &lt;tagname&gt;可以看到说明文字：</div><div class="line"></div><div class="line">$ git show v0.1</div><div class="line">tag v0.1</div><div class="line">Tagger: Michael Liao &lt;askxuefeng@gmail.com&gt;</div><div class="line">Date:   Mon Aug 26 07:28:11 2013 +0800</div><div class="line"></div><div class="line">version 0.1 released</div><div class="line"></div><div class="line">commit 3628164fb26d48395383f8f31179f24e0882e1e0</div><div class="line">Author: Michael Liao &lt;askxuefeng@gmail.com&gt;</div><div class="line">Date:   Tue Aug 20 15:11:49 2013 +0800</div><div class="line"></div><div class="line">    append GPL</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/git_alias.html" itemprop="url">
                   Git：配置别名
                 </a>
@@ -705,129 +834,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/git_fixmergeerr.html" itemprop="url">
-                  Git：解决冲突
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-07-19T00:00:00+08:00" content="2012-07-19">
-              2012-07-19
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/devops/" itemprop="url" rel="index">
-                    <span itemprop="name">devops</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/git_fixmergeerr.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="git_fixmergeerr.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>准备新的feature1分支，继续我们的新分支开发：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b feature1</div><div class="line">Switched to a new branch &apos;feature1&apos;</div></pre></td></tr></table></figure></p>
-<p>修改readme.txt最后一行，改为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Creating a new branch is quick AND simple.</div></pre></td></tr></table></figure></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/git_fixmergeerr.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -873,7 +879,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">152</span>
+              <span class="site-state-item-count">153</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
