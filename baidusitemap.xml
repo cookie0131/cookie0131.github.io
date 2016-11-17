@@ -1058,12 +1058,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/git_addcommit.html</loc>
+    <loc>http://www.fatiao.site/git_stausdiff.html</loc>
     <lastmod>2016-10-04T15:12:14.000Z</lastmod>
     <data>
         <display>
-        <title>Git：把文件添加到版本库</title>
-        <pubTime>2012-03-09T16:00:00.000Z</pubTime>
+        <title>Git：查看版本库变更状态</title>
+        <pubTime>2012-03-31T16:00:00.000Z</pubTime>
         
         <tag>devops</tag>
          
@@ -1080,12 +1080,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/git_stausdiff.html</loc>
+    <loc>http://www.fatiao.site/git_addcommit.html</loc>
     <lastmod>2016-10-04T15:12:14.000Z</lastmod>
     <data>
         <display>
-        <title>Git：查看版本库变更状态</title>
-        <pubTime>2012-03-31T16:00:00.000Z</pubTime>
+        <title>Git：把文件添加到版本库</title>
+        <pubTime>2012-03-09T16:00:00.000Z</pubTime>
         
         <tag>devops</tag>
          
@@ -1195,9 +1195,9 @@
         <title>Android之Activity的四种启动模式</title>
         <pubTime>2016-02-11T16:00:00.000Z</pubTime>
         
-        <tag>Android</tag>
-         
         <tag>测试</tag>
+         
+        <tag>Android</tag>
          
          
            
@@ -1750,30 +1750,6 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/mobile_ddms.html</loc>
-    <lastmod>2016-09-28T09:32:04.000Z</lastmod>
-    <data>
-        <display>
-        <title>Ddms</title>
-        <pubTime>2015-04-05T16:00:00.000Z</pubTime>
-        
-        <tag>软件测试</tag>
-         
-        <tag>Android</tag>
-         
-        <tag>移动测试</tag>
-         
-         
-           
-             
-              <breadCrumb title="软件测试" url="http://www.fatiao.site/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.fatiao.site/mobile_appms.html</loc>
     <lastmod>2016-09-28T09:32:04.000Z</lastmod>
     <data>
@@ -1802,6 +1778,30 @@
         <display>
         <title>Adb</title>
         <pubTime>2015-03-14T16:00:00.000Z</pubTime>
+        
+        <tag>软件测试</tag>
+         
+        <tag>Android</tag>
+         
+        <tag>移动测试</tag>
+         
+         
+           
+             
+              <breadCrumb title="软件测试" url="http://www.fatiao.site/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/mobile_ddms.html</loc>
+    <lastmod>2016-09-28T09:32:04.000Z</lastmod>
+    <data>
+        <display>
+        <title>Ddms</title>
+        <pubTime>2015-04-05T16:00:00.000Z</pubTime>
         
         <tag>软件测试</tag>
          
