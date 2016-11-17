@@ -46,7 +46,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="架构," />
+  <meta name="keywords" content="拆库,水平分表,架构" />
 
 
 
@@ -70,7 +70,7 @@
 <meta property="og:site_name" content="小发条的技术人生">
 <meta property="og:description" content="水平分表也称为横向分表，就是讲表中不同的数据行按照一定规律分不到不同的数据表中，这样来降低单表的数据量，优化查询性能。最常见的方式就是通过主键或者时间等字段进行hash和取模后拆分。比如：根据id，把1结尾的放一个库，2结尾的放一个库，以此类推。
 水平分表能降低单标的数据量，一定程度上可以缓解查询性能瓶颈，但本质上这些表还在一个数据库中，所以库级别还是有io瓶颈，一般不采取这种做法">
-<meta property="og:updated_time" content="2016-09-28T01:32:54.000Z">
+<meta property="og:updated_time" content="2016-11-17T09:27:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分库分表的集中常见形式：水平分表">
 <meta name="twitter:description" content="水平分表也称为横向分表，就是讲表中不同的数据行按照一定规律分不到不同的数据表中，这样来降低单表的数据量，优化查询性能。最常见的方式就是通过主键或者时间等字段进行hash和取模后拆分。比如：根据id，把1结尾的放一个库，2结尾的放一个库，以此类推。
