@@ -10,10 +10,8 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: https://cookie0131.github.io/sitemap.xml
-Sitemap: https://cookie0131.github.io/baidusitemap.xml
-Sitemap: http://fatiao.coding.me/sitemap.xml
+
 Sitemap: http://www.fatiao.site/sitemap.xml
-Sitemap: http://fatiao.coding.me//baidusitemap.xml
+Sitemap: http://www.fatiao.site/baidusitemap.xml
 Sitemap: http://fatiao.site//sitemap.xml
 Sitemap: http://fatiao.site//baidusitemap.xml
