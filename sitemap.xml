@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.fatiao.site/book_sqlinj.html</loc>
+    
+    <lastmod>2016-11-26T04:42:03.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/book_dahua2.html</loc>
+    
+    <lastmod>2016-11-26T04:34:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/book_apici.html</loc>
+    
+    <lastmod>2016-11-26T04:30:51.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fatiao.site/php_phpgd.html</loc>
     
     <lastmod>2016-11-23T05:16:44.000Z</lastmod>
@@ -37,6 +58,20 @@
   </url>
   
   <url>
+    <loc>http://www.fatiao.site/linux_flow4case.html</loc>
+    
+    <lastmod>2016-11-18T01:33:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/linux_flow4while.html</loc>
+    
+    <lastmod>2016-11-18T01:33:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fatiao.site/linux_ubuntuqx.html</loc>
     
     <lastmod>2016-11-18T01:33:06.000Z</lastmod>
@@ -51,35 +86,7 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/linux_func.html</loc>
-    
-    <lastmod>2016-11-18T01:33:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fatiao.site/linux_sc4test.html</loc>
-    
-    <lastmod>2016-11-18T01:33:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fatiao.site/linux_flow4while.html</loc>
-    
-    <lastmod>2016-11-18T01:33:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fatiao.site/linux_flow4until.html</loc>
-    
-    <lastmod>2016-11-18T01:33:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fatiao.site/linux_flow4case.html</loc>
+    <loc>http://www.fatiao.site/linux_flow4if.html</loc>
     
     <lastmod>2016-11-18T01:33:06.000Z</lastmod>
     
@@ -93,14 +100,7 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/linux_flow4if.html</loc>
-    
-    <lastmod>2016-11-18T01:33:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fatiao.site/linux_flow4exit.html</loc>
+    <loc>http://www.fatiao.site/linux_sc4test.html</loc>
     
     <lastmod>2016-11-18T01:33:06.000Z</lastmod>
     
@@ -114,9 +114,23 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/linux_cmd4sed.html</loc>
+    <loc>http://www.fatiao.site/linux_func.html</loc>
     
-    <lastmod>2016-11-18T01:31:18.000Z</lastmod>
+    <lastmod>2016-11-18T01:33:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/linux_flow4exit.html</loc>
+    
+    <lastmod>2016-11-18T01:33:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/linux_flow4until.html</loc>
+    
+    <lastmod>2016-11-18T01:33:06.000Z</lastmod>
     
   </url>
   
@@ -128,7 +142,7 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/linux_cmduniq.html</loc>
+    <loc>http://www.fatiao.site/linux_cmd4sed.html</loc>
     
     <lastmod>2016-11-18T01:31:18.000Z</lastmod>
     
@@ -136,6 +150,13 @@
   
   <url>
     <loc>http://www.fatiao.site/linux_cmdsx.html</loc>
+    
+    <lastmod>2016-11-18T01:31:18.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/linux_cmduniq.html</loc>
     
     <lastmod>2016-11-18T01:31:18.000Z</lastmod>
     
@@ -177,14 +198,14 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/linux_authority.html</loc>
+    <loc>http://www.fatiao.site/linux_cmd4awk.html</loc>
     
     <lastmod>2016-11-18T01:28:37.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/linux_cmd4awk.html</loc>
+    <loc>http://www.fatiao.site/linux_authority.html</loc>
     
     <lastmod>2016-11-18T01:28:37.000Z</lastmod>
     
@@ -205,21 +226,14 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/test_api1.html</loc>
-    
-    <lastmod>2016-11-17T09:49:03.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fatiao.site/test_baihefunc.html</loc>
-    
-    <lastmod>2016-11-17T09:49:03.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fatiao.site/test_baihevalue.html</loc>
+    
+    <lastmod>2016-11-17T09:49:03.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/test_webhc.html</loc>
     
     <lastmod>2016-11-17T09:49:03.000Z</lastmod>
     
@@ -240,7 +254,14 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/test_webhc.html</loc>
+    <loc>http://www.fatiao.site/test_baihefunc.html</loc>
+    
+    <lastmod>2016-11-17T09:49:03.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/test_api1.html</loc>
     
     <lastmod>2016-11-17T09:49:03.000Z</lastmod>
     
@@ -324,14 +345,14 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/python_requests.html</loc>
+    <loc>http://www.fatiao.site/python_pyenv.html</loc>
     
     <lastmod>2016-11-17T09:41:11.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/python_pyenv.html</loc>
+    <loc>http://www.fatiao.site/python_requests.html</loc>
     
     <lastmod>2016-11-17T09:41:11.000Z</lastmod>
     
@@ -352,7 +373,7 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/python_listgenetate.html</loc>
+    <loc>http://www.fatiao.site/python_list.html</loc>
     
     <lastmod>2016-11-17T09:40:09.000Z</lastmod>
     
@@ -366,7 +387,7 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/python_list.html</loc>
+    <loc>http://www.fatiao.site/python_listgenetate.html</loc>
     
     <lastmod>2016-11-17T09:40:09.000Z</lastmod>
     
@@ -387,6 +408,13 @@
   </url>
   
   <url>
+    <loc>http://www.fatiao.site/python_func1.html</loc>
+    
+    <lastmod>2016-11-17T09:39:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.fatiao.site/python_for.html</loc>
     
     <lastmod>2016-11-17T09:39:36.000Z</lastmod>
@@ -394,9 +422,9 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/python_func1.html</loc>
+    <loc>http://www.fatiao.site/python_continue.html</loc>
     
-    <lastmod>2016-11-17T09:39:36.000Z</lastmod>
+    <lastmod>2016-11-17T09:38:48.000Z</lastmod>
     
   </url>
   
@@ -415,20 +443,6 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/python_datetime.html</loc>
-    
-    <lastmod>2016-11-17T09:38:48.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fatiao.site/python_continue.html</loc>
-    
-    <lastmod>2016-11-17T09:38:48.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fatiao.site/python_configParser.html</loc>
     
     <lastmod>2016-11-17T09:38:48.000Z</lastmod>
@@ -436,9 +450,9 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/python_break.html</loc>
+    <loc>http://www.fatiao.site/python_datetime.html</loc>
     
-    <lastmod>2016-11-17T09:37:48.000Z</lastmod>
+    <lastmod>2016-11-17T09:38:48.000Z</lastmod>
     
   </url>
   
@@ -450,35 +464,14 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/mobile_adb.html</loc>
+    <loc>http://www.fatiao.site/python_break.html</loc>
     
-    <lastmod>2016-11-17T09:37:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fatiao.site/mobile_androidstart.html</loc>
-    
-    <lastmod>2016-11-17T09:37:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fatiao.site/mobile_appms.html</loc>
-    
-    <lastmod>2016-11-17T09:37:08.000Z</lastmod>
+    <lastmod>2016-11-17T09:37:48.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.fatiao.site/mobile_ddms.html</loc>
-    
-    <lastmod>2016-11-17T09:37:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fatiao.site/mobile_webappdiff.html</loc>
     
     <lastmod>2016-11-17T09:37:08.000Z</lastmod>
     
@@ -492,14 +485,28 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/python_beautifulsoup.html</loc>
+    <loc>http://www.fatiao.site/mobile_monkey2.html</loc>
     
     <lastmod>2016-11-17T09:37:08.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/other_spiderzero.html</loc>
+    <loc>http://www.fatiao.site/mobile_adb.html</loc>
+    
+    <lastmod>2016-11-17T09:37:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/mobile_appms.html</loc>
+    
+    <lastmod>2016-11-17T09:37:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/python_beautifulsoup.html</loc>
     
     <lastmod>2016-11-17T09:37:08.000Z</lastmod>
     
@@ -513,14 +520,28 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/mobile_monkey2.html</loc>
+    <loc>http://www.fatiao.site/mobile_appupdate.html</loc>
     
     <lastmod>2016-11-17T09:37:08.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/mobile_appupdate.html</loc>
+    <loc>http://www.fatiao.site/mobile_androidstart.html</loc>
+    
+    <lastmod>2016-11-17T09:37:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/other_spiderzero.html</loc>
+    
+    <lastmod>2016-11-17T09:37:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/mobile_webappdiff.html</loc>
     
     <lastmod>2016-11-17T09:37:08.000Z</lastmod>
     
@@ -562,13 +583,6 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/jiagou_fkfb1.html</loc>
-    
-    <lastmod>2016-11-17T09:27:22.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fatiao.site/jiagou_fkfb3.html</loc>
     
     <lastmod>2016-11-17T09:27:22.000Z</lastmod>
@@ -576,14 +590,21 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/jiagou_fkfb2.html</loc>
+    <loc>http://www.fatiao.site/jenkis_cizongjie.html</loc>
     
     <lastmod>2016-11-17T09:27:22.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/jenkis_cizongjie.html</loc>
+    <loc>http://www.fatiao.site/jiagou_fkfb1.html</loc>
+    
+    <lastmod>2016-11-17T09:27:22.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/jiagou_fkfb2.html</loc>
     
     <lastmod>2016-11-17T09:27:22.000Z</lastmod>
     
@@ -688,14 +709,14 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/jenkins_androidversion.html</loc>
+    <loc>http://www.fatiao.site/jenkins_androidbuild.html</loc>
     
     <lastmod>2016-11-17T09:23:34.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/jenkins_androidbuild.html</loc>
+    <loc>http://www.fatiao.site/jenkins_androidversion.html</loc>
     
     <lastmod>2016-11-17T09:23:34.000Z</lastmod>
     
@@ -716,14 +737,7 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/git_jianjie.html</loc>
-    
-    <lastmod>2016-11-17T09:22:28.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fatiao.site/git_install.html</loc>
+    <loc>http://www.fatiao.site/git_tag.html</loc>
     
     <lastmod>2016-11-17T09:22:28.000Z</lastmod>
     
@@ -737,7 +751,7 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/git_managerchange.html</loc>
+    <loc>http://www.fatiao.site/git_stash.html</loc>
     
     <lastmod>2016-11-17T09:22:28.000Z</lastmod>
     
@@ -751,35 +765,7 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/git_ignore.html</loc>
-    
-    <lastmod>2016-11-17T09:22:28.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fatiao.site/git_init.html</loc>
-    
-    <lastmod>2016-11-17T09:22:28.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fatiao.site/git_remote.html</loc>
-    
-    <lastmod>2016-11-17T09:22:28.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fatiao.site/git_delete.html</loc>
-    
-    <lastmod>2016-11-17T09:22:28.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.fatiao.site/git_stash.html</loc>
     
     <lastmod>2016-11-17T09:22:28.000Z</lastmod>
     
@@ -793,14 +779,21 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/git_createbranch.html</loc>
+    <loc>http://www.fatiao.site/git_ignore.html</loc>
     
     <lastmod>2016-11-17T09:22:28.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/git_tag.html</loc>
+    <loc>http://www.fatiao.site/git_jianjie.html</loc>
+    
+    <lastmod>2016-11-17T09:22:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/git_init.html</loc>
     
     <lastmod>2016-11-17T09:22:28.000Z</lastmod>
     
@@ -814,14 +807,42 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/git_addcommit.html</loc>
+    <loc>http://www.fatiao.site/git_managerchange.html</loc>
+    
+    <lastmod>2016-11-17T09:22:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/git_createbranch.html</loc>
+    
+    <lastmod>2016-11-17T09:22:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/git_delete.html</loc>
+    
+    <lastmod>2016-11-17T09:22:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/git_install.html</loc>
+    
+    <lastmod>2016-11-17T09:22:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.fatiao.site/git_alias.html</loc>
     
     <lastmod>2016-11-17T09:21:34.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/git_alias.html</loc>
+    <loc>http://www.fatiao.site/git_addcommit.html</loc>
     
     <lastmod>2016-11-17T09:21:34.000Z</lastmod>
     
@@ -863,14 +884,14 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/devops_svn1.html</loc>
+    <loc>http://www.fatiao.site/devops_testlink.html</loc>
     
     <lastmod>2016-11-17T09:20:01.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/devops_testlink.html</loc>
+    <loc>http://www.fatiao.site/devops_svn1.html</loc>
     
     <lastmod>2016-11-17T09:20:01.000Z</lastmod>
     
@@ -933,13 +954,6 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/book_dahua2.html</loc>
-    
-    <lastmod>2016-11-17T09:16:32.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.fatiao.site/anquan_sqlmappar.html</loc>
     
     <lastmod>2016-11-17T09:16:04.000Z</lastmod>
@@ -954,14 +968,14 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/anquan_sqlkepu.html</loc>
+    <loc>http://www.fatiao.site/anquan_sqljichu.html</loc>
     
     <lastmod>2016-11-17T09:15:55.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/anquan_sqljichu.html</loc>
+    <loc>http://www.fatiao.site/anquan_sqlkepu.html</loc>
     
     <lastmod>2016-11-17T09:15:55.000Z</lastmod>
     
@@ -975,14 +989,14 @@
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/anquan_sqlinjflow.html</loc>
+    <loc>http://www.fatiao.site/anquan_sqlinj26.html</loc>
     
     <lastmod>2016-11-17T09:15:33.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.fatiao.site/anquan_sqlinj26.html</loc>
+    <loc>http://www.fatiao.site/anquan_sqlinjflow.html</loc>
     
     <lastmod>2016-11-17T09:15:33.000Z</lastmod>
     
