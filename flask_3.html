@@ -313,7 +313,7 @@
 <p>我们定义的表单对象中的字段同样也能被模板渲染，只需要在模板合适的位置添加类似于  这样的模板参数，相关字段就会在被定义的位置出现。另外还有一些字段是可以传参数，比如这个 openid 字段，我们就添加了一个参数让它显示的宽度增加到80个字符。<br>由于我们没有在表单中定义一个提交功能的按钮，所以在这里只能以普通表单字段的方式来做了。不过说起来区区一个按钮，在表单中跟任何数据都没有关系，的确也没有在表单类中定义的必要。</p>
 <h2 id="表单视图"><a href="#表单视图" class="headerlink" title="表单视图"></a>表单视图</h2><p>见证奇迹的时刻最后一步，我们马上要来写一个渲染登录表单对象到模板的视图函数。<br>这个函数相当的简单无趣，因为我们只需要把表单对象传递给模板就行了。下面就是我们这个视图函数的全部内容 (fileapp/views.py)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">from flask import render_template, flash, redirect</div><div class="line">from app import app</div><div class="line">from forms import LoginForm</div><div class="line"> </div><div class="line"># index view function suppressed for brevity</div><div class="line"> </div><div class="line">@app.route(&apos;/login&apos;, methods = [&apos;GET&apos;, &apos;POST&apos;])</div><div class="line">def login():</div><div class="line">    form = LoginForm()</div><div class="line">    return render_template(&apos;login.html&apos;,</div><div class="line">        title = &apos;Sign In&apos;,</div><div class="line">        form = form)</div></pre></td></tr></table></figure></p>
 <p>我们引入登录表单类，然后把它实例化到一个变量，最后再把这个变量传给模板。要渲染表单字段必须的事情也就这些。<br>上面的代码中还引入了两个新对象： falsh 和 redirect, 这个先甭理它们，稍后才用得上。</p>
-<p>另外还做了一件事就是在路由装饰器中添加一个新方法。让 Flask 明白我们这个视图函数支持 GET 和 POST 请求。否则这个视图函数只会响应 GET 请求。我们需要得到用户填写表单后提交的数据，这些数据是从 POST 请求中传递过来的。<br>你可以通过在浏览器中测试这个程序来了解上面所说的。 按照视图函数关联的路由，你应该在浏览器中输入 <a href="http://localhost:5000/login" target="_blank" rel="external nofollow noopener noreferrer">http://localhost:5000/login</a><br>由于我们还没有写任何接收数据的代码，所以现在你在页面中点提交按钮还没有任何效果</p>
+<p>另外还做了一件事就是在路由装饰器中添加一个新方法。让 Flask 明白我们这个视图函数支持 GET 和 POST 请求。否则这个视图函数只会响应 GET 请求。我们需要得到用户填写表单后提交的数据，这些数据是从 POST 请求中传递过来的。<br>你可以通过在浏览器中测试这个程序来了解上面所说的。 按照视图函数关联的路由，你应该在浏览器中输入 <a href="http://localhost:5000/login" rel="external nofollow noopener noreferrer" target="_blank">http://localhost:5000/login</a><br>由于我们还没有写任何接收数据的代码，所以现在你在页面中点提交按钮还没有任何效果</p>
 <h2 id="从表单中接收数据"><a href="#从表单中接收数据" class="headerlink" title="从表单中接收数据"></a>从表单中接收数据</h2><p>另外值得一提的是， Flask-WTF 对表单提交数据的处理使我们的接下来要做的事情变得简单了。下面就是我们这个登录视图函数的新版本, 加入了表单数据验证和处理 (fileapp/views.py):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@app.route(&apos;/login&apos;, methods = [&apos;GET&apos;, &apos;POST&apos;])</div><div class="line">def login():</div><div class="line">    form = LoginForm()</div><div class="line">    if form.validate_on_submit():</div><div class="line">        flash(&apos;Login requested for OpenID=&quot;&apos; + form.openid.data + &apos;&quot;, remember_me=&apos; + str(form.remember_me.data))</div><div class="line">        return redirect(&apos;/index&apos;)</div><div class="line">    return render_template(&apos;login.html&apos;,</div><div class="line">        title = &apos;Sign In&apos;,</div><div class="line">        form = form)</div></pre></td></tr></table></figure></p>
 <p>validate_on_submit() 这个方法做了表单处理的所有工作。如果你在表单向用户提供数据时(举个栗子：用户在它之前修改了一下提交的数据) 时调用此方法，它会返回 False。发生这样的情况时，你懂的。不懂？就是提交的数据验证不通过，你要继续渲染模板。</p>
 <p>在提交请求时调用了表单的 validate_on_submit() 方法后，它会从请求中获取所有提交的数据，然后使用表单字段中绑定的验证函数进行数据验证。在所有的数据都验证通过时会返回 True. 这就意味着你可以放心的使用这些表单数据了。<br>只要有一个字段验证不通过，它都会返回 False. 这时就需要我们返回数据给用户，让他们来纠正一下错误数据。接下来我们将会看到在数据验证失败时，如何把错误消息显示给用户。</p>
@@ -457,7 +457,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">157</span>
+              <span class="site-state-item-count">158</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -474,7 +474,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

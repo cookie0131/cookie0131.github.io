@@ -301,7 +301,7 @@
 
       
         <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>如果你已经阅读过上一个章节,那么你应该已经完成了充分的准备工作并且创建了一个很简单的具有如下文件结构的Web应用:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">microblog</div><div class="line">    |-flask文件夹</div><div class="line">    |-&lt;一些虚拟环境的文件&gt;</div><div class="line">    |-app文件夹</div><div class="line">    |  |-static文件夹</div><div class="line">    |  |-templates文件夹</div><div class="line">    |  |-__init__.py文件</div><div class="line">    |  |-views.py文件</div><div class="line">    |-tmp文件夹</div><div class="line">    |-run.py文件</div></pre></td></tr></table></figure></p>
-<p>想要运行这个程序的话执行run.py文件,然后在你的浏览器里边打开<a href="http://localhost:5000这个地址.我们在后面的章节会不断地从前一章节结束的地方继续开发我们的应用,所以你要确保你的环境已经正确安装,并且你的应用能够正常运行。" target="_blank" rel="external nofollow noopener noreferrer">http://localhost:5000这个地址.我们在后面的章节会不断地从前一章节结束的地方继续开发我们的应用,所以你要确保你的环境已经正确安装,并且你的应用能够正常运行。</a><br><a id="more"></a></p>
+<p>想要运行这个程序的话执行run.py文件,然后在你的浏览器里边打开<a href="http://localhost:5000这个地址.我们在后面的章节会不断地从前一章节结束的地方继续开发我们的应用,所以你要确保你的环境已经正确安装,并且你的应用能够正常运行。" rel="external nofollow noopener noreferrer" target="_blank">http://localhost:5000这个地址.我们在后面的章节会不断地从前一章节结束的地方继续开发我们的应用,所以你要确保你的环境已经正确安装,并且你的应用能够正常运行。</a><br><a id="more"></a></p>
 <h2 id="为什么我们需要使用模板系统"><a href="#为什么我们需要使用模板系统" class="headerlink" title="为什么我们需要使用模板系统"></a>为什么我们需要使用模板系统</h2><p>让我们来考虑一下,我们接下来怎么样扩展我们的小程序.<br>我们要在微博应用里边实现一个非常基本的功能,在首页上面显示一个欢迎已登录用户的标题.暂且忽略当前应用里边没有用户的状况,我将会在稍后解决这个问题.<br>要显示一个美观大方的标题,最简单的方法就是改变我们提供视图的方式来显示一些HTML代码,不如这样子:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">from app import app</div><div class="line"> </div><div class="line">@app.route(&apos;/&apos;)</div><div class="line">@app.route(&apos;/index&apos;)</div><div class="line">def index():</div><div class="line">    user = &#123; &apos;nickname&apos;: &apos;Miguel&apos; &#125; # fake user</div><div class="line">    return &apos;&apos;&apos;</div><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &lt;title&gt;Home Page&lt;/title&gt;</div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">    &lt;h1&gt;Hello, &apos;&apos;&apos; + user[&apos;nickname&apos;] + &apos;&apos;&apos;&lt;/h1&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
 <p>现在,在你的浏览器里面刷新一下看看,是不是很爽?</p>
 <p>##模板系统拯救世界<br>如果保持业务逻辑和表现的分离，你的网站结构将会组织的更好。不要不信，如果你用python完成了业务代码，你甚至可以请一个网站设计师帮你完成剩下的部分。模板系统就是帮你实现业务和表现分离的。<br>让我们完成第一个模板(fileapp/templates/index.html):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &lt;title&gt;&#123;&#123;title&#125;&#125; - microblog&lt;/title&gt;</div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">      &lt;h1&gt;Hello, &#123;&#123;user.nickname&#125;&#125;!&lt;/h1&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
@@ -449,7 +449,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">157</span>
+              <span class="site-state-item-count">158</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -466,7 +466,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

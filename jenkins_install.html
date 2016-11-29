@@ -304,10 +304,10 @@
 <p>前一段时间一直在搞持续集成相关的东西，现在算是告一段落了，在此总结一下相关内容。Jenkins有多种安装部署方式，比如以Docker方式安装，或者直接下载war包安装，本文主要以war包的方式进行讲解。</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>点击 <strong><a href="https://jenkins.io/index.html" target="_blank" rel="external nofollow noopener noreferrer">下载</a></strong> 进入官网下载，需要稳定版本的话选择 LTS Release，想尝鲜的话选择 Weekly Realse。</p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>点击 <strong><a href="https://jenkins.io/index.html" rel="external nofollow noopener noreferrer" target="_blank">下载</a></strong> 进入官网下载，需要稳定版本的话选择 LTS Release，想尝鲜的话选择 Weekly Realse。</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Jenkins可以放在Tomcat中启动，或者直接启动war包。下面以直接通过war包启动为例子：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar jenkins.war</div></pre></td></tr></table></figure>
-<p>一条命令就行， 恩，就是这么简单。Jenkins默认的端口号是8080，通过<a href="http://ip:8080" target="_blank" rel="external nofollow noopener noreferrer">http://ip:8080</a> 就能访问。想要换一个启动端口怎么弄？恩，这是个好问题，具体解决方式如下：</p>
+<p>一条命令就行， 恩，就是这么简单。Jenkins默认的端口号是8080，通过<a href="http://ip:8080" rel="external nofollow noopener noreferrer" target="_blank">http://ip:8080</a> 就能访问。想要换一个启动端口怎么弄？恩，这是个好问题，具体解决方式如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar jenkins.war --httpPort=8001</div></pre></td></tr></table></figure>
 <p>如果启动后提示 <code>Address already in use: bind</code>，说明这个端口已经被其他应用占用了，要么换一个端口，要么把占用端口的应用杀掉。</p>
 <p>##注意事项</p>
@@ -442,7 +442,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">157</span>
+              <span class="site-state-item-count">158</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -459,7 +459,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
