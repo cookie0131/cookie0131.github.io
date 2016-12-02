@@ -1,0 +1,646 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+  
+
+<link href="//cdn.bootcss.com/font-awesome/4.4.0/fonts/fontawesome-webfont.svg" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="软件测试,测试质量">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="一 什么是产品的质量？不同角度理解不同：    用户(我们需要满意的功能)；    设计(完整的需求文档)；    开发(正确的代码)；    测试(最少的缺陷)
+二 哪么谁应对产品质量负责呢?   公司负责人；   项目管理人员；   开发；   测试   QA；   以上所有的人员应对产品质量负责；
+三  哪么决定产品的质量关键因素是什么？   (1)管理与流程；   (2)人员与素质；">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件产品的质量">
+<meta property="og:url" content="http://www.fatiao.site/test_zhiliang1.html">
+<meta property="og:site_name" content="小发条的技术人生">
+<meta property="og:description" content="一 什么是产品的质量？不同角度理解不同：    用户(我们需要满意的功能)；    设计(完整的需求文档)；    开发(正确的代码)；    测试(最少的缺陷)
+二 哪么谁应对产品质量负责呢?   公司负责人；   项目管理人员；   开发；   测试   QA；   以上所有的人员应对产品质量负责；
+三  哪么决定产品的质量关键因素是什么？   (1)管理与流程；   (2)人员与素质；">
+<meta property="og:updated_time" content="2016-12-02T01:54:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="软件产品的质量">
+<meta name="twitter:description" content="一 什么是产品的质量？不同角度理解不同：    用户(我们需要满意的功能)；    设计(完整的需求文档)；    开发(正确的代码)；    测试(最少的缺陷)
+二 哪么谁应对产品质量负责呢?   公司负责人；   项目管理人员；   开发；   测试   QA；   以上所有的人员应对产品质量负责；
+三  哪么决定产品的质量关键因素是什么？   (1)管理与流程；   (2)人员与素质；">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.fatiao.site/test_zhiliang1.html">
+
+  <meta name="baidu-site-verification" content="K7iVtNDL7l">
+  <title> 软件测试, - 软件产品的质量 | 小发条的技术人生 </title>
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=58555379";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">小发条的技术人生</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">测试攻城狮 pythoner 伪程序猿一枚</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                软件产品的质量
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-02T00:00:00+08:00" content="2016-12-02">
+              2016-12-02
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                  <a href="/categories/软件测试/" itemprop="url" rel="index">
+                    <span itemprop="name">软件测试</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/test_zhiliang1.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="test_zhiliang1.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="一-什么是产品的质量？"><a href="#一-什么是产品的质量？" class="headerlink" title="一 什么是产品的质量？"></a>一 什么是产品的质量？</h3><p>不同角度理解不同：<br>    用户(我们需要满意的功能)；<br>    设计(完整的需求文档)；<br>    开发(正确的代码)；<br>    测试(最少的缺陷)</p>
+<h3 id="二-哪么谁应对产品质量负责呢"><a href="#二-哪么谁应对产品质量负责呢" class="headerlink" title="二 哪么谁应对产品质量负责呢?"></a>二 哪么谁应对产品质量负责呢?</h3><p>   公司负责人；<br>   项目管理人员；<br>   开发；<br>   测试<br>   QA；<br>   以上所有的人员应对产品质量负责；</p>
+<h3 id="三-哪么决定产品的质量关键因素是什么？"><a href="#三-哪么决定产品的质量关键因素是什么？" class="headerlink" title="三  哪么决定产品的质量关键因素是什么？"></a>三  哪么决定产品的质量关键因素是什么？</h3><p>   (1)管理与流程；<br>   (2)人员与素质；<br>   (3)技术与工具；<br>   以上三者相辅相成，互相依赖，又互相制约，称为“质量关键金三角”</p>
+<a id="more"></a>
+<h3 id="四-决定产品质量关键因素-管理与流程"><a href="#四-决定产品质量关键因素-管理与流程" class="headerlink" title="四   决定产品质量关键因素- 管理与流程"></a>四   决定产品质量关键因素- 管理与流程</h3><p>   产品开发生命周期；<br>   里程碑控制的质量监测；<br>   螺旋式开发模型；<br>   缺陷趋势监测和管理；<br>   测试版本制作过程控制；<br>   风险分析和管理；</p>
+<h3 id="五-决定产品质量关键因素-人员与素质"><a href="#五-决定产品质量关键因素-人员与素质" class="headerlink" title="五 决定产品质量关键因素- 人员与素质"></a>五 决定产品质量关键因素- 人员与素质</h3><p>   组织结构<br>   人员配备<br>   技术水平<br>   分析解决能力<br>   工作负担<br>   工作态度</p>
+<h3 id="六-决定产品质量关键因素-技术与工具"><a href="#六-决定产品质量关键因素-技术与工具" class="headerlink" title="六 决定产品质量关键因素- 技术与工具"></a>六 决定产品质量关键因素- 技术与工具</h3><p>   编程语言、方法、标准；<br>   编译工具；<br>   自动化测试；<br>   QA/测试方法、计划；<br>   功能规范；<br>   编写需求说明书的模板；<br>   缺陷数据库；<br>   质量度量方法；</p>
+<h3 id="七-产品质量关键因素金三角的关系"><a href="#七-产品质量关键因素金三角的关系" class="headerlink" title="七  产品质量关键因素金三角的关系"></a>七  产品质量关键因素金三角的关系</h3><p>   三者缺一不可，相辅相成<br>   实现产品的高质量必须有正确的管理与流程来保证；<br>   新时代敏捷开发产品质量须借助高效实用的技术与工具；<br>   高素质人员也需要按科学的管理与流程；<br>   高素质人员才可能掌握和开发高效实用的技术与工具；</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay01.jpg" alt="发条橙子 WeChat Pay">
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软件测试/" rel="tag">#软件测试</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/wp_link404.html" rel="next" title="wordpress固定连接设置后出现404">
+                <i class="fa fa-chevron-left"></i> wordpress固定连接设置后出现404
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/test_iosandroiddiff.html" rel="prev" title="iOS和Android测试区别">
+                iOS和Android测试区别 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="test_zhiliang1.html" data-title="软件产品的质量" data-url="http://www.fatiao.site/test_zhiliang1.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="发条橙子">
+          <p class="site-author-name" itemprop="name">发条橙子</p>
+          <p class="site-description motion-element" itemprop="description">不积跬步，无以至千里</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">160</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-什么是产品的质量？"><span class="nav-number">1.</span> <span class="nav-text">一 什么是产品的质量？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-哪么谁应对产品质量负责呢"><span class="nav-number">2.</span> <span class="nav-text">二 哪么谁应对产品质量负责呢?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-哪么决定产品的质量关键因素是什么？"><span class="nav-number">3.</span> <span class="nav-text">三  哪么决定产品的质量关键因素是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-决定产品质量关键因素-管理与流程"><span class="nav-number">4.</span> <span class="nav-text">四   决定产品质量关键因素- 管理与流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-决定产品质量关键因素-人员与素质"><span class="nav-number">5.</span> <span class="nav-text">五 决定产品质量关键因素- 人员与素质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六-决定产品质量关键因素-技术与工具"><span class="nav-number">6.</span> <span class="nav-text">六 决定产品质量关键因素- 技术与工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七-产品质量关键因素金三角的关系"><span class="nav-number">7.</span> <span class="nav-text">七  产品质量关键因素金三角的关系</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2009 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">发条橙子</span>
+</div>
+
+<!--
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+-->
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ftcz"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
