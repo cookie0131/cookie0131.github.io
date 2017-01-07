@@ -236,6 +236,129 @@
             
               
                 
+                <a class="post-title-link" href="/jenkins_androidbuild.html" itemprop="url">
+                  玩转Jenkins - Jenkins + Android + Gradle
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-29T00:00:00+08:00" content="2016-10-29">
+              2016-10-29
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                  <a href="/categories/持续集成/" itemprop="url" rel="index">
+                    <span itemprop="name">持续集成</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/jenkins_androidbuild.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="jenkins_androidbuild.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>依赖插件： grade plugin</li>
+</ul>
+<p>构建的时候选择 <code>Invoke Gradle Script</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">use fradle wrapper</div><div class="line">make gradlew executable  选中</div><div class="line">from root build script dir 选择</div><div class="line">swsitches : clean </div><div class="line">tasks: 空</div><div class="line">root build script: $&#123;workspace&#125;/android-dada/dada-app/ # 因为多个app的代码都在一个git工程里，为二级目录，所以这里需要设置</div><div class="line">Build File: # 因为没有修改默认的Build文件名，所以可以不用修改</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/jenkins_buildappparm.html" itemprop="url">
                   玩转Jenkins - 在构建历史上显示参数
                 </a>
@@ -315,129 +438,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">manager.addShortText(manager.build.buildVariables.get(&quot;P1&quot;))</div></pre></td></tr></table></figure>
 </li>
 </ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/jenkins_androidbuild.html" itemprop="url">
-                  玩转Jenkins - Jenkins + Android + Gradle
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-29T00:00:00+08:00" content="2016-10-29">
-              2016-10-29
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
-                  <a href="/categories/持续集成/" itemprop="url" rel="index">
-                    <span itemprop="name">持续集成</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/jenkins_androidbuild.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="jenkins_androidbuild.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>依赖插件： grade plugin</li>
-</ul>
-<p>构建的时候选择 <code>Invoke Gradle Script</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">use fradle wrapper</div><div class="line">make gradlew executable  选中</div><div class="line">from root build script dir 选择</div><div class="line">swsitches : clean </div><div class="line">tasks: 空</div><div class="line">root build script: $&#123;workspace&#125;/android-dada/dada-app/ # 因为多个app的代码都在一个git工程里，为二级目录，所以这里需要设置</div><div class="line">Build File: # 因为没有修改默认的Build文件名，所以可以不用修改</div></pre></td></tr></table></figure></p>
 
           
         
@@ -926,7 +926,7 @@
         <div class="copyright">
   
   &copy;  2009 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
