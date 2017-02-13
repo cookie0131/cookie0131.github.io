@@ -236,6 +236,156 @@
             
               
                 
+                <a class="post-title-link" href="/anquan_sqlkepu.html" itemprop="url">
+                  MySql注入科普
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2011-03-08T00:00:00+08:00" content="2011-03-08">
+              2011-03-08
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/anquan_sqlkepu.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqlkepu.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>###默认存在的数据库</p>
+<table>
+<thead>
+<tr>
+<th>数据库</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mysql</td>
+<td>在5以上的版本中需要root权限读取</td>
+</tr>
+<tr>
+<td>information_schema</td>
+<td>在5以上的版本中存在</td>
+</tr>
+</tbody>
+</table>
+<h3 id="测试是否存在注入方法"><a href="#测试是否存在注入方法" class="headerlink" title="测试是否存在注入方法"></a>测试是否存在注入方法</h3><ul>
+<li>假：表示查询是错误的(mysql报错、返回页面与原来不同)</li>
+</ul>
+<ul>
+<li><p>真：表示查询是正常的(返回页面玉原来相同)</p>
+<p>​</p>
+</li>
+</ul>
+<p>例子：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">Users</span> <span class="keyword">WHERE</span> <span class="keyword">id</span> = <span class="string">'1'''</span>;</div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">Users</span> <span class="keyword">WHERE</span> <span class="keyword">id</span> = <span class="number">3</span><span class="number">-2</span>;</div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">Users</span> <span class="keyword">WHERE</span> username = <span class="string">'Mike'</span> <span class="keyword">AND</span> <span class="keyword">password</span> = <span class="string">''</span> <span class="keyword">OR</span> <span class="string">''</span> = <span class="string">''</span>;</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/anquan_sqlkepu.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/anquan_sqlinjflow.html" itemprop="url">
                   SQLMAP注入流程
                 </a>
@@ -714,128 +864,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/jiagou_webjg.html" itemprop="url">
-                  WEB技术之四层架构
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2010-11-17T00:00:00+08:00" content="2010-11-17">
-              2010-11-17
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
-                  <a href="/categories/架构/" itemprop="url" rel="index">
-                    <span itemprop="name">架构</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/jiagou_webjg.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="jiagou_webjg.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>如果你的系统是大型的软件开发，那你就要做好更多层的分解，但是原则和理论上，我认为，不用分得太细。我们都知道，MVC模式把系统，分成Model、View、Controller。这样的分法是把表示层同逻辑层分开，也就是说把页面设计师同软件设计师分开。系统分析师再把各个功能写成接口，软件设计师就可以通过业务逻辑来写程序。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/jiagou_webjg.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </p></div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -879,7 +907,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">161</span>
+              <span class="site-state-item-count">162</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

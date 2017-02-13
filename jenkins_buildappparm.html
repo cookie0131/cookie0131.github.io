@@ -68,7 +68,10 @@
 123选择string paramerter名字 P1默认值 1.0
 
 在groovy postbuild里面添加下面的脚本
-1manager.addShortText(manager.build.buildVariables.get(&amp;quot;P1&amp;quot;))">
+1manager.addShortText(manager.build.buildVariables.get(&amp;quot;P1&amp;quot;))
+
+
+如果想要显示git最新的一个点的sha1码改这么处">
 <meta property="og:type" content="article">
 <meta property="og:title" content="玩转Jenkins - 在构建历史上显示参数">
 <meta property="og:url" content="http://www.fatiao.site/jenkins_buildappparm.html">
@@ -79,8 +82,11 @@
 123选择string paramerter名字 P1默认值 1.0
 
 在groovy postbuild里面添加下面的脚本
-1manager.addShortText(manager.build.buildVariables.get(&amp;quot;P1&amp;quot;))">
-<meta property="og:updated_time" content="2016-12-07T04:37:24.000Z">
+1manager.addShortText(manager.build.buildVariables.get(&amp;quot;P1&amp;quot;))
+
+
+如果想要显示git最新的一个点的sha1码改这么处">
+<meta property="og:updated_time" content="2017-01-23T07:39:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="玩转Jenkins - 在构建历史上显示参数">
 <meta name="twitter:description" content="依赖拆件：groovy-postbuild.hpi
@@ -89,7 +95,10 @@
 123选择string paramerter名字 P1默认值 1.0
 
 在groovy postbuild里面添加下面的脚本
-1manager.addShortText(manager.build.buildVariables.get(&amp;quot;P1&amp;quot;))">
+1manager.addShortText(manager.build.buildVariables.get(&amp;quot;P1&amp;quot;))
+
+
+如果想要显示git最新的一个点的sha1码改这么处">
 
 
 
@@ -327,6 +336,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">manager.addShortText(manager.build.buildVariables.get(&quot;P1&quot;))</div></pre></td></tr></table></figure>
 </li>
 </ol>
+<p>如果想要显示git最新的一个点的sha1码改这么处理呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">manager.addShortText(manager.envVars[&apos;GIT_COMMIT&apos;][0..7])</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -378,16 +388,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/jenkins_jobnev.html" rel="next" title="玩转Jenkins - 使用linux系统的环境变量">
-                <i class="fa fa-chevron-left"></i> 玩转Jenkins - 使用linux系统的环境变量
+              <a href="/jenkins_androidbuild.html" rel="next" title="玩转Jenkins - Jenkins + Android + Gradle">
+                <i class="fa fa-chevron-left"></i> 玩转Jenkins - Jenkins + Android + Gradle
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/jenkins_androidbuild.html" rel="prev" title="玩转Jenkins - Jenkins + Android + Gradle">
-                玩转Jenkins - Jenkins + Android + Gradle <i class="fa fa-chevron-right"></i>
+              <a href="/jenkins_androidversion.html" rel="prev" title="玩转Jenkins - Android发布自动版本号">
+                玩转Jenkins - Android发布自动版本号 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -457,7 +467,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">161</span>
+              <span class="site-state-item-count">162</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

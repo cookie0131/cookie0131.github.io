@@ -236,8 +236,8 @@
             
               
                 
-                <a class="post-title-link" href="/jenkins_androidbuild.html" itemprop="url">
-                  玩转Jenkins - Jenkins + Android + Gradle
+                <a class="post-title-link" href="/jenkins_androidversion.html" itemprop="url">
+                  玩转Jenkins - Android发布自动版本号
                 </a>
               
             
@@ -250,8 +250,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-29T00:00:00+08:00" content="2016-10-29">
-              2016-10-29
+            <time itemprop="dateCreated" datetime="2016-10-31T00:00:00+08:00" content="2016-10-31">
+              2016-10-31
             </time>
           </span>
 
@@ -280,8 +280,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/jenkins_androidbuild.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="jenkins_androidbuild.html" itemprop="commentsCount"></span>
+                <a href="/jenkins_androidversion.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="jenkins_androidversion.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -305,13 +305,14 @@
 
       
         
-          
-            <ul>
-<li>依赖插件： grade plugin</li>
-</ul>
-<p>构建的时候选择 <code>Invoke Gradle Script</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">use fradle wrapper</div><div class="line">make gradlew executable  选中</div><div class="line">from root build script dir 选择</div><div class="line">swsitches : clean </div><div class="line">tasks: 空</div><div class="line">root build script: $&#123;workspace&#125;/android-dada/dada-app/ # 因为多个app的代码都在一个git工程里，为二级目录，所以这里需要设置</div><div class="line">Build File: # 因为没有修改默认的Build文件名，所以可以不用修改</div></pre></td></tr></table></figure></p>
-
-          
+          <blockquote>
+<p>最近在统一Ios和Android的打包流程，希望能够通过Jenkins自动打包并分发，在Android部分的实施过程中，发现应用的版本号每次都需要人手工去维护，十分的不方便，于是在网上搜索了一番，找到了一个方案。</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/jenkins_androidversion.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -438,6 +439,130 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">manager.addShortText(manager.build.buildVariables.get(&quot;P1&quot;))</div></pre></td></tr></table></figure>
 </li>
 </ol>
+<p>如果想要显示git最新的一个点的sha1码改这么处理呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">manager.addShortText(manager.envVars[&apos;GIT_COMMIT&apos;][0..7])</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/jenkins_androidbuild.html" itemprop="url">
+                  玩转Jenkins - Jenkins + Android + Gradle
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-29T00:00:00+08:00" content="2016-10-29">
+              2016-10-29
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                  <a href="/categories/持续集成/" itemprop="url" rel="index">
+                    <span itemprop="name">持续集成</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/jenkins_androidbuild.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="jenkins_androidbuild.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>依赖插件： grade plugin</li>
+</ul>
+<p>构建的时候选择 <code>Invoke Gradle Script</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">use fradle wrapper</div><div class="line">make gradlew executable  选中</div><div class="line">from root build script dir 选择</div><div class="line">swsitches : clean </div><div class="line">tasks: 空</div><div class="line">root build script: $&#123;workspace&#125;/android-dada/dada-app/ # 因为多个app的代码都在一个git工程里，为二级目录，所以这里需要设置</div><div class="line">Build File: # 因为没有修改默认的Build文件名，所以可以不用修改</div></pre></td></tr></table></figure></p>
 
           
         
@@ -708,127 +833,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/other_spiderzero.html" itemprop="url">
-                  爬取拉钩的招聘JD
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-07T00:00:00+08:00" content="2016-10-07">
-              2016-10-07
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
-                  <a href="/categories/开发/" itemprop="url" rel="index">
-                    <span itemprop="name">开发</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/other_spiderzero.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="other_spiderzero.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>最近把拉钩上上海测试相关的职位数据爬取了下来，具体的爬虫代码见仓库：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git@github.com:cookie0131/zero.git</div></pre></td></tr></table></figure></p>
-<p>因为数据量不大，而且拉钩没有反爬虫机制，所以就写的简单了点。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -872,7 +876,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">161</span>
+              <span class="site-state-item-count">162</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
