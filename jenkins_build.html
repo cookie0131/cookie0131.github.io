@@ -63,18 +63,18 @@
 
 
 <meta name="description" content="最近在做Android代码静态扫描的持续集成,考虑到不想增加原来的打包时长，决定放在另外一个独立的任务里打包完成后调用。因为我们的app代码是放在一个大的代码仓库里，于是出现了打不同的包，调用对应的代码扫描任务的需求，然而Jenkins默认的构建后操作中并没有模块可以调用脚本或者命令行，为了实现这个需求，在网上找到了 post build task 这个插件。
- 依赖插件：Post build">
+ 依赖插件：Post-Build">
 <meta property="og:type" content="article">
-<meta property="og:title" content="玩转Jenkins - 插件：Post build task">
+<meta property="og:title" content="玩转Jenkins - 插件：Post-Build Script Plug-in">
 <meta property="og:url" content="http://www.fatiao.site/jenkins_build.html">
 <meta property="og:site_name" content="小发条的技术人生">
 <meta property="og:description" content="最近在做Android代码静态扫描的持续集成,考虑到不想增加原来的打包时长，决定放在另外一个独立的任务里打包完成后调用。因为我们的app代码是放在一个大的代码仓库里，于是出现了打不同的包，调用对应的代码扫描任务的需求，然而Jenkins默认的构建后操作中并没有模块可以调用脚本或者命令行，为了实现这个需求，在网上找到了 post build task 这个插件。
- 依赖插件：Post build">
-<meta property="og:updated_time" content="2017-03-02T05:30:49.000Z">
+ 依赖插件：Post-Build">
+<meta property="og:updated_time" content="2017-03-04T14:33:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="玩转Jenkins - 插件：Post build task">
+<meta name="twitter:title" content="玩转Jenkins - 插件：Post-Build Script Plug-in">
 <meta name="twitter:description" content="最近在做Android代码静态扫描的持续集成,考虑到不想增加原来的打包时长，决定放在另外一个独立的任务里打包完成后调用。因为我们的app代码是放在一个大的代码仓库里，于是出现了打不同的包，调用对应的代码扫描任务的需求，然而Jenkins默认的构建后操作中并没有模块可以调用脚本或者命令行，为了实现这个需求，在网上找到了 post build task 这个插件。
- 依赖插件：Post build">
+ 依赖插件：Post-Build">
 
 
 
@@ -98,7 +98,7 @@
   <link rel="canonical" href="http://www.fatiao.site/jenkins_build.html">
 
   <meta name="baidu-site-verification" content="K7iVtNDL7l">
-  <title> 软件测试,持续集成,Jenkins, - 玩转Jenkins - 插件：Post build task | 小发条的技术人生 </title>
+  <title> 软件测试,持续集成,Jenkins, - 玩转Jenkins - 插件：Post-Build Script Plug-in | 小发条的技术人生 </title>
 </head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -237,7 +237,7 @@
             
             
               
-                玩转Jenkins - 插件：Post build task
+                玩转Jenkins - 插件：Post-Build Script Plug-in
               
             
           </h1>
@@ -304,7 +304,7 @@
 
       
         <p> 最近在做Android代码静态扫描的持续集成,考虑到不想增加原来的打包时长，决定放在另外一个独立的任务里打包完成后调用。因为我们的app代码是放在一个大的代码仓库里，于是出现了打不同的包，调用对应的代码扫描任务的需求，然而Jenkins默认的构建后操作中并没有模块可以调用脚本或者命令行，为了实现这个需求，在网上找到了 <code>post build task</code> 这个插件。</p>
-<p> <strong>依赖插件：Post build task</strong></p>
+<p> <strong>依赖插件：Post-Build Script Plug-in</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">if [ $package == &apos;dada-shop&apos; ];then</div><div class="line">  echo &apos;dada-shop&apos;</div><div class="line">  curl -u $user:$pwd -s -d build -d delay=0sec http://domin/view/app/job/android_shop_codereview/build\?delay\=0sec</div><div class="line">elif [ $package == &apos;dada-app&apos; ];then</div><div class="line">  echo &apos;dada-app&apos;</div><div class="line">  curl -u $user:$pwd -s -d build -d delay=0sec http://domin/view/app/job/android_dada_codereview/build\?delay\=0sec</div><div class="line">fi</div></pre></td></tr></table></figure>
 <p>因为是直接以命令方式调用，而不是选择后续的任务， 所以脚本中直接调用了对应任务的启动接口。</p>
 
@@ -390,7 +390,7 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="jenkins_build.html" data-title="玩转Jenkins - 插件：Post build task" data-url="http://www.fatiao.site/jenkins_build.html">
+      <div class="ds-thread" data-thread-key="jenkins_build.html" data-title="玩转Jenkins - 插件：Post-Build Script Plug-in" data-url="http://www.fatiao.site/jenkins_build.html">
       </div>
     
   </div>
