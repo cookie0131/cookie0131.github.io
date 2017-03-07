@@ -236,6 +236,128 @@
             
               
                 
+                <a class="post-title-link" href="/jenkins_multiconfig.html" itemprop="url">
+                  玩转Jenkins - 通一个命令同时在多台机器上执行
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-07T00:00:00+08:00" content="2017-03-07">
+              2017-03-07
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                  <a href="/categories/持续集成/" itemprop="url" rel="index">
+                    <span itemprop="name">持续集成</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/jenkins_multiconfig.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="jenkins_multiconfig.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近写了一个基础脚本，需要在QA环境上的15台Python服务器上部署，并且以后每次脚本变动的时候能够很方便的更新。</p>
+<p>一开始的思路是新建一个<code>自由风格的软件项目</code>，然后通过 <code>Restrict where this project can be run</code> 这玩意儿来控制，结果发现并不能。</p>
+<p>四处搜寻后找到了解决方案，新建项目的时候选择<code>构建一个多配置项目</code>，然后在 <code>configuration matrix</code> 中的slave里选择对应的节点即可。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/jenkins_build.html" itemprop="url">
                   玩转Jenkins - 插件：Post-Build Script Plug-in
                 </a>
@@ -250,8 +372,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-01-01T00:00:00+08:00" content="2018-01-01">
-              2018-01-01
+            <time itemprop="dateCreated" datetime="2017-03-01T00:00:00+08:00" content="2017-03-01">
+              2017-03-01
             </time>
           </span>
 
@@ -705,134 +827,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/test_iosandroiddiff.html" itemprop="url">
-                  iOS和Android测试区别
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-03T00:00:00+08:00" content="2016-12-03">
-              2016-12-03
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
-                  <a href="/categories/软件测试/" itemprop="url" rel="index">
-                    <span itemprop="name">软件测试</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/test_iosandroiddiff.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="test_iosandroiddiff.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li>Android长按home键呼出应用列表和切换应用，然后右滑则终止应用；</li>
-<li>多分辨率测试，Android端20多种，ios较少；</li>
-<li>手机操作系统，Android较多，ios较少且不能降级，只能单向升级；新的ios系统中的资源库不能完全兼容低版本中的ios系统中的应用，低版本ios系统中的应用调用了新的资源库，会直接导致闪退（Crash）；</li>
-<li>操作习惯：Android，Back键是否被重写，测试点击Back键后的反馈是否正确；应用数据从内存移动到SD卡后能否正常运行等；</li>
-<li>push测试：Android：点击home键，程序后台运行时，此时接收到push，点击后唤醒应用，此时是否可以正确跳转；ios，点击home键关闭程序和屏幕锁屏的情况（红点的显示）；</li>
-<li>安装卸载测试：Android的下载和安装的平台和工具和渠道比较多，ios主要有app store，iTunes和testflight下载；</li>
-<li>升级测试：可以被升级的必要条件：新旧版本具有相同的签名；新旧版本具有相同的包名；有一个标示符区分新旧版本（如版本号），对于Android若有内置的应用需检查升级之后内置文件是否匹配（如内置的输入法）</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -876,7 +870,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">164</span>
+              <span class="site-state-item-count">165</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

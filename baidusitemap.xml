@@ -4,12 +4,36 @@
 
     
   <url>
+    <loc>http://www.fatiao.site/jenkins_multiconfig.html</loc>
+    <lastmod>2017-03-07T07:16:08.000Z</lastmod>
+    <data>
+        <display>
+        <title>玩转Jenkins - 通一个命令同时在多台机器上执行</title>
+        <pubTime>2017-03-06T16:00:00.000Z</pubTime>
+        
+        <tag>软件测试</tag>
+         
+        <tag>持续集成</tag>
+         
+        <tag>Jenkins</tag>
+         
+         
+           
+             
+              <breadCrumb title="持续集成" url="http://www.fatiao.site/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.fatiao.site/jenkins_build.html</loc>
-    <lastmod>2017-03-04T14:33:53.000Z</lastmod>
+    <lastmod>2017-03-07T07:14:10.000Z</lastmod>
     <data>
         <display>
         <title>玩转Jenkins - 插件：Post-Build Script Plug-in</title>
-        <pubTime>2017-12-31T16:00:00.000Z</pubTime>
+        <pubTime>2017-02-28T16:00:00.000Z</pubTime>
         
         <tag>软件测试</tag>
          
@@ -408,34 +432,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/linux_sshnoauth.html</loc>
+    <loc>http://www.fatiao.site/linux_flow4exit.html</loc>
     <lastmod>2016-11-18T01:33:06.000Z</lastmod>
     <data>
         <display>
-        <title>Linux - ssh免密码登录设置失败该如何解决</title>
-        <pubTime>2016-11-11T16:00:00.000Z</pubTime>
-        
-        <tag>Linux</tag>
-         
-        <tag>Shell</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="http://www.fatiao.site/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.fatiao.site/linux_sc4test.html</loc>
-    <lastmod>2016-11-18T01:33:06.000Z</lastmod>
-    <data>
-        <display>
-        <title>Linux - 条件测试</title>
-        <pubTime>2009-08-27T16:00:00.000Z</pubTime>
+        <title>Linux - 控制流：退出状态</title>
+        <pubTime>2009-10-28T16:00:00.000Z</pubTime>
         
         <tag>Linux</tag>
          
@@ -467,6 +469,118 @@
            
              
               <breadCrumb title="Linux" url="http://www.fatiao.site/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/linux_ubuntureinstallmysql.html</loc>
+    <lastmod>2016-11-18T01:33:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux - ubuntu重装mysql</title>
+        <pubTime>2009-11-30T16:00:00.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>Shell</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://www.fatiao.site/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/linux_flow4case.html</loc>
+    <lastmod>2016-11-18T01:33:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux -  控制流：case</title>
+        <pubTime>2009-09-13T16:00:00.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>Shell</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://www.fatiao.site/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/linux_sshnoauth.html</loc>
+    <lastmod>2016-11-18T01:33:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux - ssh免密码登录设置失败该如何解决</title>
+        <pubTime>2016-11-11T16:00:00.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>Shell</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://www.fatiao.site/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/linux_flow4while.html</loc>
+    <lastmod>2016-11-18T01:33:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux -  控制流：while</title>
+        <pubTime>2009-10-16T16:00:00.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>Shell</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://www.fatiao.site/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/linux_ubuntuqx.html</loc>
+    <lastmod>2016-11-18T01:33:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux - ubuntu14.04 让普通用户拥有执行sudo的权限</title>
+        <pubTime>2009-12-12T16:00:00.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>Shell</tag>
+         
+        <tag>Ubuntu</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux,shell,ubuntu" url="http://www.fatiao.site/categories/Linux-shell-ubuntu/"/>
           
         </display>
     </data>
@@ -518,12 +632,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/linux_flow4while.html</loc>
+    <loc>http://www.fatiao.site/linux_sc4test.html</loc>
     <lastmod>2016-11-18T01:33:06.000Z</lastmod>
     <data>
         <display>
-        <title>Linux -  控制流：while</title>
-        <pubTime>2009-10-16T16:00:00.000Z</pubTime>
+        <title>Linux - 条件测试</title>
+        <pubTime>2009-08-27T16:00:00.000Z</pubTime>
         
         <tag>Linux</tag>
          
@@ -562,96 +676,6 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/linux_flow4exit.html</loc>
-    <lastmod>2016-11-18T01:33:06.000Z</lastmod>
-    <data>
-        <display>
-        <title>Linux - 控制流：退出状态</title>
-        <pubTime>2009-10-28T16:00:00.000Z</pubTime>
-        
-        <tag>Linux</tag>
-         
-        <tag>Shell</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="http://www.fatiao.site/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.fatiao.site/linux_ubuntuqx.html</loc>
-    <lastmod>2016-11-18T01:33:06.000Z</lastmod>
-    <data>
-        <display>
-        <title>Linux - ubuntu14.04 让普通用户拥有执行sudo的权限</title>
-        <pubTime>2009-12-12T16:00:00.000Z</pubTime>
-        
-        <tag>Linux</tag>
-         
-        <tag>Shell</tag>
-         
-        <tag>Ubuntu</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux,shell,ubuntu" url="http://www.fatiao.site/categories/Linux-shell-ubuntu/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.fatiao.site/linux_flow4case.html</loc>
-    <lastmod>2016-11-18T01:33:06.000Z</lastmod>
-    <data>
-        <display>
-        <title>Linux -  控制流：case</title>
-        <pubTime>2009-09-13T16:00:00.000Z</pubTime>
-        
-        <tag>Linux</tag>
-         
-        <tag>Shell</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="http://www.fatiao.site/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.fatiao.site/linux_ubuntureinstallmysql.html</loc>
-    <lastmod>2016-11-18T01:33:06.000Z</lastmod>
-    <data>
-        <display>
-        <title>Linux - ubuntu重装mysql</title>
-        <pubTime>2009-11-30T16:00:00.000Z</pubTime>
-        
-        <tag>Linux</tag>
-         
-        <tag>Shell</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="http://www.fatiao.site/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.fatiao.site/linux_cmdsx.html</loc>
     <lastmod>2016-11-18T01:31:18.000Z</lastmod>
     <data>
@@ -674,12 +698,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/linux_cmduniq.html</loc>
+    <loc>http://www.fatiao.site/linux_cmd4sed.html</loc>
     <lastmod>2016-11-18T01:31:18.000Z</lastmod>
     <data>
         <display>
-        <title>Linux - 合并与分割</title>
-        <pubTime>2009-07-15T16:00:00.000Z</pubTime>
+        <title>Linux - sed</title>
+        <pubTime>2009-05-04T16:00:00.000Z</pubTime>
         
         <tag>Linux</tag>
          
@@ -740,12 +764,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/linux_cmd4sed.html</loc>
+    <loc>http://www.fatiao.site/linux_cmduniq.html</loc>
     <lastmod>2016-11-18T01:31:18.000Z</lastmod>
     <data>
         <display>
-        <title>Linux - sed</title>
-        <pubTime>2009-05-04T16:00:00.000Z</pubTime>
+        <title>Linux - 合并与分割</title>
+        <pubTime>2009-07-15T16:00:00.000Z</pubTime>
         
         <tag>Linux</tag>
          
@@ -946,12 +970,32 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/test_baihefunc.html</loc>
+    <loc>http://www.fatiao.site/test_webhc.html</loc>
     <lastmod>2016-11-17T09:49:03.000Z</lastmod>
     <data>
         <display>
-        <title>白盒测试中的几种覆盖方法</title>
-        <pubTime>2013-11-12T16:00:00.000Z</pubTime>
+        <title>Web缓存</title>
+        <pubTime>2010-09-28T16:00:00.000Z</pubTime>
+        
+        <tag>架构</tag>
+         
+         
+           
+             
+              <breadCrumb title="架构" url="http://www.fatiao.site/categories/%E6%9E%B6%E6%9E%84/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/test_baihevalue.html</loc>
+    <lastmod>2016-11-17T09:49:03.000Z</lastmod>
+    <data>
+        <display>
+        <title>白盒测试的价值在哪</title>
+        <pubTime>2012-12-14T16:00:00.000Z</pubTime>
         
         <tag>软件测试</tag>
          
@@ -968,14 +1012,36 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/test_url.html</loc>
+    <loc>http://www.fatiao.site/test_testfl.html</loc>
     <lastmod>2016-11-17T09:49:03.000Z</lastmod>
     <data>
         <display>
-        <title>一个完整的URL</title>
-        <pubTime>2014-07-08T16:00:00.000Z</pubTime>
+        <title>软件测试分类</title>
+        <pubTime>2010-09-16T16:00:00.000Z</pubTime>
         
         <tag>软件测试</tag>
+         
+         
+           
+             
+              <breadCrumb title="软件测试" url="http://www.fatiao.site/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/test_baihefunc.html</loc>
+    <lastmod>2016-11-17T09:49:03.000Z</lastmod>
+    <data>
+        <display>
+        <title>白盒测试中的几种覆盖方法</title>
+        <pubTime>2013-11-12T16:00:00.000Z</pubTime>
+        
+        <tag>软件测试</tag>
+         
+        <tag>白盒测试</tag>
          
          
            
@@ -1010,56 +1076,14 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/test_testfl.html</loc>
+    <loc>http://www.fatiao.site/test_url.html</loc>
     <lastmod>2016-11-17T09:49:03.000Z</lastmod>
     <data>
         <display>
-        <title>软件测试分类</title>
-        <pubTime>2010-09-16T16:00:00.000Z</pubTime>
+        <title>一个完整的URL</title>
+        <pubTime>2014-07-08T16:00:00.000Z</pubTime>
         
         <tag>软件测试</tag>
-         
-         
-           
-             
-              <breadCrumb title="软件测试" url="http://www.fatiao.site/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.fatiao.site/test_webhc.html</loc>
-    <lastmod>2016-11-17T09:49:03.000Z</lastmod>
-    <data>
-        <display>
-        <title>Web缓存</title>
-        <pubTime>2010-09-28T16:00:00.000Z</pubTime>
-        
-        <tag>架构</tag>
-         
-         
-           
-             
-              <breadCrumb title="架构" url="http://www.fatiao.site/categories/%E6%9E%B6%E6%9E%84/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.fatiao.site/test_baihevalue.html</loc>
-    <lastmod>2016-11-17T09:49:03.000Z</lastmod>
-    <data>
-        <display>
-        <title>白盒测试的价值在哪</title>
-        <pubTime>2012-12-14T16:00:00.000Z</pubTime>
-        
-        <tag>软件测试</tag>
-         
-        <tag>白盒测试</tag>
          
          
            
@@ -1352,26 +1376,6 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/python_if.html</loc>
-    <lastmod>2016-11-17T09:40:09.000Z</lastmod>
-    <data>
-        <display>
-        <title>Python - 条件判断</title>
-        <pubTime>2010-05-06T16:00:00.000Z</pubTime>
-        
-        <tag>Python</tag>
-         
-         
-           
-             
-              <breadCrumb title="Python" url="http://www.fatiao.site/categories/Python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.fatiao.site/python_listcmp.html</loc>
     <lastmod>2016-11-17T09:40:09.000Z</lastmod>
     <data>
@@ -1392,12 +1396,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/python_listgenetate.html</loc>
+    <loc>http://www.fatiao.site/python_if.html</loc>
     <lastmod>2016-11-17T09:40:09.000Z</lastmod>
     <data>
         <display>
-        <title>Python - 列表生成式</title>
-        <pubTime>2010-07-25T16:00:00.000Z</pubTime>
+        <title>Python - 条件判断</title>
+        <pubTime>2010-05-06T16:00:00.000Z</pubTime>
         
         <tag>Python</tag>
          
@@ -1418,6 +1422,26 @@
         <display>
         <title>Python - list（列表）</title>
         <pubTime>2010-04-12T16:00:00.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.fatiao.site/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/python_listgenetate.html</loc>
+    <lastmod>2016-11-17T09:40:09.000Z</lastmod>
+    <data>
+        <display>
+        <title>Python - 列表生成式</title>
+        <pubTime>2010-07-25T16:00:00.000Z</pubTime>
         
         <tag>Python</tag>
          
@@ -1492,52 +1516,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/python_datetype.html</loc>
+    <loc>http://www.fatiao.site/python_datetime.html</loc>
     <lastmod>2016-11-17T09:38:48.000Z</lastmod>
     <data>
         <display>
-        <title>Python - 数据类型</title>
-        <pubTime>2010-03-07T16:00:00.000Z</pubTime>
-        
-        <tag>Python</tag>
-         
-         
-           
-             
-              <breadCrumb title="Python" url="http://www.fatiao.site/categories/Python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.fatiao.site/python_dict.html</loc>
-    <lastmod>2016-11-17T09:38:48.000Z</lastmod>
-    <data>
-        <display>
-        <title>Python - dict(字典)</title>
-        <pubTime>2010-05-28T16:00:00.000Z</pubTime>
-        
-        <tag>Python</tag>
-         
-         
-           
-             
-              <breadCrumb title="Python" url="http://www.fatiao.site/categories/Python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.fatiao.site/python_configParser.html</loc>
-    <lastmod>2016-11-17T09:38:48.000Z</lastmod>
-    <data>
-        <display>
-        <title>Python 解析配置模块之ConfigParser</title>
-        <pubTime>2014-03-12T08:01:23.000Z</pubTime>
+        <title>python时间处理</title>
+        <pubTime>2014-02-26T16:00:00.000Z</pubTime>
         
         <tag>Python</tag>
          
@@ -1572,12 +1556,52 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/python_datetime.html</loc>
+    <loc>http://www.fatiao.site/python_configParser.html</loc>
     <lastmod>2016-11-17T09:38:48.000Z</lastmod>
     <data>
         <display>
-        <title>python时间处理</title>
-        <pubTime>2014-02-26T16:00:00.000Z</pubTime>
+        <title>Python 解析配置模块之ConfigParser</title>
+        <pubTime>2014-03-12T08:01:23.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.fatiao.site/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/python_dict.html</loc>
+    <lastmod>2016-11-17T09:38:48.000Z</lastmod>
+    <data>
+        <display>
+        <title>Python - dict(字典)</title>
+        <pubTime>2010-05-28T16:00:00.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.fatiao.site/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/python_datetype.html</loc>
+    <lastmod>2016-11-17T09:38:48.000Z</lastmod>
+    <data>
+        <display>
+        <title>Python - 数据类型</title>
+        <pubTime>2010-03-07T16:00:00.000Z</pubTime>
         
         <tag>Python</tag>
          
@@ -1632,19 +1656,21 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/other_spiderzero.html</loc>
+    <loc>http://www.fatiao.site/mobile_apptestgaoji.html</loc>
     <lastmod>2016-11-17T09:37:08.000Z</lastmod>
     <data>
         <display>
-        <title>爬取拉钩的招聘JD</title>
-        <pubTime>2016-10-06T16:00:00.000Z</pubTime>
+        <title>App测试指南</title>
+        <pubTime>2016-01-05T16:00:00.000Z</pubTime>
         
-        <tag>dev</tag>
+        <tag>软件测试</tag>
+         
+        <tag>移动测试</tag>
          
          
            
              
-              <breadCrumb title="开发" url="http://www.fatiao.site/categories/%E5%BC%80%E5%8F%91/"/>
+              <breadCrumb title="软件测试" url="http://www.fatiao.site/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
           
         </display>
     </data>
@@ -1652,12 +1678,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/mobile_adb.html</loc>
+    <loc>http://www.fatiao.site/mobile_monkey2.html</loc>
     <lastmod>2016-11-17T09:37:08.000Z</lastmod>
     <data>
         <display>
-        <title>Adb</title>
-        <pubTime>2015-03-14T16:00:00.000Z</pubTime>
+        <title>Monkey(二)</title>
+        <pubTime>2015-05-23T16:00:00.000Z</pubTime>
         
         <tag>软件测试</tag>
          
@@ -1700,12 +1726,76 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/mobile_apptestgaoji.html</loc>
+    <loc>http://www.fatiao.site/mobile_ddms.html</loc>
     <lastmod>2016-11-17T09:37:08.000Z</lastmod>
     <data>
         <display>
-        <title>App测试指南</title>
-        <pubTime>2016-01-05T16:00:00.000Z</pubTime>
+        <title>Ddms</title>
+        <pubTime>2015-04-05T16:00:00.000Z</pubTime>
+        
+        <tag>软件测试</tag>
+         
+        <tag>Android</tag>
+         
+        <tag>移动测试</tag>
+         
+         
+           
+             
+              <breadCrumb title="软件测试" url="http://www.fatiao.site/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/other_spiderzero.html</loc>
+    <lastmod>2016-11-17T09:37:08.000Z</lastmod>
+    <data>
+        <display>
+        <title>爬取拉钩的招聘JD</title>
+        <pubTime>2016-10-06T16:00:00.000Z</pubTime>
+        
+        <tag>dev</tag>
+         
+         
+           
+             
+              <breadCrumb title="开发" url="http://www.fatiao.site/categories/%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/python_beautifulsoup.html</loc>
+    <lastmod>2016-11-17T09:37:08.000Z</lastmod>
+    <data>
+        <display>
+        <title>Python - BeautifulSoup详解</title>
+        <pubTime>2014-06-25T16:00:00.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.fatiao.site/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/mobile_appupdate.html</loc>
+    <lastmod>2016-11-17T09:37:08.000Z</lastmod>
+    <data>
+        <display>
+        <title>App版本升级测试</title>
+        <pubTime>2015-07-20T16:00:00.000Z</pubTime>
         
         <tag>软件测试</tag>
          
@@ -1722,12 +1812,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/mobile_ddms.html</loc>
+    <loc>http://www.fatiao.site/mobile_adb.html</loc>
     <lastmod>2016-11-17T09:37:08.000Z</lastmod>
     <data>
         <display>
-        <title>Ddms</title>
-        <pubTime>2015-04-05T16:00:00.000Z</pubTime>
+        <title>Adb</title>
+        <pubTime>2015-03-14T16:00:00.000Z</pubTime>
         
         <tag>软件测试</tag>
          
@@ -1768,48 +1858,6 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/python_beautifulsoup.html</loc>
-    <lastmod>2016-11-17T09:37:08.000Z</lastmod>
-    <data>
-        <display>
-        <title>Python - BeautifulSoup详解</title>
-        <pubTime>2014-06-25T16:00:00.000Z</pubTime>
-        
-        <tag>Python</tag>
-         
-         
-           
-             
-              <breadCrumb title="Python" url="http://www.fatiao.site/categories/Python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.fatiao.site/mobile_webappdiff.html</loc>
-    <lastmod>2016-11-17T09:37:08.000Z</lastmod>
-    <data>
-        <display>
-        <title>Web端测试和移动端测试的区别</title>
-        <pubTime>2015-07-08T16:00:00.000Z</pubTime>
-        
-        <tag>软件测试</tag>
-         
-        <tag>移动测试</tag>
-         
-         
-           
-             
-              <breadCrumb title="软件测试" url="http://www.fatiao.site/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.fatiao.site/mobile_androidstart.html</loc>
     <lastmod>2016-11-17T09:37:08.000Z</lastmod>
     <data>
@@ -1832,36 +1880,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/mobile_monkey2.html</loc>
+    <loc>http://www.fatiao.site/mobile_webappdiff.html</loc>
     <lastmod>2016-11-17T09:37:08.000Z</lastmod>
     <data>
         <display>
-        <title>Monkey(二)</title>
-        <pubTime>2015-05-23T16:00:00.000Z</pubTime>
-        
-        <tag>软件测试</tag>
-         
-        <tag>Android</tag>
-         
-        <tag>移动测试</tag>
-         
-         
-           
-             
-              <breadCrumb title="软件测试" url="http://www.fatiao.site/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.fatiao.site/mobile_appupdate.html</loc>
-    <lastmod>2016-11-17T09:37:08.000Z</lastmod>
-    <data>
-        <display>
-        <title>App版本升级测试</title>
-        <pubTime>2015-07-20T16:00:00.000Z</pubTime>
+        <title>Web端测试和移动端测试的区别</title>
+        <pubTime>2015-07-08T16:00:00.000Z</pubTime>
         
         <tag>软件测试</tag>
          
@@ -1978,46 +2002,6 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/jiagou_fkfb2.html</loc>
-    <lastmod>2016-11-17T09:27:22.000Z</lastmod>
-    <data>
-        <display>
-        <title>分库分表的集中常见形式：垂直分库</title>
-        <pubTime>2015-06-12T16:00:00.000Z</pubTime>
-        
-        <tag>架构</tag>
-         
-         
-           
-             
-              <breadCrumb title="架构" url="http://www.fatiao.site/categories/%E6%9E%B6%E6%9E%84/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.fatiao.site/jiagou_fkfb1.html</loc>
-    <lastmod>2016-11-17T09:27:22.000Z</lastmod>
-    <data>
-        <display>
-        <title>分库分表的集中常见形式：垂直分表</title>
-        <pubTime>2015-05-31T16:00:00.000Z</pubTime>
-        
-        <tag>架构</tag>
-         
-         
-           
-             
-              <breadCrumb title="架构" url="http://www.fatiao.site/categories/%E6%9E%B6%E6%9E%84/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.fatiao.site/jiagou_fkfb3.html</loc>
     <lastmod>2016-11-17T09:27:22.000Z</lastmod>
     <data>
@@ -2062,6 +2046,46 @@
 
     
   <url>
+    <loc>http://www.fatiao.site/jiagou_fkfb1.html</loc>
+    <lastmod>2016-11-17T09:27:22.000Z</lastmod>
+    <data>
+        <display>
+        <title>分库分表的集中常见形式：垂直分表</title>
+        <pubTime>2015-05-31T16:00:00.000Z</pubTime>
+        
+        <tag>架构</tag>
+         
+         
+           
+             
+              <breadCrumb title="架构" url="http://www.fatiao.site/categories/%E6%9E%B6%E6%9E%84/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/jiagou_fkfb2.html</loc>
+    <lastmod>2016-11-17T09:27:22.000Z</lastmod>
+    <data>
+        <display>
+        <title>分库分表的集中常见形式：垂直分库</title>
+        <pubTime>2015-06-12T16:00:00.000Z</pubTime>
+        
+        <tag>架构</tag>
+         
+         
+           
+             
+              <breadCrumb title="架构" url="http://www.fatiao.site/categories/%E6%9E%B6%E6%9E%84/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.fatiao.site/jenkins_wad.html</loc>
     <lastmod>2016-11-17T09:26:19.000Z</lastmod>
     <data>
@@ -2086,12 +2110,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/jenkins_safe.html</loc>
+    <loc>http://www.fatiao.site/jenkins_submodules.html</loc>
     <lastmod>2016-11-17T09:26:10.000Z</lastmod>
     <data>
         <display>
-        <title>玩转Jenkins - HTML Report样式显示异常</title>
-        <pubTime>2016-11-07T16:00:00.000Z</pubTime>
+        <title>玩转Jenkins - sub-modules</title>
+        <pubTime>2016-08-25T16:00:00.000Z</pubTime>
         
         <tag>软件测试</tag>
          
@@ -2110,12 +2134,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/jenkins_submodules.html</loc>
+    <loc>http://www.fatiao.site/jenkins_safe.html</loc>
     <lastmod>2016-11-17T09:26:10.000Z</lastmod>
     <data>
         <display>
-        <title>玩转Jenkins - sub-modules</title>
-        <pubTime>2016-08-25T16:00:00.000Z</pubTime>
+        <title>玩转Jenkins - HTML Report样式显示异常</title>
+        <pubTime>2016-11-07T16:00:00.000Z</pubTime>
         
         <tag>软件测试</tag>
          
@@ -2448,34 +2472,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/git_tag.html</loc>
+    <loc>http://www.fatiao.site/git_remote.html</loc>
     <lastmod>2016-11-17T09:22:28.000Z</lastmod>
     <data>
         <display>
-        <title>Git：创建标签</title>
-        <pubTime>2012-09-26T16:00:00.000Z</pubTime>
-        
-        <tag>devops</tag>
-         
-        <tag>Git</tag>
-         
-         
-           
-             
-              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.fatiao.site/git_stash.html</loc>
-    <lastmod>2016-11-17T09:22:28.000Z</lastmod>
-    <data>
-        <display>
-        <title>Git：临时存储开发分支</title>
-        <pubTime>2012-07-26T16:00:00.000Z</pubTime>
+        <title>Git：添加远程仓库</title>
+        <pubTime>2012-06-14T16:00:00.000Z</pubTime>
         
         <tag>devops</tag>
          
@@ -2514,56 +2516,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/git_rm.html</loc>
+    <loc>http://www.fatiao.site/git_stash.html</loc>
     <lastmod>2016-11-17T09:22:28.000Z</lastmod>
     <data>
         <display>
-        <title>Git：删除文件</title>
-        <pubTime>2012-06-05T16:00:00.000Z</pubTime>
-        
-        <tag>devops</tag>
-         
-        <tag>Git</tag>
-         
-         
-           
-             
-              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.fatiao.site/git_managerchange.html</loc>
-    <lastmod>2016-11-17T09:22:28.000Z</lastmod>
-    <data>
-        <display>
-        <title>Git：管理修改</title>
-        <pubTime>2012-05-11T16:00:00.000Z</pubTime>
-        
-        <tag>devops</tag>
-         
-        <tag>Git</tag>
-         
-         
-           
-             
-              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.fatiao.site/git_remote.html</loc>
-    <lastmod>2016-11-17T09:22:28.000Z</lastmod>
-    <data>
-        <display>
-        <title>Git：添加远程仓库</title>
-        <pubTime>2012-06-14T16:00:00.000Z</pubTime>
+        <title>Git：临时存储开发分支</title>
+        <pubTime>2012-07-26T16:00:00.000Z</pubTime>
         
         <tag>devops</tag>
          
@@ -2602,12 +2560,56 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/git_logreset.html</loc>
+    <loc>http://www.fatiao.site/git_init.html</loc>
     <lastmod>2016-11-17T09:22:28.000Z</lastmod>
     <data>
         <display>
-        <title>Git：版本回退</title>
-        <pubTime>2012-04-16T16:00:00.000Z</pubTime>
+        <title>Git：创建版本库</title>
+        <pubTime>2012-02-17T16:00:00.000Z</pubTime>
+        
+        <tag>devops</tag>
+         
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/git_managerchange.html</loc>
+    <lastmod>2016-11-17T09:22:28.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git：管理修改</title>
+        <pubTime>2012-05-11T16:00:00.000Z</pubTime>
+        
+        <tag>devops</tag>
+         
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/git_rm.html</loc>
+    <lastmod>2016-11-17T09:22:28.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git：删除文件</title>
+        <pubTime>2012-06-05T16:00:00.000Z</pubTime>
         
         <tag>devops</tag>
          
@@ -2646,12 +2648,12 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/git_init.html</loc>
+    <loc>http://www.fatiao.site/git_createbranch.html</loc>
     <lastmod>2016-11-17T09:22:28.000Z</lastmod>
     <data>
         <display>
-        <title>Git：创建版本库</title>
-        <pubTime>2012-02-17T16:00:00.000Z</pubTime>
+        <title>Git：创建于合并分支</title>
+        <pubTime>2012-07-06T16:00:00.000Z</pubTime>
         
         <tag>devops</tag>
          
@@ -2734,28 +2736,6 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/git_createbranch.html</loc>
-    <lastmod>2016-11-17T09:22:28.000Z</lastmod>
-    <data>
-        <display>
-        <title>Git：创建于合并分支</title>
-        <pubTime>2012-07-06T16:00:00.000Z</pubTime>
-        
-        <tag>devops</tag>
-         
-        <tag>Git</tag>
-         
-         
-           
-             
-              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.fatiao.site/git_clone.html</loc>
     <lastmod>2016-11-17T09:22:28.000Z</lastmod>
     <data>
@@ -2778,12 +2758,34 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/git_alias.html</loc>
-    <lastmod>2016-11-17T09:21:34.000Z</lastmod>
+    <loc>http://www.fatiao.site/git_tag.html</loc>
+    <lastmod>2016-11-17T09:22:28.000Z</lastmod>
     <data>
         <display>
-        <title>Git：配置别名</title>
-        <pubTime>2012-08-18T16:00:00.000Z</pubTime>
+        <title>Git：创建标签</title>
+        <pubTime>2012-09-26T16:00:00.000Z</pubTime>
+        
+        <tag>devops</tag>
+         
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/git_logreset.html</loc>
+    <lastmod>2016-11-17T09:22:28.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git：版本回退</title>
+        <pubTime>2012-04-16T16:00:00.000Z</pubTime>
         
         <tag>devops</tag>
          
@@ -2806,6 +2808,28 @@
         <display>
         <title>Git：把文件添加到版本库</title>
         <pubTime>2012-03-09T16:00:00.000Z</pubTime>
+        
+        <tag>devops</tag>
+         
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="devops" url="http://www.fatiao.site/categories/devops/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/git_alias.html</loc>
+    <lastmod>2016-11-17T09:21:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git：配置别名</title>
+        <pubTime>2012-08-18T16:00:00.000Z</pubTime>
         
         <tag>devops</tag>
          
@@ -3170,28 +3194,6 @@
 
     
   <url>
-    <loc>http://www.fatiao.site/anquan_sqljichu.html</loc>
-    <lastmod>2016-11-17T09:15:55.000Z</lastmod>
-    <data>
-        <display>
-        <title>Sql注入基础知识</title>
-        <pubTime>2011-02-09T16:00:00.000Z</pubTime>
-        
-        <tag>安全</tag>
-         
-        <tag>sql注入</tag>
-         
-         
-           
-             
-              <breadCrumb title="安全" url="http://www.fatiao.site/categories/%E5%AE%89%E5%85%A8/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.fatiao.site/anquan_sqlkepu.html</loc>
     <lastmod>2016-11-17T09:15:55.000Z</lastmod>
     <data>
@@ -3214,12 +3216,56 @@
 
     
   <url>
+    <loc>http://www.fatiao.site/anquan_sqljichu.html</loc>
+    <lastmod>2016-11-17T09:15:55.000Z</lastmod>
+    <data>
+        <display>
+        <title>Sql注入基础知识</title>
+        <pubTime>2011-02-09T16:00:00.000Z</pubTime>
+        
+        <tag>安全</tag>
+         
+        <tag>sql注入</tag>
+         
+         
+           
+             
+              <breadCrumb title="安全" url="http://www.fatiao.site/categories/%E5%AE%89%E5%85%A8/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.fatiao.site/anquan_sqlinjjiqiao.html</loc>
     <lastmod>2016-11-17T09:15:41.000Z</lastmod>
     <data>
         <display>
         <title>SQL注入技巧</title>
         <pubTime>2011-04-25T16:00:00.000Z</pubTime>
+        
+        <tag>安全</tag>
+         
+        <tag>sql注入</tag>
+         
+         
+           
+             
+              <breadCrumb title="安全" url="http://www.fatiao.site/categories/%E5%AE%89%E5%85%A8/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.fatiao.site/anquan_sqlinj27.html</loc>
+    <lastmod>2016-11-17T09:15:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>Sql注入攻击与防御总结：第7章 高级话题</title>
+        <pubTime>2011-10-23T16:00:00.000Z</pubTime>
         
         <tag>安全</tag>
          
@@ -3264,28 +3310,6 @@
         <display>
         <title>Sql注入攻击与防御总结：第6章 利用操作系统</title>
         <pubTime>2011-09-25T16:00:00.000Z</pubTime>
-        
-        <tag>安全</tag>
-         
-        <tag>sql注入</tag>
-         
-         
-           
-             
-              <breadCrumb title="安全" url="http://www.fatiao.site/categories/%E5%AE%89%E5%85%A8/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.fatiao.site/anquan_sqlinj27.html</loc>
-    <lastmod>2016-11-17T09:15:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>Sql注入攻击与防御总结：第7章 高级话题</title>
-        <pubTime>2011-10-23T16:00:00.000Z</pubTime>
         
         <tag>安全</tag>
          

@@ -236,6 +236,139 @@
             
               
                 
+                <a class="post-title-link" href="/sonar_install.html" itemprop="url">
+                  Sonar安装部署
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-15T00:00:00+08:00" content="2016-11-15">
+              2016-11-15
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                  <a href="/categories/持续集成/" itemprop="url" rel="index">
+                    <span itemprop="name">持续集成</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/sonar_install.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="sonar_install.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>在持续集成的过程中，计划加入Java的代码扫描，工具选型决定用sonar,此文主要用来记录sonar的安装配置方法。</p>
+</blockquote>
+<p>下载：<a href="http://www.sonarqube.org/downloads/" rel="external nofollow noopener noreferrer" target="_blank">http://www.sonarqube.org/downloads/</a></p>
+<p>版本：sonar目前用的是最新版， 5.6</p>
+<p>依赖：</p>
+<ul>
+<li>jenkins版本：1.625.2</li>
+<li>JDK 1.8</li>
+<li>db： 目前用的是mysql，启动应用前需要新建一个名字为 sonar 的db</li>
+</ul>
+<p>配置文件修改<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$vi conf/sonar.properties</div><div class="line"></div><div class="line">    sonar.jdbc.username=dev_w</div><div class="line">    sonar.jdbc.password=6nvjq0_HW</div><div class="line">    sonar.jdbc.url=jdbc:mysql://192.168.1.250:3307/sonar?useUnicode=true&amp;characterEncoding=utf8&amp;rewriteBatchedStatements=true&amp;useConfigs=maxPerformance</div><div class="line">    sonar.web.host=192.168.1.150</div><div class="line">    sonar.web.port=7777</div><div class="line">    sonar.search.port=7776  # 这个可能是新版本加入的，老版本没有,不放开的话启动会报错</div></pre></td></tr></table></figure></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/sonar_install.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/linux_sshnoauth.html" itemprop="url">
                   Linux - ssh免密码登录设置失败该如何解决
                 </a>
@@ -606,135 +739,6 @@
             
               
                 
-                <a class="post-title-link" href="/jenkins_buildappparm.html" itemprop="url">
-                  玩转Jenkins - 在构建历史上显示参数
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-29T00:00:00+08:00" content="2016-10-29">
-              2016-10-29
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
-                  <a href="/categories/持续集成/" itemprop="url" rel="index">
-                    <span itemprop="name">持续集成</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/jenkins_buildappparm.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="jenkins_buildappparm.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>依赖拆件：<br>groovy-postbuild.hpi</p>
-<ol>
-<li><p>首先，定义一个参数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">选择string paramerter</div><div class="line">名字 P1</div><div class="line">默认值 1.0</div></pre></td></tr></table></figure>
-</li>
-<li><p>在groovy postbuild里面添加下面的脚本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">manager.addShortText(manager.build.buildVariables.get(&quot;P1&quot;))</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>如果想要显示git最新的一个点的sha1码改这么处理呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">manager.addShortText(manager.envVars[&apos;GIT_COMMIT&apos;][0..7])</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/jenkins_androidbuild.html" itemprop="url">
                   玩转Jenkins - Jenkins + Android + Gradle
                 </a>
@@ -880,7 +884,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">164</span>
+              <span class="site-state-item-count">165</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
