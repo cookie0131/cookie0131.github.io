@@ -1,0 +1,700 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+  
+
+<link href="//cdn.bootcss.com/font-awesome/4.4.0/fonts/fontawesome-webfont.svg" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="软件测试">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="在我们的测试工作中，对于某个APP的测试其实有很多东西都是类似的可以抽象出来的，这里june总结一下大部分APP测试的时候都要考虑到的方面。如果漏下了其他方面，欢迎大家补充。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动APP测试用例设计的关注点">
+<meta property="og:url" content="http://www.fatiao.site/test_appcase.html">
+<meta property="og:site_name" content="小发条的技术人生">
+<meta property="og:description" content="在我们的测试工作中，对于某个APP的测试其实有很多东西都是类似的可以抽象出来的，这里june总结一下大部分APP测试的时候都要考虑到的方面。如果漏下了其他方面，欢迎大家补充。">
+<meta property="og:updated_time" content="2017-03-27T09:13:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动APP测试用例设计的关注点">
+<meta name="twitter:description" content="在我们的测试工作中，对于某个APP的测试其实有很多东西都是类似的可以抽象出来的，这里june总结一下大部分APP测试的时候都要考虑到的方面。如果漏下了其他方面，欢迎大家补充。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.fatiao.site/test_appcase.html">
+
+  <meta name="baidu-site-verification" content="K7iVtNDL7l">
+  <title> 软件测试, - 移动APP测试用例设计的关注点 | 小发条的技术人生 </title>
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=58555379";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">小发条的技术人生</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">测试攻城狮 pythoner 伪程序猿一枚</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                移动APP测试用例设计的关注点
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-24T00:00:00+08:00" content="2017-03-24">
+              2017-03-24
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                  <a href="/categories/软件测试/" itemprop="url" rel="index">
+                    <span itemprop="name">软件测试</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/test_appcase.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="test_appcase.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在我们的测试工作中，对于某个APP的测试其实有很多东西都是类似的可以抽象出来的，这里june总结一下大部分APP测试的时候都要考虑到的方面。如果漏下了其他方面，欢迎大家补充。</p>
+ <a id="more"></a>
+<h1 id="1-应用的启动和停止"><a href="#1-应用的启动和停止" class="headerlink" title="1. 应用的启动和停止"></a>1. 应用的启动和停止</h1><h2 id="1-1-首次启动"><a href="#1-1-首次启动" class="headerlink" title="1.1 首次启动"></a>1.1 首次启动</h2><p>是否出现欢迎界面，欢迎界面的停留时间合理，欢迎界面后是否正常进入应用;</p>
+<p>首次启动时间是否合理;</p>
+<p>该拉取的信息是否正确;</p>
+<p>桌面图标是否创建成功，功能启动快捷键创建是否成功（某些安卓手机会有在桌面创建应用内某个功能的快捷键的需求）</p>
+<h2 id="1-2-二次启动"><a href="#1-2-二次启动" class="headerlink" title="1.2 二次启动"></a>1.2 二次启动</h2><p>启动时间是否符合预期；</p>
+<p>从各个启动入口进入应用是否可以正常进入：程序启动主图标，某个功能的快捷键，widget；</p>
+<p>启动后状态检查：如初始化信息、初始状态、启动对网络</p>
+<p>启动进程服务检查：进程名、进程数、服务名、服务数、第三方调用的SDK如GPS</p>
+<p>带登陆的应用是否二次启动的时候正常登录</p>
+<h2 id="1-3-程序异常退出后的启动"><a href="#1-3-程序异常退出后的启动" class="headerlink" title="1.3 程序异常退出后的启动"></a>1.3 程序异常退出后的启动</h2><p>操作出现crash后再启动：如空指针、内存溢出等</p>
+<p>手动停止进程：多进程的情况停止所有或者停止其中一个后重启</p>
+<p>手动停止服务：多服务的情况，停止所有或者停止部分服务后，未重启直接使用</p>
+<p>管家软件一键清理进程后重启</p>
+<p>其他系统软件工具停止进程、清理软件数据</p>
+<h1 id="2-程序功能模块"><a href="#2-程序功能模块" class="headerlink" title="2. 程序功能模块"></a>2. 程序功能模块</h1><p>这个一般是根据需求来对应用的所有模块所以功能的触发事件逐一验证。这个最基本的要从两个方面考察，一方面是顺从需求来对模块进行操作，是否达到需求规定的预期；另一方面就是与需求背道而驰是否程序会有相应异常控制等等。廖叔提出了Google正在使用的测试建模的概念，这个方法可以可以帮助我们更好的结合需求分析应用的架构，设计更完善的功能模块用例。</p>
+<h2 id="2-1-文本框输入功能"><a href="#2-1-文本框输入功能" class="headerlink" title="2.1 文本框输入功能"></a>2.1 文本框输入功能</h2><p>正常输入，输入越界，特殊字符集(\n,\r等等),利用复制粘贴向文本输入内容，输入程序规定不让输入的字符</p>
+<h2 id="2-2-事件触发"><a href="#2-2-事件触发" class="headerlink" title="2.2 事件触发"></a>2.2 事件触发</h2><p>每一个按钮、每一个可点击项是否能够完成需求规定的功能</p>
+<p>尝试点击页面上不可点击的区域，来验证在测试过程当中的预留测试后门是否关闭</p>
+<h1 id="3-权限安全"><a href="#3-权限安全" class="headerlink" title="3. 权限安全"></a>3. 权限安全</h1><p>需要用户确认的权限没有授权，权限默认关闭</p>
+<p>联网权限被管家、系统安全类软件限制情况下的联网操作</p>
+<p>权限敏感度，如通讯录等为系统的绝密权限谨慎获取</p>
+<p>使用安全软件进行安全漏洞、病毒扫描，看被测APP是否会被这些安全软件提示有问题而影响用户的对被测APP的使用或者印象</p>
+<h1 id="4-文件存储"><a href="#4-文件存储" class="headerlink" title="4. 文件存储"></a>4. 文件存储</h1><p>APP使用过程中产生的临时文件存储路径、命名方式等</p>
+<p>APP中涉及的下载操作产生的文件存储方式</p>
+<p>存储的文件被锁、占用</p>
+<p>有外置SD、内置SD卡都要考察APP产生的文件是否正确</p>
+<p>APP被安装在SD卡或者手机存储空间</p>
+<p>磁盘空间不足、磁盘无权限（如读、写）</p>
+<h1 id="5-网络与流量"><a href="#5-网络与流量" class="headerlink" title="5. 网络与流量"></a>5. 网络与流量</h1><p>网络信号，尤其是弱网络环境下应用的表现</p>
+<p>不同运营商网络：电信、联通、移动，2G/3G/4G</p>
+<p>网络中断、网络恢复场景的逻辑处理（如重试），以及网络提示</p>
+<p>首次启动应用的流量是否符合预期</p>
+<p>统计、异常上报对流量的影响</p>
+<p>APP中图片大小、尺寸是否有考虑对网络流量的影响</p>
+<p>基于流量安全的特殊业务，如仅wifi联网</p>
+<h1 id="6-接口容错"><a href="#6-接口容错" class="headerlink" title="6. 接口容错"></a>6. 接口容错</h1><p>请求网络层错误：http response返回非200的状态</p>
+<p>请求业务层错误：接口返回内容为空、超长、字段类型不匹配</p>
+<h1 id="7-中断测试"><a href="#7-中断测试" class="headerlink" title="7. 中断测试"></a>7. 中断测试</h1><p>锁屏中断：停留在程序操作界面进行锁屏，恢复后检查操作是否正常</p>
+<p>前后台切换：停留在程序操作界面，通过Home键，进行程序的前后台切换</p>
+<p>加载中断：页面接口请求、界面框架加载时，通过Home键、返回键、快速切换操作进行中断</p>
+<p>系统异常中断：如关机、断电、来电</p>
+<h1 id="8-机型适配"><a href="#8-机型适配" class="headerlink" title="8. 机型适配"></a>8. 机型适配</h1><h2 id="8-1-分辨率适配"><a href="#8-1-分辨率适配" class="headerlink" title="8.1 分辨率适配"></a>8.1 分辨率适配</h2><p>UI结构、对话框基于分辨率、屏幕大小进行适配</p>
+<h2 id="8-2-OS版本适配"><a href="#8-2-OS版本适配" class="headerlink" title="8.2 OS版本适配"></a>8.2 OS版本适配</h2><p>涉及API调用如获取SIM卡信息、外置SD卡设置（4.4外置SD卡不具备写的权限）</p>
+<h2 id="8-3-CPU硬件配置"><a href="#8-3-CPU硬件配置" class="headerlink" title="8.3 CPU硬件配置"></a>8.3 CPU硬件配置</h2><p>X86机型、V5、V6、V7、V8</p>
+<h1 id="9-系统配置"><a href="#9-系统配置" class="headerlink" title="9. 系统配置"></a>9. 系统配置</h1><p>进程管理：省电管理、后台进程驻留管理</p>
+<p>显示管理：字体大小、字体类型</p>
+<p>语言环境：语言环境</p>
+<p>横竖屏配置：是否支持横竖屏自适应处理</p>
+<h1 id="10-升级-覆盖安装"><a href="#10-升级-覆盖安装" class="headerlink" title="10. 升级 覆盖安装"></a>10. 升级 覆盖安装</h1><p>逐步升级：用户数据、设置、状态的保留，特步注意新版本已去掉的状态或设置</p>
+<p>跳级：即隔开版本覆盖安装</p>
+<p>降级：覆盖安装更低版本</p>
+<p>卸载安装 卸载安装，安装目录清理，SD卡存储数据不被清理</p>
+<p>省流量升级：有些助手提供省流量升级的方式</p>
+<p>在没有更新或者网络时，需要给予用户正确的信息表达</p>
+<p>如果升级有忽略本次版本升级，那么当有新的升级版本时，是否还有提示升级</p>
+<p>强制升级 不升级无法使用</p>
+<h1 id="11-性能测试"><a href="#11-性能测试" class="headerlink" title="11. 性能测试"></a>11. 性能测试</h1><h2 id="11-1-性能"><a href="#11-1-性能" class="headerlink" title="11.1 性能"></a>11.1 性能</h2><p>核心操作的性能指标：如CPU/内存、响应时长、电量、流量</p>
+<h2 id="11-2-稳定性"><a href="#11-2-稳定性" class="headerlink" title="11.2 稳定性"></a>11.2 稳定性</h2><p>选择某些场景做持续反复操作</p>
+<p>Monkey稳定性操作，持续多个小时</p>
+<h2 id="11-3-流畅度"><a href="#11-3-流畅度" class="headerlink" title="11.3 流畅度"></a>11.3 流畅度</h2><p>列表滑动、返回进入、快速点击（这个肉眼不好评判，可以借助GT，一般打分在90分以上是比较好的）</p>
+<h2 id="11-4-软件兼容"><a href="#11-4-软件兼容" class="headerlink" title="11.4 软件兼容"></a>11.4 软件兼容</h2><p>通用软件 输入法</p>
+<p>安全软件</p>
+<p>通信类</p>
+<p>竞品软件 同类软件，是否出现冲突</p>
+<h1 id="12-竞品对比测试"><a href="#12-竞品对比测试" class="headerlink" title="12. 竞品对比测试"></a>12. 竞品对比测试</h1><p>功能方面：与同类竞品软件在UI设计，交互体验等方面进行对比</p>
+<p>性能方面：同类竞品软件在性能、耗电、流量等方面至少与对方持平，最好不要低于对方太多</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay01.jpg" alt="发条橙子 WeChat Pay">
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软件测试/" rel="tag">#软件测试</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/jenkins_bakup.html" rel="next" title="玩转Jenkins - 备份插件">
+                <i class="fa fa-chevron-left"></i> 玩转Jenkins - 备份插件
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/jenkins_rebuild.html" rel="prev" title="玩转Jenkins - 带参数的任务重试后自动带着参数重试">
+                玩转Jenkins - 带参数的任务重试后自动带着参数重试 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="test_appcase.html" data-title="移动APP测试用例设计的关注点" data-url="http://www.fatiao.site/test_appcase.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="发条橙子">
+          <p class="site-author-name" itemprop="name">发条橙子</p>
+          <p class="site-description motion-element" itemprop="description">不积跬步，无以至千里</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">168</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-应用的启动和停止"><span class="nav-number">1.</span> <span class="nav-text">1. 应用的启动和停止</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-首次启动"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 首次启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-二次启动"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 二次启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-程序异常退出后的启动"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 程序异常退出后的启动</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-程序功能模块"><span class="nav-number">2.</span> <span class="nav-text">2. 程序功能模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-文本框输入功能"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 文本框输入功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-事件触发"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 事件触发</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-权限安全"><span class="nav-number">3.</span> <span class="nav-text">3. 权限安全</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-文件存储"><span class="nav-number">4.</span> <span class="nav-text">4. 文件存储</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-网络与流量"><span class="nav-number">5.</span> <span class="nav-text">5. 网络与流量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-接口容错"><span class="nav-number">6.</span> <span class="nav-text">6. 接口容错</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-中断测试"><span class="nav-number">7.</span> <span class="nav-text">7. 中断测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-机型适配"><span class="nav-number">8.</span> <span class="nav-text">8. 机型适配</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#8-1-分辨率适配"><span class="nav-number">8.1.</span> <span class="nav-text">8.1 分辨率适配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-OS版本适配"><span class="nav-number">8.2.</span> <span class="nav-text">8.2 OS版本适配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-3-CPU硬件配置"><span class="nav-number">8.3.</span> <span class="nav-text">8.3 CPU硬件配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-系统配置"><span class="nav-number">9.</span> <span class="nav-text">9. 系统配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-升级-覆盖安装"><span class="nav-number">10.</span> <span class="nav-text">10. 升级 覆盖安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-性能测试"><span class="nav-number">11.</span> <span class="nav-text">11. 性能测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#11-1-性能"><span class="nav-number">11.1.</span> <span class="nav-text">11.1 性能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-2-稳定性"><span class="nav-number">11.2.</span> <span class="nav-text">11.2 稳定性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-3-流畅度"><span class="nav-number">11.3.</span> <span class="nav-text">11.3 流畅度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-4-软件兼容"><span class="nav-number">11.4.</span> <span class="nav-text">11.4 软件兼容</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12-竞品对比测试"><span class="nav-number">12.</span> <span class="nav-text">12. 竞品对比测试</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2009 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">发条橙子</span>
+</div>
+
+<!--
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+-->
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ftcz"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
