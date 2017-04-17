@@ -236,8 +236,130 @@
             
               
                 
+                <a class="post-title-link" href="/jenkins_gittag.html" itemprop="url">
+                  玩转Jenkins - 使用Jenkins给Git自动打Tag
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-14T00:00:00+08:00" content="2017-04-14">
+              2017-04-14
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                  <a href="/categories/持续集成/" itemprop="url" rel="index">
+                    <span itemprop="name">持续集成</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/jenkins_gittag.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="jenkins_gittag.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>近期开发团队对于代码上线提了一个建议，给每次Release的代码打Tag,为了能够实现这个需求，我们用到了<code>GIT Publisher</code>这个插件</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/jenkins_gittag.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/jenkins_rebuild.html" itemprop="url">
-                  玩转Jenkins - 带参数的任务重试后自动带着参数重试
+                  玩转Jenkins - 插件：Rebuild Plugin
                 </a>
               
             
@@ -715,129 +837,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/jenkins_build.html" itemprop="url">
-                  玩转Jenkins - 插件：Post-Build Script Plug-in
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-01T00:00:00+08:00" content="2017-03-01">
-              2017-03-01
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
-                  <a href="/categories/持续集成/" itemprop="url" rel="index">
-                    <span itemprop="name">持续集成</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/jenkins_build.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="jenkins_build.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p> 最近在做Android代码静态扫描的持续集成,考虑到不想增加原来的打包时长，决定放在另外一个独立的任务里打包完成后调用。因为我们的app代码是放在一个大的代码仓库里，于是出现了打不同的包，调用对应的代码扫描任务的需求，然而Jenkins默认的构建后操作中并没有模块可以调用脚本或者命令行，为了实现这个需求，在网上找到了 <code>post build task</code> 这个插件。</p>
-<p> <strong>依赖插件：Post-Build Script Plug-in</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">if [ $package == &apos;dada-shop&apos; ];then</div><div class="line">  echo &apos;dada-shop&apos;</div><div class="line">  curl -u $user:$pwd -s -d build -d delay=0sec http://domin/view/app/job/android_shop_codereview/build\?delay\=0sec</div><div class="line">elif [ $package == &apos;dada-app&apos; ];then</div><div class="line">  echo &apos;dada-app&apos;</div><div class="line">  curl -u $user:$pwd -s -d build -d delay=0sec http://domin/view/app/job/android_dada_codereview/build\?delay\=0sec</div><div class="line">fi</div></pre></td></tr></table></figure>
-<p>因为是直接以命令方式调用，而不是选择后续的任务， 所以脚本中直接调用了对应任务的启动接口。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -881,7 +880,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">168</span>
+              <span class="site-state-item-count">169</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

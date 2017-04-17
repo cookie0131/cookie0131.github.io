@@ -236,6 +236,129 @@
             
               
                 
+                <a class="post-title-link" href="/jenkins_build.html" itemprop="url">
+                  玩转Jenkins - 插件：Post-Build Script Plug-in
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-01T00:00:00+08:00" content="2017-03-01">
+              2017-03-01
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                  <a href="/categories/持续集成/" itemprop="url" rel="index">
+                    <span itemprop="name">持续集成</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/jenkins_build.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="jenkins_build.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p> 最近在做Android代码静态扫描的持续集成,考虑到不想增加原来的打包时长，决定放在另外一个独立的任务里打包完成后调用。因为我们的app代码是放在一个大的代码仓库里，于是出现了打不同的包，调用对应的代码扫描任务的需求，然而Jenkins默认的构建后操作中并没有模块可以调用脚本或者命令行，为了实现这个需求，在网上找到了 <code>post build task</code> 这个插件。</p>
+<p> <strong>依赖插件：Post-Build Script Plug-in</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">if [ $package == &apos;dada-shop&apos; ];then</div><div class="line">  echo &apos;dada-shop&apos;</div><div class="line">  curl -u $user:$pwd -s -d build -d delay=0sec http://domin/view/app/job/android_shop_codereview/build\?delay\=0sec</div><div class="line">elif [ $package == &apos;dada-app&apos; ];then</div><div class="line">  echo &apos;dada-app&apos;</div><div class="line">  curl -u $user:$pwd -s -d build -d delay=0sec http://domin/view/app/job/android_dada_codereview/build\?delay\=0sec</div><div class="line">fi</div></pre></td></tr></table></figure>
+<p>因为是直接以命令方式调用，而不是选择后续的任务， 所以脚本中直接调用了对应任务的启动接口。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/ios_codesign_error.html" itemprop="url">
                   通过Ssh连接苹果系统打包出现Codesign Error
                 </a>
@@ -710,130 +833,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/test_zhiliang1.html" itemprop="url">
-                  软件产品的质量
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-02T00:00:00+08:00" content="2016-12-02">
-              2016-12-02
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
-                  <a href="/categories/软件测试/" itemprop="url" rel="index">
-                    <span itemprop="name">软件测试</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/test_zhiliang1.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="test_zhiliang1.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="一-什么是产品的质量？"><a href="#一-什么是产品的质量？" class="headerlink" title="一 什么是产品的质量？"></a>一 什么是产品的质量？</h3><p>不同角度理解不同：<br>    用户(我们需要满意的功能)；<br>    设计(完整的需求文档)；<br>    开发(正确的代码)；<br>    测试(最少的缺陷)</p>
-<h3 id="二-哪么谁应对产品质量负责呢"><a href="#二-哪么谁应对产品质量负责呢" class="headerlink" title="二 哪么谁应对产品质量负责呢?"></a>二 哪么谁应对产品质量负责呢?</h3><p>   公司负责人；<br>   项目管理人员；<br>   开发；<br>   测试<br>   QA；<br>   以上所有的人员应对产品质量负责；</p>
-<h3 id="三-哪么决定产品的质量关键因素是什么？"><a href="#三-哪么决定产品的质量关键因素是什么？" class="headerlink" title="三  哪么决定产品的质量关键因素是什么？"></a>三  哪么决定产品的质量关键因素是什么？</h3><p>   (1)管理与流程；<br>   (2)人员与素质；<br>   (3)技术与工具；<br>   以上三者相辅相成，互相依赖，又互相制约，称为“质量关键金三角”</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/test_zhiliang1.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -877,7 +876,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">168</span>
+              <span class="site-state-item-count">169</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
