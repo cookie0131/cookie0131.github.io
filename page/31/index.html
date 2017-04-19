@@ -236,6 +236,129 @@
             
               
                 
+                <a class="post-title-link" href="/linux_flow4exit.html" itemprop="url">
+                  Linux - 控制流：退出状态
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2009-10-29T00:00:00+08:00" content="2009-10-29">
+              2009-10-29
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/linux_flow4exit.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_flow4exit.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="退出状态"><a href="#退出状态" class="headerlink" title="退出状态"></a>退出状态</h2><p>任何命令进行时都将返回一个退出状态。如 果要观察其退出状态,使用最后状态命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$echo $?</div></pre></td></tr></table></figure></p>
+<p>要退出当前进程,shell提供命令exit ,一般格式为:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exit n</div></pre></td></tr></table></figure></p>
+<p>其中,n为一数字。</p>
+<p>但其中相对于脚本和一般系统命令最重要的有两种,即:<br>退出状态 0 退出成功,无错误。 退出状态 1 退出失败,某处有错误。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/linux_flow4break.html" itemprop="url">
                   Linux -  控制流：break 和 continue
                 </a>
@@ -708,127 +831,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/linux_flow4case.html" itemprop="url">
-                  Linux -  控制流：case
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2009-09-14T00:00:00+08:00" content="2009-09-14">
-              2009-09-14
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/linux_flow4case.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="linux_flow4case.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>case语句为多选择语句。可以用case语句匹配一个值与一个模式,如果匹配成功,执行相匹配的命令。case语句格式如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">case 值 in</div><div class="line">模式1&#125;</div><div class="line">  命令1</div><div class="line">  。。。</div><div class="line">  ;;</div><div class="line">模式2&#125;</div><div class="line">  命令2</div><div class="line">  。。。</div><div class="line">  ;;  </div><div class="line">esac</div></pre></td></tr></table></figure></p>
-<p>例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">#!/bin/sh</div><div class="line">echo -n &quot;enter a number from 1 to 5:&quot;</div><div class="line">read ANS</div><div class="line">case $ ANS in</div><div class="line">1) echo &quot;you select 1&quot;</div><div class="line">;;</div><div class="line">2) echo &quot;you select 2&quot;</div><div class="line">;;</div><div class="line">3) echo &quot;you select 3&quot;</div><div class="line">;;</div><div class="line">4) echo &quot;you select 4&quot;</div><div class="line">;;</div><div class="line">5) echo &quot;you select 5&quot;</div><div class="line">;;</div><div class="line">*) echo &quot;echo `basename$0`:this is not between 1 and 5&quot; &gt; &amp;2</div><div class="line">exit 1</div><div class="line">;;</div><div class="line">esac</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -872,7 +874,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">169</span>
+              <span class="site-state-item-count">170</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -880,7 +882,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -889,7 +891,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
